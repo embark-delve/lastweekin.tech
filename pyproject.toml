@@ -10,22 +10,25 @@ authors = [
 dependencies = [
   "beautifulsoup4>=4.12",
   "feedparser>=6.0",
-  "lxml>=5.2",
+  "lxml[html-clean]>=5.2",
   "newspaper3k>=0.2.8",
   "nltk>=3.9",
   "numpy>=1.26",
   "pandas>=2.2",
   "pillow>=10.4",
+  "pre-commit>=4.3.0",
   "python-dateutil>=2.9",
   "pytz>=2024.1",
+  "pyyaml>=6.0.3",
   "requests>=2.32",
   "ruamel-yaml>=0.18",
   "scikit-learn>=1.5",
   "scipy>=1.12",
+  "thefuzz[speedup]>=0.22.1",
   "tldextract>=5.1",
   "tqdm>=4.66",
   "typer>=0.9",
-  "tzdata>=2024.1"
+  "tzdata>=2024.1",
 ]
 
 [project.optional-dependencies]
