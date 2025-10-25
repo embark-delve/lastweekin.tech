@@ -18,7 +18,7 @@
 - The `.pre-commit-config.yaml` now standardizes Ruff (format and lint), Bandit, Codespell, Prettier, and Markdownlint, aligning with best practices for Python and documentation hygiene.
 
 ## Testing & Quality Assurance
-- No test modules exist under `tests/`, and the former `__pycache__` artifacts suggest tests were either removed or never committed. There are no fixtures, data builders, or integration tests that validate the weekly pipeline.
+- No test modules exist under `tests/`, and while the lingering `__pycache__` artifacts have now been scrubbed from version control, the absence of fixtures, data builders, or integration tests still leaves the weekly pipeline unverified.
 - Absence of continuous integration scripts means the new tooling must be manually invoked, leaving room for regressions until CI/CD pipelines are established (e.g., GitHub Actions running `uv run pre-commit run --all-files`).
 
 ## Key Risks & Recommendations
