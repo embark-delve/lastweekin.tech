@@ -1,0 +1,27 @@
+# Configuration for the LastWeekIn.Tech pipeline
+
+# List of RSS feeds to fetch
+feeds:
+  - name: "TechCrunch"
+    url: "https://techcrunch.com/feed/"
+  - name: "The Verge"
+    url: "https://www.theverge.com/rss/index.xml"
+  - name: "Ars Technica"
+    url: "https://arstechnica.com/feed/"
+  - name: "Wired"
+    url: "https://www.wired.com/feed/rss"
+  - name: "MIT Technology Review"
+    url: "https://www.technologyreview.com/feed/"
+
+# Hacker News settings
+hn:
+  min_points: 50
+
+# Time window for fetching articles
+window_days: 7
+
+# Scoring weights
+weights:
+  hn: 3
+  src: 5
+  rec: 2
