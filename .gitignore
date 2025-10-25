@@ -1,0 +1,134 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+**/__pycache__/
+*.py[cod]
+*$py.class
+*.pyd
+*.pyo
+*.so
+
+# uv virtual environments and caches
+.venv/
+.uv/
+
+# Virtual environments
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Distribution / packaging
+build/
+dist/
+site/
+*.egg-info/
+.eggs/
+MANIFEST
+pip-wheel-metadata/
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+.cache/
+.coverage*
+coverage/
+coverage.xml
+*.cover
+*.py,cover
+htmlcov/
+.pytest_cache/
+.nox/
+.tox/
+.hypothesis/
+.benchmarks/
+pytest-debug.log
+
+# Type checkers and linters
+.mypy_cache/
+.dmypy.json
+.dmypy.json.lock
+.pyre/
+.pytype/
+.ruff_cache/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# IPython
+profile_default/
+ipython_config.py
+
+# Django
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# Flask
+instance/
+.webassets-cache
+
+# Scrapy
+.scrapy
+
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+.pybuilder/
+target/
+
+# Environments
+.env
+.env.*
+.python-version
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# Translation files
+*.mo
+*.pot
+
+# Secrets
+*.pem
+*.key
+*.crt
+
+# Node modules
+node_modules/
+
+# SQLite databases generated at runtime
+*.db
+*.sqlite3
+
+# macOS metadata
+.DS_Store
+
+# Windows metadata
+Thumbs.db
+
+# Editor directories and files
+.vscode/
+.idea/
+.fleet/
+*.swp
+*.swo
+*.swn
+*.code-workspace
+
+# Local tooling backups
+.pre-commit-config.yaml.bak
+
+# Alternative Python lockfiles
+poetry.lock
+Pipfile
+Pipfile.lock
+pdm.lock
+
