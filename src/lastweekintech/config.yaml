@@ -1,0 +1,49 @@
+# Configuration for the LastWeekIn.Tech pipeline
+
+# List of RSS feeds to fetch
+feeds:
+  - name: "Ars Technica"
+    url: "https://feeds.arstechnica.com/arstechnica/index"
+  - name: "WIRED"
+    url: "https://www.wired.com/feed/rss"
+  - name: "The Register"
+    url: "https://www.theregister.com/headlines.atom"
+  - name: "TechCrunch"
+    url: "http://feeds.feedburner.com/TechCrunch/"
+  - name: "The Verge"
+    url: "https://www.theverge.com/rss/index.xml"
+  - name: "Slashdot"
+    url: "http://rss.slashdot.org/Slashdot/slashdot"
+  - name: "Techmeme"
+    url: "https://www.techmeme.com/feed.xml"
+  - name: "TechSpot"
+    url: "https://www.techspot.com/backend.xml"
+  - name: "BleepingComputer"
+    url: "https://www.bleepingcomputer.com/feed/"
+  - name: "The Hacker News"
+    url: "https://feeds.feedburner.com/TheHackersNews"
+  - name: "Hacker News (hnrss)"
+    url: "https://hnrss.org/frontpage"
+  - name: "Android Police"
+    url: "https://www.androidpolice.com/feed/"
+  - name: "ExtremeTech"
+    url: "https://www.extremetech.com/feed"
+  - name: "Engadget"
+    url: "https://www.engadget.com/rss.xml"
+  - name: "France 24 (English)"
+    url: "https://www.france24.com/en/rss"
+  - name: "Xinhua (English)"
+    url: "https://www.xinhuanet.com/english/rss/worldrss.xml"
+
+# Hacker News settings
+hn:
+  min_points: 50
+
+# Time window for fetching articles
+window_days: 7
+
+# Scoring weights
+weights:
+  hn: 3
+  src: 5
+  rec: 2
