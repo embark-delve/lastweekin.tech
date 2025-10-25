@@ -1,10 +1,9 @@
-"""""
+"""
 Domain models for the LastWeekIn.Tech pipeline.
 """
 
 from dataclasses import dataclass, field
 from datetime import datetime
-from typing import List, Optional
 
 
 @dataclass
@@ -14,8 +13,8 @@ class Article:
     title: str
     url: str
     source: str
-    content: Optional[str] = None
-    published_at: Optional[datetime] = None
+    content: str | None = None
+    published_at: datetime | None = None
 
 
 @dataclass
@@ -23,6 +22,7 @@ class Story:
     """Represents a deduplicated news story."""
 
     title: str
-    articles: List[Article] = field(default_factory=list)
-    summary: Optional[str] = None
+    articles: list[Article] = field(default_factory=list)
+    summary: str | None = None
     score: float = 0.0
+    category: str = "General Tech"

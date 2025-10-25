@@ -4,7 +4,6 @@ Configuration loading for the LastWeekIn.Tech pipeline.
 
 from dataclasses import dataclass
 from pathlib import Path
-from typing import List
 
 import yaml
 
@@ -37,7 +36,7 @@ class Weights:
 class Config:
     """Represents the main configuration."""
 
-    feeds: List[Feed]
+    feeds: list[Feed]
     hn: HNSettings
     weights: Weights
     window_days: int
@@ -45,7 +44,7 @@ class Config:
     @classmethod
     def from_yaml(cls, path: Path) -> "Config":
         """Loads the configuration from a YAML file."""
-        with open(path, "r") as f:
+        with open(path) as f:
             data = yaml.safe_load(f)
 
         return cls(
