@@ -1,0 +1,41 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# uv virtual environments and caches
+.venv/
+.uv/
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+
+# Pytest cache
+.pytest_cache/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# SQLite databases generated at runtime
+*.db
+
+# macOS metadata
+.DS_Store
+
+# Editor directories and files
+.vscode/
+.idea/
+*.swp
+
+# Node modules
+node_modules/
+
+# Coverage reports
+htmlcov/
+.coverage*
+
+# Local environment variables
+.env
+
