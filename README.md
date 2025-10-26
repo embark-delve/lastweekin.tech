@@ -84,6 +84,29 @@ uv run python -m lastweekintech.main
   uv run python -m lastweekintech.main --output-path /path/to/your/output.json
   ```
 
+## Automation
+
+This project uses GitHub Actions to automate the weekly generation of the tech
+digest. The workflow is defined in `.github/workflows/main.yml` and is
+configured to run every Monday at 8:00 AM UTC. It can also be triggered
+manually from the Actions tab in the GitHub repository.
+
+### Setting up the API Key for Automation
+
+The workflow requires the `OPENROUTER_API_KEY` to be set as a secret in your
+GitHub repository. To add this secret, follow these steps:
+
+1. Go to your repository on GitHub.
+2. Click on the **Settings** tab.
+3. In the left sidebar, click on **Secrets and variables**, then **Actions**.
+4. Click on the **New repository secret** button.
+5. For the **Name**, enter `OPENROUTER_API_KEY`.
+6. For the **Value**, paste your OpenRouter API key.
+7. Click **Add secret**.
+
+Once the secret is added, the GitHub Actions workflow will be able to use it to
+run the summarization pipeline.
+
 ## Configuration
 
 The pipeline is configured through the `src/lastweekintech/config.yaml` file.

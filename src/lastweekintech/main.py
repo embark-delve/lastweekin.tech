@@ -46,6 +46,11 @@ def run(
 
     pipeline.save_stories_to_json(summarized_stories, output_path)
 
+    # Generate the static HTML site
+    template_path = Path("src/lastweekintech/templates/index.html.jinja")
+    html_output_path = Path("index.html")
+    pipeline.generate_html(output_path, template_path, html_output_path)
+
 
 if __name__ == "__main__":
     app()

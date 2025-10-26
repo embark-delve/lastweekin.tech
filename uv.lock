@@ -794,6 +794,7 @@ source = { editable = "." }
 dependencies = [
     { name = "beautifulsoup4" },
     { name = "feedparser" },
+    { name = "jinja2" },
     { name = "litellm" },
     { name = "lxml", extra = ["html-clean"] },
     { name = "newspaper3k" },
@@ -833,6 +834,7 @@ requires-dist = [
     { name = "beautifulsoup4", specifier = ">=4.12" },
     { name = "coverage", marker = "extra == 'dev'", specifier = ">=7.6" },
     { name = "feedparser", specifier = ">=6.0" },
+    { name = "jinja2", specifier = ">=3.1.6" },
     { name = "litellm", specifier = ">=1.35.2" },
     { name = "lxml", extras = ["html-clean"], specifier = ">=5.2" },
     { name = "mypy", marker = "extra == 'dev'", specifier = ">=1.10" },
