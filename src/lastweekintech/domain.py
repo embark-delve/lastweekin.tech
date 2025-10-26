@@ -15,6 +15,7 @@ class Article:
     source: str
     content: str | None = None
     published_at: datetime | None = None
+
     hn_points: int | None = None
 
 

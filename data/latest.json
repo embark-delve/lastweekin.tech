@@ -1,0 +1,61 @@
+{
+  "week": "2025-10-25",
+  "stories": [
+    {
+      "rank": 1,
+      "title": "The Best OTC Hearing Aids (2025), Tested and Reviewed",
+      "source": "WIRED",
+      "url": "https://www.wired.com/gallery/best-over-the-counter-hearing-aids/",
+      "category": "General Tech",
+      "summary": "If you\u2019re spending hundreds or thousands of dollars buying an OTC hearing aid, make sure you\u2019re getting a product that offers a sustainable long-term solution to your hearing loss needs.  Aside from the obvious things like sound quality, take a few minutes to look into these specs. \n\nWhat size and style works best for you? Most hearing aids on the market are classified as either behind-the-ear (BTE) or in-the-ear (ITE)."
+    },
+    {
+      "rank": 2,
+      "title": "Whale and dolphin migrations are being disrupted by climate change",
+      "source": "Ars Technica",
+      "url": "https://arstechnica.com/science/2025/10/whale-and-dolphin-migrations-are-being-disrupted-by-climate-change/",
+      "category": "General Tech",
+      "summary": "For millennia, some of the world\u2019s largest filter-feeding whales, including humpbacks, fin whales, and blue whales, have undertaken some of the longest migrations on earth to travel between their warm breeding grounds in the tropics to nutrient-rich feeding destinations in the poles each year. \n\n\u201cNature has finely tuned these journeys, guided by memory and environmental cues that tell whales when to move and where to go,\u201d said Trisha Atwood, an ecologist and associate professor at Utah State University\u2019s Quinney College of Agriculture and Natural Resources.  But, she said, climate change is \u201cscrambling these signals,\u201d forcing the marine mammals to veer off course."
+    },
+    {
+      "rank": 3,
+      "title": "Are you the asshole? Of course not!\u2014quantifying LLMs\u2019 sycophancy problem",
+      "source": "Ars Technica",
+      "url": "https://arstechnica.com/ai/2025/10/are-you-the-asshole-of-course-not-quantifying-llms-sycophancy-problem/",
+      "category": "General Tech",
+      "summary": "Researchers and users of LLMs have long been aware that AI models have a troubling tendency to tell people what they want to hear, even if that means being less accurate.  But many reports of this phenomenon amount to mere anecdotes that don\u2019t provide much visibility into how common this sycophantic behavior is across frontier LLMs. \n\nTwo recent research papers have come at this problem a bit more rigorously, though, taking different tacks in attempting to quantify exactly how likely an LLM is to listen when a user provides factually incorrect or socially inappropriate information in a prompt."
+    },
+    {
+      "rank": 4,
+      "title": "A single point of failure triggered the Amazon outage affecting millions",
+      "source": "Ars Technica",
+      "url": "https://arstechnica.com/gadgets/2025/10/a-single-point-of-failure-triggered-the-amazon-outage-affecting-millions/",
+      "category": "General Tech",
+      "summary": "The outage that hit Amazon Web Services and took out vital services worldwide was the result of a single failure that cascaded from system to system within Amazon\u2019s sprawling network, according to a post-mortem from company engineers. \n\nThe series of failures lasted for 15 hours and 32 minutes, Amazon said.  Network intelligence company Ookla said its DownDetector service received more than 17 million reports of disrupted services offered by 3,500 organizations."
+    },
+    {
+      "rank": 5,
+      "title": "Man takes herbal pain quackery, nearly dies, spends months in hospital",
+      "source": "Ars Technica",
+      "url": "https://arstechnica.com/health/2025/10/man-takes-herbal-pain-quackery-nearly-dies-spends-months-in-hospital/",
+      "category": "General Tech",
+      "summary": "A 61-year-old man in California is lucky to be alive after a combination of herbal supplements he was taking for joint pain ended up utterly wrecking his body, landing him in intensive care and in a delirious state for months.  His case is reported in the Annals of Internal Medicine: Clinical Cases. \n\nThe man turned up at a hospital in San Francisco in bad shape, but with nonspecific problems that had begun just two days earlier."
+    },
+    {
+      "rank": 6,
+      "title": "Clinical trial of a technique that could give everyone the best antibodies",
+      "source": "Ars Technica",
+      "url": "https://arstechnica.com/science/2025/10/dna-and-jolts-of-electricity-get-people-to-make-optimal-antibodies/",
+      "category": "General Tech",
+      "summary": "One of the things that emerging diseases, including the COVID and Zika pandemics, have taught us is that it\u2019s tough to keep up with infectious diseases in the modern world.  Things like air travel can allow a virus to spread faster than our ability to develop therapies.  But that doesn\u2019t mean biotech has stood still; companies have been developing technologies that could allow us to rapidly respond to future threats."
+    },
+    {
+      "rank": 7,
+      "title": "The Android-powered Boox Palma 2 Pro fits in your pocket, but it\u2019s not a phone",
+      "source": "Ars Technica",
+      "url": "https://arstechnica.com/gadgets/2025/10/the-android-powered-boox-palma-2-pro-fits-in-your-pocket-but-its-not-a-phone/",
+      "category": "General Tech",
+      "summary": "Digital reading devices like the Kindle have existed for almost 20 years, and the standard eReader form factor has hardly changed at all.  Amazon, Boox, and a few other companies have offered larger E Ink screens, but how about something smaller? Boox has unveiled its second-generation Palma e-reader, which still fits in your pocket but adds a color screen and mobile data connectivity. \n\nThe first-gen Palma launched last year, earning fans who saw it as a way to read and access some apps without the full spate of distracting smartphone experiences."
+    }
+  ]
+}

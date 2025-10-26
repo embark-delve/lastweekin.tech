@@ -22,6 +22,7 @@ a structured JSON file.
   recency. All weights are configurable.
 - **AI Story Quota**: Ensures that the final 'Top-7' list includes a minimum
   number of AI-related stories, as defined in the project's goals.
+
 - **AI-Powered Summarization**: Utilizes the `facebook/bart-large-cnn` model
   from the Hugging Face `transformers` library to generate high-quality,
   abstractive summaries for each story.

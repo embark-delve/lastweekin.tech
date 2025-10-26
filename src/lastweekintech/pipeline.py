@@ -15,6 +15,7 @@ from thefuzz import fuzz
 
 from lastweekintech.config import Config
 from lastweekintech.domain import Article, Story
+
 from lastweekintech.summarizer import Summarizer
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
@@ -43,12 +44,17 @@ def fetch_articles(config: Config) -> list[Article]:
             parsed_feed = feedparser.parse(feed.url)
             for entry in parsed_feed.entries:
                 published_at = (
-                    datetime.fromtimestamp(time.mktime(entry.published_parsed)).replace(tzinfo=UTC)
+
+                    datetime.fromtimestamp(time.mktime(entry.published_parsed)).replace(
+                        tzinfo=UTC
+                    )
+
                     if hasattr(entry, "published_parsed") and entry.published_parsed
                     else datetime.now(UTC)
                 )
 
                 if published_at >= start_date:
+
                     hn_points = None
                     if "Hacker News" in feed.name:
                         # Extract points from title, e.g., "Title (123 points)"
@@ -57,6 +63,7 @@ def fetch_articles(config: Config) -> list[Article]:
                         match = re.search(r"\((\d+) points\)", entry.title)
                         if match:
                             hn_points = int(match.group(1))
+
 
                     article = Article(
                         title=entry.title,
@@ -174,6 +181,7 @@ def summarize_stories(stories: list[Story], summarizer: Summarizer) -> list[Stor
         if story.articles and story.articles[0].content:
             content = story.articles[0].content
             summary = summarizer.summarize(content)
+
             story.summary = summary
         else:
             story.summary = "Summary not available."
