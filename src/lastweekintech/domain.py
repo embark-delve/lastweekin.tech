@@ -16,6 +16,8 @@ class Article:
     content: str | None = None
     published_at: datetime | None = None
 
+    hn_points: int | None = None
+
 
 @dataclass
 class Story:

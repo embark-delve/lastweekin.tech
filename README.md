@@ -22,9 +22,10 @@ a structured JSON file.
   recency. All weights are configurable.
 - **AI Story Quota**: Ensures that the final 'Top-7' list includes a minimum
   number of AI-related stories, as defined in the project's goals.
-- **Placeholder Summarization**: Generates a simple summary for each story by
-  extracting the first few sentences of the content. (Note: This is a
-  placeholder for future local LLM integration).
+
+- **AI-Powered Summarization**: Utilizes the `facebook/bart-large-cnn` model
+  from the Hugging Face `transformers` library to generate high-quality,
+  abstractive summaries for each story.
 - **JSON Output**: Saves the final curated list of stories to a clean,
   well-structured JSON file.
 - **CLI Application**: Provides a command-line interface built with Typer for

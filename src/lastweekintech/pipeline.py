@@ -16,6 +16,8 @@ from thefuzz import fuzz
 from lastweekintech.config import Config
 from lastweekintech.domain import Article, Story
 
+from lastweekintech.summarizer import Summarizer
+
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 
 # Set up newspaper3k configuration
@@ -42,19 +44,33 @@ def fetch_articles(config: Config) -> list[Article]:
             parsed_feed = feedparser.parse(feed.url)
             for entry in parsed_feed.entries:
                 published_at = (
+
                     datetime.fromtimestamp(time.mktime(entry.published_parsed)).replace(
                         tzinfo=UTC
                     )
+
                     if hasattr(entry, "published_parsed") and entry.published_parsed
                     else datetime.now(UTC)
                 )
 
                 if published_at >= start_date:
+
+                    hn_points = None
+                    if "Hacker News" in feed.name:
+                        # Extract points from title, e.g., "Title (123 points)"
+                        import re
+
+                        match = re.search(r"\((\d+) points\)", entry.title)
+                        if match:
+                            hn_points = int(match.group(1))
+
+
                     article = Article(
                         title=entry.title,
                         url=entry.link,
                         source=feed.name,
                         published_at=published_at,
+                        hn_points=hn_points,
                     )
                     articles.append(article)
         except Exception as e:
@@ -159,14 +175,13 @@ def select_top_stories(stories: list[Story], count: int = 7) -> list[Story]:
     return sorted(top_stories, key=lambda s: s.score, reverse=True)
 
 
-def summarize_stories(stories: list[Story]) -> list[Story]:
+def summarize_stories(stories: list[Story], summarizer: Summarizer) -> list[Story]:
     """Generate a summary for each story."""
     for story in stories:
-        # Placeholder summarization: take the first 3 sentences of the first article
         if story.articles and story.articles[0].content:
             content = story.articles[0].content
-            sentences = content.split(".")
-            summary = ". ".join(sentences[:3]) + "."
+            summary = summarizer.summarize(content)
+
             story.summary = summary
         else:
             story.summary = "Summary not available."
@@ -189,7 +204,7 @@ def save_stories_to_json(stories: list[Story], output_path: Path):
             "title": story.title,
             "source": main_article.source if main_article else "N/A",
             "url": main_article.url if main_article else "N/A",
-            "category": "General Tech",  # Placeholder for category
+            "category": story.category,
             "summary": story.summary or "Summary not available.",
         })
 
