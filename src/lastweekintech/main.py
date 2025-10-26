@@ -9,7 +9,6 @@ import typer
 
 from lastweekintech import pipeline
 from lastweekintech.config import get_config
-
 from lastweekintech.summarizer import Summarizer
 
 app = typer.Typer()
@@ -34,7 +33,7 @@ def run(
 
     config = get_config()
 
-    summarizer = Summarizer()
+    summarizer = Summarizer(config.summarizer)
 
     articles = pipeline.fetch_articles(config)
     enriched_articles = pipeline.extract_content(articles)

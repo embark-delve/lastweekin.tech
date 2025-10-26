@@ -23,9 +23,9 @@ a structured JSON file.
 - **AI Story Quota**: Ensures that the final 'Top-7' list includes a minimum
   number of AI-related stories, as defined in the project's goals.
 
-- **AI-Powered Summarization**: Utilizes the `facebook/bart-large-cnn` model
-  from the Hugging Face `transformers` library to generate high-quality,
-  abstractive summaries for each story.
+- **AI-Powered Summarization**: Utilizes `litellm` to connect to various LLM
+  providers like OpenRouter for high-quality, abstractive summaries. The models
+  are fully configurable.
 - **JSON Output**: Saves the final curated list of stories to a clean,
   well-structured JSON file.
 - **CLI Application**: Provides a command-line interface built with Typer for
@@ -52,6 +52,19 @@ This project uses `uv` for dependency and environment management.
    ```bash
    uv sync
    ```
+
+4. **Set up environment variables:**
+
+   Copy the example environment file:
+
+   ```bash
+   cp .env.example .env
+   ```
+
+   Then, edit the `.env` file to add your API keys.
+
+   - `OPENROUTER_API_KEY`: Your API key for [OpenRouter](https://openrouter.ai/).
+     This is required for the default summarization model.
 
 ## Usage
 
@@ -83,3 +96,7 @@ This file allows you to customize the pipeline's behavior:
 - **`window_days`**: The number of days to look back when fetching articles.
 - **`weights`**: The scoring weights for different factors (`hn` for Hacker
   News points, `src` for source count, `rec` for recency).
+- **`summarizer`**: Settings for the summarization model.
+  - `model_name`: The primary model to use (e.g., from OpenRouter).
+  - `fallback_model`: The model to use if the primary one fails (e.g., from
+    Hugging Face).
