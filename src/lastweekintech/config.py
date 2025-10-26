@@ -33,6 +33,14 @@ class Weights:
 
 
 @dataclass
+class SummarizerSettings:
+    """Represents summarizer settings."""
+
+    model_name: str
+    fallback_model: str
+
+
+@dataclass
 class Config:
     """Represents the main configuration."""
 
@@ -40,6 +48,7 @@ class Config:
     hn: HNSettings
     weights: Weights
     window_days: int
+    summarizer: SummarizerSettings
 
     @classmethod
     def from_yaml(cls, path: Path) -> "Config":
@@ -52,6 +61,7 @@ class Config:
             hn=HNSettings(**data["hn"]),
             weights=Weights(**data["weights"]),
             window_days=data["window_days"],
+            summarizer=SummarizerSettings(**data["summarizer"]),
         )
 
 

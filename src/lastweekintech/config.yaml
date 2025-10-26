@@ -47,3 +47,8 @@ weights:
   hn: 3
   src: 5
   rec: 2
+
+# Summarizer settings
+summarizer:
+  model_name: "openrouter/google/gemini-flash-1.5"
+  fallback_model: "huggingface/facebook/bart-large-cnn"
