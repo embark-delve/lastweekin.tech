@@ -4,11 +4,13 @@ Core data pipeline for LastWeekIn.Tech.
 
 import json
 import logging
+import shutil
 import time
 from datetime import UTC, datetime, timedelta
 from pathlib import Path
 
 import feedparser
+from jinja2 import Environment, FileSystemLoader
 from newspaper import Article as NewsArticle
 from newspaper import Config as NewspaperConfig
 from thefuzz import fuzz
@@ -205,3 +207,23 @@ def save_stories_to_json(stories: list[Story], output_path: Path):
     with open(output_path, "w") as f:
         json.dump(output_data, f, indent=2)
     logging.info(f"Saved stories to {output_path}")
+
+
+def generate_html(data_path: Path, template_path: Path, output_path: Path):
+    """Generate the static HTML file from the story data."""
+    with open(data_path) as f:
+        data = json.load(f)
+
+    env = Environment(loader=FileSystemLoader(template_path.parent))
+    template = env.get_template(template_path.name)
+
+    html_content = template.render(week=data["week"], stories=data["stories"])
+
+    with open(output_path, "w") as f:
+        f.write(html_content)
+    logging.info(f"Generated static HTML file at {output_path}")
+
+    # Copy CSS file
+    static_dir = Path("src/lastweekintech/static")
+    shutil.copy(static_dir / "style.css", output_path.parent)
+    logging.info("Copied static files.")
