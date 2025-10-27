@@ -5,6 +5,9 @@ on:
     - cron: '0 8 * * 1' # Runs every Monday at 8:00 AM UTC
   workflow_dispatch: # Allows manual triggering
 
+permissions:
+  contents: write
+
 jobs:
   build-digest:
     runs-on: ubuntu-latest
