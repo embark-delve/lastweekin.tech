@@ -63,7 +63,8 @@ This project uses `uv` for dependency and environment management.
 
    Then, edit the `.env` file to add your API keys.
    - `OPENROUTER_API_KEY`: Your API key for [OpenRouter](https://openrouter.ai/).
-     This is required for the default summarization model.
+     This is required for the default summarization models.
+   - `HF_TOKEN`: Your Hugging Face token, required if using Hugging Face models.
 
 ## Usage
 
@@ -90,35 +91,34 @@ digest. The workflow is defined in `.github/workflows/main.yml` and is
 configured to run every Monday at 8:00 AM UTC. It can also be triggered
 manually from the Actions tab in the GitHub repository.
 
-### Setting up the API Key for Automation
+### Setting up API Keys for Automation
 
-The workflow requires the `OPENROUTER_API_KEY` to be set as a secret in your
-GitHub repository. To add this secret, follow these steps:
+The workflow requires API keys to be set as secrets in your GitHub repository.
+To add these secrets, follow these steps for each key:
 
 1. Go to your repository on GitHub.
 2. Click on the **Settings** tab.
 3. In the left sidebar, click on **Secrets and variables**, then **Actions**.
 4. Click on the **New repository secret** button.
-5. For the **Name**, enter `OPENROUTER_API_KEY`.
-6. For the **Value**, paste your OpenRouter API key.
-7. Click **Add secret**.
+5. Add the following secrets:
+   - `OPENROUTER_API_KEY`: Your OpenRouter API key.
+   - `HF_TOKEN`: Your Hugging Face token.
 
-Once the secret is added, the GitHub Actions workflow will be able to use it to
-run the summarization pipeline.
+Once the secrets are added, the GitHub Actions workflow will be able to use them
+to run the summarization pipeline.
 
 ## Configuration
 
 The pipeline is configured through the `src/lastweekintech/config.yaml` file.
 This file allows you to customize the pipeline's behavior:
 
-- **`feeds`**: A list of RSS feeds to use as article sources. Each feed has a
-  `name` and a `url`.
-- **`hn`**: Settings related to Hacker News, such as the `min_points`
-  required for an article to be considered.
+- **`feeds`**: A list of RSS feeds to use as article sources.
+- **`hn`**: Settings related to Hacker News.
 - **`window_days`**: The number of days to look back when fetching articles.
-- **`weights`**: The scoring weights for different factors (`hn` for Hacker
-  News points, `src` for source count, `rec` for recency).
-- **`summarizer`**: Settings for the summarization model.
-  - `model_name`: The primary model to use (e.g., from OpenRouter).
-  - `fallback_model`: The model to use if the primary one fails (e.g., from
-    Hugging Face).
+- **`weights`**: The scoring weights for different factors.
+- **`summarizer`**: Settings for the summarization models.
+  - `model_name`: The primary model to use. The model name should be prefixed
+    with the provider name (e.g., `openrouter/minimax/minimax-m2:free`).
+  - `fallback_models`: A list of fallback models to use if the primary one fails.
+  - `providers`: A list of API providers, each with a `name`, `base_url`, and
+    the corresponding environment variable (`api_key_env`) for the API key.

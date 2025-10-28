@@ -32,6 +32,7 @@ jobs:
       - name: Run pipeline
         env:
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: uv run python -m src.lastweekintech.main
 
       - name: Commit and push changes

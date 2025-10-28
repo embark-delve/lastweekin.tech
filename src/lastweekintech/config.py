@@ -33,13 +33,21 @@ class Weights:
 
 
 @dataclass
+class Provider:
+    """Represents an API provider."""
+
+    name: str
+    base_url: str
+    api_key_env: str
+
+
+@dataclass
 class SummarizerSettings:
     """Represents summarizer settings."""
 
     model_name: str
     fallback_models: list[str]
-    hf_token: str | None = None
-    huggingface_models: list[str] = field(default_factory=list)
+    providers: list[Provider] = field(default_factory=list)
 
 
 @dataclass

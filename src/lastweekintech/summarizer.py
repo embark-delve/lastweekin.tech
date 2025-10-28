@@ -22,37 +22,27 @@ class Summarizer:
         self.settings = settings
         self.primary_model = self.settings.model_name
         self.fallback_models = self.settings.fallback_models
+        self.clients = {}
 
-        self.openrouter_client = OpenAI(
-            base_url="https://openrouter.ai/api/v1",
-            api_key=os.getenv("OPENROUTER_API_KEY"),
-        )
-        self.huggingface_client = None
-        if self.settings.hf_token:
-            self.huggingface_client = OpenAI(
-                base_url="https://router.huggingface.co/v1",
-                api_key=self.settings.hf_token,
+        for provider in self.settings.providers:
+            api_key = os.getenv(provider.api_key_env)
+            if not api_key:
+                raise ValueError(
+                    f"{provider.api_key_env} environment variable not set.",
+                )
+            self.clients[provider.name] = OpenAI(
+                base_url=provider.base_url,
+                api_key=api_key,
             )
-
-        if "openrouter" in self.primary_model and not os.getenv(
-            "OPENROUTER_API_KEY",
-        ):
-            raise ValueError(
-                "OPENROUTER_API_KEY environment variable not set.",
-            )
-        if self.primary_model in self.settings.huggingface_models and not self.settings.hf_token:
-            raise ValueError("HF_TOKEN environment variable not set.")
 
         logging.info(f"Using summarization model: {self.primary_model}")
 
     def _get_client(self, model_name: str) -> OpenAI:
-        if model_name in self.settings.huggingface_models:
-            if not self.huggingface_client:
-                raise ValueError(
-                    "Hugging Face client not initialized. HF_TOKEN is missing.",
-                )
-            return self.huggingface_client
-        return self.openrouter_client
+        provider_name, _ = model_name.split("/", 1)
+        client = self.clients.get(provider_name)
+        if not client:
+            raise ValueError(f"Provider '{provider_name}' not configured.")
+        return client
 
     def _summarize_with_model(self, model_name: str, text: str) -> str:
         messages = [
