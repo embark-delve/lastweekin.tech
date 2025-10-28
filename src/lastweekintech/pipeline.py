@@ -10,7 +10,7 @@ from datetime import UTC, datetime, timedelta
 from pathlib import Path
 
 import feedparser
-from jinja2 import Environment, FileSystemLoader
+from jinja2 import Environment, FileSystemLoader, select_autoescape
 from newspaper import Article as NewsArticle
 from newspaper import Config as NewspaperConfig
 from thefuzz import fuzz
@@ -214,7 +214,10 @@ def generate_html(data_path: Path, template_path: Path, output_path: Path):
     with open(data_path) as f:
         data = json.load(f)
 
-    env = Environment(loader=FileSystemLoader(template_path.parent))
+    env = Environment(
+        loader=FileSystemLoader(template_path.parent),
+        autoescape=select_autoescape(["html", "xml"]),
+    )
     template = env.get_template(template_path.name)
 
     html_content = template.render(week=data["week"], stories=data["stories"])

@@ -11,9 +11,10 @@ brief AI-generated summaries and links to original sources. By focusing on
 just **7 top stories in 7 days**, LastWeekIn.Tech aims to inform readers
 of crucial developments without information overload.
 
-**Goals and Key Features:**  
+**Goals and Key Features:**
+
 - **Weekly Top-7 Digest:** Every week, the pipeline generates a JSON file
-  containing *exactly seven* of the most influential tech stories from the
+  containing _exactly seven_ of the most influential tech stories from the
   past week (with ~50% or more focusing on AI topics).
 - **High-Quality Sources:** Stories are selected from reputable, high
   signal-to-noise RSS feeds, filtered by an automated pipeline that
@@ -42,7 +43,7 @@ minimal effort.
     etc.) for the past 7 days.
 2.  **Story Selection Algorithm:** Implement a scoring/ranking mechanism
     to identify the top 7 stories of the week. The algorithm should
-    ensure *at least 3-4 of the 7 stories are AI-related*, reflecting
+    ensure _at least 3-4 of the 7 stories are AI-related_, reflecting
     the dominance of AI in tech news.
 3.  **Content Summarization:** For each selected story, generate a short
     summary (e.g. 2-4 sentences) using an LLM. The summary should
@@ -116,7 +117,7 @@ minimal effort.
   primary model fails. This API-driven approach was chosen over running
   local models to leverage powerful, managed LLMs without requiring local
   high-end hardware.
-- **Frontend:** *(Proposed)* A static **HTML, CSS, and JavaScript** website is proposed as a
+- **Frontend:** _(Proposed)_ A static **HTML, CSS, and JavaScript** website is proposed as a
   potential frontend to consume the JSON output from the pipeline. The
   site would be deployed on **Vercel**, designed with a clean, mobile-first interface. However,
   this component is not part of the current codebase, which is
@@ -148,7 +149,7 @@ concept a clear structure and responsibility:
   metadata like `author` or `source_rank` (if the source provides a
   score, e.g. HN points). Articles are the inputs to our pipeline (prior
   to filtering and summarization).
-- **Story** – Represents a *deduplicated news story* or event. In many
+- **Story** – Represents a _deduplicated news story_ or event. In many
   cases, a Story maps 1:1 with an Article (when that story is only
   covered by one source). But if multiple articles from different
   sources refer to the same underlying event, they would be merged into
@@ -157,7 +158,7 @@ concept a clear structure and responsibility:
   `articles` (references to Article objects that were deemed
   duplicates/related), a computed `score` (the outcome of our ranking
   algorithm for how important this story is), a `category` or tags (e.g.
-  “AI” vs “General Tech”), and a `summary`. In essence, *Story* is the
+  “AI” vs “General Tech”), and a `summary`. In essence, _Story_ is the
   entity we ultimately want to output (7 of these each week).
 - **Summary** (value object) – The text summary for a story. This is
   typically just a field on the Story (e.g. `story.summary_text`),
@@ -232,9 +233,9 @@ pipeline:
   `index.html` file.
 
 **Illustration of Implemented Data Pipeline:**
-*RSS Feeds → Fetch articles (in-memory) → Extract Content → Cluster by
+_RSS Feeds → Fetch articles (in-memory) → Extract Content → Cluster by
 Title Similarity → Score & Rank Stories → Select Top 7 (enforce AI
-ratio) → LLM API Summarization → Output JSON & HTML.*
+ratio) → LLM API Summarization → Output JSON & HTML._
 
 This modular pipeline adheres to DRY – e.g., common fetching/parsing
 code is reused for multiple sources – and uses DIP by isolating
@@ -279,57 +280,58 @@ data models, and how to keep the design modular:
 ### 1. Source Selection & Fetching
 
 We will incorporate multiple high-quality sources. Initially identified
-sources include:  
+sources include:
+
 - **Hacker News (HN):** Known for surfacing important tech topics with
-high signal. We can use the official HN API or the Algolia search API to
-get top posts of the week. *Implementation:* Use the Algolia API to
-query stories from last 7 days sorted by points (there’s a parameter for
-date range and sorting by popularity). Alternatively, use Firebase API
-to get top 500 stories, then filter those by timestamp (past week) and
-then sort by score. HN data gives us title, URL, score, comment count,
-etc. We’ll retrieve maybe the top ~50 HN stories of the week as
-candidates.  
+  high signal. We can use the official HN API or the Algolia search API to
+  get top posts of the week. _Implementation:_ Use the Algolia API to
+  query stories from last 7 days sorted by points (there’s a parameter for
+  date range and sorting by popularity). Alternatively, use Firebase API
+  to get top 500 stories, then filter those by timestamp (past week) and
+  then sort by score. HN data gives us title, URL, score, comment count,
+  etc. We’ll retrieve maybe the top ~50 HN stories of the week as
+  candidates.
 - **RSS Feeds of Tech News Sites:** We’ll pick a handful of respected
-tech news sites such as **TechCrunch**, **The Verge**, **Wired**, **Ars
-Technica**, **MIT Tech Review**, etc. Each typically offers an RSS feed
-for their latest articles. We can use Python’s `feedparser` to fetch
-recent entries. Since we only want the past week, and these feeds are
-chronological, we can fetch daily or fetch once and filter by date. We
-might gather ~10-20 articles per source per week, resulting in ~100+
-candidates. Each feed entry gives us title, link, publish datetime, and
-maybe a summary or excerpt. (We will later fetch the full content from
-the link.)  
+  tech news sites such as **TechCrunch**, **The Verge**, **Wired**, **Ars
+  Technica**, **MIT Tech Review**, etc. Each typically offers an RSS feed
+  for their latest articles. We can use Python’s `feedparser` to fetch
+  recent entries. Since we only want the past week, and these feeds are
+  chronological, we can fetch daily or fetch once and filter by date. We
+  might gather ~10-20 articles per source per week, resulting in ~100+
+  candidates. Each feed entry gives us title, link, publish datetime, and
+  maybe a summary or excerpt. (We will later fetch the full content from
+  the link.)
 - **AI-Focused Sources:** To ensure we catch AI-related news, we might
-include one or two specialized sources. For example, the
-**r/MachineLearning** subreddit top posts of the week (if accessible via
-Reddit API or Pushshift) could highlight AI research news. Or an AI news
-blog like **Import AI** (if they have RSS). However, many major AI
-announcements also appear on general tech sites and HN, so this may be
-optional. We could use a keyword approach: e.g. query NewsAPI for “AI”
-in technology category. For now, including HN plus mainstream tech feeds
-should suffice, since HN is very AI-attentive lately.  
+  include one or two specialized sources. For example, the
+  **r/MachineLearning** subreddit top posts of the week (if accessible via
+  Reddit API or Pushshift) could highlight AI research news. Or an AI news
+  blog like **Import AI** (if they have RSS). However, many major AI
+  announcements also appear on general tech sites and HN, so this may be
+  optional. We could use a keyword approach: e.g. query NewsAPI for “AI”
+  in technology category. For now, including HN plus mainstream tech feeds
+  should suffice, since HN is very AI-attentive lately.
 - **Optional – News API:** As an alternative to manually curating site
-feeds, we can use an aggregator API such as **NewsAPI.org** or similar.
-For example, NewsAPI has an endpoint for top headlines in technology. It
-could return a list of articles from various outlets for the past day;
-by running it daily or using their everything search with a date range,
-we can get a broad set. The Medium article example used NewsAPI and then
-scraped full
-text[\[7\]](https://medium.com/@lijoraju/how-i-built-a-production-ready-llm-news-aggregator-from-scratch-015ebd08d566#:~:text=1,facing%20categories).
-We have to mind rate limits and the fact that content from NewsAPI may
-be truncated, requiring a second step to fetch the
-article[\[4\]](https://medium.com/@lijoraju/how-i-built-a-production-ready-llm-news-aggregator-from-scratch-015ebd08d566#:~:text=To%20fetch%20real,was%20often%20truncated%20or%20incomplete).
-Since our pipeline is offline and can take its time, doing the
-additional fetch is fine. If using NewsAPI, we could retrieve, say, 100
-articles from the week and add to our pool. This might overlap with the
-RSS sources, but that’s okay (deduplication will merge them).  
+  feeds, we can use an aggregator API such as **NewsAPI.org** or similar.
+  For example, NewsAPI has an endpoint for top headlines in technology. It
+  could return a list of articles from various outlets for the past day;
+  by running it daily or using their everything search with a date range,
+  we can get a broad set. The Medium article example used NewsAPI and then
+  scraped full
+  text[\[7\]](https://medium.com/@lijoraju/how-i-built-a-production-ready-llm-news-aggregator-from-scratch-015ebd08d566#:~:text=1,facing%20categories).
+  We have to mind rate limits and the fact that content from NewsAPI may
+  be truncated, requiring a second step to fetch the
+  article[\[4\]](https://medium.com/@lijoraju/how-i-built-a-production-ready-llm-news-aggregator-from-scratch-015ebd08d566#:~:text=To%20fetch%20real,was%20often%20truncated%20or%20incomplete).
+  Since our pipeline is offline and can take its time, doing the
+  additional fetch is fine. If using NewsAPI, we could retrieve, say, 100
+  articles from the week and add to our pool. This might overlap with the
+  RSS sources, but that’s okay (deduplication will merge them).
 - **Dedicate Quality Control:** We will avoid low-quality sources or
-pure PR news. The selection of feeds/APIs can be tuned. For instance,
-HackerNews and a curated set of top tech publications already filters
-out a lot of junk. If we see noise slipping in (like trivial gadget
-releases or too many startup funding announcements), we might refine our
-source list or add filtering rules (e.g. ignore news that are
-essentially press releases or minor updates).
+  pure PR news. The selection of feeds/APIs can be tuned. For instance,
+  HackerNews and a curated set of top tech publications already filters
+  out a lot of junk. If we see noise slipping in (like trivial gadget
+  releases or too many startup funding announcements), we might refine our
+  source list or add filtering rules (e.g. ignore news that are
+  essentially press releases or minor updates).
 
 **Fetching Implementation:**  
 We’ll implement a set of classes or functions for fetching sources, for
@@ -399,7 +401,7 @@ sentence) to help identify duplicates in the next step.
 ### 3. Deduplication and Clustering
 
 Now with content and titles in hand, we perform deduplication to form
-*Story* groups. Deduplicating can be approached at two levels: - **Exact
+_Story_ groups. Deduplicating can be approached at two levels: - **Exact
 duplicates:** If the same article appears twice (e.g. maybe fetched from
 two different sources or the same article was referenced multiple
 times), identify by URL or title exact match. Using the URL hash (as in
@@ -408,37 +410,38 @@ duplicates[\[3\]](https://n8n.io/workflows/8600-tech-news-aggregator-the-verge-a
 Our pipeline can enforce uniqueness by making the URL the primary key in
 the DB or by ignoring articles with a URL already seen. This addresses
 duplicates like a single story showing up in both an RSS feed and
-NewsAPI results.  
+NewsAPI results.
+
 - **Same story, different sources:** Harder, since titles and content
-will differ but refer to the same event. For example: “Google announces
-new AI chip” vs “Google’s new AI chip unveiled to boost data centers” –
-different wording, same news. We will do a simple clustering: - **Title
-similarity:** We can normalize titles (lowercase, remove punctuation,
-remove stopwords) and check overlaps. If two titles share a rare keyword
-or phrase (like a product name), it’s a clue. A straightforward method:
-for each title, create a set of keywords (excluding common words).
-Compute Jaccard similarity between title sets. If above a threshold (say
-\> 0.5) then consider them related. Alternatively, use Python’s
-`difflib.SequenceMatcher` to get a similarity ratio between strings.  
+  will differ but refer to the same event. For example: “Google announces
+  new AI chip” vs “Google’s new AI chip unveiled to boost data centers” –
+  different wording, same news. We will do a simple clustering: - **Title
+  similarity:** We can normalize titles (lowercase, remove punctuation,
+  remove stopwords) and check overlaps. If two titles share a rare keyword
+  or phrase (like a product name), it’s a clue. A straightforward method:
+  for each title, create a set of keywords (excluding common words).
+  Compute Jaccard similarity between title sets. If above a threshold (say
+  \> 0.5) then consider them related. Alternatively, use Python’s
+  `difflib.SequenceMatcher` to get a similarity ratio between strings.
 - **Content summary similarity:** Another trick is to quickly generate a
-lightweight representation of content. For instance, take the first 100
-words of each article (which often contain the core subject). Compute a
-TF-IDF or even a simple vector (bag-of-words) and compare cosine
-similarity. If high, cluster them. Given potentially not too many
-articles, even an O(n^2) comparison is fine (n maybe a few hundred).  
+  lightweight representation of content. For instance, take the first 100
+  words of each article (which often contain the core subject). Compute a
+  TF-IDF or even a simple vector (bag-of-words) and compare cosine
+  similarity. If high, cluster them. Given potentially not too many
+  articles, even an O(n^2) comparison is fine (n maybe a few hundred).
 - **Clustering algorithm:** We can use a union-find or simply mark
-duplicates as we find them. We’ll iterate through articles by date or
-score and cluster related ones. Each cluster can be represented by a
-Story object containing all member Articles. We might pick one
-representative article (perhaps the one with the highest HN score or the
-most detailed content) to use for summarization. Alternatively, we could
-combine info (but to keep it simple, just pick one).  
+  duplicates as we find them. We’ll iterate through articles by date or
+  score and cluster related ones. Each cluster can be represented by a
+  Story object containing all member Articles. We might pick one
+  representative article (perhaps the one with the highest HN score or the
+  most detailed content) to use for summarization. Alternatively, we could
+  combine info (but to keep it simple, just pick one).
 - **LLM approach (optional):** For higher accuracy, we could use an LLM
-to check if two articles are about the same thing: e.g. feed both titles
-or a summary of both to a prompt: *“Do these refer to the same news
-event? Title1: ..., Title2: ...”*. However, doing this for every pair is
-expensive and probably overkill. Our simpler methods above should catch
-obvious overlaps.
+  to check if two articles are about the same thing: e.g. feed both titles
+  or a summary of both to a prompt: _“Do these refer to the same news
+  event? Title1: ..., Title2: ...”_. However, doing this for every pair is
+  expensive and probably overkill. Our simpler methods above should catch
+  obvious overlaps.
 
 After this stage, we have a list of **Story** clusters. Each Story has
 one or more sources/articles. For each Story, we might choose to keep
@@ -478,7 +481,7 @@ We will try out the algorithm on some historical data (this is where
 having the pipeline easily rerunnable is handy). If it seems off (e.g.
 it picks something trivial as \#1 because it was on 5 small sources), we
 adjust weights. We can also impose some manual tweaks: e.g. ensure that
-if something was \#1 on Hacker News with 500 points, it *will* be in the
+if something was \#1 on Hacker News with 500 points, it _will_ be in the
 top few regardless of how many sources mention it, because HN high rank
 is a strong signal of importance to the tech community.
 
@@ -511,7 +514,7 @@ stories from below. How to do this systematically:
   introduced earlier also makes it more likely we had at least 3 to
   start with.
 - If more than half are AI (say 5 out of 7), that’s actually fine as per
-  requirements (at least half *being AI means half or more*). So we
+  requirements (at least half _being AI means half or more_). So we
   don’t need to limit AI, only ensure minimum. If one week all top
   stories are AI-related, we can actually run with it – the user’s
   guideline was at least half, not exactly half. The ethos is to not
@@ -538,57 +541,59 @@ token input). Using HuggingFace’s Transformers library, we can load
 summarization[\[1\]](https://medium.com/@lijoraju/how-i-built-a-production-ready-llm-news-aggregator-from-scratch-015ebd08d566#:~:text=3,facing%20categories).
 This will yield a pretty decent summary since it’s trained on news. The
 downside: it might produce a generic-sounding summary sometimes, but it
-tends to be factual.  
+tends to be factual.
+
 - **Local GPT model (Llama 2 13B chat or similar)** – we could prompt a
-chat model to summarize. This might produce more natural language, but
-smaller local models might hallucinate or omit facts if the article is
-long. If we have a strong enough machine, a 13B or 30B model with 4-bit
-quantization could possibly summarize okay. But BART might still
-outperform on strict summarization quality for news, given it was made
-for that. A compromise: use the open-source **Pegasus** model or **T5**
-model fine-tuned on CNN/DailyMail dataset (also for summarization).
-These are available and not too huge.  
+  chat model to summarize. This might produce more natural language, but
+  smaller local models might hallucinate or omit facts if the article is
+  long. If we have a strong enough machine, a 13B or 30B model with 4-bit
+  quantization could possibly summarize okay. But BART might still
+  outperform on strict summarization quality for news, given it was made
+  for that. A compromise: use the open-source **Pegasus** model or **T5**
+  model fine-tuned on CNN/DailyMail dataset (also for summarization).
+  These are available and not too huge.
 - **Process:** We will iterate through each story: - Prepare the text:
-ideally the full article text. If the article is extremely long (some
-investigative pieces can be thousands of words), we might truncate to a
-limit (maybe 1000-1500 words) focusing on the beginning and any
-conclusion, since the core info is usually at the top.  
+  ideally the full article text. If the article is extremely long (some
+  investigative pieces can be thousands of words), we might truncate to a
+  limit (maybe 1000-1500 words) focusing on the beginning and any
+  conclusion, since the core info is usually at the top.
 - If using a summarization pipeline (like
-`summarizer = pipeline("summarization", model="facebook/bart-large-cnn")`),
-simply call `summary = summarizer(text)` which returns a condensed
-paragraph. We may then post-process that summary: e.g. ensure it’s no
-more than ~3 sentences, and that it mentions the key entities (company
-or product names, etc.) so the reader knows what it’s about. If the
-summary is too long or misses something obvious that was in the title,
-we might prepend the title or a key fact. But ideally, the model output
-is used as-is except maybe trimming.  
+  `summarizer = pipeline("summarization", model="facebook/bart-large-cnn")`),
+  simply call `summary = summarizer(text)` which returns a condensed
+  paragraph. We may then post-process that summary: e.g. ensure it’s no
+  more than ~3 sentences, and that it mentions the key entities (company
+  or product names, etc.) so the reader knows what it’s about. If the
+  summary is too long or misses something obvious that was in the title,
+  we might prepend the title or a key fact. But ideally, the model output
+  is used as-is except maybe trimming.
 - If using a chat model, we’ll craft a prompt template like:
 
-    Summarize the following news article in 2-3 sentences, focusing on the main point and any important outcomes. Do not add information not in the article.  
-    Article: \"\"\"  
-    [article text here]  
-    \"\"\"  
-    Summary:  
+  Summarize the following news article in 2-3 sentences, focusing on the main point and any important outcomes. Do not add information not in the article.
+   Article: \"\"\"
+   [article text here]
+   \"\"\"
+   Summary:
 
 And then get the completion. We’d likely run this via a library like
-`llama_cpp` for a local model or via Huggingface’s `generate`.  
+`llama_cpp` for a local model or via Huggingface’s `generate`.
+
 - **Local Execution Performance:** Summarizing 7 articles with BART or a
-7B-13B model is not too bad. If each summary takes e.g. 30 seconds on
-CPU, the whole summarization stage might be ~3-5 minutes, which is fine.
-If GPU is available, even faster. Since pipeline can run for hours, this
-is negligible in context. We just have to ensure memory is sufficient
-(some models may use a lot of RAM – BART and T5 are manageable
-though).  
+  7B-13B model is not too bad. If each summary takes e.g. 30 seconds on
+  CPU, the whole summarization stage might be ~3-5 minutes, which is fine.
+  If GPU is available, even faster. Since pipeline can run for hours, this
+  is negligible in context. We just have to ensure memory is sufficient
+  (some models may use a lot of RAM – BART and T5 are manageable
+  though).
 - **Quality Check:** It’s wise to log or save the raw model output and
-maybe do a quick sanity check. At minimum, ensure the summary is not
-empty and not ridiculously off-topic. We can automatically check if
-certain key terms from the title or content appear in the summary (they
-usually should – e.g. if the story is about “Google X”, the word
-“Google” should likely appear in summary). If a summary fails this
-check, we could consider re-summarizing or falling back to an extractive
-approach (like just take first sentence of the article which often is a
-decent summary). However, presumably the LLM will do fine for most news
-pieces.
+  maybe do a quick sanity check. At minimum, ensure the summary is not
+  empty and not ridiculously off-topic. We can automatically check if
+  certain key terms from the title or content appear in the summary (they
+  usually should – e.g. if the story is about “Google X”, the word
+  “Google” should likely appear in summary). If a summary fails this
+  check, we could consider re-summarizing or falling back to an extractive
+  approach (like just take first sentence of the article which often is a
+  decent summary). However, presumably the LLM will do fine for most news
+  pieces.
 
 We will attach each summary text to the respective Story object.
 
@@ -647,20 +652,20 @@ their key methods that implement the above:
 <!-- -->
 
 - all_articles = []
-      for fetcher in fetchers:
-          all_articles.extend(fetcher.fetch_articles())
-      save_articles_to_db(all_articles)
-      for article in all_articles:
-          article.content = ContentExtractor.extract(article)
-      clusters = StoryClusterer.cluster_articles(all_articles)
-      for story in clusters:
-          story.category = categorize_story(story)  # e.g., determine AI or not
-          story.score = StoryScorer.score_story(story)
-      clusters.sort(key=lambda s: s.score, reverse=True)
-      top_stories = select_top_n(clusters, n=7, ensure_ai_half=True)
-      for story in top_stories:
-          story.summary = Summarizer.summarize_text(story.get_main_text())
-      output_json(top_stories, week_date)
+  for fetcher in fetchers:
+  all_articles.extend(fetcher.fetch_articles())
+  save_articles_to_db(all_articles)
+  for article in all_articles:
+  article.content = ContentExtractor.extract(article)
+  clusters = StoryClusterer.cluster_articles(all_articles)
+  for story in clusters:
+  story.category = categorize_story(story) # e.g., determine AI or not
+  story.score = StoryScorer.score_story(story)
+  clusters.sort(key=lambda s: s.score, reverse=True)
+  top_stories = select_top_n(clusters, n=7, ensure_ai_half=True)
+  for story in top_stories:
+  story.summary = Summarizer.summarize_text(story.get_main_text())
+  output_json(top_stories, week_date)
 
   Each of those steps uses the helper classes. This pseudo-code shows a
   clear flow and keeps each part relatively independent (which is good
@@ -710,17 +715,17 @@ architectures/strategies**, with their pros, cons, and an assessment of
 viability:
 
 1.  **Approach 1: Hacker News-Only Curation**  
-    *Description:* Use Hacker News as the sole input for finding top
+    _Description:_ Use Hacker News as the sole input for finding top
     stories. Each week, simply take the top N posts on HN from the past
     7 days (by score). Summarize those and publish. Possibly filter for
     AI content by picking at least half from the HN list that are
     AI-related.  
-    *Pros:* Very simple pipeline – HN provides a ready-made ranking by
+    _Pros:_ Very simple pipeline – HN provides a ready-made ranking by
     score, essentially crowdsourced importance. Only one source to fetch
     (reduces complexity), and HN’s high signal-to-noise means many
     important stories (especially in tech and AI) will appear there. No
     need for complex scoring algorithms; just trust HN votes.  
-    *Cons:* **Coverage bias** – HN skews toward the interests of its
+    _Cons:_ **Coverage bias** – HN skews toward the interests of its
     community (lots of programming, startup discussions, some science);
     it might miss big mainstream tech news that HN users don’t heavily
     discuss. Also, some HN top posts are not “news” (could be blog
@@ -730,26 +735,26 @@ viability:
     Ensuring at least half AI might be tricky if HN’s top doesn’t have
     enough AI stories (we could force it, but then we’re deviating from
     the HN ranking anyway).  
-    *Probability of Success:* Moderate. This approach will reliably
+    _Probability of Success:_ Moderate. This approach will reliably
     produce content, but the quality and representativeness of the 7
     stories might not meet the “top of the top across the tech world”
     ideal. It’s the simplest but not the most comprehensive. It could
     serve as a baseline or fallback approach.
 
 2.  **Approach 2: Multi-Source RSS Aggregation**  
-    *Description:* Curate a fixed list of top tech news RSS feeds (e.g.,
+    _Description:_ Curate a fixed list of top tech news RSS feeds (e.g.,
     TechCrunch, The Verge, Wired, Ars Technica, Hacker News, perhaps a
     couple of AI blogs). Fetch all articles from these feeds for the
     week, then deduplicate and rank by a custom algorithm (likely based
     on how many sites covered the same story). Summarize the top 7.  
-    *Pros:* Covers a breadth of perspectives – mainstream tech
+    _Pros:_ Covers a breadth of perspectives – mainstream tech
     journalism plus community (HN). Likely to catch all major news since
     major outlets will report big stories. The algorithm can emphasize
     stories covered by multiple outlets, implicitly filtering importance
     (if 5 major tech sites all wrote about X, it’s probably big). It’s
     relatively straightforward to implement using feed parsing and
     doesn’t depend on third-party APIs (RSS is open).  
-    *Cons:* Need to carefully handle duplicates and variances in
+    _Cons:_ Need to carefully handle duplicates and variances in
     reporting. Also, we must maintain the list of feeds (if a site
     changes its feed URL or goes down, we update it). Some important
     sources might not have easily parseable feeds (or might have partial
@@ -759,7 +764,7 @@ viability:
     There’s some complexity in merging different feeds and possibly
     weight them (should an article on a more authoritative site count
     more?).  
-    *Probability of Success:* High. This approach likely yields a strong
+    _Probability of Success:_ High. This approach likely yields a strong
     set of stories, as it mimics what human-curated digests (like
     TechMeme or newsletters) do – aggregating multiple sources. The
     technical complexity is moderate (RSS parsing and deduping logic),
@@ -768,18 +773,18 @@ viability:
     feeds).
 
 3.  **Approach 3: News API / Aggregator Service**  
-    *Description:* Use a third-party news aggregator API (such as
+    _Description:_ Use a third-party news aggregator API (such as
     NewsAPI.org, Google News API, or GNews) to fetch the top news of the
     week in technology (and possibly a separate query for AI).
     Essentially offload the gathering and initial ranking to an external
     service. Then use LLM to summarize the results.  
-    *Pros:* Very convenient – one API call could return a list of “top”
+    _Pros:_ Very convenient – one API call could return a list of “top”
     articles, already drawing from multiple sources. Implementation is
     quick (just parse JSON from the API). It can cover many outlets
     including ones we might not think of. Also, some APIs allow sorting
     by popularity or relevance which helps get top stories without heavy
     custom logic.  
-    *Cons:* **Dependency on external service:** NewsAPI, for example,
+    _Cons:_ **Dependency on external service:** NewsAPI, for example,
     requires an API key and has rate limits and possibly costs if volume
     is high. Relying on it means if the service changes or the free tier
     isn’t enough, the system breaks or costs money. Also, aggregator
@@ -791,7 +796,7 @@ viability:
     Additionally, the definition of “top” might just be based on general
     popularity, which might lean towards more mainstream news and ignore
     niche but important tech dev stories that HN would catch.  
-    *Probability of Success:* Moderate to High. It will fetch news
+    _Probability of Success:_ Moderate to High. It will fetch news
     successfully, but achieving the right blend and ensuring the AI
     ratio may need custom filtering. It simplifies data collection at
     the expense of control. If used intelligently (e.g. query “AI”
@@ -800,19 +805,19 @@ viability:
     mindful of API limits and quality of results.
 
 4.  **Approach 4: Techmeme-Style Web Scraping**  
-    *Description:* Instead of building our own ranking algorithm fully,
+    _Description:_ Instead of building our own ranking algorithm fully,
     leverage an existing tech news aggregator like **Techmeme** (a
     popular tech news curator site). Techmeme lists the top news and
     group them by story clusters. The idea would be to scrape Techmeme’s
     daily leaderboards or weekly archives, and use that as our source of
     top stories, then summarize those.  
-    *Pros:* Techmeme essentially does what we want – it finds the
+    _Pros:_ Techmeme essentially does what we want – it finds the
     hottest tech stories and even shows multiple sources per story. By
     using it, we inherit their algorithmic/editorial expertise. It could
     dramatically simplify selection: e.g. pick the top 7 clusters from
     Techmeme’s weekly view (if available). It ensures broad coverage of
     major news.  
-    *Cons:* **Scraping complexity and legal/ethical concerns:** Techmeme
+    _Cons:_ **Scraping complexity and legal/ethical concerns:** Techmeme
     may not have a public API, so we’d resort to HTML scraping which is
     brittle and could break if they change their site. It might also be
     against their terms of service to republish their curated content
@@ -824,7 +829,7 @@ viability:
     weekly snapshot. We might also not get enough AI focus if Techmeme
     doesn’t highlight as many AI stories (they usually do, but no
     guarantee for the half rule).  
-    *Probability of Success:* High in terms of getting the right stories
+    _Probability of Success:_ High in terms of getting the right stories
     (Techmeme is quite accurate for top news). However, the approach is
     somewhat reliant on another site’s content structure. It’s likely to
     succeed technically with some effort, but it offloads the core
@@ -832,7 +837,7 @@ viability:
     spirit of the project.
 
 5.  **Approach 5: Social Media Trend Analysis**  
-    *Description:* Gather signals from social media (Twitter/X trends,
+    _Description:_ Gather signals from social media (Twitter/X trends,
     Reddit top posts, etc.) for tech topics. For example, track popular
     tweets from known tech influencers, or see what tech news is
     trending on Twitter (via hashtags or trending topics API), and also
@@ -840,13 +845,13 @@ viability:
     top posts of the week. Use these signals to choose stories (assuming
     a story widely discussed on social media is important). Summarize
     the stories using LLM.  
-    *Pros:* Captures the *buzz* in real time. Sometimes social media
+    _Pros:_ Captures the _buzz_ in real time. Sometimes social media
     will highlight important discussions that formal news sites might
     not (or might lag on). It also gives a measure of public
     interest/impact (e.g. a news that goes viral on Twitter clearly had
     big reach). Reddit’s upvotes on r/technology is akin to HN’s points
     but for a broader audience.  
-    *Cons:* **High complexity and noise:** Social media is noisy;
+    _Cons:_ **High complexity and noise:** Social media is noisy;
     trending topics might be vague (e.g. “#AI” trending doesn’t tell
     which story caused it). Also, API access is problematic (Twitter API
     is no longer free/cheap, Reddit’s API changes, etc.). We’d have to
@@ -856,30 +861,30 @@ viability:
     Additionally, implementing this requires a lot of integration
     (Twitter API, Reddit API) and data parsing, which is overkill for
     our simple weekly digest.  
-    *Probability of Success:* Low to Moderate. While it might catch some
+    _Probability of Success:_ Low to Moderate. While it might catch some
     important things, the effort to filter signal from noise is high. It
     complicates the system significantly. It could complement another
     approach (e.g. as an extra signal in the scoring), but as a primary
     method it’s not reliable enough for a focused “top news” product.
 
 6.  **Approach 6: LLM-Driven Selection (Agent)**  
-    *Description:* Use an LLM as an “agent” to decide the top stories.
+    _Description:_ Use an LLM as an “agent” to decide the top stories.
     For example, feed the LLM a large list of article headlines or brief
     descriptions from the week (perhaps 50-100 candidates) and prompt it
-    to *“Identify the 7 most important and influential news from this
+    to _“Identify the 7 most important and influential news from this
     list, especially focusing on AI advancements and major tech
-    developments.”* The LLM would then output a list of 7 titles or
+    developments.”_ The LLM would then output a list of 7 titles or
     summaries. Essentially, the LLM does the ranking/selection for us
     (possibly also summarizing in its answer).  
-    *Pros:* This leverages the LLM’s knowledge and ability to
+    _Pros:_ This leverages the LLM’s knowledge and ability to
     synthesize. It might pick up on context (e.g. it “knows” which
     events are a big deal, especially if it has been trained on a lot of
     data up to some cutoff). It simplifies our coding – we mainly gather
-    data and then rely on a prompt. It’s a very *radical* use of AI in
+    data and then rely on a prompt. It’s a very _radical_ use of AI in
     the loop. This could be useful if we trust the LLM’s judgment. It
     can also directly ensure the AI content ratio by the way we prompt
     (“at least half should be AI-related”).  
-    *Cons:* **Reliability and cost:** If using a powerful LLM like GPT-4
+    _Cons:_ **Reliability and cost:** If using a powerful LLM like GPT-4
     for this reasoning, it’s costly and not local. A local LLM might not
     have up-to-date knowledge or enough “judgment” to accurately know
     impact (especially since a local model wouldn’t have internet access
@@ -891,18 +896,18 @@ viability:
     why it chose something might be hard. Essentially, we’d be
     outsourcing our scoring algorithm to a black-box – which goes
     against the idea of deterministic selection.  
-    *Probability of Success:* Moderate. It could work (especially with
+    _Probability of Success:_ Moderate. It could work (especially with
     GPT-4) and yield interesting results, but it’s not guaranteed to
     align with real-world significance all the time. It also undermines
     the transparency of criteria (we want to be able to justify why a
     story was chosen – with an LLM agent, it’s just what the AI
-    *thinks*). For a production system where consistency and
+    _thinks_). For a production system where consistency and
     explainability are valued, this approach is risky. It’s an
     innovative alternative but likely not the best for a stable weekly
     product.
 
 7.  **Approach 7:** Hybrid Multi-Source Pipeline (Recommended)  
-    ***Description:* Combine the strengths of multiple sources and use a
+    **_Description:_ Combine the strengths of multiple sources and use a
     custom pipeline (like described in detail above) to algorithmically
     rank stories, supplemented by LLM summarization. Specifically, use**
     Hacker News + curated tech news feeds + intelligent scoring**. For
@@ -912,7 +917,7 @@ viability:
     multi-source coverage) to select the top 7; then use LLM for
     summaries. This hybrid approach tries to ensure no major story is
     missed and balances community interest with media coverage.**  
-    ***Pros:*** Comprehensive and balanced. **Hacker News input ensures
+    **_Pros:_** Comprehensive and balanced. **Hacker News input ensures
     we capture what developers/tech insiders find important (often
     including open-source releases, technical breakthroughs), while the
     media feeds ensure we don’t miss big industry news (product
@@ -924,7 +929,7 @@ viability:
     media mentions, we can incorporate that into the scoring step
     easily. Additionally, using local LLMs for summarization keeps
     recurring cost low.**  
-    ***Cons:* The pipeline is somewhat complex – it involves multiple
+    **_Cons:_ The pipeline is somewhat complex – it involves multiple
     moving parts (fetching from various APIs/feeds, content parsing,
     clustering, scoring). This means more code to write and maintain
     compared to a single-source approach. There’s potential duplication
@@ -934,7 +939,7 @@ viability:
     we integrate several components. However, each component is
     straightforward (e.g., RSS parsing, or using an existing library for
     HN API, etc.), so it’s more about coordinating them properly.**  
-    ***Probability of Success:* High. This approach is likely to produce
+    **_Probability of Success:_ High. This approach is likely to produce
     a high-quality weekly list that aligns with user expectations (“top
     of top” stories, plenty of AI coverage, no fluff). Each part of the
     hybrid system has been proven individually (e.g., community ranking,
@@ -967,7 +972,7 @@ sections, and we believe it best fulfills the project requirements:
 
 - **Why Custom Scoring vs. Offloading to API/LLM?:** Creating our own
   scoring algorithm might seem reinventing the wheel, but it grants us
-  *transparency and control*. We can clearly explain why a story was
+  _transparency and control_. We can clearly explain why a story was
   chosen (“It had 250 points on HN and was reported by 3 major outlets”)
   which adds credibility to the product. A NewsAPI or LLM black-box
   might produce results but without insight or guarantee that they align
@@ -977,7 +982,7 @@ sections, and we believe it best fulfills the project requirements:
   local hardware; relying on external APIs or AI for selection would
   either incur ongoing costs or possible unpredictability.
 
-- **Use of LLMs:** The recommended solution uses LLMs *strategically* –
+- **Use of LLMs:** The recommended solution uses LLMs _strategically_ –
   mainly for summarization (and potentially categorization), which adds
   value in terms of content quality, but not for the core decision of
   what’s important. This keeps costs low (since summarization can be
@@ -1046,30 +1051,22 @@ AI coding assistant or developers to start implementation):
     Python dict or a YAML) specifying:
 2.  The list of sources to fetch. For example:
 
-- sources:
-        - type: hackernews
-          name: "Hacker News Top"
-          limit: 100  # maybe top 100 stories of week
-        - type: rss
-          name: "TechCrunch"
-          url: "https://techcrunch.com/feed/"
-        - type: rss
-          name: "The Verge"
-          url: "https://www.theverge.com/rss/index.xml"
-        - type: rss
-          name: "Ars Technica"
-          url: "http://feeds.arstechnica.com/arstechnica/index"
-        - type: rss
-          name: "MIT Tech Review"
-          url: "https://www.technologyreview.com/feed/"
-        - type: rss
-          name: "Wired"
-          url: "https://www.wired.com/feed/rss"
-        # (Add more as desired)
-        - type: newsapi
-          name: "NewsAPI Tech"
-          query: "technology AND NOT gossip"
-          api_key: "... if needed ..."
+- sources: - type: hackernews
+  name: "Hacker News Top"
+  limit: 100 # maybe top 100 stories of week - type: rss
+  name: "TechCrunch"
+  url: "https://techcrunch.com/feed/" - type: rss
+  name: "The Verge"
+  url: "https://www.theverge.com/rss/index.xml" - type: rss
+  name: "Ars Technica"
+  url: "http://feeds.arstechnica.com/arstechnica/index" - type: rss
+  name: "MIT Tech Review"
+  url: "https://www.technologyreview.com/feed/" - type: rss
+  name: "Wired"
+  url: "https://www.wired.com/feed/rss" # (Add more as desired) - type: newsapi
+  name: "NewsAPI Tech"
+  query: "technology AND NOT gossip"
+  api_key: "... if needed ..."
 
   This config-driven approach means we can easily adjust sources without
   changing code logic – adhering to the Open/Closed principle.
@@ -1083,16 +1080,16 @@ AI coding assistant or developers to start implementation):
 4.  **Data Storage:** Define the SQLite schema if using DB:
 
 - CREATE TABLE articles (
-        id INTEGER PRIMARY KEY,
-        source TEXT,
-        title TEXT,
-        url TEXT UNIQUE,
-        published DATETIME,
-        hn_points INTEGER,
-        hn_comments INTEGER,
-        content TEXT,
-        is_ai BOOLEAN
-      );
+  id INTEGER PRIMARY KEY,
+  source TEXT,
+  title TEXT,
+  url TEXT UNIQUE,
+  published DATETIME,
+  hn_points INTEGER,
+  hn_comments INTEGER,
+  content TEXT,
+  is_ai BOOLEAN
+  );
 
   We ensure `url` is UNIQUE so duplicates from different sources don’t
   double insert. Alternatively, we handle uniqueness in code by checking
@@ -1104,12 +1101,11 @@ AI coding assistant or developers to start implementation):
 
 5.  **Fetching Phase Implementation:**
 
-6.  *HackerNewsFetcher:* Use the official HN API via Firebase or the
+6.  _HackerNewsFetcher:_ Use the official HN API via Firebase or the
     Algolia API. For example, Algolia usage:
 
 - import requests
-      url = "http://hn.algolia.com/api/v1/search_by_date?tags=story&numericFilters=points>50,created_at_i>start_ts,created_at_i<end_ts&hitsPerPage=1000"
-      # This query gets stories in a date range with points > 50.
+  url = "http://hn.algolia.com/api/v1/search_by_date?tags=story&numericFilters=points>50,created_at_i>start_ts,created_at_i<end_ts&hitsPerPage=1000" # This query gets stories in a date range with points > 50.
 
   We’d construct `start_ts` as epoch of last Monday and `end_ts` as
   epoch of this Monday. The response gives JSON with hits including
@@ -1122,21 +1118,21 @@ AI coding assistant or developers to start implementation):
   Either way, get a list of HN stories with their points. Fill
   `hn_points` and `hn_comments`.
 
-7.  *RSSFetcher:* Use `feedparser` like:
+7.  _RSSFetcher:_ Use `feedparser` like:
 
 - import feedparser
-      feed = feedparser.parse(feed_url)
-      for entry in feed.entries:
-          title = entry.title
-          url = entry.link
-          published = entry.published_parsed or entry.updated_parsed
+  feed = feedparser.parse(feed_url)
+  for entry in feed.entries:
+  title = entry.title
+  url = entry.link
+  published = entry.published_parsed or entry.updated_parsed
 
   Create Article for each. Note: Some RSS feeds include full content in
   `entry.content[0].value` (HTML) or summary. We could store that in
   content temporarily if provided, but likely we’ll still fetch the
   article to be safe.
 
-8.  *NewsAPIFetcher:* Use the `newsapi` Python client or direct HTTP.
+8.  _NewsAPIFetcher:_ Use the `newsapi` Python client or direct HTTP.
     For example:
 
 - GET https://newsapi.org/v2/everything?q=technology&language=en&from={last_week_date}&to={today_date}&sortBy=popularity&pageSize=100&apiKey=XYZ
@@ -1164,15 +1160,15 @@ AI coding assistant or developers to start implementation):
 12. Use newspaper3k:
 
 - from newspaper import Article as NewsArticle
-      art = NewsArticle(article.url)
-      try:
-          art.download()
-          art.parse()
-      except Exception as e:
-          log(f"Failed to download {article.url}: {e}")
-          continue
-      content = art.text  # the extracted text
-      article.content = content
+  art = NewsArticle(article.url)
+  try:
+  art.download()
+  art.parse()
+  except Exception as e:
+  log(f"Failed to download {article.url}: {e}")
+  continue
+  content = art.text # the extracted text
+  article.content = content
 
   We also get `art.authors`, `art.publish_date` if needed. If `content`
   ends up very short (like \< 50 words), maybe skip or mark article as
@@ -1215,30 +1211,25 @@ AI coding assistant or developers to start implementation):
 21. We’ll gather the articles into clusters. Pseudocode:
 
 - stories = []
-      seen = set()  # set of article ids or URLs already clustered
-      for article in articles_sorted_by_date:  # or maybe by source importance
-          if article.id in seen: 
-              continue
-          # Start a new story cluster
-          story_articles = [article]
-          seen.add(article.id)
-          for other in articles:
-              if other.id not in seen:
-                  if titles_similar(article.title, other.title):
-                      story_articles.append(other)
-                      seen.add(other.id)
-          # Create Story object
-          story = Story()
-          story.articles = story_articles
-          # Determine story.title (maybe the title of the first article or a combination)
-          story.title = choose_best_title(story_articles)
-          # Determine story.is_ai (True if any article.is_ai True)
-          story.category = "AI" if any(a.is_ai for a in story_articles) else "General"
-          # Compute HN points aggregated
-          story.hn_points = max(a.hn_points or 0 for a in story_articles)
-          story.num_sources = len({a.source for a in story_articles})
-          story.published = min(a.published for a in story_articles)  # earliest publish (or latest? could store both)
-          stories.append(story)
+  seen = set() # set of article ids or URLs already clustered
+  for article in articles_sorted_by_date: # or maybe by source importance
+  if article.id in seen:
+  continue # Start a new story cluster
+  story_articles = [article]
+  seen.add(article.id)
+  for other in articles:
+  if other.id not in seen:
+  if titles_similar(article.title, other.title):
+  story_articles.append(other)
+  seen.add(other.id) # Create Story object
+  story = Story()
+  story.articles = story_articles # Determine story.title (maybe the title of the first article or a combination)
+  story.title = choose_best_title(story_articles) # Determine story.is_ai (True if any article.is_ai True)
+  story.category = "AI" if any(a.is_ai for a in story_articles) else "General" # Compute HN points aggregated
+  story.hn_points = max(a.hn_points or 0 for a in story_articles)
+  story.num_sources = len({a.source for a in story_articles})
+  story.published = min(a.published for a in story_articles) # earliest publish (or latest? could store both)
+  stories.append(story)
 
 22. The `titles_similar` function could use a simple heuristic: one
     approach is to strip punctuation and stopwords then check if one
@@ -1272,15 +1263,14 @@ AI coding assistant or developers to start implementation):
     StoryScorer class. For each Story:
 
 - score = 0
-      score += story.hn_points_score()  # convert HN points to score portion
-      score += story.num_sources * 5
-      if story.category == 'AI':
-          score += 3
-      # Optionally consider recency:
-      days_ago = (today_date - story.published).days
-      if days_ago < 3:
-          score += 1  # a small boost for very recent stories, to not disadvantage them
-      story.score = score
+  score += story.hn_points_score() # convert HN points to score portion
+  score += story.num_sources \* 5
+  if story.category == 'AI':
+  score += 3 # Optionally consider recency:
+  days_ago = (today_date - story.published).days
+  if days_ago < 3:
+  score += 1 # a small boost for very recent stories, to not disadvantage them
+  story.score = score
 
 28. The HN points to score conversion could be, as earlier, something
     like `min(hn_points, 300) / 10` (so max 30 points from HN factor).
@@ -1300,22 +1290,17 @@ AI coding assistant or developers to start implementation):
 32. Apply the AI quota check:
 
 - ai_count = sum(1 for s in top_stories if s.category == 'AI')
-      if ai_count < 3:
-          # number to replace = 3 - ai_count (if we want at least 3)
-          needed = 3 - ai_count
-          # Find the top 'needed' stories beyond the top 7 that are AI
-          candidates = [s for s in stories[7:] if s.category == 'AI']
-          if candidates:
-              candidates.sort(key=lambda s: s.score, reverse=True)
-              for i in range(min(needed, len(candidates))):
-                  # find the lowest-ranked non-AI story in current top_stories
-                  replace_index = max(idx for idx, s in enumerate(top_stories) if s.category != 'AI')
-                  if replace_index is not None and candidates[i].score > top_stories[replace_index].score * 0.5:
-                      # Only replace if candidate is at least reasonably scored (e.g. >50% of the story it's replacing)
-                      top_stories[replace_index] = candidates[i]
-                  else:
-                      break
-              # After replacement, we might reorder top_stories by score again if order matters.
+  if ai_count < 3: # number to replace = 3 - ai_count (if we want at least 3)
+  needed = 3 - ai_count # Find the top 'needed' stories beyond the top 7 that are AI
+  candidates = [s for s in stories[7:] if s.category == 'AI']
+  if candidates:
+  candidates.sort(key=lambda s: s.score, reverse=True)
+  for i in range(min(needed, len(candidates))): # find the lowest-ranked non-AI story in current top_stories
+  replace_index = max(idx for idx, s in enumerate(top_stories) if s.category != 'AI')
+  if replace_index is not None and candidates[i].score > top_stories[replace_index].score \* 0.5: # Only replace if candidate is at least reasonably scored (e.g. >50% of the story it's replacing)
+  top_stories[replace_index] = candidates[i]
+  else:
+  break # After replacement, we might reorder top_stories by score again if order matters.
 
 33. We included a condition to avoid replacing a much higher scored
     story with a low one just for AI – ensuring some quality threshold.
@@ -1337,15 +1322,13 @@ AI coding assistant or developers to start implementation):
     - Get the summary text. If using the pipeline:
 
     <!-- -->
-
     - summary = summarizer(article_text, max_length=120, min_length=30, do_sample=False)
-          summary_text = summary[0]['summary_text']
+      summary_text = summary[0]['summary_text']
 
       Where `max_length` 120 tokens ~ roughly 3-4 sentences, we can
       tweak.
 
     <!-- -->
-
     - If using a custom model interface, generate accordingly.
     - Assign `story.summary = summary_text`.
     - Also record `story.source = article.source` or maybe if multiple,
@@ -1355,7 +1338,7 @@ AI coding assistant or developers to start implementation):
 
 37. After all, we have top_stories each with title, summary, category,
     source, and link. For the link, maybe also choose one representative
-    URL (preferably a *canonical* news source rather than HN link – e.g.
+    URL (preferably a _canonical_ news source rather than HN link – e.g.
     if HackerNews had a high rank but the story is actually a NYTimes
     article, use the NYTimes URL. If the story is a discussion around a
     GitHub repo and only HN is the source, we might link to the HN
@@ -1364,7 +1347,6 @@ AI coding assistant or developers to start implementation):
     content rather than the HN page).
 
 38. **Output JSON, Generate HTML, and Deploy:**
-
     - Format the data as JSON (as shown in example earlier). We’ll
       include:
     - `week` – we can use the date of the Monday for that week, or an
@@ -1382,10 +1364,9 @@ AI coding assistant or developers to start implementation):
     - Use Git operations to commit the generated files: e.g.
 
     <!-- -->
-
     - git add data/latest.json index.html
-          git commit -m "Add edition 2025-11-03"
-          git push
+      git commit -m "Add edition 2025-11-03"
+      git push
 
       If the pipeline itself is run manually by the developer, they can
       handle this. If we wanted full automation, we might incorporate a
@@ -1394,13 +1375,11 @@ AI coding assistant or developers to start implementation):
       laptops, we assume manual or local scheduling and then pushing.
 
     <!-- -->
-
     - Once pushed, Vercel triggers a deployment. The static site will
       then serve the new content.
 
 39. **Logging & Monitoring:** (Not explicitly asked for, but good
     practice)
-
     - The pipeline should log key events to console or a log file: e.g.,
       “Fetched 120 articles (HN:30, TechCrunch:20, …)”, “Clustered into
       80 stories”, “Top 7 preliminary: Titles X, Y, Z... (4 AI
@@ -1413,7 +1392,6 @@ AI coding assistant or developers to start implementation):
       output. Perhaps have a fallback summary if LLM fails (even if just
       a truncated content). The goal is robust automation – no manual
       intervention ideally.
-
 
 ### Example Scenario (End-to-End):
 
@@ -1502,7 +1480,7 @@ have a one-stop weekly briefing of tech’s most impactful stories,
 presented in a concise and modern format – solving the problem of
 information overload in an elegant, automated way.
 
-------------------------------------------------------------------------
+---
 
 [\[1\]](https://medium.com/@lijoraju/how-i-built-a-production-ready-llm-news-aggregator-from-scratch-015ebd08d566#:~:text=3,facing%20categories)
 [\[4\]](https://medium.com/@lijoraju/how-i-built-a-production-ready-llm-news-aggregator-from-scratch-015ebd08d566#:~:text=To%20fetch%20real,was%20often%20truncated%20or%20incomplete)

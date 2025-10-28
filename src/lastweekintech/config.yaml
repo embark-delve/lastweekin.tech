@@ -50,5 +50,16 @@ weights:
 
 # Summarizer settings
 summarizer:
-  model_name: "openrouter/google/gemini-flash-1.5"
-  fallback_model: "huggingface/facebook/bart-large-cnn"
+  model_name: "minimax/minimax-m2:free"
+  fallback_models:
+    - "deepseek/deepseek-chat-v3.1:free"
+    - "openai/gpt-oss-20b:free"
+    - "z-ai/glm-4.5-air:free"
+    - "MiniMaxAI/SynLogic-Mix-3-32B"
+    - "ab-ai/PII-Model-Phi3-Mini"
+    - "deepseek-ai/DeepSeek-R1:novita"
+  hf_token: "${HF_TOKEN}"
+  huggingface_models:
+    - "MiniMaxAI/SynLogic-Mix-3-32B"
+    - "ab-ai/PII-Model-Phi3-Mini"
+    - "deepseek-ai/DeepSeek-R1:novita"
