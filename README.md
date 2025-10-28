@@ -62,7 +62,6 @@ This project uses `uv` for dependency and environment management.
    ```
 
    Then, edit the `.env` file to add your API keys.
-
    - `OPENROUTER_API_KEY`: Your API key for [OpenRouter](https://openrouter.ai/).
      This is required for the default summarization model.
 

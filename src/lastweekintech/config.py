@@ -2,7 +2,7 @@
 Configuration loading for the LastWeekIn.Tech pipeline.
 """
 
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from pathlib import Path
 
 import yaml
@@ -37,7 +37,9 @@ class SummarizerSettings:
     """Represents summarizer settings."""
 
     model_name: str
-    fallback_model: str
+    fallback_models: list[str]
+    hf_token: str | None = None
+    huggingface_models: list[str] = field(default_factory=list)
 
 
 @dataclass
