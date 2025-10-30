@@ -60,9 +60,10 @@ class Summarizer:
         ]
         try:
             client = self._get_client(model_name)
+            _, actual_model_name = model_name.split("/", 1)
             logging.info(f"Generating summary with {model_name}...")
             response = client.chat.completions.create(
-                model=model_name,
+                model=actual_model_name,
                 messages=messages,
                 max_tokens=150,
                 temperature=0.7,
