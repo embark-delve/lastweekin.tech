@@ -1,61 +1,61 @@
 {
-  "week": "2025-11-03",
+  "week": "2025-11-10",
   "stories": [
     {
       "rank": 1,
-      "title": "China-linked hackers exploited Lanscope flaw as a zero-day in attacks",
-      "source": "BleepingComputer",
-      "url": "https://www.bleepingcomputer.com/news/security/china-linked-hackers-exploited-lanscope-flaw-as-a-zero-day-in-attacks/",
+      "title": "YouTube TV, ESPN, and Disney: the latest on the blackout",
+      "source": "The Verge",
+      "url": "https://www.theverge.com/news/817403/youtube-tv-disney-espn-blackout-updates",
       "category": "General Tech",
-      "summary": "Summary not available."
+      "summary": "On October\u202f31, Disney\u2011owned channels\u2014including ESPN, ABC and Nat\u202fGeo\u2014went dark on YouTube\u202fTV after Google and Disney could not agree on a new distribution deal. Google accused Disney of trying to hike prices to"
     },
     {
       "rank": 2,
-      "title": "LiberNovo Omni Review: A Motorized Office Chair",
-      "source": "WIRED",
-      "url": "https://www.wired.com/review/libernovo-omni/",
-      "category": "AI",
-      "summary": "The Omni is a new office chair that looks refined and uses a spine-inspired backrest design, available in Midnight Black or Space Gray, with a stated capacity of 300 pounds. It features unusually soft multi-density"
+      "title": "YouTube TV\u2019s $20 \u201csorry for Disney\u201d credit is live",
+      "source": "Android Police",
+      "url": "https://www.androidpolice.com/youtube-tvs-dollar20-sorry-for-disney-credit-live/",
+      "category": "General Tech",
+      "summary": "YouTube TV has removed all Disney network channels from its service after failed renewal talks, and it is honoring a $20 one\u2011time credit for affected subscribers, though users must manually claim it and the credit will only apply to the next billing cycle (not the current one or if the subscription is cancelled). The credit is available to those who pay directly or via Google Play, will stack on any existing $10 monthly discount, and is aimed"
     },
     {
       "rank": 3,
-      "title": "The Best Hybrid Mattresses for Couples, Back Pain, and More (2025)",
+      "title": "What Is Adobe Firefly? Here\u2019s How to Use This Powerful Generative AI Tool",
       "source": "WIRED",
-      "url": "https://www.wired.com/gallery/best-hybrid-mattress/",
+      "url": "https://www.wired.com/story/what-is-adobe-firefly/",
       "category": "AI",
-      "summary": "Hybrid mattresses blend springs and foam\u2014often with latex, various foam densities, and fabrics\u2014to create a soft yet supportive, breathable surface, and are recommended for most sleepers. WIRED reviewers determine the best options by sleeping on each mattress for a week or more, taking detailed notes and cross\u2011checking with teammates, because no single model fits everyone; factors like height, weight, sleeping position, and specific needs (e.g., cooling covers) are crucial. The team has tested a wide"
+      "summary": "The article outlines a simple Firefly workflow: start by creating a new image\u2014either generated from a prompt or created from an uploaded file\u2014using a chatbot-style prompt, a reference image, and model/aspect-ratio settings; refine results with \u201cGenerate More\u201d or \u201cEdit\u201d features,"
     },
     {
       "rank": 4,
-      "title": "From Intel to the infinite, Pat Gelsinger wants Christian AI to change the world",
-      "source": "The Register",
-      "url": "https://go.theregister.com/feed/www.theregister.com/2025/11/03/from_intel_to_the_infinite/",
+      "title": "65daysofstatic\u2019s new No Man\u2019s Sky album searches for humanity in an AI-filled world",
+      "source": "The Verge",
+      "url": "https://www.theverge.com/report/816427/no-mans-sky-album-journeys-65daysofstatic",
+      "category": "AI",
+      "summary": "In 2025, post\u2011rock band 65daysofstatic returned to the wildly evolving world of No\u202fMan\u2019s\u202fSky to re\u2011score the game\u2019s music, producing the 32\u2011track,"
+    },
+    {
+      "rank": 5,
+      "title": "The algorithm failed music",
+      "source": "The Verge",
+      "url": "https://www.theverge.com/column/815744/music-recommendation-algorithms",
       "category": "AI",
       "summary": "Summary not available."
     },
     {
-      "rank": 5,
-      "title": "5 Best Live TV Streaming Services (2025), Tested and Reviewed",
-      "source": "WIRED",
-      "url": "https://www.wired.com/gallery/best-live-tv-streaming-services/",
-      "category": "General Tech",
-      "summary": "Sling TV is a flexible but often confusing live streaming service built around two modular core plans\u2014Blue (news and entertainment) and Orange (ESPN-heavy without CNN/MSNBC)\u2014that users typically combine into Orange & Blue, saving roughly 30% over buying separately and about $"
-    },
-    {
       "rank": 6,
-      "title": "Aura Ink Review (2025): Newspaper-Style Realism",
-      "source": "WIRED",
-      "url": "https://www.wired.com/review/aura-ink/",
+      "title": "Here\u2019s how orbital dynamics wizardry helped save NASA\u2019s next Mars mission",
+      "source": "Ars Technica",
+      "url": "https://arstechnica.com/space/2025/11/heres-how-orbital-dynamics-wizardry-helped-save-nasas-next-mars-mission/",
       "category": "General Tech",
-      "summary": "Digital photo frames have largely stayed the same\u2014brands focus on new frames and styles rather than new tech\u2014until Aura\u2019s latest entry, the Aura\u202fInk, breaks the mold with a fully portable design that uses an E\u2011Ink Spectra\u202f6 screen instead of the usual bright LCD. The six\u2011color (white, black, red, yellow"
+      "summary": "Blue Origin postponed its launch to Wednesday"
     },
     {
       "rank": 7,
-      "title": "What to Do in Austin if You\u2019re Here for Business (2025)",
+      "title": "Apple Pulls China\u2019s Top Gay Dating Apps After Government Order",
       "source": "WIRED",
-      "url": "https://www.wired.com/story/the-wired-guide-to-austin-for-business-travelers/",
+      "url": "https://www.wired.com/story/apple-removes-gay-dating-apps-china-app-store/",
       "category": "General Tech",
-      "summary": "Austin\u2019s tech boom\u2014now 16\u202f% of the city\u2019s workforce and home to Apple, Google, Oracle and a swarm of VC\u2011backed startups\u2014has turned the former \u201cKeep Austin Weird\u201d college town into a Silicon Hills hub that still offers authentic bars, BBQ, live music and a relaxed, entrepreneurial vibe. The guide maps"
+      "summary": "Summary not available."
     }
   ]
 }
