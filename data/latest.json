@@ -1,61 +1,61 @@
 {
-  "week": "2025-11-17",
+  "week": "2025-11-24",
   "stories": [
     {
       "rank": 1,
-      "title": "Five plead guilty to helping North Koreans infiltrate US firms",
-      "source": "BleepingComputer",
-      "url": "https://www.bleepingcomputer.com/news/security/five-plead-guilty-to-helping-north-koreans-infiltrate-us-firms/",
+      "title": "The 73 Best Deals From REI\u2019s 2025 Holiday Sale",
+      "source": "WIRED",
+      "url": "https://www.wired.com/story/rei-holiday-sale-nov-2025/",
       "category": "General Tech",
-      "summary": "Summary not available."
+      "summary": "REI\u2019s holiday sale, the final day of a week\u2011long event that ran from Nov.\u202f14\u201324,"
     },
     {
       "rank": 2,
-      "title": "Marshall Heston 120 Review: Premium Style, Restrained Sound",
+      "title": "This hacker conference installed a literal antivirus monitoring system",
+      "source": "Ars Technica",
+      "url": "https://arstechnica.com/security/2025/11/this-hacker-conference-installed-a-literal-antivirus-monitoring-system/",
+      "category": "General Tech",
+      "summary": "New Zealand\u2019s premier hacker conference, Kawaiicon, tackled the notorious \u201ccon crud\u201d by installing a DIY, real\u2011time CO\u2082 monitoring system across the Michael Fowler Centre"
+    },
+    {
+      "rank": 3,
+      "title": "CISA warns Oracle Identity Manager RCE flaw is being actively exploited",
+      "source": "BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/cisa-warns-oracle-identity-manager-rce-flaw-is-being-actively-exploited/",
+      "category": "General Tech",
+      "summary": "Oracle\u2019s Identity Manager has a newly\u2011discovered pre\u2011authentication RCE flaw (CVE\u20112025\u201161757) that bypasses REST\u2011API security by appending \u201c?WSDL\u201d or \u201c;\u200b.wadl\u201d to URLs, tricking the system into treating protected"
+    },
+    {
+      "rank": 4,
+      "title": "16 Best Air Purifiers (2025): Coway, AirDoctor, IQAir",
       "source": "WIRED",
-      "url": "https://www.wired.com/review/marshall-heston-120/",
+      "url": "https://www.wired.com/gallery/best-air-purifiers/",
       "category": "AI",
       "summary": "Summary not available."
     },
     {
-      "rank": 3,
-      "title": "Stereogum soldiers on in the era of streaming and AI",
-      "source": "The Verge",
-      "url": "https://www.theverge.com/entertainment/821767/stereogum-scott-lapatine-independent-music-media-streaming-ai",
-      "category": "AI",
-      "summary": "Stereogum, founded by Scott\u202fLapatine in 2002 as an MP3\u2011sharing blog, has evolved into a leading independent music journalism site that now relaunches with a faster backend, dark\u2011mode design, and a growing"
-    },
-    {
-      "rank": 4,
-      "title": "Microsoft Executives Discuss How AI Will Change Windows, Programming -- and Society",
-      "source": "Slashdot",
-      "url": "https://tech.slashdot.org/story/25/11/17/0337227/microsoft-executives-discuss-how-ai-will-change-windows-programming----and-society?utm_source=rss1.0mainlinkanon&utm_medium=feed",
-      "category": "AI",
-      "summary": "The article argues that, contrary to official narratives, system failures\u2014illustrated by widespread unemployment in Russia\u2014are frequent and persistent, underscoring a disconnect between propaganda and"
-    },
-    {
       "rank": 5,
-      "title": "The evolution of rationality: How chimps process conflicting evidence",
-      "source": "Ars Technica",
-      "url": "https://arstechnica.com/science/2025/11/the-evolution-of-rationality-how-chimps-process-conflicting-evidence/",
-      "category": "General Tech",
-      "summary": "Aristotle\u2019s claim that humans are uniquely rational was taken by evolutionary anthropologist Jan\u202fM.\u202fEngelmann to mean the ability to form and revise beliefs based on evidence. He tested this by examining chimpanzees in simple \u201cfood\u2011puzzle\u201d tasks: when one of two boxes rattled, chimps almost invariably chose it, showing they can form evidence\u2011based beliefs. To probe belief revision, Engelmann\u2019s team presented"
+      "title": "Game Theory Explains How Algorithms Can Drive Up Prices",
+      "source": "WIRED",
+      "url": "https://www.wired.com/story/game-theory-explains-how-algorithms-can-drive-up-prices/",
+      "category": "AI",
+      "summary": "The article explains that while U.S. antitrust law has long banned explicit collusion between firms to keep prices fair, the rise of learning algorithms that adjust prices based on market data complicates enforcement, because these algorithms can develop tacit collusive strategies through trial\u2011and\u2011error\u2014"
     },
     {
       "rank": 6,
-      "title": "Best Organic Mattresses (2025): Birch, Avocado, Naturepedic, More",
-      "source": "WIRED",
-      "url": "https://www.wired.com/gallery/best-organic-mattresses/",
-      "category": "General Tech",
-      "summary": "Birch\u2019s Luxe organic mattress is a standout choice for those seeking a balanced, medium\u2011firm feel that still offers decent pressure relief and a bouncy response ideal for back sleepers. Constructed with individually"
+      "title": "70-hour work weeks no longer enough for Infosys founder, who praises China\u2019s 996 culture",
+      "source": "The Register",
+      "url": "https://go.theregister.com/feed/www.theregister.com/2025/11/24/asia_tech_news_roundup/",
+      "category": "AI",
+      "summary": "Infosys co\u2011founder Narayana"
     },
     {
       "rank": 7,
-      "title": "Best Action Cameras (2025), Tested and Reviewed",
+      "title": "Europe Is Bending the Knee to the US on Tech Policy",
       "source": "WIRED",
-      "url": "https://www.wired.com/gallery/best-action-cameras/",
+      "url": "https://www.wired.com/story/europe-bends-us-digital-policies-eu-ai-act/",
       "category": "General Tech",
-      "summary": "This guide compares the latest action\u2011camera lineup\u2014DJI\u2019s Osmo Action 5 and Action\u202f4, GoPro\u2019s Hero\u202f13\u202fBlack and Hero\u202f12\u202fBlack, Insta360\u2019s Ace"
+      "summary": "European tech\u2011policy makers"
     }
   ]
 }
