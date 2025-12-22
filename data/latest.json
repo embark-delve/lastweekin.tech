@@ -1,61 +1,61 @@
 {
-  "week": "2025-12-15",
+  "week": "2025-12-22",
   "stories": [
     {
       "rank": 1,
-      "title": "iRobot files for bankruptcy",
-      "source": "The Verge",
-      "url": "https://www.theverge.com/news/844460/irobot-files-for-bankruptcy",
+      "title": "New UEFI flaw enables pre-boot attacks on motherboards from Gigabyte, MSI, ASUS, ASRock",
+      "source": "BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/new-uefi-flaw-enables-pre-boot-attacks-on-motherboards-from-gigabyte-msi-asus-asrock/",
       "category": "General Tech",
-      "summary": "iRobot, the 35\u2011year\u2011old maker of the Roomba robotic vacuum, has filed for Chapter\u202f11 bankruptcy and will be acquired by its Chinese contract\u2011manufacturer Picea Robotics. The company says operations\u2014including app support, customer programs, supply\u2011chain relationships and product support\u2014will remain uninterrupted, so current users should see no immediate impact on their devices. iRobot\u2019s decline in"
+      "summary": "A recent security flaw in UEFI firmware on certain ASUS, Gigabyte, MSI, and ASRock motherboards (CVE\u20112025\u201111901, \u201114302,"
     },
     {
       "rank": 2,
-      "title": "Grok is spreading misinformation about the Bondi Beach shooting",
-      "source": "The Verge",
-      "url": "https://www.theverge.com/news/844443/grok-misinformation-bondi-beach-shooting",
-      "category": "General Tech",
+      "title": "AI has pumped hyperscale capex, capacity \u2013 but how long can it last?",
+      "source": "The Register",
+      "url": "https://go.theregister.com/feed/www.theregister.com/2025/12/22/ai_hyperscale_capex_research/",
+      "category": "AI",
       "summary": "Summary not available."
     },
     {
       "rank": 3,
-      "title": "Reddit sues Australia to exempt itself from kids social media ban",
-      "source": "The Register",
-      "url": "https://go.theregister.com/feed/www.theregister.com/2025/12/12/reddit_sues_australia_social_ban/",
-      "category": "General Tech",
-      "summary": "Reddit has sued Australia in its High Court to override a national ban that bars users under 16 from creating social\u2011media accounts, arguing that the law violates the implied constitutional freedom of political communication by restricting children\u2019s ability to share political views that influence voters. The company also contends that its primary purpose is not user\u2011to\u2011user interaction\u2014partly due to widespread anonymity\u2014and that a read\u2011only mode may actually expose minors to more harm because logged\u2011in users can opt into content filters. Despite the court\u2019s discretion to decline the case, the Australian government has pledged to defend the ban, citing parental support and a commitment to"
+      "title": "How AIM taught the internet to chat",
+      "source": "The Verge",
+      "url": "https://www.theverge.com/podcast/848744/aim-aol-instant-messenger-version-history",
+      "category": "AI",
+      "summary": "AIM (AOL Instant Messenger) emerged at the turn of the millennium as an unexpected, highly influential chat platform born from a semi\u2011rogue team within AOL\u2019s corporate structure, quickly becoming the internet\u2019s go\u2011to instant\u2011messaging service and reshaping how users, especially teens and young professionals, communicated and even conducted business; despite its cultural ubiquity and the nostalgia it evokes\u2014door\u2011bell sounds, screen names, and status messages\u2014AOL never monetized it or effectively pivoted the service, and as social networks,"
     },
     {
       "rank": 4,
-      "title": "PlayStation Portal's Latest Update Proves Sony Needs a Real Handheld Console Again",
-      "source": "WIRED",
-      "url": "https://www.wired.com/story/playstation-portals-latest-update-proves-sony-needs-a-real-handheld-console-again/",
+      "title": "Do Gamers Hate AI? Indie Game Awards Disqualifies 'Clair Obscur' Over GenAI Usage",
+      "source": "Slashdot",
+      "url": "https://games.slashdot.org/story/25/12/21/1945258/do-gamers-hate-ai-indie-game-awards-disqualifies-clair-obscur-over-genai-usage?utm_source=rss1.0mainlinkanon&utm_medium=feed",
       "category": "AI",
       "summary": "Summary not available."
     },
     {
       "rank": 5,
-      "title": "Starlink claims Chinese launch came within 200 meters of broadband satellite",
-      "source": "The Register",
-      "url": "https://go.theregister.com/feed/www.theregister.com/2025/12/15/asia_tech_news_roundup/",
-      "category": "AI",
-      "summary": "Asia\u2019s tech\u2011space headlines this week spanned a near\u2011miss in orbit"
+      "title": "5 Best Monitors for the Mac Mini (2025), Tested and Reviewed",
+      "source": "WIRED",
+      "url": "https://www.wired.com/gallery/best-monitors-for-mac-mini/",
+      "category": "General Tech",
+      "summary": "Summary not available."
     },
     {
       "rank": 6,
-      "title": "The end of OpenAI, and other 2026 predictions",
-      "source": "The Verge",
-      "url": "https://www.theverge.com/podcast/844401/tech-industry-2026-predictions-openai-apple",
-      "category": "AI",
-      "summary": "In a recent Vergecast episode, hosts Nilay Patel and David Sivers, joined by tech columnist Joanna\u202fStern, riffed on a mix of \u201cmild, medium, and spicy\u201d tech predictions for 2026, ranging from plausible developments like an Apple foldable phone and the release of Grand"
+      "title": "Research Reveals the Optimal Way to Optimize",
+      "source": "WIRED",
+      "url": "https://www.wired.com/story/researchers-discover-the-optimal-way-to-optimize/",
+      "category": "General Tech",
+      "summary": "Summary not available."
     },
     {
       "rank": 7,
-      "title": "Best Tested Walking Pads (2025): Urevo, WalkingPad, Sperax",
+      "title": "8 Best Space Heaters (2025): Tested, Measured, and Mistreated",
       "source": "WIRED",
-      "url": "https://www.wired.com/story/best-walking-pads/",
+      "url": "https://www.wired.com/gallery/the-best-space-heaters/",
       "category": "General Tech",
-      "summary": "Summary not available."
+      "summary": "Although a larger heater may look more powerful, most electric space heaters in North America are limited to about 1,500\u202fW\u2014the maximum safe load for a 15\u2011amp circuit\u2014and all"
     }
   ]
 }
