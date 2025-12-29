@@ -1,61 +1,61 @@
 {
-  "week": "2025-12-22",
+  "week": "2025-12-29",
   "stories": [
     {
       "rank": 1,
-      "title": "New UEFI flaw enables pre-boot attacks on motherboards from Gigabyte, MSI, ASUS, ASRock",
-      "source": "BleepingComputer",
-      "url": "https://www.bleepingcomputer.com/news/security/new-uefi-flaw-enables-pre-boot-attacks-on-motherboards-from-gigabyte-msi-asus-asrock/",
-      "category": "General Tech",
-      "summary": "A recent security flaw in UEFI firmware on certain ASUS, Gigabyte, MSI, and ASRock motherboards (CVE\u20112025\u201111901, \u201114302,"
+      "title": "OpenAI is Hiring a New 'Head of Preparedness' to Predict/Mitigate AI's Harms",
+      "source": "Slashdot",
+      "url": "https://slashdot.org/story/25/12/27/2347200/openai-is-hiring-a-new-head-of-preparedness-to-predictmitigate-ais-harms?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+      "category": "AI",
+      "summary": "Summary not available."
     },
     {
       "rank": 2,
-      "title": "AI has pumped hyperscale capex, capacity \u2013 but how long can it last?",
+      "title": "Former IBM CEO Lou Gerstner passes, aged 83",
       "source": "The Register",
-      "url": "https://go.theregister.com/feed/www.theregister.com/2025/12/22/ai_hyperscale_capex_research/",
-      "category": "AI",
+      "url": "https://go.theregister.com/feed/www.theregister.com/2025/12/29/lou_gerstner/",
+      "category": "General Tech",
       "summary": "Summary not available."
     },
     {
       "rank": 3,
-      "title": "How AIM taught the internet to chat",
+      "title": "The best PS5 games from 2025",
       "source": "The Verge",
-      "url": "https://www.theverge.com/podcast/848744/aim-aol-instant-messenger-version-history",
-      "category": "AI",
-      "summary": "AIM (AOL Instant Messenger) emerged at the turn of the millennium as an unexpected, highly influential chat platform born from a semi\u2011rogue team within AOL\u2019s corporate structure, quickly becoming the internet\u2019s go\u2011to instant\u2011messaging service and reshaping how users, especially teens and young professionals, communicated and even conducted business; despite its cultural ubiquity and the nostalgia it evokes\u2014door\u2011bell sounds, screen names, and status messages\u2014AOL never monetized it or effectively pivoted the service, and as social networks,"
+      "url": "https://www.theverge.com/games/846828/ps5-best-games-2025",
+      "category": "General Tech",
+      "summary": "Summary not available."
     },
     {
       "rank": 4,
-      "title": "Do Gamers Hate AI? Indie Game Awards Disqualifies 'Clair Obscur' Over GenAI Usage",
-      "source": "Slashdot",
-      "url": "https://games.slashdot.org/story/25/12/21/1945258/do-gamers-hate-ai-indie-game-awards-disqualifies-clair-obscur-over-genai-usage?utm_source=rss1.0mainlinkanon&utm_medium=feed",
-      "category": "AI",
+      "title": "The Best Desk Accessories (2025)",
+      "source": "WIRED",
+      "url": "https://www.wired.com/gallery/best-desk-accessories/",
+      "category": "General Tech",
       "summary": "Summary not available."
     },
     {
       "rank": 5,
-      "title": "5 Best Monitors for the Mac Mini (2025), Tested and Reviewed",
-      "source": "WIRED",
-      "url": "https://www.wired.com/gallery/best-monitors-for-mac-mini/",
+      "title": "Poisoned WhatsApp API package steals messages and accounts",
+      "source": "The Register",
+      "url": "https://go.theregister.com/feed/www.theregister.com/2025/12/22/whatsapp_npm_package_message_steal/",
       "category": "General Tech",
       "summary": "Summary not available."
     },
     {
       "rank": 6,
-      "title": "Research Reveals the Optimal Way to Optimize",
+      "title": "People Who Drink Bottled Water on a Daily Basis Ingest 90,000 More Microplastic Particles Each Year",
       "source": "WIRED",
-      "url": "https://www.wired.com/story/researchers-discover-the-optimal-way-to-optimize/",
-      "category": "General Tech",
+      "url": "https://www.wired.com/story/people-who-drink-bottled-water-on-a-daily-basis-ingest-90000-more-microplastics-per-year/",
+      "category": "AI",
       "summary": "Summary not available."
     },
     {
       "rank": 7,
-      "title": "8 Best Space Heaters (2025): Tested, Measured, and Mistreated",
-      "source": "WIRED",
-      "url": "https://www.wired.com/gallery/the-best-space-heaters/",
-      "category": "General Tech",
-      "summary": "Although a larger heater may look more powerful, most electric space heaters in North America are limited to about 1,500\u202fW\u2014the maximum safe load for a 15\u2011amp circuit\u2014and all"
+      "title": "China wants to ban making yourself into an AI to keep aged relatives company",
+      "source": "The Register",
+      "url": "https://go.theregister.com/feed/www.theregister.com/2025/12/29/asia_tech_news_roundup/",
+      "category": "AI",
+      "summary": "Summary not available."
     }
   ]
 }
