@@ -1,60 +1,60 @@
 {
-  "week": "2026-01-05",
+  "week": "2026-01-12",
   "stories": [
     {
       "rank": 1,
-      "title": "Palo Alto Networks security-intel boss calls AI agents 2026's biggest insider threat",
-      "source": "The Register",
-      "url": "https://go.theregister.com/feed/www.theregister.com/2026/01/04/ai_agents_insider_threats_panw/",
+      "title": "Instagram says it fixed the issue that let someone send all those password reset emails",
+      "source": "The Verge",
+      "url": "https://www.theverge.com/news/860337/instagram-fixed-password-reset-emails",
       "category": "AI",
       "summary": "Summary not available."
     },
     {
       "rank": 2,
-      "title": "Birdbuddy\u2019s new smart feeders aim to make spotting birds easier, even for beginners",
-      "source": "The Verge",
-      "url": "https://www.theverge.com/gadgets/850488/birdbuddy-2-mini-ces-2026",
-      "category": "AI",
-      "summary": "Summary not available."
-    },
-    {
-      "rank": 3,
-      "title": "Fleischer Studios Criticized for Claiming Betty Boop is Not Public Domain",
-      "source": "Slashdot",
-      "url": "https://slashdot.org/story/26/01/04/2234236/fleischer-studios-criticized-for-claiming-betty-boop-is-not-public-domain?utm_source=rss1.0mainlinkanon&utm_medium=feed",
-      "category": "AI",
-      "summary": "Summary not available."
-    },
-    {
-      "rank": 4,
-      "title": "Trump Wants Venezuela\u2019s Oil. Getting It Might Not Be So Simple",
-      "source": "WIRED",
-      "url": "https://www.wired.com/story/trump-wants-venezuelas-oil-getting-it-might-not-be-so-simple/",
+      "title": "The oceans just keep getting hotter",
+      "source": "Ars Technica",
+      "url": "https://arstechnica.com/science/2026/01/the-oceans-just-keep-getting-hotter/",
       "category": "General Tech",
       "summary": "Summary not available."
     },
     {
+      "rank": 3,
+      "title": "Wing\u2019s drone delivery is coming to 150 more Walmarts",
+      "source": "The Verge",
+      "url": "https://www.theverge.com/tech/859724/wing-walmart-drone-delivery-expansion-2027",
+      "category": "General Tech",
+      "summary": "Summary not available."
+    },
+    {
+      "rank": 4,
+      "title": "Elon Musk: X's New Algorithm Will Be Made Open Source in Seven Days",
+      "source": "Slashdot",
+      "url": "https://tech.slashdot.org/story/26/01/11/038252/elon-musk-xs-new-algorithm-will-be-made-open-source-in-seven-days?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+      "category": "General Tech",
+      "summary": "Slashdot relies on user submissions"
+    },
+    {
       "rank": 5,
-      "title": "15 Best Electrolyte Powders (2026): Tasty and Effective",
-      "source": "WIRED",
-      "url": "https://www.wired.com/gallery/best-electrolyte-powders/",
+      "title": "Conservative lawmakers want porn taxes. Critics say they\u2019re unconstitutional.",
+      "source": "Ars Technica",
+      "url": "https://arstechnica.com/tech-policy/2026/01/conservative-lawmakers-want-porn-taxes-critics-say-theyre-unconstitutional/",
       "category": "General Tech",
       "summary": "Summary not available."
     },
     {
       "rank": 6,
-      "title": "A New Bridge Links the Strange Math of Infinity to Computer Science",
+      "title": "16 Best Heat Protectant Sprays for Wet and Dry Hair (2026)",
       "source": "WIRED",
-      "url": "https://www.wired.com/story/a-new-bridge-links-the-strange-math-of-infinity-to-computer-science/",
-      "category": "General Tech",
+      "url": "https://www.wired.com/gallery/the-best-heat-protectants-for-hair/",
+      "category": "AI",
       "summary": "Summary not available."
     },
     {
       "rank": 7,
-      "title": "Protein Bars: Gluten-Free, Whole Foods, Fiber (2026)",
-      "source": "WIRED",
-      "url": "https://www.wired.com/story/best-protein-bars/",
-      "category": "General Tech",
+      "title": "Malaysia and Indonesia block X over failure to curb deepfake smut",
+      "source": "The Register",
+      "url": "https://go.theregister.com/feed/www.theregister.com/2026/01/12/asia_tech_news_roundup/",
+      "category": "AI",
       "summary": "Summary not available."
     }
   ]
