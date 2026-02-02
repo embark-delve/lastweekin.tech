@@ -1,59 +1,59 @@
 {
-  "week": "2026-01-26",
+  "week": "2026-02-02",
   "stories": [
     {
       "rank": 1,
-      "title": "A look at Clawdbot, an open-source personal AI agent that runs locally on the user's computer and integrates with multiple LLMs and messaging services (Federico Viticci/MacStories)",
-      "source": "Techmeme",
-      "url": "http://www.techmeme.com/260124/p17#a260124p17",
-      "category": "AI",
+      "title": "The TV industry finally concedes that the future may not be in 8K",
+      "source": "Ars Technica",
+      "url": "https://arstechnica.com/gadgets/2026/01/lg-joins-the-rest-of-the-world-accepts-that-people-dont-want-8k-tvs/",
+      "category": "General Tech",
       "summary": "Summary not available."
     },
     {
       "rank": 2,
-      "title": "Microsoft releases emergency OOB update to fix Outlook freezes",
-      "source": "BleepingComputer",
-      "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-releases-emergency-oob-update-to-fix-outlook-freezes/",
-      "category": "General Tech",
+      "title": "7 Best Prepaid Phone Plans (2026)",
+      "source": "WIRED",
+      "url": "https://www.wired.com/gallery/best-prepaid-phone-plans/",
+      "category": "AI",
       "summary": "Summary not available."
     },
     {
       "rank": 3,
-      "title": "Fortinet confirms critical FortiCloud auth bypass not fully patched",
-      "source": "BleepingComputer",
-      "url": "https://www.bleepingcomputer.com/news/security/fortinet-confirms-critical-forticloud-auth-bypass-not-fully-patched/",
-      "category": "General Tech",
+      "title": "The Information Networks That Connect Venezuelans in Uncertain Times",
+      "source": "WIRED",
+      "url": "https://www.wired.com/story/venezuela-information-networks-maduro-censorship/",
+      "category": "AI",
       "summary": "Summary not available."
     },
     {
       "rank": 4,
-      "title": "Phonak Audeo Infinio Ultra Sphere Review: Premium Hearing Aids",
-      "source": "WIRED",
-      "url": "https://www.wired.com/review/phonak-audeo-infinio-ultra-sphere/",
+      "title": "Open-source AI is a global security nightmare waiting to happen, say researchers",
+      "source": "The Register",
+      "url": "https://go.theregister.com/feed/www.theregister.com/2026/02/01/opensource_ai_is_a_global/",
       "category": "AI",
       "summary": "Summary not available."
     },
     {
       "rank": 5,
-      "title": "Creators and communities everywhere take a stand against ICE",
-      "source": "The Verge",
-      "url": "https://www.theverge.com/policy/867451/creators-and-communities-take-a-stand-against-ice",
-      "category": "AI",
+      "title": "At NIH, a power struggle over institute directorships deepens",
+      "source": "Ars Technica",
+      "url": "https://arstechnica.com/science/2026/02/at-nih-a-power-struggle-over-institute-directorships-deepens/",
+      "category": "General Tech",
       "summary": "Summary not available."
     },
     {
       "rank": 6,
-      "title": "A decade of Star Trek-themed fart jokes: The Greatest Generation podcast turns 10",
+      "title": "Fungus could be the insecticide of the future",
       "source": "Ars Technica",
-      "url": "https://arstechnica.com/culture/2026/01/a-decade-of-star-trek-themed-fart-jokes-the-greatest-generation-podcast-turns-10/",
+      "url": "https://arstechnica.com/science/2026/02/fungus-could-be-the-insecticide-of-the-future/",
       "category": "General Tech",
       "summary": "Summary not available."
     },
     {
       "rank": 7,
-      "title": "Intel\u2019s Panther Lake Chips Aren\u2019t Just Good\u2014They Beat Apple's M5",
+      "title": "Building a Watch Collection on a Budget? Here\u2019s Where to Start (2026)",
       "source": "WIRED",
-      "url": "https://www.wired.com/story/intel-panther-lake-core-ultra-series-3-review/",
+      "url": "https://www.wired.com/gallery/want-to-build-a-watch-collection-on-a-budget-heres-where-to-start/",
       "category": "General Tech",
       "summary": "Summary not available."
     }
