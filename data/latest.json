@@ -1,61 +1,61 @@
 {
-  "week": "2026-02-09",
+  "week": "2026-02-16",
   "stories": [
     {
       "rank": 1,
-      "title": "EU says TikTok needs to drop \"addictive design\"",
+      "title": "Editor\u2019s Note: Retraction of article containing fabricated quotations",
       "source": "Ars Technica",
-      "url": "https://arstechnica.com/tech-policy/2026/02/eu-says-tiktok-needs-to-drop-addictive-design/",
-      "category": "General Tech",
+      "url": "https://arstechnica.com/staff/2026/02/editors-note-retraction-of-article-containing-fabricated-quotations/",
+      "category": "AI",
       "summary": "Summary not available."
     },
     {
       "rank": 2,
-      "title": "A Project Hail Mary final trailer? Yes please",
-      "source": "Ars Technica",
-      "url": "https://arstechnica.com/culture/2026/02/a-project-hail-mary-final-trailer-yes-please/",
+      "title": "OpenAI grabs OpenClaw creator Peter Steinberger to build personal agents",
+      "source": "The Register",
+      "url": "https://go.theregister.com/feed/www.theregister.com/2026/02/16/open_ai_grabs_openclaw/",
       "category": "AI",
       "summary": "Summary not available."
     },
     {
       "rank": 3,
-      "title": "Super Bowl Tailgate Photo Essay: Bad Bunny, Big Tech, and the Big Game",
-      "source": "WIRED",
-      "url": "https://www.wired.com/story/super-bowl-lx-tailgate-photo-essay/",
+      "title": "OpenClaw founder Peter Steinberger is joining OpenAI",
+      "source": "The Verge",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/879623/openclaw-founder-peter-steinberger-joins-openai",
       "category": "AI",
       "summary": "Summary not available."
     },
     {
       "rank": 4,
-      "title": "4 Best AI Notetakers (2026), Tested and Reviewed",
+      "title": "Best Presidents\u2019 Day Mattress Sales of 2026",
       "source": "WIRED",
-      "url": "https://www.wired.com/gallery/best-ai-notetakers/",
-      "category": "AI",
+      "url": "https://www.wired.com/story/best-presidents-day-mattress-sales-2026/",
+      "category": "General Tech",
       "summary": "Summary not available."
     },
     {
       "rank": 5,
-      "title": "Turning Point USA\u2019s Halftime Show Was Exactly What You\u2019d Expect",
-      "source": "WIRED",
-      "url": "https://www.wired.com/story/turning-point-usas-halftime-show-was-exactly-what-youd-expect/",
+      "title": "Apple patches decade-old iOS zero-day, possibly exploited by commercial spyware",
+      "source": "The Register",
+      "url": "https://go.theregister.com/feed/www.theregister.com/2026/02/12/apple_ios_263/",
       "category": "General Tech",
       "summary": "Summary not available."
     },
     {
       "rank": 6,
-      "title": "Inside Bad Bunny\u2019s Historic Super Bowl Halftime Show",
-      "source": "WIRED",
-      "url": "https://www.wired.com/story/bad-bunny-super-bowl-halftime-show-behind-the-scenes/",
+      "title": "Fake Job Recruiters Hid Malware In Developer Coding Challenges",
+      "source": "Slashdot",
+      "url": "https://it.slashdot.org/story/26/02/15/062259/fake-job-recruiters-hid-malware-in-developer-coding-challenges?utm_source=rss1.0mainlinkanon&utm_medium=feed",
       "category": "General Tech",
       "summary": "Summary not available."
     },
     {
       "rank": 7,
-      "title": "Best Wireless Earbuds (2026): Apple, Sony, Bose, and More",
+      "title": "The Best Kindle Accessories (2026): Cases, Page Turners, Stickers",
       "source": "WIRED",
-      "url": "https://www.wired.com/gallery/best-wirefree-earbuds/",
+      "url": "https://www.wired.com/story/best-kindle-accessories/",
       "category": "General Tech",
-      "summary": "Summary not available."
+      "summary": "This article explores various Kindle accessories that enhance and protect your"
     }
   ]
 }
