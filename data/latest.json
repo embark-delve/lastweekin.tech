@@ -1,59 +1,59 @@
 {
-  "week": "2026-03-02",
+  "week": "2026-03-09",
   "stories": [
     {
       "rank": 1,
-      "title": "America Used Anthropic's AI for Its Attack On Iran, One Day After Banning It",
-      "source": "Slashdot",
-      "url": "https://tech.slashdot.org/story/26/03/01/1945208/america-used-anthropics-ai-for-its-attack-on-iran-one-day-after-banning-it?utm_source=rss1.0mainlinkanon&utm_medium=feed",
-      "category": "AI",
+      "title": "Apple users in the US can no longer download ByteDance's Chinese apps",
+      "source": "Ars Technica",
+      "url": "https://arstechnica.com/tech-policy/2026/03/apple-users-in-the-us-can-no-longer-download-bytedances-chinese-apps/",
+      "category": "General Tech",
       "summary": "Summary not available."
     },
     {
       "rank": 2,
-      "title": "Portable Sonos Play speaker leaks on Canadian Best Buy",
-      "source": "The Verge",
-      "url": "https://www.theverge.com/tech/887220/sonos-play-leak",
-      "category": "General Tech",
+      "title": "Jessica Jones joins the fray in Daredevil: Born Again trailer",
+      "source": "Ars Technica",
+      "url": "https://arstechnica.com/culture/2026/03/jessica-jones-joins-the-fray-in-daredevil-born-again-trailer/",
+      "category": "AI",
       "summary": "Summary not available."
     },
     {
       "rank": 3,
-      "title": "Trump moves to ban Anthropic from the US government",
-      "source": "Ars Technica",
-      "url": "https://arstechnica.com/tech-policy/2026/02/trump-moves-to-ban-anthropic-from-the-us-government/",
-      "category": "General Tech",
+      "title": "Beijing warns of more chip supply worries after Nexperia China claims it was cut off from SAP",
+      "source": "The Register",
+      "url": "https://go.theregister.com/feed/www.theregister.com/2026/03/09/asia_tech_news_roundup/",
+      "category": "AI",
       "summary": "Summary not available."
     },
     {
       "rank": 4,
-      "title": "Meta Files Lawsuits Against Brazil, China, Vietnam Advertisers Over Celeb-Bait Scams",
-      "source": "The Hacker News",
-      "url": "https://thehackernews.com/2026/02/meta-files-lawsuits-against-brazil.html",
+      "title": "AI agents now help attackers, including North Korea, manage their drudge work",
+      "source": "The Register",
+      "url": "https://go.theregister.com/feed/www.theregister.com/2026/03/08/deploy_and_manage_attack_infrastructure/",
       "category": "AI",
       "summary": "Summary not available."
     },
     {
       "rank": 5,
-      "title": "AMD will bring its \"Ryzen AI\" processors to standard desktop PCs for the first time",
+      "title": "Tiny, long-armed dinosaur leads to rethink of dinosaur miniaturization",
       "source": "Ars Technica",
-      "url": "https://arstechnica.com/gadgets/2026/03/amd-ryzen-ai-400-cpus-will-bring-upgraded-graphics-to-socket-am5-desktops/",
-      "category": "AI",
+      "url": "https://arstechnica.com/science/2026/03/tiny-long-armed-dinosaur-leads-to-rethink-of-dinosaur-miniaturization/",
+      "category": "General Tech",
       "summary": "Summary not available."
     },
     {
       "rank": 6,
-      "title": "The strange animals that control their body heat",
-      "source": "Ars Technica",
-      "url": "https://arstechnica.com/science/2026/03/the-strange-animals-that-control-their-body-heat/",
+      "title": "How to Run Ethernet Cables to Your Router and Keep Them Tidy",
+      "source": "WIRED",
+      "url": "https://www.wired.com/story/how-to-run-ethernet-cables-around-your-home/",
       "category": "General Tech",
       "summary": "Summary not available."
     },
     {
       "rank": 7,
-      "title": "Lenovo\u2019s Latest Wacky Concepts Include a Laptop With a Built-in Portable Monitor",
+      "title": "Force Your MacBook to Only Charge up to 80 Percent (and Why You Should)",
       "source": "WIRED",
-      "url": "https://www.wired.com/story/lenovo-mwc-concepts-thinkbook-modular-ai-pc-legion-go-fold/",
+      "url": "https://www.wired.com/story/only-charge-your-macbook-to-80-percent/",
       "category": "General Tech",
       "summary": "Summary not available."
     }
