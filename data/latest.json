@@ -1,60 +1,60 @@
 {
-  "week": "2026-03-09",
+  "week": "2026-03-16",
   "stories": [
     {
       "rank": 1,
-      "title": "Apple users in the US can no longer download ByteDance's Chinese apps",
-      "source": "Ars Technica",
-      "url": "https://arstechnica.com/tech-policy/2026/03/apple-users-in-the-us-can-no-longer-download-bytedances-chinese-apps/",
+      "title": "Samsung Galaxy S26 Ultra Review: The Privacy Screen",
+      "source": "WIRED",
+      "url": "https://www.wired.com/review/samsung-galaxy-s26-ultra/",
       "category": "General Tech",
       "summary": "Summary not available."
     },
     {
       "rank": 2,
-      "title": "Jessica Jones joins the fray in Daredevil: Born Again trailer",
-      "source": "Ars Technica",
-      "url": "https://arstechnica.com/culture/2026/03/jessica-jones-joins-the-fray-in-daredevil-born-again-trailer/",
-      "category": "AI",
+      "title": "Meta is reportedly laying off up to 20 percent of its staff",
+      "source": "The Verge",
+      "url": "https://www.theverge.com/business/895026/meta-laying-off-20-percent",
+      "category": "General Tech",
       "summary": "Summary not available."
     },
     {
       "rank": 3,
-      "title": "Beijing warns of more chip supply worries after Nexperia China claims it was cut off from SAP",
-      "source": "The Register",
-      "url": "https://go.theregister.com/feed/www.theregister.com/2026/03/09/asia_tech_news_roundup/",
-      "category": "AI",
+      "title": "Google fixes two new Chrome zero-days exploited in attacks",
+      "source": "BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/google/google-fixes-two-new-chrome-zero-days-exploited-in-attacks/",
+      "category": "General Tech",
       "summary": "Summary not available."
     },
     {
       "rank": 4,
-      "title": "AI agents now help attackers, including North Korea, manage their drudge work",
+      "title": "Prince of PDFs, Adobe CEO Shantanu Narayen, to step down after 18 years",
       "source": "The Register",
-      "url": "https://go.theregister.com/feed/www.theregister.com/2026/03/08/deploy_and_manage_attack_infrastructure/",
-      "category": "AI",
+      "url": "https://go.theregister.com/feed/www.theregister.com/2026/03/13/adobe_q1_2026/",
+      "category": "General Tech",
       "summary": "Summary not available."
     },
     {
       "rank": 5,
-      "title": "Tiny, long-armed dinosaur leads to rethink of dinosaur miniaturization",
-      "source": "Ars Technica",
-      "url": "https://arstechnica.com/science/2026/03/tiny-long-armed-dinosaur-leads-to-rethink-of-dinosaur-miniaturization/",
-      "category": "General Tech",
+      "title": "This At-Home Hair Growth System Just Dropped in Price",
+      "source": "WIRED",
+      "url": "https://www.wired.com/story/irestore-deals-amazon-spring-sale-2026/",
+      "category": "AI",
       "summary": "Summary not available."
     },
     {
       "rank": 6,
-      "title": "How to Run Ethernet Cables to Your Router and Keep Them Tidy",
-      "source": "WIRED",
-      "url": "https://www.wired.com/story/how-to-run-ethernet-cables-around-your-home/",
-      "category": "General Tech",
+      "title": "India tests whether AI can stop trains hitting elephants",
+      "source": "The Register",
+      "url": "https://go.theregister.com/feed/www.theregister.com/2026/03/16/asia_tech_news_roundup/",
+      "category": "AI",
       "summary": "Summary not available."
     },
     {
       "rank": 7,
-      "title": "Force Your MacBook to Only Charge up to 80 Percent (and Why You Should)",
-      "source": "WIRED",
-      "url": "https://www.wired.com/story/only-charge-your-macbook-to-80-percent/",
-      "category": "General Tech",
+      "title": "AI Czar David Sacks wants Trump to \u2018get out\u2019 of Iran",
+      "source": "The Verge",
+      "url": "https://www.theverge.com/policy/895059/trump-ai-czar-out-of-iran",
+      "category": "AI",
       "summary": "Summary not available."
     }
   ]
