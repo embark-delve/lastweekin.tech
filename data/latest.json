@@ -1,59 +1,59 @@
 {
-  "week": "2026-03-23",
+  "week": "2026-03-30",
   "stories": [
     {
       "rank": 1,
-      "title": "Crimson Desert dev apologizes for use of AI art",
-      "source": "The Verge",
-      "url": "https://www.theverge.com/games/898771/crimson-desert-dev-apologizes-ai-art",
+      "title": "DOJ confirms FBI Director Kash Patel\u2019s personal email was hacked",
+      "source": "Ars Technica",
+      "url": "https://arstechnica.com/tech-policy/2026/03/doj-confirms-fbi-director-kash-patels-personal-email-was-hacked/",
       "category": "AI",
-      "summary": "The developer of Crimson Desert has acknowledged using AI-generated art in the game despite initial mixed reviews,"
+      "summary": "Summary not available."
     },
     {
       "rank": 2,
-      "title": "Trivy Supply Chain Attack Spreads, Triggers Self-Spreading CanisterWorm Across 47 npm Packages",
-      "source": "Slashdot",
-      "url": "https://it.slashdot.org/story/26/03/22/0039257/trivy-supply-chain-attack-spreads-triggers-self-spreading-canisterworm-across-47-npm-packages?utm_source=rss1.0mainlinkanon&utm_medium=feed",
-      "category": "AI",
-      "summary": "Oscar Wilde's provocative statement suggests that America was known to exist before its widely accepted \"discovery\" by Europeans, but this knowledge was deliberately concealed or suppressed. The quote likely reflects Wilde's characteristic wit and skepticism toward conventional historical narratives"
+      "title": "European Commission confirms data breach after Europa.eu hack",
+      "source": "BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/european-commission-confirms-data-breach-after-europaeu-hack/",
+      "category": "General Tech",
+      "summary": "Summary not available."
     },
     {
       "rank": 3,
-      "title": "Airlines Are Already Preparing for an Oil Crisis",
+      "title": "A School District Tried to Help Train Waymos to Stop for School Buses. It Didn\u2019t Work",
       "source": "WIRED",
-      "url": "https://www.wired.com/story/united-airlines-jet-fuel-alarm-economy/",
+      "url": "https://www.wired.com/story/a-school-district-tried-to-help-train-waymos-to-stop-for-school-buses-it-didnt-work/",
       "category": "AI",
       "summary": "Summary not available."
     },
     {
       "rank": 4,
-      "title": "There can (still) be only one: Highlander is 40",
-      "source": "Ars Technica",
-      "url": "https://arstechnica.com/culture/2026/03/there-can-still-be-only-one-highlander-is-40/",
-      "category": "General Tech",
-      "summary": "Summary not available."
+      "title": "AI will write code, but prepare to babysit it \u2013 and be sure you speak its language",
+      "source": "The Register",
+      "url": "https://go.theregister.com/feed/www.theregister.com/2026/03/29/ai_will_write_code_but/",
+      "category": "AI",
+      "summary": "According"
     },
     {
       "rank": 5,
-      "title": "Mining the deep ocean",
+      "title": "Pints meet prop bets: Polymarket\u2019s \u201cSituation Room\u201d pop-up bar in DC",
       "source": "Ars Technica",
-      "url": "https://arstechnica.com/science/2026/03/mining-the-deep-ocean/",
+      "url": "https://arstechnica.com/culture/2026/03/pints-meet-prop-bets-polymarkets-situation-room-pop-up-bar-in-dc/",
       "category": "General Tech",
       "summary": "Summary not available."
     },
     {
       "rank": 6,
-      "title": "Best Merino Wool Clothing (2026): Base Layers, Hoodies, Jackets & More",
-      "source": "WIRED",
-      "url": "https://www.wired.com/story/best-merino-wool-clothes/",
+      "title": "Polygraphs have major flaws. Are there better options?",
+      "source": "Ars Technica",
+      "url": "https://arstechnica.com/science/2026/03/polygraphs-have-major-flaws-are-there-better-options/",
       "category": "General Tech",
       "summary": "Summary not available."
     },
     {
       "rank": 7,
-      "title": "How to Back Up Your Android Phone (2026)",
+      "title": "9 Best Android Phones of 2026, Tested and Reviewed",
       "source": "WIRED",
-      "url": "https://www.wired.com/story/how-to-backup-your-android/",
+      "url": "https://www.wired.com/gallery/best-android-phones/",
       "category": "General Tech",
       "summary": "Summary not available."
     }
