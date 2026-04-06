@@ -1,61 +1,61 @@
 {
-  "week": "2026-03-30",
+  "week": "2026-04-06",
   "stories": [
     {
       "rank": 1,
-      "title": "DOJ confirms FBI Director Kash Patel\u2019s personal email was hacked",
+      "title": "CBP facility codes sure seem to have leaked via online flashcards",
       "source": "Ars Technica",
-      "url": "https://arstechnica.com/tech-policy/2026/03/doj-confirms-fbi-director-kash-patels-personal-email-was-hacked/",
-      "category": "AI",
-      "summary": "Summary not available."
+      "url": "https://arstechnica.com/security/2026/04/cbp-facility-codes-sure-seem-to-have-leaked-via-online-flashcards/",
+      "category": "General Tech",
+      "summary": "A Quizlet flashcard set titled \u201cUSBP Review\u201d was publicly available from February until March\u202f20, when it was made private after WIRED flagged a phone number that could belong to a user near a Kingsville, Texas CBP facility. The set disclosed specific four\u2011digit codes for various facility entrances, potentially revealing sensitive CBP security procedures. Although WIRED could not confirm the creator was an active CBP agent or contractor, the incident is under review by CBP\u2019s Office of Professional Responsibility; the DHS and ICE have not commented. If the set was produced by a CBP affiliate, it would constitute a serious breach of an agency tasked with safeguarding U.S. borders."
     },
     {
       "rank": 2,
-      "title": "European Commission confirms data breach after Europa.eu hack",
-      "source": "BleepingComputer",
-      "url": "https://www.bleepingcomputer.com/news/security/european-commission-confirms-data-breach-after-europaeu-hack/",
-      "category": "General Tech",
-      "summary": "Summary not available."
+      "title": "Tech companies are trying to neuter Colorado\u2019s landmark right-to-repair law",
+      "source": "Ars Technica",
+      "url": "https://arstechnica.com/tech-policy/2026/04/tech-companies-are-trying-to-neuter-colorados-landmark-right-to-repair-law/",
+      "category": "AI",
+      "summary": "Right\u2011to\u2011repair momentum is accelerating in the U.S., with Colorado leading the charge by passing a series of bills in 2022 that grant consumers the tools, instructions, and legal rights to fix wheelchairs, farm equipment, and consumer electronics; the state\u2019s 2024 Consumer Right to Repair Digital Electronic Equipment Act, effective January\u202f2026, is the most expansive nationwide. However, a new Colorado Senate bill (SB26\u2011090) now seeks to carve out a \u201ccritical infrastructure\u201d exemption\u2014supported by tech giants such as Cisco and IBM\u2014arguing that allowing broad repair access could compromise cybersecurity and that manufacturers would benefit from controlling repair processes. While repair advocates celebrate Colorado\u2019s pioneering stance, manufacturers remain wary, citing potential revenue loss and security risks."
     },
     {
       "rank": 3,
-      "title": "A School District Tried to Help Train Waymos to Stop for School Buses. It Didn\u2019t Work",
-      "source": "WIRED",
-      "url": "https://www.wired.com/story/a-school-district-tried-to-help-train-waymos-to-stop-for-school-buses-it-didnt-work/",
-      "category": "AI",
-      "summary": "Summary not available."
+      "title": "Netflix must refund customers for years of price hikes, Italian court rules",
+      "source": "Ars Technica",
+      "url": "https://arstechnica.com/gadgets/2026/04/netflix-ordered-to-refund-subscribers-up-to-e500-for-unlawful-price-hikes/",
+      "category": "General Tech",
+      "summary": "A Rome court ruled that Netflix\u2019s price hikes in Italy (2017, 2019, 2021, and 2024) were unlawful under the Consumer Code, which requires contracts to explain future price changes. The court found Netflix failed to provide valid justifications, invalidating the hikes and ordering refunds of up to \u20ac500 (\u2248$576) per customer, depending on their plan. Premium subscribers could receive about \u20ac500, standard about \u20ac250, and basic plan customers about \u20ac2 per month. Netflix has 90 days to notify millions of users of their refund rights or face a \u20ac700 daily penalty. The decision follows a lawsuit by Movimento Consumatori, which highlighted that Netflix\u2019s 30\u2011day notice and cancellation option did not satisfy legal requirements. Netflix reportedly serves 5.4\u20138.3\u202fmillion Italian users."
     },
     {
       "rank": 4,
-      "title": "AI will write code, but prepare to babysit it \u2013 and be sure you speak its language",
-      "source": "The Register",
-      "url": "https://go.theregister.com/feed/www.theregister.com/2026/03/29/ai_will_write_code_but/",
+      "title": "With One Million Displaced, Lebanon Turns to Digital Wallets for Aid",
+      "source": "WIRED",
+      "url": "https://www.wired.com/story/with-one-million-displaced-lebanon-turns-to-digital-wallets-for-aid/",
       "category": "AI",
-      "summary": "According"
+      "summary": "Since March, Israeli attacks on Beirut and the occupation of southern Lebanon have displaced over a million people, many of whom have fled to Syria or are sheltering in overcrowded homes, cars, and the open air, straining Lebanon\u2019s already fragile infrastructure. The humanitarian crisis has spurred a surge in international financial flows that bypass traditional aid channels, instead moving instantly through digital fintech platforms such as Whish Money, PayPal, Zelle, and Venmo to trusted individuals on the ground. While Lebanon receives roughly $6\u2011$7\u202fbillion in annual remittances\u2014about a third of its GDP\u2014remittance costs are high (\u224811\u202f%) and the pandemic\u2011era crisis has accelerated peer\u2011to\u2011peer, wallet\u2011based transfers, now accounting for around 70\u202f% of inflows during the crisis. Whish Money, originally a gift\u2011card digitizer, has evolved into a broad financial ecosystem with 2\u202fmillion users in 110 countries, targeting the unbanked and underbanked amid Lebanon\u2019s banking collapse; its US\u2011bank connectivity lets diaspora funds enter Lebanese wallets instantly. This shift has enabled families to buy larger, essential purchases and stockpile supplies as uncertainty mounts, illustrating how fintech is reshaping aid delivery and daily life in a war\u2011torn economy."
     },
     {
       "rank": 5,
-      "title": "Pints meet prop bets: Polymarket\u2019s \u201cSituation Room\u201d pop-up bar in DC",
-      "source": "Ars Technica",
-      "url": "https://arstechnica.com/culture/2026/03/pints-meet-prop-bets-polymarkets-situation-room-pop-up-bar-in-dc/",
-      "category": "General Tech",
-      "summary": "Summary not available."
+      "title": "The developer who came in from the cold and melted a mainframe",
+      "source": "The Register",
+      "url": "https://go.theregister.com/feed/www.theregister.com/2026/04/06/who_me/",
+      "category": "AI",
+      "summary": "In a recent \u201cWho,\u202fMe?\u201d column, a reader named Rob recounts a 1990s Sybase developer gig in London where he and two colleagues were dropped into a cramped, unheated floor with no work or support. Their only warmth came from a Tandem mainframe\u2019s poorly ventilated data room, which vented hot air through a window. When the weather turned colder, the trio secretly closed the window and redirected the mainframe\u2019s heat into their space, enjoying a few days of warmth\u2014until the mainframe overheated, alarms sounded, and an engineer discovered the sabotage, ending their makeshift heating scheme."
     },
     {
       "rank": 6,
-      "title": "Polygraphs have major flaws. Are there better options?",
-      "source": "Ars Technica",
-      "url": "https://arstechnica.com/science/2026/03/polygraphs-have-major-flaws-are-there-better-options/",
+      "title": "The Ridiculously Nerdy Intel Bet That Could Rake in Billions",
+      "source": "WIRED",
+      "url": "https://www.wired.com/story/why-chip-packaging-could-decide-the-next-phase-of-the-ai-boom/",
       "category": "General Tech",
-      "summary": "Summary not available."
+      "summary": "Intel\u2019s Rio\u202fRancho Fab\u202f9, re\u2011activated in January\u202f2024 with a $500\u202fmillion CHIPS\u2011Act grant, is now a linchpin for the company\u2019s fast\u2011growing advanced\u2011chip\u2011packaging business, which combines multiple chiplets into single custom chips. The packaging arm\u2014part of Intel\u2019s newly split Foundry division\u2014is positioned to compete with TSMC for AI\u2011driven demand, with CEO Lip\u2011Bu\u202fTan calling it a key differentiator and CFO Dave\u202fZinsner projecting packaging revenue to exceed $1\u202fbillion and even precede wafer revenue. Intel is reportedly in talks with major customers such as Google and Amazon to outsource parts of their custom chip fabrication, a move that could secure multi\u2011billion\u2011dollar deals and help the chipmaker regain market share after years of stagnation. The success of this Foundry strategy hinges on attracting such external clients while maintaining high gross margins comparable to its traditional product line."
     },
     {
       "rank": 7,
-      "title": "9 Best Android Phones of 2026, Tested and Reviewed",
+      "title": "Best Apple Watch Bands of 2026: Nike, Herm\u00e9s, and More",
       "source": "WIRED",
-      "url": "https://www.wired.com/gallery/best-android-phones/",
+      "url": "https://www.wired.com/story/best-apple-watch-bands/",
       "category": "General Tech",
-      "summary": "Summary not available."
+      "summary": "Apple Watch bands can be both a fashion statement and a functional upgrade, and WIRED\u2019s roundup highlights the best options for every scenario. For everyday wear, the Nike Sport Loop\u2014made from recycled polyester, spandex, and nylon\u2014offers a breathable, lightweight, and Velcro\u2011fastened design that\u2019s easy to adjust and keeps sweat at bay, though it\u2019s best suited to casual or office settings rather than formal events. For a more premium, versatile look, the Nomad Stratos Band uses Grade\u202f4 titanium with a scratch\u2011resistant DLC coating, antimicrobial FKM rubber links, and a magnetic clasp that snaps on securely; its sturdy construction makes it suitable for workouts, outdoor use, and everyday wear alike. Together, these bands illustrate how material choice, weight, and closure type can tailor a smartwatch to both style and performance needs."
     }
   ]
 }
