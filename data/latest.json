@@ -1,61 +1,61 @@
 {
-  "week": "2026-04-06",
+  "week": "2026-04-13",
   "stories": [
     {
       "rank": 1,
-      "title": "CBP facility codes sure seem to have leaked via online flashcards",
-      "source": "Ars Technica",
-      "url": "https://arstechnica.com/security/2026/04/cbp-facility-codes-sure-seem-to-have-leaked-via-online-flashcards/",
+      "title": "Sam Altman reportedly targeted in second attack",
+      "source": "The Verge",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/910890/openai-sam-altman-second-home-attack-shooting",
       "category": "General Tech",
-      "summary": "A Quizlet flashcard set titled \u201cUSBP Review\u201d was publicly available from February until March\u202f20, when it was made private after WIRED flagged a phone number that could belong to a user near a Kingsville, Texas CBP facility. The set disclosed specific four\u2011digit codes for various facility entrances, potentially revealing sensitive CBP security procedures. Although WIRED could not confirm the creator was an active CBP agent or contractor, the incident is under review by CBP\u2019s Office of Professional Responsibility; the DHS and ICE have not commented. If the set was produced by a CBP affiliate, it would constitute a serious breach of an agency tasked with safeguarding U.S. borders."
+      "summary": "Sam Altman\u2019s San\u202fFrancisco home was the target of two separate threats in the span of a weekend. On April\u202f10, a 20\u2011year\u2011old was arrested after allegedly throwing a Molotov cocktail at the Russian Hill residence; the investigation remains open. Two days later, police received a 2:56\u202fAM call about possible gunfire, captured a vehicle\u2019s license plate on surveillance, and arrested two occupants (25 and 23) who were charged with negligent discharge after a weapon was fired at the house. Officers seized three firearms during the arrest. San Francisco Police Chief Derrick\u202fLew emphasized the department\u2019s commitment to prosecuting gun\u2011related crimes."
     },
     {
       "rank": 2,
-      "title": "Tech companies are trying to neuter Colorado\u2019s landmark right-to-repair law",
-      "source": "Ars Technica",
-      "url": "https://arstechnica.com/tech-policy/2026/04/tech-companies-are-trying-to-neuter-colorados-landmark-right-to-repair-law/",
-      "category": "AI",
-      "summary": "Right\u2011to\u2011repair momentum is accelerating in the U.S., with Colorado leading the charge by passing a series of bills in 2022 that grant consumers the tools, instructions, and legal rights to fix wheelchairs, farm equipment, and consumer electronics; the state\u2019s 2024 Consumer Right to Repair Digital Electronic Equipment Act, effective January\u202f2026, is the most expansive nationwide. However, a new Colorado Senate bill (SB26\u2011090) now seeks to carve out a \u201ccritical infrastructure\u201d exemption\u2014supported by tech giants such as Cisco and IBM\u2014arguing that allowing broad repair access could compromise cybersecurity and that manufacturers would benefit from controlling repair processes. While repair advocates celebrate Colorado\u2019s pioneering stance, manufacturers remain wary, citing potential revenue loss and security risks."
+      "title": "Google removes \"Doki Doki Literature Club\" from Google Play",
+      "source": "Hacker News (hnrss)",
+      "url": "https://bsky.app/profile/serenityforge.com/post/3mj3r4nbiws2t",
+      "category": "General Tech",
+      "summary": "The article emphasizes that the web application in question is highly interactive and necessitates JavaScript; while a basic HTML interface could technically function, it would not serve the intended purpose. It directs readers to learn more about the platform through Bluesky (bsky.social) and the underlying protocol at atproto.com."
     },
     {
       "rank": 3,
-      "title": "Netflix must refund customers for years of price hikes, Italian court rules",
-      "source": "Ars Technica",
-      "url": "https://arstechnica.com/gadgets/2026/04/netflix-ordered-to-refund-subscribers-up-to-e500-for-unlawful-price-hikes/",
-      "category": "General Tech",
-      "summary": "A Rome court ruled that Netflix\u2019s price hikes in Italy (2017, 2019, 2021, and 2024) were unlawful under the Consumer Code, which requires contracts to explain future price changes. The court found Netflix failed to provide valid justifications, invalidating the hikes and ordering refunds of up to \u20ac500 (\u2248$576) per customer, depending on their plan. Premium subscribers could receive about \u20ac500, standard about \u20ac250, and basic plan customers about \u20ac2 per month. Netflix has 90 days to notify millions of users of their refund rights or face a \u20ac700 daily penalty. The decision follows a lawsuit by Movimento Consumatori, which highlighted that Netflix\u2019s 30\u2011day notice and cancellation option did not satisfy legal requirements. Netflix reportedly serves 5.4\u20138.3\u202fmillion Italian users."
+      "title": "Suspect Arrested for Allegedly Throwing Molotov Cocktail at Sam Altman\u2019s Home",
+      "source": "WIRED",
+      "url": "https://www.wired.com/story/sam-altman-home-attack-openai-san-franisco-office-threat/",
+      "category": "AI",
+      "summary": "San\u202fFrancisco police arrested a 20\u2011year\u2011old man early Friday after he allegedly threw an incendiary device at OpenAI CEO Sam Altman\u2019s home and later threatened to burn down the company\u2019s Mission Bay headquarters. Security staff notified employees of the incident and advised caution, while OpenAI remained open but heightened security. The suspect was apprehended within an hour of the first attack, and no injuries or significant damage were reported; charges are pending. This follows prior threats against the company, including a November activist scare and February 2025 protests."
     },
     {
       "rank": 4,
-      "title": "With One Million Displaced, Lebanon Turns to Digital Wallets for Aid",
+      "title": "How and When to Watch the Artemis II Mission\u2019s Return to Earth",
       "source": "WIRED",
-      "url": "https://www.wired.com/story/with-one-million-displaced-lebanon-turns-to-digital-wallets-for-aid/",
-      "category": "AI",
-      "summary": "Since March, Israeli attacks on Beirut and the occupation of southern Lebanon have displaced over a million people, many of whom have fled to Syria or are sheltering in overcrowded homes, cars, and the open air, straining Lebanon\u2019s already fragile infrastructure. The humanitarian crisis has spurred a surge in international financial flows that bypass traditional aid channels, instead moving instantly through digital fintech platforms such as Whish Money, PayPal, Zelle, and Venmo to trusted individuals on the ground. While Lebanon receives roughly $6\u2011$7\u202fbillion in annual remittances\u2014about a third of its GDP\u2014remittance costs are high (\u224811\u202f%) and the pandemic\u2011era crisis has accelerated peer\u2011to\u2011peer, wallet\u2011based transfers, now accounting for around 70\u202f% of inflows during the crisis. Whish Money, originally a gift\u2011card digitizer, has evolved into a broad financial ecosystem with 2\u202fmillion users in 110 countries, targeting the unbanked and underbanked amid Lebanon\u2019s banking collapse; its US\u2011bank connectivity lets diaspora funds enter Lebanese wallets instantly. This shift has enabled families to buy larger, essential purchases and stockpile supplies as uncertainty mounts, illustrating how fintech is reshaping aid delivery and daily life in a war\u2011torn economy."
+      "url": "https://www.wired.com/story/how-and-when-to-watch-the-artemis-ii-missions-return-to-earth/",
+      "category": "General Tech",
+      "summary": "NASA\u2019s Artemis\u202fII mission, after a 10\u2011day lunar excursion, is set to re\u2011enter Earth\u2019s atmosphere on Friday, April\u202f10 at 5:07\u202fp.m.\u202fPDT (with corresponding U.S. times from 5:07\u202fp.m. SF to 8:08\u202fp.m. NY). The Orion capsule will plunge toward southeast Hawaii at about 38,400\u202fkm/h, endure temperatures up to 2,760\u202f\u00b0C on its exterior, and subject the crew to nearly 3.9\u202fg\u2019s before splashing down in the Pacific off California in roughly 13\u202fminutes. The re\u2011entry is a critical test of NASA\u2019s deep\u2011space technology, with the event streamed live on NASA+, Amazon Prime, Apple TV, Netflix, HBO\u202fMax, and YouTube."
     },
     {
       "rank": 5,
-      "title": "The developer who came in from the cold and melted a mainframe",
-      "source": "The Register",
-      "url": "https://go.theregister.com/feed/www.theregister.com/2026/04/06/who_me/",
+      "title": "Shock from Iran war has Trump's vision for US energy dominance flailing",
+      "source": "Ars Technica",
+      "url": "https://arstechnica.com/science/2026/04/shock-from-iran-war-has-trumps-vision-for-us-energy-dominance-flailing/",
       "category": "AI",
-      "summary": "In a recent \u201cWho,\u202fMe?\u201d column, a reader named Rob recounts a 1990s Sybase developer gig in London where he and two colleagues were dropped into a cramped, unheated floor with no work or support. Their only warmth came from a Tandem mainframe\u2019s poorly ventilated data room, which vented hot air through a window. When the weather turned colder, the trio secretly closed the window and redirected the mainframe\u2019s heat into their space, enjoying a few days of warmth\u2014until the mainframe overheated, alarms sounded, and an engineer discovered the sabotage, ending their makeshift heating scheme."
+      "summary": "Trump\u2019s claim that the U.S. can weather the chaos sparked by Iran\u2019s blockade of the Strait of Hormuz ignores the sharp reality seen at pumps across America, where gasoline prices have spiked by more than $4 per gallon\u2014an $8.4\u202fbillion hike in a month\u2014illustrating the nation\u2019s vulnerability to global supply shocks. While the U.S. is the world\u2019s largest oil and gas producer, it also consumes the most, making it heavily dependent on the same international market that the conflict has disrupted. Iran\u2019s insistence on controlling the Strait\u2014and its threat to charge tolls\u2014has kept tankers stalled, and even a two\u2011week ceasefire has not fully restored flow. The Energy Information Administration warns that elevated prices will persist through year\u2011end, and critical infrastructure such as Qatar\u2019s Ras Laffan LNG terminal may suffer long\u2011term damage. As the U.S. rolls back climate and clean\u2011energy policies, its dual role as producer and consumer leaves it exposed to the very global disruptions it claims to dominate."
     },
     {
       "rank": 6,
-      "title": "The Ridiculously Nerdy Intel Bet That Could Rake in Billions",
+      "title": "\u2018The Audacity\u2019 Is the Broligarchy Takedown You Were Waiting For",
       "source": "WIRED",
-      "url": "https://www.wired.com/story/why-chip-packaging-could-decide-the-next-phase-of-the-ai-boom/",
-      "category": "General Tech",
-      "summary": "Intel\u2019s Rio\u202fRancho Fab\u202f9, re\u2011activated in January\u202f2024 with a $500\u202fmillion CHIPS\u2011Act grant, is now a linchpin for the company\u2019s fast\u2011growing advanced\u2011chip\u2011packaging business, which combines multiple chiplets into single custom chips. The packaging arm\u2014part of Intel\u2019s newly split Foundry division\u2014is positioned to compete with TSMC for AI\u2011driven demand, with CEO Lip\u2011Bu\u202fTan calling it a key differentiator and CFO Dave\u202fZinsner projecting packaging revenue to exceed $1\u202fbillion and even precede wafer revenue. Intel is reportedly in talks with major customers such as Google and Amazon to outsource parts of their custom chip fabrication, a move that could secure multi\u2011billion\u2011dollar deals and help the chipmaker regain market share after years of stagnation. The success of this Foundry strategy hinges on attracting such external clients while maintaining high gross margins comparable to its traditional product line."
+      "url": "https://www.wired.com/story/the-audacity-is-the-broligarchy-takedown-you-were-waiting-for/",
+      "category": "AI",
+      "summary": "\u201cThe Audacity\u201d is an AMC drama that follows billionaire tech mogul Duncan Park (Billy\u202fMagnussen) as he manipulates markets, stalks his therapist and pushes his privileged family into toxic environments, all while trying to maintain his image as a genius. The series, created by Jonathan Glatzer, echoes the anti\u2011One\u2011Percent satire of shows like *Succession* and *Silicon Valley*, but adds a new angle: it exposes the emotional wreckage that comes from unchecked power and narcissism. Duncan\u2019s obsession with control\u2014evidenced by a failed sale of his firm Hypergnosis, his reliance on an ayahuasca shaman, and his covert use of AI to spy on Dr. JoAnne Felder (Sarah\u202fGoldberg)\u2014leads to a dangerous cat\u2011and\u2011mouse dynamic that spirals into insider trading and blackmail. Meanwhile, the neglected children of both Duncan and JoAnne drift through cut\u2011throat private schools, highlighting the human cost of wealth and ambition. The show uses these personal dramas to critique the culture of Silicon Valley excess and the broader societal fallout of elite dominance."
     },
     {
       "rank": 7,
-      "title": "Best Apple Watch Bands of 2026: Nike, Herm\u00e9s, and More",
+      "title": "Why Is It So Hard to Fix an Electric Bike? (2026)",
       "source": "WIRED",
-      "url": "https://www.wired.com/story/best-apple-watch-bands/",
+      "url": "https://www.wired.com/story/why-is-it-so-hard-to-fix-an-electric-bike/",
       "category": "General Tech",
-      "summary": "Apple Watch bands can be both a fashion statement and a functional upgrade, and WIRED\u2019s roundup highlights the best options for every scenario. For everyday wear, the Nike Sport Loop\u2014made from recycled polyester, spandex, and nylon\u2014offers a breathable, lightweight, and Velcro\u2011fastened design that\u2019s easy to adjust and keeps sweat at bay, though it\u2019s best suited to casual or office settings rather than formal events. For a more premium, versatile look, the Nomad Stratos Band uses Grade\u202f4 titanium with a scratch\u2011resistant DLC coating, antimicrobial FKM rubber links, and a magnetic clasp that snaps on securely; its sturdy construction makes it suitable for workouts, outdoor use, and everyday wear alike. Together, these bands illustrate how material choice, weight, and closure type can tailor a smartwatch to both style and performance needs."
+      "summary": "Bike shops are increasingly wary of taking on electric\u2011bike repairs because the market is littered with vehicles that don\u2019t meet the legal Class\u202f1\u20113 definition\u2014many sold online exceed the 28\u202fmph limit and function more like mopeds than bicycles.  Owners such as MacKenzie Hardt of Hardt Family Cyclery now refuse to repair any ebike without UL\u202f2849 certification, citing safety and liability concerns after witnessing injuries from poorly controlled power systems.  With nationwide injury rates for e\u2011bikes up by over 1,000\u202f% since 2020, insurers often void coverage on non\u2011compliant bikes, leaving shops exposed to product\u2011liability claims and legal uncertainty that varies state to state."
     }
   ]
 }
