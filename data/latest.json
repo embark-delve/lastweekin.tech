@@ -1,61 +1,61 @@
 {
-  "week": "2026-04-13",
+  "week": "2026-04-20",
   "stories": [
     {
       "rank": 1,
-      "title": "Sam Altman reportedly targeted in second attack",
-      "source": "The Verge",
-      "url": "https://www.theverge.com/ai-artificial-intelligence/910890/openai-sam-altman-second-home-attack-shooting",
-      "category": "General Tech",
-      "summary": "Sam Altman\u2019s San\u202fFrancisco home was the target of two separate threats in the span of a weekend. On April\u202f10, a 20\u2011year\u2011old was arrested after allegedly throwing a Molotov cocktail at the Russian Hill residence; the investigation remains open. Two days later, police received a 2:56\u202fAM call about possible gunfire, captured a vehicle\u2019s license plate on surveillance, and arrested two occupants (25 and 23) who were charged with negligent discharge after a weapon was fired at the house. Officers seized three firearms during the arrest. San Francisco Police Chief Derrick\u202fLew emphasized the department\u2019s commitment to prosecuting gun\u2011related crimes."
+      "title": "Blue Origin's rocket reuse achievement marred by upper stage failure",
+      "source": "Ars Technica",
+      "url": "https://arstechnica.com/space/2026/04/errant-upper-stage-spoils-blue-origins-success-in-reusing-new-glenn-booster/",
+      "category": "AI",
+      "summary": "Blue Origin\u2019s third New\u202fGlenn launch marked the first successful reflight of an orbital\u2011class booster, but the mission ended with a setback for the company\u2019s flagship rocket, which is slated to carry NASA\u2019s Artemis crew to the moon. The 321\u2011ft vehicle lifted off from Cape Canaveral at 7:25\u202fam EDT, the BE\u20114 methane engines powered the lift\u2011off and the first\u2011stage booster shed its engines after three minutes, separating from the upper stage that used BE\u20113U liquid hydrogen/oxygen engines. The booster followed a parabolic trajectory, re\u2011ignited for two braking burns, and landed safely on a ship in the Atlantic, becoming the second flight of the \u201cNever Tell Me The Odds\u201d booster. While the successful recovery demonstrates progress toward reusable, high\u2011volume launches, the flight also exposed challenges in New\u202fGlenn\u2019s larger, more complex design\u2014highlighting that, unlike SpaceX\u2019s rapid Falcon\u202f9 refurbishment, Blue Origin still has hurdles to overcome before it can match the rapid reflight cadence needed for the Artemis program."
     },
     {
       "rank": 2,
-      "title": "Google removes \"Doki Doki Literature Club\" from Google Play",
-      "source": "Hacker News (hnrss)",
-      "url": "https://bsky.app/profile/serenityforge.com/post/3mj3r4nbiws2t",
-      "category": "General Tech",
-      "summary": "The article emphasizes that the web application in question is highly interactive and necessitates JavaScript; while a basic HTML interface could technically function, it would not serve the intended purpose. It directs readers to learn more about the platform through Bluesky (bsky.social) and the underlying protocol at atproto.com."
+      "title": "The Best Hybrid Mattresses for Couples, Back Pain, and More (2026)",
+      "source": "WIRED",
+      "url": "https://www.wired.com/gallery/best-hybrid-mattresses/",
+      "category": "AI",
+      "summary": "Hybrid mattresses combine springs and foam layers with a wide array of additional materials\u2014latex, different foam densities, fabrics and cooling covers\u2014to deliver a balance of softness, support and breathability; the key to choosing the best one is personal testing, as no single model suits everyone, which is why Wired reviewers spend weeks on each mattress, noting fit for height, weight, sleep position and specific needs such as cooling. The article reviews a spectrum of hybrids, from side\u2011sleep\u2011focused to back\u2011pain relief and organic options, and as of April\u202f2026 has added the Tiami Luxury Hybrid and Saatva HD to the lineup, with updated prices."
     },
     {
       "rank": 3,
-      "title": "Suspect Arrested for Allegedly Throwing Molotov Cocktail at Sam Altman\u2019s Home",
-      "source": "WIRED",
-      "url": "https://www.wired.com/story/sam-altman-home-attack-openai-san-franisco-office-threat/",
+      "title": "Blue Origin nails the landing, but puts the payload satellite in the wrong orbit",
+      "source": "The Register",
+      "url": "https://go.theregister.com/feed/www.theregister.com/2026/04/20/blue_origin_nails_the_landing/",
       "category": "AI",
-      "summary": "San\u202fFrancisco police arrested a 20\u2011year\u2011old man early Friday after he allegedly threw an incendiary device at OpenAI CEO Sam Altman\u2019s home and later threatened to burn down the company\u2019s Mission Bay headquarters. Security staff notified employees of the incident and advised caution, while OpenAI remained open but heightened security. The suspect was apprehended within an hour of the first attack, and no injuries or significant damage were reported; charges are pending. This follows prior threats against the company, including a November activist scare and February 2025 protests."
+      "summary": "Blue\u202fOrigin\u2019s New\u202fGlenn rocket successfully landed its reused first stage on the Jacklyn platform during its April\u202f19 launch, but the mission failed to place AST\u202fSpaceMobile\u2019s satellite Bluebird\u202f7 into a usable orbit; the second stage delivered the satellite to a lower\u2011than\u2011planned, off\u2011nominal orbit that its own thrusters could not correct, forcing AST to de\u2011orbit the payload and recover its cost through insurance. The incident leaves the second stage\u2019s performance unclear and raises questions about Blue\u202fOrigin\u2019s upcoming schedule\u2014including a Starlink competitor, additional AST payloads and a lunar cargo lander for a potential Artemis\u2011III demonstration\u2014while underscoring that the successful landing and reuse of the rocket was outweighed by the loss of the critical payload."
     },
     {
       "rank": 4,
-      "title": "How and When to Watch the Artemis II Mission\u2019s Return to Earth",
-      "source": "WIRED",
-      "url": "https://www.wired.com/story/how-and-when-to-watch-the-artemis-ii-missions-return-to-earth/",
+      "title": "I\u2019ve fired one of America\u2019s most powerful lasers\u2014here\u2019s what a shot day looks\u00a0like",
+      "source": "Ars Technica",
+      "url": "https://arstechnica.com/science/2026/04/ive-fired-one-of-americas-most-powerful-lasers-heres-what-a-shot-day-looks-like/",
       "category": "General Tech",
-      "summary": "NASA\u2019s Artemis\u202fII mission, after a 10\u2011day lunar excursion, is set to re\u2011enter Earth\u2019s atmosphere on Friday, April\u202f10 at 5:07\u202fp.m.\u202fPDT (with corresponding U.S. times from 5:07\u202fp.m. SF to 8:08\u202fp.m. NY). The Orion capsule will plunge toward southeast Hawaii at about 38,400\u202fkm/h, endure temperatures up to 2,760\u202f\u00b0C on its exterior, and subject the crew to nearly 3.9\u202fg\u2019s before splashing down in the Pacific off California in roughly 13\u202fminutes. The re\u2011entry is a critical test of NASA\u2019s deep\u2011space technology, with the event streamed live on NASA+, Amazon Prime, Apple TV, Netflix, HBO\u202fMax, and YouTube."
+      "summary": "The Texas Petawatt (TPW), a 17\u2011story\u2011deep, high\u2011power laser facility beneath the University of Texas at Austin\u2019s Physics, Math, and Astronomy building, was a DOE\u2011funded research center that produced petawatt\u2011level pulses\u2014brief bursts of light carrying more power than the U.S. electrical grid for a trillionth of a second\u2014by stretching, amplifying, and then compressing laser pulses. As lead laser scientist from 2020\u20112024, I oversaw \u201cshot days\u201d where targets ranging from ultra\u2011thin metal foils to gas jets were irradiated to probe stellar physics, fusion, and even medical applications. The process involved hours of meticulous preparation, culminating in a 10\u2011second window of near silence during the actual pulse, before the facility was shut down due to funding cuts."
     },
     {
       "rank": 5,
-      "title": "Shock from Iran war has Trump's vision for US energy dominance flailing",
-      "source": "Ars Technica",
-      "url": "https://arstechnica.com/science/2026/04/shock-from-iran-war-has-trumps-vision-for-us-energy-dominance-flailing/",
-      "category": "AI",
-      "summary": "Trump\u2019s claim that the U.S. can weather the chaos sparked by Iran\u2019s blockade of the Strait of Hormuz ignores the sharp reality seen at pumps across America, where gasoline prices have spiked by more than $4 per gallon\u2014an $8.4\u202fbillion hike in a month\u2014illustrating the nation\u2019s vulnerability to global supply shocks. While the U.S. is the world\u2019s largest oil and gas producer, it also consumes the most, making it heavily dependent on the same international market that the conflict has disrupted. Iran\u2019s insistence on controlling the Strait\u2014and its threat to charge tolls\u2014has kept tankers stalled, and even a two\u2011week ceasefire has not fully restored flow. The Energy Information Administration warns that elevated prices will persist through year\u2011end, and critical infrastructure such as Qatar\u2019s Ras Laffan LNG terminal may suffer long\u2011term damage. As the U.S. rolls back climate and clean\u2011energy policies, its dual role as producer and consumer leaves it exposed to the very global disruptions it claims to dominate."
+      "title": "There\u2019s New Evidence for How Loneliness Affects Memory in Old Age",
+      "source": "WIRED",
+      "url": "https://www.wired.com/story/theres-new-evidence-for-how-loneliness-affects-memory-in-old-age/",
+      "category": "General Tech",
+      "summary": "A new six\u2011year longitudinal analysis of 10,217 European adults aged 65\u201394, published in *Aging & Mental Health*, shows that loneliness is linked to lower baseline memory performance\u2014both immediate and delayed recall\u2014but does not accelerate the rate of cognitive decline; age itself remains the strongest predictor of memory loss, with sharper drops after 75 and especially after 85, while depression, chronic illness, and loneliness further lower initial scores. Physical activity, however, lifts the baseline memory level, acting as a cognitive buffer without altering decline speed. Though the study does not pinpoint causality, it highlights loneliness as a significant factor in initial memory deficits, underscoring the need to address social isolation as part of strategies to mitigate cognitive decline in an aging population projected to grow substantially by 2050."
     },
     {
       "rank": 6,
-      "title": "\u2018The Audacity\u2019 Is the Broligarchy Takedown You Were Waiting For",
+      "title": "Best Meta Glasses (2026): Ray-Ban, Oakley, AR",
       "source": "WIRED",
-      "url": "https://www.wired.com/story/the-audacity-is-the-broligarchy-takedown-you-were-waiting-for/",
-      "category": "AI",
-      "summary": "\u201cThe Audacity\u201d is an AMC drama that follows billionaire tech mogul Duncan Park (Billy\u202fMagnussen) as he manipulates markets, stalks his therapist and pushes his privileged family into toxic environments, all while trying to maintain his image as a genius. The series, created by Jonathan Glatzer, echoes the anti\u2011One\u2011Percent satire of shows like *Succession* and *Silicon Valley*, but adds a new angle: it exposes the emotional wreckage that comes from unchecked power and narcissism. Duncan\u2019s obsession with control\u2014evidenced by a failed sale of his firm Hypergnosis, his reliance on an ayahuasca shaman, and his covert use of AI to spy on Dr. JoAnne Felder (Sarah\u202fGoldberg)\u2014leads to a dangerous cat\u2011and\u2011mouse dynamic that spirals into insider trading and blackmail. Meanwhile, the neglected children of both Duncan and JoAnne drift through cut\u2011throat private schools, highlighting the human cost of wealth and ambition. The show uses these personal dramas to critique the culture of Silicon Valley excess and the broader societal fallout of elite dominance."
+      "url": "https://www.wired.com/story/best-meta-glasses/",
+      "category": "General Tech",
+      "summary": "Meta\u2019s Ray\u2011Ban\u2011styled AR glasses\u2014sold in over seven million pairs by 2025\u2014have become a ubiquitous sight at outdoor events, offering a single, stylish device that doubles as sunglasses, headphones, and a camera, thanks to a partnership with EssilorLuxottica. While the tech lets users capture content and enjoy an integrated experience, it also raises serious privacy concerns, as Meta\u2019s history of questionable data practices and the potential for covert recording make many people uneasy about wearing \u201cpervert glasses.\u201d Despite these issues, the latest model upgrades the original design with a 12\u2011MP camera, up to eight hours of battery life, and options for clear, prescription, or transition lenses, making it a practical choice for those who value convenience and style over the broader societal implications."
     },
     {
       "rank": 7,
-      "title": "Why Is It So Hard to Fix an Electric Bike? (2026)",
+      "title": "Hisense U7SG TV Review (2026): Better Design, Great Value",
       "source": "WIRED",
-      "url": "https://www.wired.com/story/why-is-it-so-hard-to-fix-an-electric-bike/",
+      "url": "https://www.wired.com/review/hisense-u7sg/",
       "category": "General Tech",
-      "summary": "Bike shops are increasingly wary of taking on electric\u2011bike repairs because the market is littered with vehicles that don\u2019t meet the legal Class\u202f1\u20113 definition\u2014many sold online exceed the 28\u202fmph limit and function more like mopeds than bicycles.  Owners such as MacKenzie Hardt of Hardt Family Cyclery now refuse to repair any ebike without UL\u202f2849 certification, citing safety and liability concerns after witnessing injuries from poorly controlled power systems.  With nationwide injury rates for e\u2011bikes up by over 1,000\u202f% since 2020, insurers often void coverage on non\u2011compliant bikes, leaving shops exposed to product\u2011liability claims and legal uncertainty that varies state to state."
+      "summary": "Hisense\u2019s new U7SG mid\u2011range TV blurs the line to premium with a sleek industrial stand, matte anti\u2011reflective panel, and bright mini\u2011LED backlighting that rivals Samsung\u2019s high\u2011end models; it ships with a top\u2011tier gaming setup, a Google TV interface, and a wide range of sizes up to 116 inches. While the latest U8 (UR8) pushes RGB LED technology for more vivid colors and higher brightness, the U7SG still feels a touch \u201cbudget\u201d due to side\u2011view performance quirks and some software quirks that can make demanding scenes look odd\u2014though these are fixable. Overall, its eye\u2011catching colors and improved image clarity make it a solid budget choice, especially as its price is expected to drop soon."
     }
   ]
 }
