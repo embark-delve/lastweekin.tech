@@ -1,61 +1,61 @@
 {
-  "week": "2026-04-20",
+  "week": "2026-04-27",
   "stories": [
     {
       "rank": 1,
-      "title": "Blue Origin's rocket reuse achievement marred by upper stage failure",
-      "source": "Ars Technica",
-      "url": "https://arstechnica.com/space/2026/04/errant-upper-stage-spoils-blue-origins-success-in-reusing-new-glenn-booster/",
-      "category": "AI",
-      "summary": "Blue Origin\u2019s third New\u202fGlenn launch marked the first successful reflight of an orbital\u2011class booster, but the mission ended with a setback for the company\u2019s flagship rocket, which is slated to carry NASA\u2019s Artemis crew to the moon. The 321\u2011ft vehicle lifted off from Cape Canaveral at 7:25\u202fam EDT, the BE\u20114 methane engines powered the lift\u2011off and the first\u2011stage booster shed its engines after three minutes, separating from the upper stage that used BE\u20113U liquid hydrogen/oxygen engines. The booster followed a parabolic trajectory, re\u2011ignited for two braking burns, and landed safely on a ship in the Atlantic, becoming the second flight of the \u201cNever Tell Me The Odds\u201d booster. While the successful recovery demonstrates progress toward reusable, high\u2011volume launches, the flight also exposed challenges in New\u202fGlenn\u2019s larger, more complex design\u2014highlighting that, unlike SpaceX\u2019s rapid Falcon\u202f9 refurbishment, Blue Origin still has hurdles to overcome before it can match the rapid reflight cadence needed for the Artemis program."
+      "title": "Trump fires the entire National Science Board",
+      "source": "The Verge",
+      "url": "https://www.theverge.com/science/918769/trump-fires-the-entire-national-science-board",
+      "category": "General Tech",
+      "summary": "The article criticizes a presidential decision to target the National Science Board (NSB), arguing that the board\u2014an apolitical body that advises the President on the National Science Foundation\u2019s future\u2014has been undermined by a leader who has attacked the NSF from the outset. It warns that replacing the NSB with politically aligned appointees could erode scientific independence and hand control of American innovation to adversaries, labeling the move as a foolish, self\u2011serving tactic."
     },
     {
       "rank": 2,
-      "title": "The Best Hybrid Mattresses for Couples, Back Pain, and More (2026)",
-      "source": "WIRED",
-      "url": "https://www.wired.com/gallery/best-hybrid-mattresses/",
+      "title": "Google Studies Prompt Injection Attacks Against AI Agents Browsing the Web",
+      "source": "Slashdot",
+      "url": "https://it.slashdot.org/story/26/04/26/2345211/google-studies-prompt-injection-attacks-against-ai-agents-browsing-the-web?utm_source=rss1.0mainlinkanon&utm_medium=feed",
       "category": "AI",
-      "summary": "Hybrid mattresses combine springs and foam layers with a wide array of additional materials\u2014latex, different foam densities, fabrics and cooling covers\u2014to deliver a balance of softness, support and breathability; the key to choosing the best one is personal testing, as no single model suits everyone, which is why Wired reviewers spend weeks on each mattress, noting fit for height, weight, sleep position and specific needs such as cooling. The article reviews a spectrum of hybrids, from side\u2011sleep\u2011focused to back\u2011pain relief and organic options, and as of April\u202f2026 has added the Tiami Luxury Hybrid and Saatva HD to the lineup, with updated prices."
+      "summary": "Neil Bogart\u2019s quote distills a cynical view on hype and success: if a product or idea is heavily promoted and ultimately succeeds, the hype was justified and the promoter is vindicated; but if the same hype fails to deliver results, it is merely hype. Thus, the outcome of the hype determines whether it was a valid strategy or a mere puffery."
     },
     {
       "rank": 3,
-      "title": "Blue Origin nails the landing, but puts the payload satellite in the wrong orbit",
-      "source": "The Register",
-      "url": "https://go.theregister.com/feed/www.theregister.com/2026/04/20/blue_origin_nails_the_landing/",
+      "title": "Prime Video drops full trailer for Spider-Noir",
+      "source": "Ars Technica",
+      "url": "https://arstechnica.com/culture/2026/04/prime-video-drops-full-trailer-for-spider-noir/",
       "category": "AI",
-      "summary": "Blue\u202fOrigin\u2019s New\u202fGlenn rocket successfully landed its reused first stage on the Jacklyn platform during its April\u202f19 launch, but the mission failed to place AST\u202fSpaceMobile\u2019s satellite Bluebird\u202f7 into a usable orbit; the second stage delivered the satellite to a lower\u2011than\u2011planned, off\u2011nominal orbit that its own thrusters could not correct, forcing AST to de\u2011orbit the payload and recover its cost through insurance. The incident leaves the second stage\u2019s performance unclear and raises questions about Blue\u202fOrigin\u2019s upcoming schedule\u2014including a Starlink competitor, additional AST payloads and a lunar cargo lander for a potential Artemis\u2011III demonstration\u2014while underscoring that the successful landing and reuse of the rocket was outweighed by the loss of the critical payload."
+      "summary": "Prime Video\u2019s latest buzz comes from the full trailer for the upcoming live\u2011action series *Spider\u2011Noir*, unveiled in Mexico City over the weekend. The trailer was released in two styles: a stark black\u2011and\u2011white version that feels like a Raymond Chandler film, and a colorful \u201cTrue Hue\u201d cut. The show is a continuation of Marvel\u2019s 2009 noir line, reimagining characters in a Great Depression setting. It stars Nicolas\u202fCage as Ben\u202fReilly, a hard\u2011boiled private investigator who secretly becomes the city\u2019s lone superhero, \u201cThe Spider,\u201d in 1930s New\u202fYork. Co\u2011showrunner Oren\u202fUziel, a film\u2011noir enthusiast, chose to replace the familiar Peter Parker with Reilly to better fit the gritty, adult tone of the series."
     },
     {
       "rank": 4,
-      "title": "I\u2019ve fired one of America\u2019s most powerful lasers\u2014here\u2019s what a shot day looks\u00a0like",
-      "source": "Ars Technica",
-      "url": "https://arstechnica.com/science/2026/04/ive-fired-one-of-americas-most-powerful-lasers-heres-what-a-shot-day-looks-like/",
-      "category": "General Tech",
-      "summary": "The Texas Petawatt (TPW), a 17\u2011story\u2011deep, high\u2011power laser facility beneath the University of Texas at Austin\u2019s Physics, Math, and Astronomy building, was a DOE\u2011funded research center that produced petawatt\u2011level pulses\u2014brief bursts of light carrying more power than the U.S. electrical grid for a trillionth of a second\u2014by stretching, amplifying, and then compressing laser pulses. As lead laser scientist from 2020\u20112024, I oversaw \u201cshot days\u201d where targets ranging from ultra\u2011thin metal foils to gas jets were irradiated to probe stellar physics, fusion, and even medical applications. The process involved hours of meticulous preparation, culminating in a 10\u2011second window of near silence during the actual pulse, before the facility was shut down due to funding cuts."
+      "title": "Watch out UK taxpayers: 28,000 HMRC staffers just got an AI copilot",
+      "source": "The Register",
+      "url": "https://go.theregister.com/feed/www.theregister.com/2026/04/27/hmrc_hands_28000_staff_ai/",
+      "category": "AI",
+      "summary": "HMRC has deployed 28,000 Microsoft\u202fCopilot licences after a 20,000\u2011civil\u2011servant trial that showed an average 26\u2011minute daily time saving and high user enthusiasm, prompting the department\u2019s chief AI officer to announce plans for \u201cagentic\u2011style\u201d features and a vision of becoming the world\u2019s most AI\u2011enabled tax authority. The trial also highlighted limitations in handling complex, data\u2011heavy tasks and raised security concerns about sensitive data, raising doubts about using Copilot in official \u201cSensitive\u201d workflows. HMRC frames Copilot as a bolt\u2011on to existing automation that has delivered \u00a38\u202fbillion in benefits, but critics point to the government\u2019s stale IT estate, duplicated content and the risk of embedding a generative system that is hard to turn off once adopted, leaving the agency with a tool that works well enough to rely on but is not yet trustworthy for critical decisions."
     },
     {
       "rank": 5,
-      "title": "There\u2019s New Evidence for How Loneliness Affects Memory in Old Age",
-      "source": "WIRED",
-      "url": "https://www.wired.com/story/theres-new-evidence-for-how-loneliness-affects-memory-in-old-age/",
+      "title": "Strange New Worlds S4 teaser strikes a more serious tone",
+      "source": "Ars Technica",
+      "url": "https://arstechnica.com/culture/2026/04/strange-new-worlds-s4-teaser-strikes-a-more-serious-tone/",
       "category": "General Tech",
-      "summary": "A new six\u2011year longitudinal analysis of 10,217 European adults aged 65\u201394, published in *Aging & Mental Health*, shows that loneliness is linked to lower baseline memory performance\u2014both immediate and delayed recall\u2014but does not accelerate the rate of cognitive decline; age itself remains the strongest predictor of memory loss, with sharper drops after 75 and especially after 85, while depression, chronic illness, and loneliness further lower initial scores. Physical activity, however, lifts the baseline memory level, acting as a cognitive buffer without altering decline speed. Though the study does not pinpoint causality, it highlights loneliness as a significant factor in initial memory deficits, underscoring the need to address social isolation as part of strategies to mitigate cognitive decline in an aging population projected to grow substantially by 2050."
+      "summary": "Paramount+ revealed a new teaser for *Star Trek: Strange New Worlds* Season\u202f4 at CCXP in Mexico City, hinting that the show will return to a more serious tone after the uneven third season. The clip revisits the crew\u2019s response to a distress call, a crippling space storm, and a mission to a nearby planet for iridium, echoing the extended sequence from last October\u2019s New York Comic\u2011Con. Fans can also expect a puppet episode, a Wild\u2011West\u2011style setting, and even dinosaurs, while Pike\u2019s ongoing grief over the departure of Marie Batel will likely shape the season\u2019s emotional stakes."
     },
     {
       "rank": 6,
-      "title": "Best Meta Glasses (2026): Ray-Ban, Oakley, AR",
-      "source": "WIRED",
-      "url": "https://www.wired.com/story/best-meta-glasses/",
+      "title": "New robotic control software avoids jamming their joints",
+      "source": "Ars Technica",
+      "url": "https://arstechnica.com/science/2026/04/kinematic-intelligence-helps-robots-learn-their-limits/",
       "category": "General Tech",
-      "summary": "Meta\u2019s Ray\u2011Ban\u2011styled AR glasses\u2014sold in over seven million pairs by 2025\u2014have become a ubiquitous sight at outdoor events, offering a single, stylish device that doubles as sunglasses, headphones, and a camera, thanks to a partnership with EssilorLuxottica. While the tech lets users capture content and enjoy an integrated experience, it also raises serious privacy concerns, as Meta\u2019s history of questionable data practices and the potential for covert recording make many people uneasy about wearing \u201cpervert glasses.\u201d Despite these issues, the latest model upgrades the original design with a 12\u2011MP camera, up to eight hours of battery life, and options for clear, prescription, or transition lenses, making it a practical choice for those who value convenience and style over the broader societal implications."
+      "summary": "EPFL researchers have created \u201cKinematic Intelligence,\u201d a framework that lets robots switch between different arm models without retraining from scratch, mirroring how smartphones sync data when upgraded. The system addresses a long\u2011standing issue in robot learning\u2011from\u2011demonstration: skills learned on one robot often fail on another due to subtle differences in link lengths, joint orientations, or configurations. By automatically adapting learned behaviors to the new robot\u2019s kinematic constraints, Kinematic Intelligence enables seamless transfer of tasks\u2014such as wiping, stacking, or welding\u2014across diverse robotic platforms."
     },
     {
       "rank": 7,
-      "title": "Hisense U7SG TV Review (2026): Better Design, Great Value",
+      "title": "Here\u2019s How Much San Francisco Tech Companies Pay for Police Protection",
       "source": "WIRED",
-      "url": "https://www.wired.com/review/hisense-u7sg/",
+      "url": "https://www.wired.com/story/heres-how-much-san-francisco-tech-companies-are-paying-for-police-protection/",
       "category": "General Tech",
-      "summary": "Hisense\u2019s new U7SG mid\u2011range TV blurs the line to premium with a sleek industrial stand, matte anti\u2011reflective panel, and bright mini\u2011LED backlighting that rivals Samsung\u2019s high\u2011end models; it ships with a top\u2011tier gaming setup, a Google TV interface, and a wide range of sizes up to 116 inches. While the latest U8 (UR8) pushes RGB LED technology for more vivid colors and higher brightness, the U7SG still feels a touch \u201cbudget\u201d due to side\u2011view performance quirks and some software quirks that can make demanding scenes look odd\u2014though these are fixable. Overall, its eye\u2011catching colors and improved image clarity make it a solid budget choice, especially as its price is expected to drop soon."
+      "summary": "Elon Musk\u2019s 2024 move of X\u2019s offices outside San\u202fFrancisco after calling the city\u2019s violent crime \u201chorrific\u201d highlights a growing trend of tech firms paying for police protection under the city\u2019s 10B rent\u2011a\u2011cop program, which allows businesses to hire officers at standard city rates. 2024 records show Airbnb spent about $428,000 on uniformed, armed officers, while Salesforce paid roughly $728,000 through a security vendor and added $41,000 for police at its TrailblazerDX conference.  OpenAI and Anthropic have not been regular clients, though OpenAI briefly paid $813 for a museum event.  The program, used by a range of companies\u2014including the Giants baseball team ($1.9\u202fM), Apple ($1.2\u202fM), and various retailers\u2014offers a low\u2011cost, quick\u2011response security solution, but raises concerns about conflicts of interest and liability, even as it provides officers with additional income and fosters community ties."
     }
   ]
 }
