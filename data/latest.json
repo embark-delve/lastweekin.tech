@@ -1,61 +1,61 @@
 {
-  "week": "2026-05-04",
+  "week": "2026-05-11",
   "stories": [
     {
       "rank": 1,
-      "title": "OpenAI Introduces AI-Generated Pets for Its Codex App",
-      "source": "Slashdot",
-      "url": "https://idle.slashdot.org/story/26/05/03/2354219/openai-introduces-ai-generated-pets-for-its-codex-app?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+      "title": "I Work in Hollywood. Everyone Who Used to Make TV Is Now Secretly Training AI",
+      "source": "WIRED",
+      "url": "https://www.wired.com/story/i-work-in-hollywood-everyone-who-used-to-make-tv-now-training-ai/",
       "category": "AI",
-      "summary": "Descartes argues that the idea of an empty void\u2014completely devoid of matter or even space\u2014is logically impossible; even if nothing tangible occupies a region, that region still possesses the property of space itself, so there can never truly be a \"vacuum\" in the absolute sense."
+      "summary": "Summary not available."
     },
     {
       "rank": 2,
-      "title": "How to Track Your Luggage (2026): AirTag, Pebblebee, CaseSafe",
-      "source": "WIRED",
-      "url": "https://www.wired.com/story/how-to-track-your-luggage/",
+      "title": "The new Wild West of AI kids\u2019 toys",
+      "source": "Ars Technica",
+      "url": "https://arstechnica.com/ai/2026/05/the-new-wild-west-of-ai-kids-toys/",
       "category": "AI",
-      "summary": "The Wired Reviews article offers practical advice for stress\u2011free travel, emphasizing the importance of tracking luggage when checked\u2011in items become unavoidable. The author shares a personal anecdote about a surprise propeller flight that forced carry\u2011ons to be gate\u2011checked, and how Bluetooth trackers helped him confirm his suitcases stayed with him through layovers. The piece encourages readers to avoid checked bags whenever possible but provides tips for those that must be checked, including using trackable cases. It highlights the July \u201cTrackable Carry\u2011On\u201d from CaseSafe as the only carry\u2011on sized sufficiently small (21.5\u202f\u00d7\u202f15\u202f\u00d7\u202f8.5\u202fin) to fit in the overhead bin of a DHC\u20118\u2011400, noting its slim dimensions and built\u2011in tracking feature. The article also directs readers to related reviews on the best carry\u2011on suitcases, travel totes, and laptop backpacks."
+      "summary": "The article critiques the booming market for AI\u2011powered children\u2019s toys, noting that while Pixar\u2019s Toy\u202fStory\u202f5 villain is a green frog\u2011shaped tablet, real\u2011world competitors like FoloToy, Alilo, Miriat and Miko\u2019s Miko have already flooded trade shows and online stores with soft teddy bears, bunnies, and \u201crobots\u201d that use advanced models such as GPT\u20114o. With over 1,500 AI toy companies registered in China alone, the sector remains largely unregulated, and consumer watchdogs have identified dangerous content\u2014ranging from instructions for violence and sexual references to political propaganda\u2014spilling from toys like FoloToy\u2019s Kumma bear and Miriat\u2019s Miiloo. The piece warns that beyond inappropriate material, the allure of AI companions (\u201cI\u2019m gonna be your best friend\u201d) could disrupt children\u2019s social development, underscoring the urgent need for stricter guardrails and regulatory oversight."
     },
     {
       "rank": 3,
-      "title": "Five Eyes spook shops warn rapid rollouts of agentic AI are too risky",
+      "title": "Linux kernel maintainers pitch emergency killswitch after CopyFail and Dirty Frag chaos",
       "source": "The Register",
-      "url": "https://go.theregister.com/feed/www.theregister.com/2026/05/04/five_eyes_agentic_ai_recommendations/",
+      "url": "https://www.theregister.com/oses/2026/05/11/linux-kernel-maintainers-pitch-emergency-killswitch-after-copyfail-and-dirty-frag-chaos/5237801",
       "category": "AI",
-      "summary": "A joint Five\u202fEyes guidance document\u2014issued last Friday by Australia, the United States, Canada, New\u202fZealand and the United Kingdom\u2014warns that agentic AI systems, which autonomously act across critical infrastructure and defense, are likely to misbehave and expand an organisation\u2019s attack surface. The guide cites illustrative scenarios (e.g., an AI patch\u2011manager deleting firewall logs or a procurement bot enabling fraud after a low\u2011risk tool is compromised) to show how even well\u2011designed agents can be abused. It lists 23 specific risks, over 100 mitigation practices, and stresses that developers, vendors and security teams must test, fail\u2011safe\u2011design, and human\u2011escalate uncertain actions. The report urges a highly cautious, incremental rollout that prioritises resilience, reversibility and risk containment over efficiency, demanding strong governance, accountability, monitoring and oversight until mature security standards for agentic AI emerge."
+      "summary": "Linux kernel maintainers are proposing a \u201cKillswitch\u201d feature that lets system administrators temporarily disable specific vulnerable kernel functions at runtime, rather than wait for a patch, patch build, and reboot. The idea\u2014submitted by co\u2011maintainer Sasha Levin\u2014addresses the exposure that occurs while patches are still under development, as highlighted by recent exploits such as CopyFail and Dirty Frag. By pulling the plug on a buggy function, calls to it will fail immediately, preventing exploitation until a proper fix is applied. While the mechanism would sacrifice some subsystem functionality (e.g., networking or cryptography) for security, it has sparked debate over potential abuse, stability impacts, and the ethics of giving admins the power to \u201cshut the kernel down\u201d on demand. Nonetheless, the community\u2019s experience with recent vulnerabilities suggests that disabling broken code may be a more practical interim defense than leaving it exposed."
     },
     {
       "rank": 4,
-      "title": "Can Listening to \u2018Subliminals\u2019 Make You Beautiful? Plenty of Women Believe It",
+      "title": "A Chevron Texas Power Plant Seeks School District Tax Break",
       "source": "WIRED",
-      "url": "https://www.wired.com/story/subliminals-tiktok-youtube-make-you-beautiful/",
+      "url": "https://www.wired.com/story/chevron-wants-school-district-tax-break-data-center-power-plant-texas/",
       "category": "General Tech",
-      "summary": "The article explores the rise of \u201csubliminal\u201d videos\u2014short audio\u2011visual clips that embed hypnotic affirmations aimed at reshaping viewers\u2019 self\u2011image and external appearance\u2014on platforms like TikTok and Reddit. With millions of views, these clips promise everything from flawless skin to ideal body proportions, and even broader life gains such as academic success or romantic attraction. While originally rooted in a niche 2012 subreddit, the trend has expanded to cover a wide array of \u201clooksmaxxing,\u201d \u201cfacemaxxing,\u201d and \u201cbeautymaxxing\u201d content, echoing the anxieties driving male looks\u2011maximizers into radical online cultures. The article highlights how young women, pressured by unrealistic beauty standards, increasingly turn to these quasi\u2011spiritual tools instead of traditional fitness or medical approaches, citing anecdotal reports of significant personal change and the emergence of self\u2011made subliminal creators."
+      "summary": "A Texas oil firm, Chevron\u2019s Energy\u202fForge One, is seeking a multi\u2011hundred\u2011million\u2011dollar state tax abatement under the JETI Act to build a West Texas gas\u2011powered plant that will supply electricity exclusively to a data center\u2014potentially for Microsoft, which has been in talks with Chevron and the project\u2019s investment fund Engine\u202f1. The plant will not connect to the grid but will provide behind\u2011the\u2011meter power to a future data\u2011center tenant, a model that has surged as big tech grapples with grid delays and public scrutiny over data\u2011center energy costs. The Texas Comptroller\u2019s board has recommended approval, making this the first JETI tax break for a plant intended solely for data\u2011center use, and the school board that would normally receive the tax revenue has waived its share because the state funds the abatement. The project could save Chevron more than $227\u202fmillion over ten years and is expected to create about 25 permanent jobs, although that requirement is not enforced for generation facilities."
     },
     {
       "rank": 5,
-      "title": "Science Has Found Even More Ways Coffee Is Good for You",
+      "title": "CUDA Proves Nvidia Is a Software Company",
       "source": "WIRED",
-      "url": "https://www.wired.com/story/science-has-found-even-more-ways-coffee-is-good-for-you/",
+      "url": "https://www.wired.com/story/cuda-proves-nvidia-is-a-software-company/",
       "category": "General Tech",
-      "summary": "A recent study published in *Nature\u202fCommunications* examined how regular coffee drinking affects the gut\u2011brain axis in healthy adults, distinguishing caffeine\u2019s role from other coffee compounds. Thirty\u2011one habitual coffee drinkers (3\u20135 cups daily) and thirty\u2011one non\u2011drinkers were compared, and participants also cycled through two\u2011week coffee abstinence followed by re\u2011introduction of either caffeinated or decaffeinated coffee. The results showed that coffee alters gut microbiota composition\u2014boosting species such as *Eggerthella* and *Cryptobacterium curtum*\u2014and reduces inflammatory markers while increasing anti\u2011inflammatory molecules, effects that persist even with decaffeinated coffee. Behaviorally, regular drinkers exhibited higher impulsiveness and emotional reactivity, which eased during the abstinence period, and both coffee types lowered perceived stress and depressive symptoms; caffeine\u2011rich coffee further improved anxiety and attention, whereas decaf enhanced memory, sleep quality, and activity. Cortisol levels remained unchanged, suggesting coffee mainly influences subjective stress perception. Overall, the study highlights coffee\u2019s complex, caffeine\u2011independent modulation of the microbiome, metabolism, and neuro\u2011behavioral states, supporting its potential as a dietary intervention for gut and mental health."
+      "summary": "Summary not available."
     },
     {
       "rank": 6,
-      "title": "15 Best MagSafe Wireless Chargers (2026): Power Banks, Stands, Pads, and Travel Chargers",
+      "title": "Keyboard Shortcuts I Learned From My Cat",
       "source": "WIRED",
-      "url": "https://www.wired.com/gallery/best-magsafe-wireless-chargers/",
+      "url": "https://www.wired.com/story/keyboard-shortcuts-i-learned-from-my-cat/",
       "category": "General Tech",
-      "summary": "The article reviews a range of MagSafe\u2011compatible Qi2 wireless chargers that didn\u2019t earn top honors. The Mous Dual Charging Station offers dual pads (15\u202fW MagSafe, 5\u202fW Qi) plus a USB\u2011C port but is slow. Anker\u2019s MagGo delivers a sturdy 15\u202fW pad with a built\u2011in cable, while Belkin\u2019s BoostCharge Pro converts into a stand and charges up to 15\u202fW. Casetify\u2019s PowerThru 2\u2011in\u20111 charges iPhones at 7.5\u202fW and earbuds at 15\u202fW, and its cheaper single\u2011pad version offers 7.5\u202fW MagSafe or 15\u202fW Qi with a decorative design. Mophie\u2019s 3\u2011in\u20111 travel charger packs iPhone, Watch, and AirPods charging (15\u202fW) in a fold\u2011out case. All options blend design variety with modest charging speeds, providing alternatives for those seeking MagSafe convenience at different price points."
+      "summary": "The article humorously recounts how the narrator\u2019s cat Mira, by simply walking across MacBook and Windows keyboards, inadvertently triggers a variety of hidden keyboard shortcuts that reveal new computer functions\u2014such as hiding windows (\u2318\u2011\u2325\u2011H or Win+,), switching virtual desktops (Ctrl\u2011\u2190/\u2192 or Win\u2011Ctrl\u2011\u2190/\u2192), taking area screenshots (\u2318\u2011Shift\u20114 or Win\u2011Shift\u2011S), toggling the macOS dock (\u2318\u2011\u2325\u2011D), and unintentionally enabling accessibility features like Sticky Keys and FilterKeys by pressing Shift repeatedly or holding the right\u2011shift key; the writer expresses both amusement and newfound appreciation for these shortcuts while noting ongoing efforts to train Mira away from the desk."
     },
     {
       "rank": 7,
-      "title": "Dating Is a Rich Person\u2019s Game Now",
-      "source": "WIRED",
-      "url": "https://www.wired.com/story/dating-is-a-rich-persons-game-now/",
+      "title": "Classic Outlook's Quick Steps trip over Microsoft bug",
+      "source": "The Register",
+      "url": "https://www.theregister.com/personal-tech/2026/05/11/classic-outlooks-quick-steps-trip-over-microsoft-bug/5237702",
       "category": "General Tech",
-      "summary": "Modern dating has become a costly, \u201cdate\u2011flation\u201d\u2011driven activity that many people now have to budget for, according to a 2026 survey by JG\u202fWentworth and a BMO Real Financial Progress Index report, which found the average all\u2011in date cost rose 12.5\u202f% to $189\u2014outpacing living expenses and pushing 86\u202f% of US singles to delay or abandon dating. Low\u2011income earners are hit hardest, with one\u2011third of those making under $50,000 stopping entirely, while even high\u2011income individuals are taking breaks. This economic friction turns dating into a luxury, driving intentional but unequal participation, especially among Gen\u202fZ\u2011X men, who are increasingly opting out and sharing the strain on platforms like TikTok. The trend has fueled discussions around sugar babies and the broader financial realities of romance, suggesting that connection is no longer spontaneous but a costly, discretionary pursuit."
+      "summary": "In Microsoft Outlook\u2019s classic client, a bug introduced in build\u202f2512 can cause Quick Steps to appear grayed out when the actions they contain can\u2019t be performed\u2014e.g., a step that moves a message to a folder and clears categories will be disabled for messages lacking categories. Microsoft acknowledges the issue and offers a workaround: the Quick Step can still be triggered via its keyboard shortcut even when the UI grays it out. This glitch is part of a series of recent problems with Classic Outlook, which Microsoft is gradually phasing out in favor of the new Outlook app, though it still retains features like COM support that the newer version lacks."
     }
   ]
 }
