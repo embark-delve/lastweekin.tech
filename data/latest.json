@@ -1,61 +1,61 @@
 {
-  "week": "2026-05-18",
+  "week": "2026-05-25",
   "stories": [
     {
       "rank": 1,
-      "title": "Linus Torvalds says AI-powered bug hunters have made Linux security mailing list \u2018almost entirely unmanageable\u2019",
-      "source": "The Register",
-      "url": "https://www.theregister.com/security/2026/05/18/linus-torvalds-says-ai-powered-bug-hunters-have-made-linux-security-mailing-list-almost-entirely-unmanageable/5241633",
-      "category": "AI",
-      "summary": "Linus\u202fTorvalds has warned that the Linux kernel\u2019s security mailing list has become \u201calmost entirely unmanageable\u201d because many researchers now use the same AI tools to uncover bugs and submit duplicate reports, creating \u201cpointless churn.\u201d In a recent kernel\u2011state post, he highlighted that the flood of AI\u2011generated findings forces developers to spend time forwarding or dismissing identical issues rather than addressing new ones, and he urged reporters to read the documentation, patch the code, and add genuine value instead of just sending \u201crandom reports.\u201d Torvalds sees the practice as wasteful, especially since AI\u2011discovered bugs are not secret and sharing them on a private list only amplifies duplication. This stance contrasts with fellow maintainer Greg\u202fKroah\u2011Hartman\u2019s more positive view of AI\u2019s usefulness for free\u2011software security."
+      "title": "A Fundamental Principle of Aeronautical Engineering Has Been Overturned",
+      "source": "WIRED",
+      "url": "https://www.wired.com/story/a-fundamental-principle-of-aeronautical-engineering-has-been-overturned/",
+      "category": "General Tech",
+      "summary": "Summary not available."
     },
     {
       "rank": 2,
-      "title": "Russian hackers turn Kazuar backdoor into modular P2P botnet",
-      "source": "BleepingComputer",
-      "url": "https://www.bleepingcomputer.com/news/security/russian-hackers-turn-kazuar-backdoor-into-modular-p2p-botnet/",
+      "title": "Scammers Are Abusing an Internal Microsoft Account to Send Spam Links",
+      "source": "Slashdot",
+      "url": "https://slashdot.org/story/26/05/24/040224/scammers-are-abusing-an-internal-microsoft-account-to-send-spam-links?utm_source=rss1.0mainlinkanon&utm_medium=feed",
       "category": "General Tech",
-      "summary": "Secret Blizzard, a Russian hacking outfit linked to the FSB and operating alongside groups such as Turla, has upgraded its long\u2011standing Kazuar backdoor into a modular, peer\u2011to\u2011peer botnet that excels at stealth, persistence and data exfiltration. Since 2017 (with roots tracing back to 2005) Kazuar has targeted governments, diplomatic missions, defense entities and critical infrastructure across Europe, Asia and Ukraine. Microsoft\u2019s analysis reveals a three\u2011module architecture\u2014Kernel (the leader coordinator that manages tasks and internal communication), Bridge (the external proxy that talks to the C2 server via HTTP, WebSockets or EWS), and Worker (the espionage engine that keylogs, screenshots, harvests files, performs reconnaissance and steals email data). The botnet uses internal IPC (Windows Messaging, Mailslots, named pipes) with AES\u2011encrypted, Protobuf\u2011serialized messages, while the Bridge handles encrypted exfiltration. Kazuar\u2019s new version supports 150 configuration options, including AMSI, ETW and WLDP bypasses, task scheduling, process injection, and granular data\u2011exfiltration controls, making it highly adaptable and evasive. Microsoft advises defenders to prioritize behavioral detection over static signatures to counter this modular, long\u2011term threat."
+      "summary": "In \u201cMake it myself? But I'm a physical organic chemist!\u201d the author argues that a significant portion of the reagents and materials routinely used in physical organic research can be prepared in\u2011house rather than purchased, thereby saving time, money, and reducing environmental impact. Drawing on examples from kinetic and mechanistic studies\u2014such as custom\u2011synthesized probes, isotopically labeled substrates, and high\u2011purity solvents\u2014the piece illustrates how standard procedures (e.g., recrystallization, distillation, chromatography) can be adapted for laboratory\u2011scale production. It also addresses safety, quality control, and documentation requirements, emphasizing that meticulous characterization (NMR, MS, IR) and proper labeling are essential to maintain reproducibility. Overall, the article encourages chemists to view reagent synthesis as an integral part of experimental design, fostering a more sustainable and cost\u2011effective research workflow."
     },
     {
       "rank": 3,
-      "title": "An ICE Firearms Trainer Was Involved in At Least 4 Deadly Shootings",
-      "source": "WIRED",
-      "url": "https://www.wired.com/story/an-ice-firearms-trainer-was-involved-in-at-least-4-deadly-shootings/",
-      "category": "AI",
-      "summary": "David S. Norman, a former Phoenix Police officer who founded the law\u2011enforcement training firm TruKinetics LLC, has a controversial record that now shadows the paramilitary training he provides to U.S. immigration enforcement. Norman was involved in six on\u2011duty shootings while with the Phoenix Police, killing four people, and later testified in a lawsuit that he participated in at least four lethal shootings. TruKinetics, based in Gilbert, Arizona, runs intensive small\u2011team and close\u2011quarters combat courses\u2014including \u201ckill house\u201d scenarios\u2014and was paid nearly $28,000 to conduct a 40\u2011hour mandatory training program for Department of Homeland Security\u2019s Special Response Teams (SRTs) at Fort Benning, Georgia, where over 700 agents from ICE and CBP rotate annually. Despite Norman\u2019s claims that his courses focus on tactical skills rather than crowd control or active\u2011shooter drills, the firm\u2019s training of SRTs, which have been used in civil immigration enforcement and have been implicated in the deaths of protestors, raises concerns about the nature of the training and the background of its instructor."
+      "title": "Building Pi with Pi",
+      "source": "Hacker News (hnrss)",
+      "url": "https://lucumr.pocoo.org/2026/5/24/pi-oss/",
+      "category": "General Tech",
+      "summary": "The article reflects on using Pi, an AI\u2011powered issue tracker and development tool, to build and debug Pi itself, highlighting the \u201cslop\u201d that arises when LLMs rewrite issue descriptions and code, producing vague, over\u2011hypothesised, or incorrect diagnostics that mislead human maintainers; this sloppiness forces developers to insist on concise, fact\u2011based issue reports and to actively verify AI analysis rather than trust it, and it also leads to over\u2011engineering fixes that add unnecessary complexity. The author notes the high volume of AI\u2011generated issues and pull requests that are auto\u2011closed, reopened, or closed again, stressing that the problem lies more with contributors and the tools they use than with GitHub itself. Parallel Pi sessions can work on multiple issues simultaneously, but the overall ecosystem remains overwhelmed by the sheer amount of code and projects in a post\u2011AI world, underscoring the need for stronger community collaboration and a focus on fixing upstream bugs rather than creating local workarounds."
     },
     {
       "rank": 4,
-      "title": "Mozilla warns UK: Breaking VPNs will not magically fix Britain's age-check mess",
-      "source": "The Register",
-      "url": "https://www.theregister.com/security/2026/05/18/mozilla-warns-uk-breaking-vpns-will-not-magically-fix-britains-age-check-mess/5241770",
+      "title": "The AI Era Is Creating a Bug Hunting Arms Race",
+      "source": "WIRED",
+      "url": "https://www.wired.com/story/the-ai-era-is-creating-a-bug-hunting-arms-race/",
       "category": "AI",
-      "summary": "Mozilla has warned the UK government that targeting VPNs as a tool to curb children\u2019s age\u2011check evasion would be a misguided and harmful policy move. In a submission to the Department for Science, Innovation and Technology, Mozilla\u2019s policy manager Svea\u202fWindwehr highlighted that VPNs are essential for privacy and security for millions\u2014from remote workers to journalists\u2014by masking IP addresses and preventing profiling. The company points out that only a small fraction of kids use VPNs to bypass age gates, and that most workarounds rely on fake birth dates, borrowed accounts or weak facial\u2011scan checks. Firefox\u2019s own move to embed a built\u2011in VPN shows the tech sector is leaning toward integrated privacy rather than standalone tools. Mozilla argues that regulating VPNs would push Britain toward \u201csafety through surveillance\u201d while ignoring the real drivers of online harm\u2014platform recommendation systems and engagement algorithms\u2014rather than addressing the root causes of age\u2011gate circumvention."
+      "summary": "A decade of bug\u2011bounty programs\u2014once a reluctant novelty\u2014has been upended by the rise of agentic AI that can autonomously hunt software vulnerabilities and craft exploits, flooding disclosure portals and inflating the cost of payouts. Apple\u2019s rewards have leapt from $200k to $2m, and firms like Google expect to spend many times more next year, while smaller companies may struggle to keep pace. The surge in low\u2011 and medium\u2011severity findings is already shortening the 90\u2011day responsible\u2011disclosure window that was built for slower, rarer bug\u2011finders, and is prompting organizations to speed patch releases to avoid being outmaneuvered by attackers who are now using the same AI tools. This new equilibrium threatens to compress discovery and exploitation timelines, making rapid, careful patch deployment\u2014despite its operational risks\u2014an urgent imperative in a landscape where even \u201cnon\u2011professional\u201d actors can deploy AI\u2011generated zero\u2011day exploits."
     },
     {
       "rank": 5,
-      "title": "How to Watch Google I/O",
-      "source": "WIRED",
-      "url": "https://www.wired.com/story/how-to-watch-google-io/",
-      "category": "General Tech",
-      "summary": "Google\u2019s upcoming I/O, set for May\u202f19 at the Shoreline Amphitheatre, will showcase new Android 17 features\u2014many AI\u2011powered, such as smarter voice\u2011to\u2011text, autofill, digital\u2011well\u2011being tools, a refreshed Android Auto UI, 3D emojis, and \u201cGemini Intelligence\u201d for flagship devices\u2014alongside a new Googlebook line of premium, AI\u2011first laptops from partners like Acer, HP, Lenovo, and Dell. The keynote, streamed live on Google\u2019s site and YouTube, is expected to include surprise demos and further AI updates, especially to Search, Google Labs\u2019 Flow music tool, and a potential video\u2011generation Gemini model called Omni."
+      "title": "Digital sovereignty, the musical: One engineer\u2019s bizarre crusade against hyperscalers",
+      "source": "The Register",
+      "url": "https://www.theregister.com/offbeat/2026/05/25/digital-sovereignty-the-musical-one-engineers-bizarre-crusade-against-hyperscalers/5245148",
+      "category": "AI",
+      "summary": "A French infrastructure architect, Amine\u202fRaiti, has launched \u201cOperation\u202fDindon,\u201d a tongue\u2011in\u2011cheek, multilingual protest against Amazon, Google and Microsoft that threatens to unleash AI\u2011generated sea shanties, K\u2011pop, Finnish polka and satirical poetry if the hyperscalers do not address cloud lock\u2011in and egress fees by September. Raiti\u2019s \u201cIron Ultimatum\u201d demands that providers let customers cancel long\u2011term contracts, waive costly data\u2011transfer charges and make exit from proprietary services financially viable; otherwise his 50\u2011track AI\u2011produced campaign will continue. The campaign, which began with a 14\u2011part satirical series about a fictional turkey trapped in the cloud, aims to turn vendor\u2011lock\u2011in complaints into performance art and has yet to elicit a public response from the cloud giants."
     },
     {
       "rank": 6,
-      "title": "The Backward Logic of Chickenpox Parties",
-      "source": "WIRED",
-      "url": "https://www.wired.com/story/chickenpox-parties-and-the-pre-vaccine-internet/",
-      "category": "General Tech",
-      "summary": "Chickenpox, once an almost inevitable childhood illness, was historically managed through a now\u2011obscure practice known as \u201cchickenpox parties,\u201d where parents deliberately exposed children to the varicella\u2011zoster virus at the lowest risk of severe complications\u2014typically in early childhood\u2014before routine vaccination became available. Those parties relied on shared knowledge of home remedies and the belief that a controlled outbreak would spare the family from later, potentially life\u2011threatening adult infections, such as pneumonia, encephalitis, or meningitis, which occur in about 3 per 1,000 cases. With the introduction and widespread use of the vaccine, the incidence of natural infection has dropped dramatically, rendering the practice largely obsolete while highlighting the historical context of how communities once navigated this highly contagious, itch\u2011ridden disease."
+      "title": "Under-trained techie didn't claim overtime for mistakenly failing to phone it in",
+      "source": "The Register",
+      "url": "https://www.theregister.com/networks/2026/05/25/under-trained-techie-didnt-claim-overtime-for-mistakenly-failing-to-phone-it-in/5242388",
+      "category": "AI",
+      "summary": "Summary not available."
     },
     {
       "rank": 7,
-      "title": "Supercharging Immune Cells May Help Control HIV Long-Term",
+      "title": "These Privacy-Conscious Gay Dating Apps Want to Dethrone Grindr",
       "source": "WIRED",
-      "url": "https://www.wired.com/story/car-t-therapy-may-help-control-hiv-long-term/",
+      "url": "https://www.wired.com/story/these-privacy-conscious-gay-dating-apps-want-to-dethrone-grindr/",
       "category": "General Tech",
-      "summary": "Scientists have adapted CAR\u2011T cell therapy\u2014originally a cancer treatment\u2014for HIV, and early data from two participants in a small safety study show promise: after a single infusion of genetically engineered autologous immune cells, both patients have maintained undetectable viral loads for almost 12\u201324\u202fmonths and have been able to discontinue antiretroviral drugs entirely. The trial, presented at the American Society of Gene and Cell Therapy meeting, suggests that teaching the immune system to control HIV without lifelong medication is achievable, offering a potential functional cure that could be safer, more scalable, and more affordable than previous stem\u2011cell\u2013based approaches that required donor cells with the CCR5 mutation."
+      "summary": "The article critiques mainstream gay dating apps for prioritizing monetization over meaningful connection, citing Grindr\u2019s ad\u2011heavy model and high\u2011priced subscription tiers and the backlash over Sniffies\u2019 Match Group investment, which raised fears of corporate takeover. In response, tech entrepreneur Calum Bowden launched MeetMarket, a privacy\u2011centric, decentralized web app that stores user data on devices, offers end\u2011to\u2011end encryption, and remains ad\u2011free, attracting over 12,000 sign\u2011ups in 48 hours and 60,000 users overall with a monthly fee of \u20ac12. Bowden, backed by his nonprofit Trust, aims to give queer users agency and protect them in hostile legal contexts. The piece notes a broader trend toward niche, community\u2011driven apps\u2014such as Justin Finnegan\u2019s Chunkr\u2014that cater to specific subcultures within the gay community, suggesting that users are increasingly seeking specificity and intentionality over the generic, profit\u2011driven platforms of Big Dating."
     }
   ]
 }
