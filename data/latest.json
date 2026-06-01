@@ -1,61 +1,61 @@
 {
-  "week": "2026-05-25",
+  "week": "2026-06-01",
   "stories": [
     {
       "rank": 1,
-      "title": "A Fundamental Principle of Aeronautical Engineering Has Been Overturned",
-      "source": "WIRED",
-      "url": "https://www.wired.com/story/a-fundamental-principle-of-aeronautical-engineering-has-been-overturned/",
-      "category": "General Tech",
-      "summary": "Summary not available."
+      "title": "LLMs are closer to religion than they appear. Watch out for those who like it that way",
+      "source": "The Register",
+      "url": "https://www.theregister.com/ai-ml/2026/06/01/llms-are-closer-to-religion-than-they-appear-watch-out-for-those-who-like-it-that-way/5248189",
+      "category": "AI",
+      "summary": "The article contrasts two starkly different reactions to AI\u2019s influence on faith: Pope Leo\u202fXIV\u2019s sweeping Latin encyclical \u201cMagnifica\u202fHumanitas,\u201d which condemns AI for risking human dignity, and a multi\u2011faith study claiming that AIs never provide religious answers. The papal critique highlights a human\u2011rights and political dimension\u2014suggesting that AI could erode dignity and even be exempted in the workplace on religious grounds\u2014while the study\u2019s methodology and assumptions (treating \u201creligion\u201d largely as fundamentalist Christianity and ignoring scientific consensus) reveal the risk of politicizing AI to advance particular religious narratives. Both cases underscore how AI\u2019s unregulated evolution can echo the schismatic power of religion: it can become a tool of ideological proselytization or a target for ethical and political opposition, showing that the intersection of technology and faith is already a battleground for shaping society\u2019s future."
     },
     {
       "rank": 2,
-      "title": "Scammers Are Abusing an Internal Microsoft Account to Send Spam Links",
-      "source": "Slashdot",
-      "url": "https://slashdot.org/story/26/05/24/040224/scammers-are-abusing-an-internal-microsoft-account-to-send-spam-links?utm_source=rss1.0mainlinkanon&utm_medium=feed",
-      "category": "General Tech",
-      "summary": "In \u201cMake it myself? But I'm a physical organic chemist!\u201d the author argues that a significant portion of the reagents and materials routinely used in physical organic research can be prepared in\u2011house rather than purchased, thereby saving time, money, and reducing environmental impact. Drawing on examples from kinetic and mechanistic studies\u2014such as custom\u2011synthesized probes, isotopically labeled substrates, and high\u2011purity solvents\u2014the piece illustrates how standard procedures (e.g., recrystallization, distillation, chromatography) can be adapted for laboratory\u2011scale production. It also addresses safety, quality control, and documentation requirements, emphasizing that meticulous characterization (NMR, MS, IR) and proper labeling are essential to maintain reproducibility. Overall, the article encourages chemists to view reagent synthesis as an integral part of experimental design, fostering a more sustainable and cost\u2011effective research workflow."
+      "title": "AI agents get their own phone directory built atop DNS",
+      "source": "The Register",
+      "url": "https://www.theregister.com/ai-ml/2026/05/28/ai-agents-get-their-own-phone-directory-built-atop-dns/5247539",
+      "category": "AI",
+      "summary": "DNS\u2011AID is an open\u2011source project that lets AI agents discover one another through the existing Domain Name System, eliminating the need for custom registries or hard\u2011coded ports. Built on DNS features such as SVCB (and TXT fallback) plus optional DNSSEC, DANE TLSA, and JWS signatures, it enables agents to publish and locate services by name, function, or domain via records like\u202f_{agent\u2011name}._{protocol}._agents.{domain}. The Linux Foundation will govern the project, which was originally developed by Infoblox, and is already supported by major DNS providers (AWS, Cloudflare, Azure, Google, etc.). Developers can get started by installing the dns\u2011aid tool, initializing a zone, publishing an SVCB record, and optionally signing with DNSSEC. By leveraging DNS\u2019s proven global scalability and ubiquity, DNS\u2011AID offers a \u201cweb\u2011native\u201d routing layer that could underpin a future $3\u2011$5\u202ftrillion agent\u2011to\u2011agent economy."
     },
     {
       "rank": 3,
-      "title": "Building Pi with Pi",
-      "source": "Hacker News (hnrss)",
-      "url": "https://lucumr.pocoo.org/2026/5/24/pi-oss/",
+      "title": "This is the Microsoft Surface Laptop Ultra with Nvidia RTX Spark",
+      "source": "The Verge",
+      "url": "https://www.theverge.com/tech/940584/microsoft-surface-laptop-ultra-nvidia-rtx-spark-pictures",
       "category": "General Tech",
-      "summary": "The article reflects on using Pi, an AI\u2011powered issue tracker and development tool, to build and debug Pi itself, highlighting the \u201cslop\u201d that arises when LLMs rewrite issue descriptions and code, producing vague, over\u2011hypothesised, or incorrect diagnostics that mislead human maintainers; this sloppiness forces developers to insist on concise, fact\u2011based issue reports and to actively verify AI analysis rather than trust it, and it also leads to over\u2011engineering fixes that add unnecessary complexity. The author notes the high volume of AI\u2011generated issues and pull requests that are auto\u2011closed, reopened, or closed again, stressing that the problem lies more with contributors and the tools they use than with GitHub itself. Parallel Pi sessions can work on multiple issues simultaneously, but the overall ecosystem remains overwhelmed by the sheer amount of code and projects in a post\u2011AI world, underscoring the need for stronger community collaboration and a focus on fixing upstream bugs rather than creating local workarounds."
+      "summary": "Microsoft and Nvidia have announced the Surface\u202fLaptop\u202fUltra, a 15\u2011inch Windows 11 laptop that will house Nvidia\u2019s new RTX\u202fSpark \u201csuperchip.\u201d The chip, originally sold in the DGX Spark mini\u2011PC, offers up to 20 CPU cores, 6,144 GPU cores, and 128\u202fGB of unified memory, with lower\u2011spec models starting at 16\u202fGB, and is expected to deliver all\u2011day battery life, RTX\u202f5070\u2011level graphics, and up to 1\u202fpetaflop of AI compute. The Ultra will feature a 15\u2011inch mini\u2011LED panel with 262\u202fppi, 2,000\u202fnits peak HDR brightness, a large haptic trackpad, and a range of ports (USB\u2011C, USB\u2011A, HDMI, SD card slot, headphone jack). Microsoft touts it as the most powerful Surface ever, with a weight under 4.5\u202flb and a price that has yet to be disclosed. The partnership builds on years of collaboration to bring Windows to Arm\u2011based devices and to optimise the RTX\u202fSpark for Windows 11."
     },
     {
       "rank": 4,
-      "title": "The AI Era Is Creating a Bug Hunting Arms Race",
+      "title": "Blue Origin Rocket Explodes in Fiery Setback",
       "source": "WIRED",
-      "url": "https://www.wired.com/story/the-ai-era-is-creating-a-bug-hunting-arms-race/",
-      "category": "AI",
-      "summary": "A decade of bug\u2011bounty programs\u2014once a reluctant novelty\u2014has been upended by the rise of agentic AI that can autonomously hunt software vulnerabilities and craft exploits, flooding disclosure portals and inflating the cost of payouts. Apple\u2019s rewards have leapt from $200k to $2m, and firms like Google expect to spend many times more next year, while smaller companies may struggle to keep pace. The surge in low\u2011 and medium\u2011severity findings is already shortening the 90\u2011day responsible\u2011disclosure window that was built for slower, rarer bug\u2011finders, and is prompting organizations to speed patch releases to avoid being outmaneuvered by attackers who are now using the same AI tools. This new equilibrium threatens to compress discovery and exploitation timelines, making rapid, careful patch deployment\u2014despite its operational risks\u2014an urgent imperative in a landscape where even \u201cnon\u2011professional\u201d actors can deploy AI\u2011generated zero\u2011day exploits."
+      "url": "https://www.wired.com/story/blue-origin-rocket-explodes-in-major-setback/",
+      "category": "General Tech",
+      "summary": "Blue Origin\u2019s 98\u2011meter New\u202fGlenn rocket blew up during a hot\u2011fire (static\u2011fire) test on Cape Canaveral\u2019s Launch Complex\u202f36, igniting the launchpad at night; founder Jeff\u202fBezos confirmed all personnel were safe and that the company was already investigating the cause. The test, meant to verify engine performance before an actual flight, was the fourth planned New\u202fGlenn mission that would have carried 48 satellites for Amazon\u2019s Leo network. NASA\u2019s administrator, Jared\u202fIsaacman, acknowledged the anomaly, pledged a thorough investigation, and noted potential, though still\u2011unknown, impacts on Artemis\u2011related lunar missions. The incident follows a prior launch failure in April that prompted an FAA probe, highlighting the challenges of developing heavy\u2011lift launch capability."
     },
     {
       "rank": 5,
-      "title": "Digital sovereignty, the musical: One engineer\u2019s bizarre crusade against hyperscalers",
-      "source": "The Register",
-      "url": "https://www.theregister.com/offbeat/2026/05/25/digital-sovereignty-the-musical-one-engineers-bizarre-crusade-against-hyperscalers/5245148",
+      "title": "An OpenAI model solved a famous math problem that stumped humans for 80 years",
+      "source": "Ars Technica",
+      "url": "https://arstechnica.com/ai/2026/06/openais-math-breakthrough-played-to-ais-strengths/",
       "category": "AI",
-      "summary": "A French infrastructure architect, Amine\u202fRaiti, has launched \u201cOperation\u202fDindon,\u201d a tongue\u2011in\u2011cheek, multilingual protest against Amazon, Google and Microsoft that threatens to unleash AI\u2011generated sea shanties, K\u2011pop, Finnish polka and satirical poetry if the hyperscalers do not address cloud lock\u2011in and egress fees by September. Raiti\u2019s \u201cIron Ultimatum\u201d demands that providers let customers cancel long\u2011term contracts, waive costly data\u2011transfer charges and make exit from proprietary services financially viable; otherwise his 50\u2011track AI\u2011produced campaign will continue. The campaign, which began with a 14\u2011part satirical series about a fictional turkey trapped in the cloud, aims to turn vendor\u2011lock\u2011in complaints into performance art and has yet to elicit a public response from the cloud giants."
+      "summary": "In May, OpenAI revealed that an internal AI model had disproved the long\u2011standing Erd\u0151s unit distance conjecture, a milestone that earned praise from top mathematicians such as Fields Medalist Tim\u202fGowers and University of Toronto professor Daniel\u202fLitt; the result marks the first autonomous AI\u2011generated proof of a major open conjecture, yet it largely repackaged existing ideas rather than inventing new techniques, reinforcing a near\u2011term future where AI\u2019s encyclopedic recall and brute\u2011force reasoning complement human insight and creativity in mathematical research."
     },
     {
       "rank": 6,
-      "title": "Under-trained techie didn't claim overtime for mistakenly failing to phone it in",
-      "source": "The Register",
-      "url": "https://www.theregister.com/networks/2026/05/25/under-trained-techie-didnt-claim-overtime-for-mistakenly-failing-to-phone-it-in/5242388",
-      "category": "AI",
-      "summary": "Summary not available."
+      "title": "Best Sleep Trackers of 2026: Oura, Whoop, and Eight Sleep",
+      "source": "WIRED",
+      "url": "https://www.wired.com/story/best-sleep-trackers/",
+      "category": "General Tech",
+      "summary": "Apple\u2019s own smartwatch remains the most affordable option: the Series\u202f11 ($399) can track four sleep stages using its heart\u2011rate sensor and accelerometer, and newer models add blood\u2011oxygen and temperature readings, but it offers no overall sleep score. Garmin\u2019s premium Epix\u202fPro ($1,000) delivers advanced sleep monitoring\u2014stages, SpO\u2082, respiratory rate and restlessness\u2014but tends to over\u2011estimate sleep duration and ignores naps in its score. Google\u2019s Nest\u202fHub\u202fMax ($229) uses radar and a microphone to monitor sleep without a wearable, yet it consistently overestimates REM and misses wake periods, while the cheaper second\u2011gen model ($100) offers similar performance. Headband contenders like Muse\u202fS Athena ($475) provide EEG\u2011style brain data plus heart\u2011rate and respiration, yet can be uncomfortable and prone to failure if removed during the night. Withings\u2019 ScanWatch\u202f2 ($370) offers a full four\u2011stage profile with respiratory\u2011rate PPG and additional metrics, though its bulk may disturb sleep and it can misclassify quiet wakefulness. The company\u2019s Sleep Tracking Mat ($200) sits under the mattress and gathers motion, breathing, heart\u2011rate and snoring data, but its assumption that stillness equals sleep can skew scores and it needs a power outlet. Finally, the low\u2011cost Sleep Routine app ($60\u202f/\u202fyr) gives nightly stage reports with reasonable accuracy but is occasionally buggy. Each device trades off price, comfort and data depth, so the best choice depends on whether you prioritize convenience, comprehensive metrics or affordability."
     },
     {
       "rank": 7,
-      "title": "These Privacy-Conscious Gay Dating Apps Want to Dethrone Grindr",
+      "title": "Universal Audio Volt 876 USB Audio Interface Review: Pro-Level Polish",
       "source": "WIRED",
-      "url": "https://www.wired.com/story/these-privacy-conscious-gay-dating-apps-want-to-dethrone-grindr/",
+      "url": "https://www.wired.com/review/universal-audio-volt-876-usb-audio-interface/",
       "category": "General Tech",
-      "summary": "The article critiques mainstream gay dating apps for prioritizing monetization over meaningful connection, citing Grindr\u2019s ad\u2011heavy model and high\u2011priced subscription tiers and the backlash over Sniffies\u2019 Match Group investment, which raised fears of corporate takeover. In response, tech entrepreneur Calum Bowden launched MeetMarket, a privacy\u2011centric, decentralized web app that stores user data on devices, offers end\u2011to\u2011end encryption, and remains ad\u2011free, attracting over 12,000 sign\u2011ups in 48 hours and 60,000 users overall with a monthly fee of \u20ac12. Bowden, backed by his nonprofit Trust, aims to give queer users agency and protect them in hostile legal contexts. The piece notes a broader trend toward niche, community\u2011driven apps\u2014such as Justin Finnegan\u2019s Chunkr\u2014that cater to specific subcultures within the gay community, suggesting that users are increasingly seeking specificity and intentionality over the generic, profit\u2011driven platforms of Big Dating."
+      "summary": "In 2006, the author\u2019s attempt to jump into IDM music using a new M\u2011Audio FastTrack Pro was thwarted by driver headaches and high latency, forcing a switch to a Line\u202f6 DL4 pedal and a return to live band playing; had a plug\u2011and\u2011play interface like today\u2019s Universal Audio Volt existed, his entry into computer\u2011based music would have been smoother. Today, audio interfaces have dramatically improved: prices are lower, quality higher, and latency negligible, especially with class\u2011compliant designs that work out of the box on Windows, macOS, iOS, and Android. As a result, anyone can buy a $200\u2011class interface, connect a mic, and produce decent recordings for platforms like TikTok without the technical barriers that once plagued early adopters."
     }
   ]
 }
