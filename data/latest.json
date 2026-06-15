@@ -1,61 +1,61 @@
 {
-  "week": "2026-06-08",
+  "week": "2026-06-15",
   "stories": [
     {
       "rank": 1,
-      "title": "How to Watch Apple\u2019s WWDC 2026 Keynote\u2014and What to Expect",
-      "source": "WIRED",
-      "url": "https://www.wired.com/story/how-to-watch-apple-wwdc-2026/",
-      "category": "General Tech",
-      "summary": "Apple\u2019s final Worldwide Developers Conference under CEO Tim\u202fCook, set to launch on June\u202f8, will spotlight new software releases\u2014iOS\u202f27, macOS\u202f27, watchOS\u202f27, and more\u2014emphasizing performance, stability, and a suite of AI-powered \u201cApple Intelligence\u201d features such as digital event passes and receipt\u2011based bill splitting; the keynote is expected to unveil a major Siri overhaul, now powered by a multi\u2011year partnership with Google\u2019s Gemini, promising a more personalized assistant."
+      "title": "Google Earth\u2019s flight simulator is now available in your browser",
+      "source": "The Verge",
+      "url": "https://www.theverge.com/tech/949749/google-earth-flight-simulator-browser-experimental",
+      "category": "AI",
+      "summary": "Google Earth has quietly featured a flight\u2011simulator mode since 2007, and on Friday the company made it publicly available via the web interface. After opening Google Earth in a browser, users click \u201cExplore Earth\u201d and then select \u201cFlight Simulator\u201d from the Tools menu. Switching the basemap to Satellite gives a photorealistic view, and the controls\u2014accessed through keyboard or mouse\u2014are simple but require practice to navigate without crashing; if a collision occurs the simulator pauses and offers a reset to a safe altitude. While not as sophisticated as dedicated flight games like Microsoft Flight Simulator, the feature lets anyone pilot a virtual aircraft over the globe without downloading extra software."
     },
     {
       "rank": 2,
-      "title": "Critical Everest Forms Pro flaw exploited to take over WordPress sites",
-      "source": "BleepingComputer",
-      "url": "https://www.bleepingcomputer.com/news/security/critical-everest-forms-pro-flaw-exploited-to-take-over-wordpress-sites/",
+      "title": "The UK Places a Sweeping Ban on Social Media for Kids Under 16",
+      "source": "WIRED",
+      "url": "https://www.wired.com/story/uk-social-media-under-16-ban/",
       "category": "General Tech",
-      "summary": "Hackers are actively exploiting CVE\u20112026\u20113300, a critical vulnerability in Everest Forms Pro (v\u202f1.9.12 and earlier) that lets an unauthenticated attacker inject arbitrary PHP code via the plugin\u2019s Complex Calculation feature. The flaw arises because user\u2011supplied values are inserted into a PHP string and executed with `eval()`, and the sanitization used (`sanitize_text_field()`) fails to escape single quotes, enabling attackers to close the string and inject code such as `wp_insert_user()` to create rogue administrator accounts. Wordfence reports show active exploitation began on April\u202f13, with over 29,300 blocked attempts and two main source IPs (202.56.2.126 and 209.146.60.26). The issue was reported in February, patched on March\u202f18, but administrators should still audit logs and accounts\u2014especially for the username \u201cdiksimarina\u201d\u2014and block the identified IPs to mitigate the risk."
+      "summary": "Prime Minister Keir\u202fStarmer has announced a sweeping ban that will prohibit children under 16 from accessing major social\u2011media platforms\u2014Facebook, Instagram, X, TikTok, Snapchat and YouTube\u2014effective spring\u202f2027, while retaining WhatsApp and Signal for messaging. The ban also raises the minimum age for romantic chatbot interactions to 18, removes livestreaming and stranger\u2011contact features for under\u201116s, and may introduce an overnight curfew for those under 18. The move, framed as protection against graphic content, bullying and \u201cdoomscrolling,\u201d follows a public consultation that attracted over 100,000 submissions and a 90\u202f% parental endorsement for a full ban; it comes after Australia enacted a similar restriction last year and amid political pressure on Starmer\u2019s leadership. Tech companies have cautioned that blanket bans could push young users toward less supervised platforms, while supporters, including parents of a transgender victim, argue the harms outweigh the benefits."
     },
     {
       "rank": 3,
-      "title": "The weather and climate science AI revolution isn\u2019t revolutionary",
-      "source": "Ars Technica",
-      "url": "https://arstechnica.com/science/2026/06/the-weather-and-climate-science-ai-revolution-isnt-revolutionary/",
-      "category": "AI",
-      "summary": "The article explains that AI is increasingly being used in weather and climate science, but not as flashy large\u2011language models (LLMs) like chatbots; instead it relies on established machine learning (ML) techniques that identify complex patterns in vast datasets. While a National Weather Service office once posted a misleading AI\u2011generated map, the real applications involve training neural networks to recognise relationships in environmental data, improving forecasting and climate modeling. The piece clarifies that ML, not LLMs, underpins these advances and that meteorologists and climate scientists are still doing the heavy lifting, using well\u2011understood algorithms rather than replacing them with generic AI assistants."
+      "title": "Fox is buying Roku",
+      "source": "The Verge",
+      "url": "https://www.theverge.com/business/949727/fox-roku-acquisition-22-billion",
+      "category": "General Tech",
+      "summary": "Fox has agreed to acquire Roku for $22\u202fbillion, a move that will combine Fox\u2019s TV networks and Tubi streamer with Roku\u2019s hardware, software and The Roku Channel, positioning the merged entity as the U.S. TV industry\u2019s third\u2011largest player by viewing share. CEO Lachlan\u202fMurdoch framed the deal as a \u201cdefining moment\u201d that will bring Fox\u2019s live content into the leading streaming platform, while Roku founder Anthony Wood emphasized that the platform will remain open and partner\u2011friendly, simply adding Fox properties\u2014especially Fox Sports\u2014to its home\u2011screen promotion. The transaction is slated to close in the first half of 2027, subject to U.S. regulatory approval and limited international clearance."
     },
     {
       "rank": 4,
-      "title": "Momfluencers Are Pitching AI as a Better \u2018Coparent\u2019 Than Men",
-      "source": "WIRED",
-      "url": "https://www.wired.com/story/momfluencers-are-pitching-ai-as-a-better-coparent-than-men/",
-      "category": "AI",
-      "summary": "Lilian Schmidt, a Zurich\u2011based brand consultant and mother, turned to ChatGPT after conventional sleep\u2011tips failed to help her 3\u00bd\u2011year\u2011old daughter fall asleep, discovering that the AI\u2019s counterintuitive advice\u2014more stimulation before bed\u2014worked instantly; this success sparked a viral TikTok series and the creation of a paid custom GPT called \u201cCoparent,\u201d positioning Schmidt as a \u201cmomfluencer\u201d who promotes generative AI as a substitute for traditional parenting labor. Her content, which highlights how AI can reduce the invisible workload that 13.5 extra hours per week of chores and childcare places on U.S. mothers, mirrors broader gendered labor disparities, with women still shouldering the majority of household responsibilities despite fathers\u2019 increasing involvement. Yet a 2025 study shows women are 20\u202f% less likely than men to use generative AI, a gap attributed to the tools\u2019 \u201cpale, male, and stale\u201d design, underscoring both the potential and the challenges of AI\u2011assisted parenting."
+      "title": "US Gov asks Anthropic to ban 'foreign national' access to Fable, Mythos",
+      "source": "BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/us-gov-asks-anthropic-to-ban-foreign-national-access-to-fable-mythos/",
+      "category": "General Tech",
+      "summary": "Anthropic has halted access to its flagship models Fable\u202f5 and Mythos\u202f5 worldwide after a U.S. export\u2011control directive barred all foreign nationals\u2014including its own foreign\u2011national employees\u2014from using them, citing national\u2011security concerns over a reported narrow jailbreak. The stop came just days after the models were rolled out for free Pro, Max, and Enterprise customers, leaving millions of users offline and forcing a fallback to older models such as Claude Opus\u202f4.8. The move has drawn criticism from UK AI officials and industry observers, who see it as a blow to technological sovereignty and a precedent that could stall future AI deployments. Anthropic disputes the government\u2019s rationale, claims the issue is minor, and says it is working to restore access while offering more details within 24\u202fhours."
     },
     {
       "rank": 5,
-      "title": "UK boffin bait lands 18 international researchers",
+      "title": "PRC-linked spies hid inside medical and military networks for more than a year, snooping through Gmail and stealing data",
       "source": "The Register",
-      "url": "https://www.theregister.com/science/2026/06/08/uk-boffin-bait-lands-18-international-researchers/5252046",
+      "url": "https://www.theregister.com/research/2026/06/15/google-says-prc-linked-spies-hid-in-medical-research-networks-for-more-than-a-year/5254547",
       "category": "AI",
-      "summary": "Summary not available."
+      "summary": "Google\u2019s Threat Intelligence Group exposed a year\u2011long espionage campaign by a PRC\u2011linked threat group, dubbed UNC6508, that infiltrated North American medical and military research organizations through compromised REDCap servers. After planting custom malware called InfiniteRed, the attackers harvested REDCap login credentials, maintained persistence via upgrade injections, and ultimately accessed internal networks and admin accounts. They leveraged Google Workspace\u2019s content\u2011compliance rules, creating a \u201cPatroit\u201d rule that silently BCC\u2011forwarded targeted emails\u2014ranging from drone and unmanned vehicle technology to the mosquito\u2011borne Chikungunya virus\u2014to an attacker\u2011controlled Gmail address (BebitaBarefoot774). The operation spanned defense, technology, and medical research sectors, targeting universities, hospitals, and military health institutions, and underscored how state\u2011sponsored actors use seemingly unrelated data\u2011search queries to cast a broad net across national\u2011security\u2011relevant domains."
     },
     {
       "rank": 6,
-      "title": "RIP Anthony Head: Our 10 favorite moments of Buffy's Giles",
-      "source": "Ars Technica",
-      "url": "https://arstechnica.com/culture/2026/06/rip-anthony-head-our-10-favorite-moments-of-buffys-giles/",
-      "category": "General Tech",
-      "summary": "The article announces the death of actor Anthony\u202fHead (72), best known for playing Rupert Giles on *Buffy the Vampire Slayer*, and notes how fans and colleagues paid tribute online. It highlights Head\u2019s later roles\u2014Uther Pendragon in *Merlin*, the Prime Minister in *Little Britain*, a headmaster in *Doctor\u202fWho*, and Rupert\u202fMannion in *Ted\u202fLasso*\u2014but affirms that Giles remains his defining part, with even a planned but unmade spin\u2011off. The piece underscores Head\u2019s subtle, essential presence in the show\u2019s storytelling, and invites readers to rewatch *Buffy* in his honor, offering a list of favorite Giles moments (the article begins detailing the first, \u201cLie To Me\u201d episode)."
+      "title": "UK AI hiring surges as firms seek people to babysit the bots",
+      "source": "The Register",
+      "url": "https://www.theregister.com/ai-and-ml/2026/06/15/uk-ai-hiring-surges-as-firms-seek-people-to-babysit-the-bots/5255437",
+      "category": "AI",
+      "summary": "PwC\u2019s latest AI Jobs Barometer shows a sharp 61\u202f% rise in UK AI specialist hiring (from 112,000 to 180,000 roles) even as overall vacancies fell 6.6\u202f%. However, the growth is largely driven by \u201cAI user\u201d roles that help existing professionals leverage AI\u2014up 66,000 positions\u2014while pure \u201cAI developer\u201d roles grew only 2,600. This creates a two\u2011track labor market: high\u2011skill jobs where AI adds value to specialised work are expanding 39\u202f% since 2018, versus 17\u202f% growth in roles where AI merely simplifies tasks. Wage premiums for AI\u2011skilled roles have surged to an average 34.2\u202f% above non\u2011AI equivalents (up from 11\u202f% last year), with consumer firms paying the most and the public sector the least. The findings underscore that the current AI hiring boom is centred on seasoned professionals who can effectively use AI, rather than a flood of new tech builders, amid broader concerns about AI\u2019s impact on employment and workplace productivity."
     },
     {
       "rank": 7,
-      "title": "Lenovo IdeaPad Slim 5x Review: The Best Laptop Under $1,000",
-      "source": "WIRED",
-      "url": "https://www.wired.com/review/lenovo-ideapad-slim-5x/",
+      "title": "Russia appears set to finally address long-term, serious space station cracks",
+      "source": "Ars Technica",
+      "url": "https://arstechnica.com/space/2026/06/russia-appears-set-to-finally-address-long-term-serious-space-station-cracks/",
       "category": "General Tech",
-      "summary": "Lenovo\u2019s IdeaPad\u202fSlim\u202f5x proves that a budget laptop can feel premium without compromising too much on usability. Its 15.3\u2011inch screen, centered touchpad and spacious keyboard keep it travel\u2011ready while matching the size and thickness of the 15\u2011inch MacBook Air. The touchpad outperforms many rivals in responsiveness, though its click is noticeably loud, and the speakers, while not as full as Apple\u2019s, outperform average budget units. Powered by the Qualcomm Snapdragon\u202fX2\u202fPlus, the machine delivers solid CPU performance for multitasking, though it still lags behind Apple\u2019s M5 in raw power. Still, for typical office workflows, streaming, and light multitasking the X2\u202fPlus offers more than enough horsepower. The bright, colorful, anti\u2011glare touchscreen adds a premium feel, making the Slim\u202f5x a compelling choice for users who value portability, performance, and a decent display without a hefty price tag."
+      "summary": "In mid\u2011June 2024, NASA and Roscosmos faced a serious depressurization risk on the International Space Station when persistent cracks in the Russian Zvezda service module\u2019s PrK module began leaking again after earlier repairs. The leaks, first noticed in 2019 and normally sealed with Germetall\u20111, had worsened in early June, prompting Roscosmos to initiate a comprehensive inspection and repair on June\u202f5. The proposed solution alarmed NASA, which ordered its Crew\u201112 astronauts to seek temporary refuge in a Crew\u202fDragon capsule for emergency protection. After Russia revisited its inspection plans and NASA backed the decision, the crew ended the emergency precautions and resumed normal operations aboard the ISS."
     }
   ]
 }
