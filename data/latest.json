@@ -1,61 +1,61 @@
 {
-  "week": "2026-06-15",
+  "week": "2026-06-22",
   "stories": [
     {
       "rank": 1,
-      "title": "Google Earth\u2019s flight simulator is now available in your browser",
+      "title": "Polymarket reportedly paid people to post fake videos of themselves placing bets",
       "source": "The Verge",
-      "url": "https://www.theverge.com/tech/949749/google-earth-flight-simulator-browser-experimental",
+      "url": "https://www.theverge.com/tech/953285/polymarket-fake-viral-video-bets",
       "category": "AI",
-      "summary": "Google Earth has quietly featured a flight\u2011simulator mode since 2007, and on Friday the company made it publicly available via the web interface. After opening Google Earth in a browser, users click \u201cExplore Earth\u201d and then select \u201cFlight Simulator\u201d from the Tools menu. Switching the basemap to Satellite gives a photorealistic view, and the controls\u2014accessed through keyboard or mouse\u2014are simple but require practice to navigate without crashing; if a collision occurs the simulator pauses and offers a reset to a safe altitude. While not as sophisticated as dedicated flight games like Microsoft Flight Simulator, the feature lets anyone pilot a virtual aircraft over the globe without downloading extra software."
+      "summary": "Summary not available."
     },
     {
       "rank": 2,
-      "title": "The UK Places a Sweeping Ban on Social Media for Kids Under 16",
-      "source": "WIRED",
-      "url": "https://www.wired.com/story/uk-social-media-under-16-ban/",
+      "title": "Hackers exploit info disclosure bug in Gravity SMTP WordPress plugin",
+      "source": "BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-info-disclosure-bug-in-gravity-smtp-wordpress-plugin/",
       "category": "General Tech",
-      "summary": "Prime Minister Keir\u202fStarmer has announced a sweeping ban that will prohibit children under 16 from accessing major social\u2011media platforms\u2014Facebook, Instagram, X, TikTok, Snapchat and YouTube\u2014effective spring\u202f2027, while retaining WhatsApp and Signal for messaging. The ban also raises the minimum age for romantic chatbot interactions to 18, removes livestreaming and stranger\u2011contact features for under\u201116s, and may introduce an overnight curfew for those under 18. The move, framed as protection against graphic content, bullying and \u201cdoomscrolling,\u201d follows a public consultation that attracted over 100,000 submissions and a 90\u202f% parental endorsement for a full ban; it comes after Australia enacted a similar restriction last year and amid political pressure on Starmer\u2019s leadership. Tech companies have cautioned that blanket bans could push young users toward less supervised platforms, while supporters, including parents of a transgender victim, argue the harms outweigh the benefits."
+      "summary": "WordPress sites using the Gravity SMTP plugin (\u2248100,000 sites) are at risk from CVE\u20112026\u20114020, a medium\u2011severity, unauthenticated information\u2011leak flaw that exposes a REST endpoint returning a full \u201cSystem Report.\u201d The report can reveal API keys, third\u2011party email credentials, WordPress configuration, server and database details, and other sensitive data, enabling attackers to impersonate the site and plan further exploits. Defiant\u2019s Wordfence firewall has blocked over 17\u202fmillion attack attempts, with a spike of 4\u202fmillion blocked requests on June\u202f7, and recommends blocking the IPs listed in their advisory and the `/wp-json/gravitysmtp/v1/tests/mock-data` endpoint. The vulnerability is fixed in Gravity SMTP\u202f2.1.5 (released March\u202f17); site owners should upgrade immediately. In a related alert, CVE\u20112026\u20118713 affects the Avada Builder plugin, allowing unauthenticated arbitrary file deletion via a path\u2011traversal flaw when a published Avada form stores submissions in the database; the issue is patched in Avada\u202f3.15.4 and should be applied promptly, even though no active exploitation has been seen."
     },
     {
       "rank": 3,
-      "title": "Fox is buying Roku",
-      "source": "The Verge",
-      "url": "https://www.theverge.com/business/949727/fox-roku-acquisition-22-billion",
-      "category": "General Tech",
-      "summary": "Fox has agreed to acquire Roku for $22\u202fbillion, a move that will combine Fox\u2019s TV networks and Tubi streamer with Roku\u2019s hardware, software and The Roku Channel, positioning the merged entity as the U.S. TV industry\u2019s third\u2011largest player by viewing share. CEO Lachlan\u202fMurdoch framed the deal as a \u201cdefining moment\u201d that will bring Fox\u2019s live content into the leading streaming platform, while Roku founder Anthony Wood emphasized that the platform will remain open and partner\u2011friendly, simply adding Fox properties\u2014especially Fox Sports\u2014to its home\u2011screen promotion. The transaction is slated to close in the first half of 2027, subject to U.S. regulatory approval and limited international clearance."
+      "title": "Microsoft accidentally kills epic Outlook email threads",
+      "source": "The Register",
+      "url": "https://www.theregister.com/personal-tech/2026/06/22/microsoft-accidentally-kills-epic-outlook-email-threads/5259388",
+      "category": "AI",
+      "summary": "Microsoft\u2019s latest build of Outlook for macOS (v16.110, build\u202f26061317) has broken a fundamental feature: when users reply to an email, the original message no longer appears in the reply window. This omission hampers threaded conversations and has already prompted complaints that the update slipped past quality checks. The only workaround, per a forum moderator, is to roll back to a previous version and disable auto\u2011updates until a fix arrives\u2014an option that is impractical for managed fleets. While users can copy\u2011paste the relevant text, the disruption reveals a lapse in Microsoft\u2019s testing process, especially troubling given the company\u2019s recent push to phase out Office 2019 on Macs and its broader strategy of encouraging upgrades. The Register has yet to receive a response from Microsoft regarding the issue."
     },
     {
       "rank": 4,
-      "title": "US Gov asks Anthropic to ban 'foreign national' access to Fable, Mythos",
-      "source": "BleepingComputer",
-      "url": "https://www.bleepingcomputer.com/news/security/us-gov-asks-anthropic-to-ban-foreign-national-access-to-fable-mythos/",
-      "category": "General Tech",
-      "summary": "Anthropic has halted access to its flagship models Fable\u202f5 and Mythos\u202f5 worldwide after a U.S. export\u2011control directive barred all foreign nationals\u2014including its own foreign\u2011national employees\u2014from using them, citing national\u2011security concerns over a reported narrow jailbreak. The stop came just days after the models were rolled out for free Pro, Max, and Enterprise customers, leaving millions of users offline and forcing a fallback to older models such as Claude Opus\u202f4.8. The move has drawn criticism from UK AI officials and industry observers, who see it as a blow to technological sovereignty and a precedent that could stall future AI deployments. Anthropic disputes the government\u2019s rationale, claims the issue is minor, and says it is working to restore access while offering more details within 24\u202fhours."
+      "title": "Several US States Bet That AI Can Solve Their Prison Recidivism Crisis",
+      "source": "Slashdot",
+      "url": "https://news.slashdot.org/story/26/06/21/2340231/several-us-states-bet-that-ai-can-solve-their-prison-recidivism-crisis?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+      "category": "AI",
+      "summary": "The quote humorously notes that the University of California, Berkeley produced two iconic and seemingly unrelated innovations\u2014LSD, the psychedelic drug, and UNIX, the influential operating system\u2014implying a surprising but deliberate connection between them."
     },
     {
       "rank": 5,
-      "title": "PRC-linked spies hid inside medical and military networks for more than a year, snooping through Gmail and stealing data",
-      "source": "The Register",
-      "url": "https://www.theregister.com/research/2026/06/15/google-says-prc-linked-spies-hid-in-medical-research-networks-for-more-than-a-year/5254547",
-      "category": "AI",
-      "summary": "Google\u2019s Threat Intelligence Group exposed a year\u2011long espionage campaign by a PRC\u2011linked threat group, dubbed UNC6508, that infiltrated North American medical and military research organizations through compromised REDCap servers. After planting custom malware called InfiniteRed, the attackers harvested REDCap login credentials, maintained persistence via upgrade injections, and ultimately accessed internal networks and admin accounts. They leveraged Google Workspace\u2019s content\u2011compliance rules, creating a \u201cPatroit\u201d rule that silently BCC\u2011forwarded targeted emails\u2014ranging from drone and unmanned vehicle technology to the mosquito\u2011borne Chikungunya virus\u2014to an attacker\u2011controlled Gmail address (BebitaBarefoot774). The operation spanned defense, technology, and medical research sectors, targeting universities, hospitals, and military health institutions, and underscored how state\u2011sponsored actors use seemingly unrelated data\u2011search queries to cast a broad net across national\u2011security\u2011relevant domains."
+      "title": "Trump admin\u2019s coal investments assist plants with repeated violations",
+      "source": "Ars Technica",
+      "url": "https://arstechnica.com/science/2026/06/trump-admins-coal-investments-assist-plants-with-repeated-violations/",
+      "category": "General Tech",
+      "summary": "In 2023, Tennessee\u2019s Cumberland Fossil Plant\u2014already plagued by pollution, equipment failures and health risks\u2014was slated to shut its units in 2026 and 2028 after a 2011 settlement that required the Tennessee Valley Authority (TVA) to install pollution controls. Yet, following a Trump\u2011era reshuffle of TVA\u2019s board, the agency secured a $46\u202fmillion federal grant to extend the plant\u2019s life\u2014one of only three DOE\u2011funded coal plants repeatedly cited for Clean Air and Water Act violations, alongside Oklahoma\u2019s Grand River Energy Center and North Carolina\u2019s Roxboro Steam Electric Plant. Local residents like Angie\u202fMummaw view the extension as a setback to clean\u2011energy progress, while clean\u2011energy advocates such as Maggie\u202fShober argue that keeping coal plants running accelerates climate change and health harms. Studies link the plant\u2019s toxic fine\u2011particle emissions to roughly 1,000 premature deaths across the Northeast from 1999\u20112020, underscoring the broader public\u2011health impact of continued coal operations."
     },
     {
       "rank": 6,
-      "title": "UK AI hiring surges as firms seek people to babysit the bots",
-      "source": "The Register",
-      "url": "https://www.theregister.com/ai-and-ml/2026/06/15/uk-ai-hiring-surges-as-firms-seek-people-to-babysit-the-bots/5255437",
-      "category": "AI",
-      "summary": "PwC\u2019s latest AI Jobs Barometer shows a sharp 61\u202f% rise in UK AI specialist hiring (from 112,000 to 180,000 roles) even as overall vacancies fell 6.6\u202f%. However, the growth is largely driven by \u201cAI user\u201d roles that help existing professionals leverage AI\u2014up 66,000 positions\u2014while pure \u201cAI developer\u201d roles grew only 2,600. This creates a two\u2011track labor market: high\u2011skill jobs where AI adds value to specialised work are expanding 39\u202f% since 2018, versus 17\u202f% growth in roles where AI merely simplifies tasks. Wage premiums for AI\u2011skilled roles have surged to an average 34.2\u202f% above non\u2011AI equivalents (up from 11\u202f% last year), with consumer firms paying the most and the public sector the least. The findings underscore that the current AI hiring boom is centred on seasoned professionals who can effectively use AI, rather than a flood of new tech builders, amid broader concerns about AI\u2019s impact on employment and workplace productivity."
+      "title": "These Are the 12 Ikea Products the Company's Design Chief Personally Owns",
+      "source": "WIRED",
+      "url": "https://www.wired.com/story/these-are-the-12-ikea-products-ikeas-design-chief-personally-owns/",
+      "category": "General Tech",
+      "summary": "Johan\u202fEjdemo, a carpenter and avid cook, mixes Ikea staples with his own carpentry to create a highly functional yet personalized kitchen. He keeps a long\u2011used Koncis metal tray set for cooking, customises Ikea\u2019s Faktum/Metod system with extra storage and a hand\u2011painted island, and adds a vintage PS cabinet and a 1995 PS clock for nostalgic flair. His space is rounded out with a now\u2011unavailable Norbo folding table, a weathered Bekv\u00e4m step stool, and practical Norberg\u2011style stools, all of which accommodate family gatherings and everyday use. The result is a durable, well\u2011organized kitchen that blends Ikea\u2019s affordability and design with Ejdemo\u2019s hands\u2011on craftsmanship."
     },
     {
       "rank": 7,
-      "title": "Russia appears set to finally address long-term, serious space station cracks",
-      "source": "Ars Technica",
-      "url": "https://arstechnica.com/space/2026/06/russia-appears-set-to-finally-address-long-term-serious-space-station-cracks/",
+      "title": "The UK Just Lost Its Sixth Prime Minister of the Decade",
+      "source": "WIRED",
+      "url": "https://www.wired.com/story/uk-loses-its-sixth-prime-minister-keir-starmer/",
       "category": "General Tech",
-      "summary": "In mid\u2011June 2024, NASA and Roscosmos faced a serious depressurization risk on the International Space Station when persistent cracks in the Russian Zvezda service module\u2019s PrK module began leaking again after earlier repairs. The leaks, first noticed in 2019 and normally sealed with Germetall\u20111, had worsened in early June, prompting Roscosmos to initiate a comprehensive inspection and repair on June\u202f5. The proposed solution alarmed NASA, which ordered its Crew\u201112 astronauts to seek temporary refuge in a Crew\u202fDragon capsule for emergency protection. After Russia revisited its inspection plans and NASA backed the decision, the crew ended the emergency precautions and resumed normal operations aboard the ISS."
+      "summary": "UK Prime Minister Keir Starmer resigned less than two years after leading Labour to a landslide victory, citing his party\u2019s assessment that he is not the best fit to guide them into the next election. His popularity has plummeted amid tax rises, spending cuts, and unmet public\u2011service promises, with May\u2019s local elections seeing Labour lose 1,500 council seats and many councils shift to the Reform UK party. Starmer\u2019s resignation comes as Andy\u202fBurnham, newly elected MP and former Manchester mayor, is poised to succeed him, with former Health Secretary Wes Streeting pledging support. The resignation follows a series of high\u2011profile leadership changes since the 2016 Brexit referendum, and Starmer will remain in office until the Labour Party elects a new leader, expected before Parliament reconvenes in September."
     }
   ]
 }
