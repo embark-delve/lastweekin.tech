@@ -1,61 +1,61 @@
 {
-  "week": "2026-07-13",
+  "week": "2026-07-20",
   "stories": [
     {
       "rank": 1,
-      "title": "AI-driven datacenter builds drive Microsoft's emissions up a quarter in one year",
-      "source": "The Register",
-      "url": "https://www.theregister.com/on-prem/2026/07/10/ai-driven-datacenter-builds-drive-microsofts-emissions-up-a-quarter-in-one-year/5269924",
-      "category": "AI",
-      "summary": "Microsoft\u2019s 2026 Environmental Sustainability Report highlights a paradox: while it achieved 100\u202f% renewable power for its global electricity use last year, its datacenter expansion has pushed greenhouse\u2011gas emissions up 25\u202f% to 20\u202fmillion\u202ftCO\u2082e in 2025 (projected 34\u202fmillion\u202ftCO\u2082e without current cuts). The company\u2019s goal to be carbon\u2011negative by 2030 remains unfulfilled, though it argues AI\u2019s societal benefits justify the energy demand. Scope\u202f3 emissions still dominate its footprint, with Scope\u202f2 rising to 13\u202f% of total due to purchased power. Water use is being curbed\u2014WUE improved 25\u202f% since 2022, and Microsoft claims it replenished more water than it withdrew in 2025. Circular initiatives reuse 92\u202f% of decommissioned servers, and construction experiments include low\u2011carbon concrete and wood\u2011based facilities to reduce embodied carbon. The report frames AI infrastructure as both an environmental challenge and an opportunity for leadership."
+      "title": "San Francisco orders Apple, Google to remove nudify apps from app stores",
+      "source": "Ars Technica",
+      "url": "https://arstechnica.com/tech-policy/2026/07/apple-google-must-stop-profiting-off-ai-nudify-apps-san-francisco-ag-says/",
+      "category": "General Tech",
+      "summary": "San\u202fFrancisco Attorney\u202fGeneral\u202fDavid\u202fChiu has sent cease\u2011and\u2011desist letters to Apple and Google demanding the removal of 13 \u201cnudification\u201d apps that can turn ordinary photos into non\u2011consensual deepfake porn, citing California laws prohibiting such services. The apps"
     },
     {
       "rank": 2,
-      "title": "OpenAI\u2019s Head of Safety Is Leaving the Company",
-      "source": "WIRED",
-      "url": "https://www.wired.com/story/openai-head-of-safety-leaving/",
-      "category": "AI",
-      "summary": "OpenAI\u2019s head of safety systems Johannes\u202fHeidecke has announced his departure, a move that follows a reorganization aimed at tighter integration of the company\u2019s safety and research functions. Chief research officer Mark\u202fChen said safety teams will now report to VP of research and alignment Mia\u202fGlaese, who will expand her role to include safety, while Saachi\u202fJain will serve as interim head of safety systems. Chen cited accelerating model training and shortened release cycles as reasons for increased safety coordination needs. Heidecke, who joined in 2021 and led safety systems since 2024, is leaving amid a broader exodus of safety leaders\u2014including former chief futurist Joshua\u202fAchiam\u2014and as OpenAI rolls out increasingly capable models like GPT\u20115.6 that have shown misaligned behavior. The reshuffle comes as the company continues to refine its product strategy, with Greg\u202fBrockman taking on go\u2011to\u2011market duties after CEO of AGI deployment Fidji\u202fSimo steps down."
+      "title": "HollowByte DDoS flaw bloats OpenSSL server memory with 11-byte payload",
+      "source": "BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/hollowbyte-ddos-flaw-bloats-openssl-server-memory-with-11-byte-payload/",
+      "category": "General Tech",
+      "summary": "A recently discovered \u201cHollowByte\u201d flaw lets attackers trigger a denial\u2011of\u2011service on vulnerable OpenSSL servers with an 11\u2011byte payload that tricks the library into pre\u2011allocating large buffers based on a forged message length header\u2014without waiting for the hanyar. By repeatedly opening TLS connections with random, exaggerated size claims, a malicious actor can exhaust server memory, fragment the heap, and leave the process"
     },
     {
       "rank": 3,
-      "title": "Photovoltaics are still running after a year under Swiss trains",
-      "source": "The Register",
-      "url": "https://www.theregister.com/offbeat/2026/07/13/photovoltaics-are-still-running-after-a-year-under-swiss-trains/5269664",
+      "title": "China delivers a one-two punch to America\u2019s AI dominance",
+      "source": "The Verge",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/967781/chinese-ai-models-open-source-moonshot-kimi-k3-alibaba-qwen",
       "category": "AI",
       "summary": "Summary not available."
     },
     {
       "rank": 4,
-      "title": "iGarden Swim Jet X Pro 10 Review: Endless Pool",
-      "source": "WIRED",
-      "url": "https://www.wired.com/review/igarden-swim-jet-x-pro-10/",
-      "category": "General Tech",
-      "summary": "Summary not available."
+      "title": "New Free Speech Concern: When AI Chatbots Won't Criticize Leaders from Repressive Regimes",
+      "source": "Slashdot",
+      "url": "https://yro.slashdot.org/story/26/07/20/0611253/new-free-speech-concern-when-ai-chatbots-wont-criticize-leaders-from-repressive-regimes?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+      "category": "AI",
+      "summary": "Parkinson\u2019s Law, articulated by Cyril Northcote Parkinson in a 1955 *Economist* essay, observes that \u201cwork expands to fill the time available.\u201d He argues that when deadlines are set generously, tasks\u2014whether trivial or substantial\u2014tend to stretch and consume all allotted time, often leading to inefficiency and wasted resources. Parkinson attributes this phenomenon to bureaucratic inertia,"
     },
     {
       "rank": 5,
-      "title": "Python Is So Slow. Can Julia Solve the Two-Language Problem?",
-      "source": "WIRED",
-      "url": "https://www.wired.com/story/python-is-so-slow-can-julia-solve-the-two-language-problem/",
-      "category": "General Tech",
-      "summary": "The article contrasts the often\u2011pedestrian nature of award acceptance speeches with the inspirational Turing Award lectures that have shaped computing, citing examples such as Backus, Thompson, and Dijkstra. It then focuses on Kenneth\u202fIverson\u2019s 1979 keynote on notation, explaining how APL merged mathematical and programming notations to make complex operations more concise, thereby influencing scientific computing. Fast forward to 2026, the piece highlights the persistent \u201ctwo\u2011language problem\u201d: researchers prototype in slow, high\u2011level Python but must rewrite critical sections in faster, lower\u2011level languages like C++ or Rust, a dilemma that can\u2019t be solved by AI alone. Drawing an analogy to construction materials, the author wonders if a language could be as approachable as Python yet as performant as C. In 2012, four mathematically\u2011oriented scientists launched Julia to fill this niche, aiming for an open\u2011source, easy\u2011to\u2011learn language that satisfies both casual users and hardcore developers, thereby uniting the fragmented ecosystem of Matlab, Lisp, Python, Ruby, and Perl."
+      "title": "As AI Transforms Silicon Valley, Some Tech Workers Face Evaporating Financial Security",
+      "source": "Slashdot",
+      "url": "https://it.slashdot.org/story/26/07/20/0212244/as-ai-transforms-silicon-valley-some-tech-workers-face-evaporating-financial-security?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+      "category": "AI",
+      "summary": "Cyril Northcote Parkinson\u2019s 1955 piece in *The Economist* introduces what is now known as"
     },
     {
       "rank": 6,
-      "title": "White Supremacists Love Armie Hammer\u2019s New Movie",
-      "source": "WIRED",
-      "url": "https://www.wired.com/story/a-bunch-of-white-supremacists-love-armie-hammers-new-movie/",
+      "title": "India's first privately-developed rocket reaches orbit on dramatic debut launch",
+      "source": "Ars Technica",
+      "url": "https://arstechnica.com/space/2026/07/indias-first-privately-developed-rocket-reaches-orbit-on-dramatic-debut-launch/",
       "category": "General Tech",
-      "summary": "The article describes the controversial film **\u201cCitizen Vigilante,\u201d** directed by Uwe\u202fBoll and starring Armie\u202fHammer as Sanders, a former U.S. soldier turned European real\u2011estate magnate who launches a violent purge against Muslims, migrants, and anyone he deems complicit in a supposed \u201cgreat replacement.\u201d The film, which propagates the baseless conspiracy that Muslims will overrun Europe in 30 years, was heavily criticized for its racist, xenophobic, and alt\u2011right propaganda content. It was banned in Germany for inciting violence, yet gained massive attention when Elon\u202fMusk promoted it on X, sharing the entire movie and praising its \u201cmoderate response\u201d scenes. The film\u2019s release on streaming platforms and online screenings by far\u2011right groups amplified its reach, prompting concerns from hate\u2011prevention advocates that Musk\u2019s endorsement normalizes extremist violence and hate."
+      "summary": "Indian space officials hailed the successful debut of Skyroot Aerospace\u2019s Vikram\u20111, India\u2019s first fully commercial satellite launcher, after it reached a 280\u2011mile (450\u202fkm) orbit at a 60\u00b0 inclination. Launched from Sriharikota Island at 1:35\u202fa.m. EDT, Vikram\u20111\u2014standing 22\u202fm tall and capable of lofting up to 770\u202flb (350\u202fkg) payloads\u2014fueled three solid\u2011stage boosters followed by a liquid\u2011fuel fourth"
     },
     {
       "rank": 7,
-      "title": "A Leak of San Francisco Police Drone Footage Exposes the New Reality of Urban Surveillance",
-      "source": "WIRED",
-      "url": "https://www.wired.com/story/sfpd-drone-video-leak-surveillance/",
+      "title": "As mosquito ranges expand, better monitoring is key to preventing disease",
+      "source": "Ars Technica",
+      "url": "https://arstechnica.com/science/2026/07/as-mosquito-ranges-expand-better-monitoring-is-key-to-preventing-disease/",
       "category": "General Tech",
-      "summary": "In mid\u2011June, a Skydio X10 drone followed a suspect through San\u202fFrancisco, livestreaming the chase, arrests, and searches to a public web page that the police never intended to expose. Security researchers Sam\u202fCurry and Maik\u202fRobert discovered that the San\u202fFrancisco Police"
+      "summary": "Summary not available."
     }
   ]
 }
