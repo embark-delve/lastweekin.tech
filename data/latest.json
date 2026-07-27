@@ -1,61 +1,61 @@
 {
-  "week": "2026-07-20",
+  "week": "2026-07-27",
   "stories": [
     {
       "rank": 1,
-      "title": "San Francisco orders Apple, Google to remove nudify apps from app stores",
-      "source": "Ars Technica",
-      "url": "https://arstechnica.com/tech-policy/2026/07/apple-google-must-stop-profiting-off-ai-nudify-apps-san-francisco-ag-says/",
-      "category": "General Tech",
-      "summary": "San\u202fFrancisco Attorney\u202fGeneral\u202fDavid\u202fChiu has sent cease\u2011and\u2011desist letters to Apple and Google demanding the removal of 13 \u201cnudification\u201d apps that can turn ordinary photos into non\u2011consensual deepfake porn, citing California laws prohibiting such services. The apps"
+      "title": "US prosecutors charge Atlanta man after GrapheneOS phone wipes itself during airport search",
+      "source": "TechSpot",
+      "url": "https://www.techspot.com/news/113236-us-prosecutors-charge-atlanta-man-after-grapheneos-phone.html",
+      "category": "AI",
+      "summary": "A federal case in Atlanta has sparked a rare legal debate over privacy\u2011focused mobile software when prosecutors charged Sam\u202fTunick with destroying property to thwart evidence after he used GrapheneOS\u2014a security\u2011only operating system for Google Pixel phones\u2014to wipe his device. Tunick, who was stopped at Hartsfield\u2011Jackson International Airport on January\u202f24 after an internal DOJ \u201csuspected terrorism\u201d alert tied to his anti\u2011Cop\u202fCity activism, was interrogated"
     },
     {
       "rank": 2,
-      "title": "HollowByte DDoS flaw bloats OpenSSL server memory with 11-byte payload",
-      "source": "BleepingComputer",
-      "url": "https://www.bleepingcomputer.com/news/security/hollowbyte-ddos-flaw-bloats-openssl-server-memory-with-11-byte-payload/",
+      "title": "The first thing I do for friends switching from iPhone to Android is change this setting",
+      "source": "Android Police",
+      "url": "https://www.androidpolice.com/setting-iphone-switchers-should-change/",
       "category": "General Tech",
-      "summary": "A recently discovered \u201cHollowByte\u201d flaw lets attackers trigger a denial\u2011of\u2011service on vulnerable OpenSSL servers with an 11\u2011byte payload that tricks the library into pre\u2011allocating large buffers based on a forged message length header\u2014without waiting for the hanyar. By repeatedly opening TLS connections with random, exaggerated size claims, a malicious actor can exhaust server memory, fragment the heap, and leave the process"
+      "summary": "Switching from iOS to Android feels jarring mainly because the thumb\u2019s muscle memory is built around iOS conventions\u2014swiping in from the left edge, hitting a back button in the upper\u2011left corner,"
     },
     {
       "rank": 3,
-      "title": "China delivers a one-two punch to America\u2019s AI dominance",
-      "source": "The Verge",
-      "url": "https://www.theverge.com/ai-artificial-intelligence/967781/chinese-ai-models-open-source-moonshot-kimi-k3-alibaba-qwen",
-      "category": "AI",
-      "summary": "Summary not available."
+      "title": "Google Turns a Selfie Video Into Your Account\u2019s Spare Key",
+      "source": "WIRED",
+      "url": "https://www.wired.com/story/google-turns-a-selfie-video-into-your-accounts-spare-key/",
+      "category": "General Tech",
+      "summary": "Google has rolled out a new \u201cselfie video\u201d sign\u2011in option that lets users unlock their accounts with a short facial video, adding a backup key for situations where device\u2011based passkeys are inaccessible. Users enable it via the Security & sign\u2011in tab, record a brief clip following lighting and \u201cliveness\u201d guidelines"
     },
     {
       "rank": 4,
-      "title": "New Free Speech Concern: When AI Chatbots Won't Criticize Leaders from Repressive Regimes",
-      "source": "Slashdot",
-      "url": "https://yro.slashdot.org/story/26/07/20/0611253/new-free-speech-concern-when-ai-chatbots-wont-criticize-leaders-from-repressive-regimes?utm_source=rss1.0mainlinkanon&utm_medium=feed",
-      "category": "AI",
-      "summary": "Parkinson\u2019s Law, articulated by Cyril Northcote Parkinson in a 1955 *Economist* essay, observes that \u201cwork expands to fill the time available.\u201d He argues that when deadlines are set generously, tasks\u2014whether trivial or substantial\u2014tend to stretch and consume all allotted time, often leading to inefficiency and wasted resources. Parkinson attributes this phenomenon to bureaucratic inertia,"
+      "title": "The EU Fines Google $1 Billion for Prioritizing Its Own Services in Search",
+      "source": "WIRED",
+      "url": "https://www.wired.com/story/eu-fines-google-billion-prioritizing-own-services-in-search/",
+      "category": "General Tech",
+      "summary": "The European Commission has slapped Google with a $1\u202fbillion fine for abusing its dominance in EU search and app\u2011store markets under the Digital Markets Act, ordering the company to stop giving its own services (shopping, travel"
     },
     {
       "rank": 5,
-      "title": "As AI Transforms Silicon Valley, Some Tech Workers Face Evaporating Financial Security",
-      "source": "Slashdot",
-      "url": "https://it.slashdot.org/story/26/07/20/0212244/as-ai-transforms-silicon-valley-some-tech-workers-face-evaporating-financial-security?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+      "title": "Artist sues AI meme generator for selling deeply personal comic as ad template",
+      "source": "Ars Technica",
+      "url": "https://arstechnica.com/tech-policy/2026/07/artist-sues-ai-meme-generator-for-selling-deeply-personal-comic-as-ad-template/",
       "category": "AI",
-      "summary": "Cyril Northcote Parkinson\u2019s 1955 piece in *The Economist* introduces what is now known as"
+      "summary": "Artist Elmer\u202fSaflor\u2014known online as \u201cSuperelmer\u201d and creator of the viral \u201cRunning\u202fAway\u202fBalloon\u201d comic\u2014has filed a lawsuit against Memes Apps, LCC, the"
     },
     {
       "rank": 6,
-      "title": "India's first privately-developed rocket reaches orbit on dramatic debut launch",
-      "source": "Ars Technica",
-      "url": "https://arstechnica.com/space/2026/07/indias-first-privately-developed-rocket-reaches-orbit-on-dramatic-debut-launch/",
-      "category": "General Tech",
-      "summary": "Indian space officials hailed the successful debut of Skyroot Aerospace\u2019s Vikram\u20111, India\u2019s first fully commercial satellite launcher, after it reached a 280\u2011mile (450\u202fkm) orbit at a 60\u00b0 inclination. Launched from Sriharikota Island at 1:35\u202fa.m. EDT, Vikram\u20111\u2014standing 22\u202fm tall and capable of lofting up to 770\u202flb (350\u202fkg) payloads\u2014fueled three solid\u2011stage boosters followed by a liquid\u2011fuel fourth"
+      "title": "This Is Donald Trump\u2019s AI Brain Trust",
+      "source": "WIRED",
+      "url": "https://www.wired.com/story/this-is-donald-trumps-ai-brain-trust/",
+      "category": "AI",
+      "summary": "The"
     },
     {
       "rank": 7,
-      "title": "As mosquito ranges expand, better monitoring is key to preventing disease",
+      "title": "First teaser for Apple TV's Neuromancer debuts at SDCC",
       "source": "Ars Technica",
-      "url": "https://arstechnica.com/science/2026/07/as-mosquito-ranges-expand-better-monitoring-is-key-to-preventing-disease/",
+      "url": "https://arstechnica.com/culture/2026/07/first-teaser-for-apple-tvs-neuromancer-debuts-at-sdcc/",
       "category": "General Tech",
-      "summary": "Summary not available."
+      "summary": "Apple TV is rapidly overtaking HBO as the premier destination for high\u2011quality dramas\u2014especially sci\u2011fi\u2014thanks to titles such as *Slow Horses*, *Severance*, *Foundation*, *For All\u202fMankind*, *Murderbot*, *Silo*, *Pluribus*, and *Widow\u2019s Bay*, with the highly\u2011"
     }
   ]
 }
