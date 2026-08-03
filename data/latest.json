@@ -1,61 +1,61 @@
 {
-  "week": "2026-07-27",
+  "week": "2026-08-03",
   "stories": [
     {
       "rank": 1,
-      "title": "US prosecutors charge Atlanta man after GrapheneOS phone wipes itself during airport search",
-      "source": "TechSpot",
-      "url": "https://www.techspot.com/news/113236-us-prosecutors-charge-atlanta-man-after-grapheneos-phone.html",
-      "category": "AI",
-      "summary": "A federal case in Atlanta has sparked a rare legal debate over privacy\u2011focused mobile software when prosecutors charged Sam\u202fTunick with destroying property to thwart evidence after he used GrapheneOS\u2014a security\u2011only operating system for Google Pixel phones\u2014to wipe his device. Tunick, who was stopped at Hartsfield\u2011Jackson International Airport on January\u202f24 after an internal DOJ \u201csuspected terrorism\u201d alert tied to his anti\u2011Cop\u202fCity activism, was interrogated"
+      "title": "COLDCARD wallet RNG flaw likely linked to $88 million Bitcoin theft",
+      "source": "BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/coldcard-wallet-rng-flaw-likely-linked-to-88-million-bitcoin-theft/",
+      "category": "General Tech",
+      "summary": "Researchers discovered that a flaw in the COLDCARD hardware wallet\u2019s firmware allowed attackers to exploit a deterministic random\u2011number generator, enabling offline seed reconstruction and the theft of about 1,367\u202fBTC (\u2248\u202f$88.6\u202fmillion) from 4,585 compromised wallets; the first major wave of 1,083\u202fBTC (\u2248\u202f$70.2\u202fmillion) was swept in a 41\u2011minute burst on July\u202f30"
     },
     {
       "rank": 2,
-      "title": "The first thing I do for friends switching from iPhone to Android is change this setting",
-      "source": "Android Police",
-      "url": "https://www.androidpolice.com/setting-iphone-switchers-should-change/",
-      "category": "General Tech",
-      "summary": "Switching from iOS to Android feels jarring mainly because the thumb\u2019s muscle memory is built around iOS conventions\u2014swiping in from the left edge, hitting a back button in the upper\u2011left corner,"
+      "title": "AI Conquered Coding. Fast Food Is Next",
+      "source": "WIRED",
+      "url": "https://www.wired.com/story/ai-conquered-coding-fast-food-is-next/",
+      "category": "AI",
+      "summary": "Summary not available."
     },
     {
       "rank": 3,
-      "title": "Google Turns a Selfie Video Into Your Account\u2019s Spare Key",
+      "title": "The \u2018Guardrail Guy\u2019 Went Viral for Posting About Flock Cameras. Then Someone Destroyed Them",
       "source": "WIRED",
-      "url": "https://www.wired.com/story/google-turns-a-selfie-video-into-your-accounts-spare-key/",
-      "category": "General Tech",
-      "summary": "Google has rolled out a new \u201cselfie video\u201d sign\u2011in option that lets users unlock their accounts with a short facial video, adding a backup key for situations where device\u2011based passkeys are inaccessible. Users enable it via the Security & sign\u2011in tab, record a brief clip following lighting and \u201cliveness\u201d guidelines"
+      "url": "https://www.wired.com/story/flock-cameras-guardrail-guy-advocacy-damage-people-dont-like-alprs/",
+      "category": "AI",
+      "summary": "Steve \u201cThe Guardrail Guy\u201d\u202fEimers, who built a YouTube, Tik"
     },
     {
       "rank": 4,
-      "title": "The EU Fines Google $1 Billion for Prioritizing Its Own Services in Search",
-      "source": "WIRED",
-      "url": "https://www.wired.com/story/eu-fines-google-billion-prioritizing-own-services-in-search/",
-      "category": "General Tech",
-      "summary": "The European Commission has slapped Google with a $1\u202fbillion fine for abusing its dominance in EU search and app\u2011store markets under the Digital Markets Act, ordering the company to stop giving its own services (shopping, travel"
+      "title": "UK government investment arm cops to 40-hour leak of officials' contact details",
+      "source": "The Register",
+      "url": "https://www.theregister.com/security/2026/08/03/uk-government-investment-arm-cops-to-40-hour-leak-of-officials-contact-details/5282213",
+      "category": "AI",
+      "summary": "UK Government Investments (UKGI) admitted that a staff member left an internal file\u2014containing the names and work\u2011email addresses of 51 high\u2011level government officials\u2014publicly accessible for roughly 40\u202fhours during the 2025\u201126 financial year, a lapse that violated its own security policies. The breach was voluntarily reported to the Information Commissioner\u2019s Office and to UKGI\u2019s Audit and Risk Committee, triggering an external review that found the response \u201cappropriate\u201d but called for"
     },
     {
       "rank": 5,
-      "title": "Artist sues AI meme generator for selling deeply personal comic as ad template",
-      "source": "Ars Technica",
-      "url": "https://arstechnica.com/tech-policy/2026/07/artist-sues-ai-meme-generator-for-selling-deeply-personal-comic-as-ad-template/",
-      "category": "AI",
-      "summary": "Artist Elmer\u202fSaflor\u2014known online as \u201cSuperelmer\u201d and creator of the viral \u201cRunning\u202fAway\u202fBalloon\u201d comic\u2014has filed a lawsuit against Memes Apps, LCC, the"
+      "title": "Alienware 27 QD-OLED (AW2726DM) Review: A $350 Winner",
+      "source": "WIRED",
+      "url": "https://www.wired.com/review/alienware-27-qd-oled-aw2726dm/",
+      "category": "General Tech",
+      "summary": "The Alienware AW2726DM is a 27\u2011inch 1440p QD\u2011OLED monitor that offers stunning contrast and color\u2014reaching 98\u202f% DCI\u2011P3 and 94\u202f% Adobe\u202fRGB\u2014thanks to self\u2011emissive pixels and quantum\u2011dot technology, but its pixel\u2011arrangement quirks can blur small text and cause color fringing. With a modest 110\u202fppi and a 200\u2011nit peak brightness,"
     },
     {
       "rank": 6,
-      "title": "This Is Donald Trump\u2019s AI Brain Trust",
+      "title": "People Are Ghosting Long-Term Partners. Some Don\u2019t Regret It",
       "source": "WIRED",
-      "url": "https://www.wired.com/story/this-is-donald-trumps-ai-brain-trust/",
-      "category": "AI",
-      "summary": "The"
+      "url": "https://www.wired.com/story/people-are-ghosting-long-term-partners-some-dont-regret-it/",
+      "category": "General Tech",
+      "summary": "Summary not available."
     },
     {
       "rank": 7,
-      "title": "First teaser for Apple TV's Neuromancer debuts at SDCC",
-      "source": "Ars Technica",
-      "url": "https://arstechnica.com/culture/2026/07/first-teaser-for-apple-tvs-neuromancer-debuts-at-sdcc/",
+      "title": "The Best Audio Players for Kids: Yoto, Toniebox, and More",
+      "source": "WIRED",
+      "url": "https://www.wired.com/story/the-best-kids-audio-players-for-screen-free-story-time/",
       "category": "General Tech",
-      "summary": "Apple TV is rapidly overtaking HBO as the premier destination for high\u2011quality dramas\u2014especially sci\u2011fi\u2014thanks to titles such as *Slow Horses*, *Severance*, *Foundation*, *For All\u202fMankind*, *Murderbot*, *Silo*, *Pluribus*, and *Widow\u2019s Bay*, with the highly\u2011"
+      "summary": "Parents are increasingly turning to audio players as a screen\u2011free alternative that balances independent play and"
     }
   ]
 }
