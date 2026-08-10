@@ -1,61 +1,61 @@
 {
-  "week": "2026-08-03",
+  "week": "2026-08-10",
   "stories": [
     {
       "rank": 1,
-      "title": "COLDCARD wallet RNG flaw likely linked to $88 million Bitcoin theft",
-      "source": "BleepingComputer",
-      "url": "https://www.bleepingcomputer.com/news/security/coldcard-wallet-rng-flaw-likely-linked-to-88-million-bitcoin-theft/",
+      "title": "New official 30th anniversary Quake mission pack adds new maps and mechanics",
+      "source": "Ars Technica",
+      "url": "https://arstechnica.com/gaming/2026/08/new-official-30th-anniversary-quake-mission-pack-adds-new-maps-and-mechanics/",
       "category": "General Tech",
-      "summary": "Researchers discovered that a flaw in the COLDCARD hardware wallet\u2019s firmware allowed attackers to exploit a deterministic random\u2011number generator, enabling offline seed reconstruction and the theft of about 1,367\u202fBTC (\u2248\u202f$88.6\u202fmillion) from 4,585 compromised wallets; the first major wave of 1,083\u202fBTC (\u2248\u202f$70.2\u202fmillion) was swept in a 41\u2011minute burst on July\u202f30"
+      "summary": "Bethesda marked Quake\u2019s 30"
     },
     {
       "rank": 2,
-      "title": "AI Conquered Coding. Fast Food Is Next",
-      "source": "WIRED",
-      "url": "https://www.wired.com/story/ai-conquered-coding-fast-food-is-next/",
-      "category": "AI",
-      "summary": "Summary not available."
+      "title": "\u2018Humans will be a rounding error on the internet\u2019 says Cloudflare exec",
+      "source": "The Register",
+      "url": "https://www.theregister.com/networks/2026/08/07/humans-will-be-a-rounding-error-on-the-internet-says-cloudflare-exec/5284429",
+      "category": "General Tech",
+      "summary": "Cloudflare\u2019s CFO Thomas\u202fSeifert warned that if current trends continue, machine\u2011generated traffic will outpace human traffic by up to a thousand\u2011fold in five years, driven largely by AI workloads and making humans a \u201crounding error\u201d on the internet. The company\u2019s Q2 results \u2013 $696\u202fmillion in revenue (36\u202f% YoY) and $205\u202fmillion in losses \u2013 beat expectations,"
     },
     {
       "rank": 3,
-      "title": "The \u2018Guardrail Guy\u2019 Went Viral for Posting About Flock Cameras. Then Someone Destroyed Them",
-      "source": "WIRED",
-      "url": "https://www.wired.com/story/flock-cameras-guardrail-guy-advocacy-damage-people-dont-like-alprs/",
-      "category": "AI",
-      "summary": "Steve \u201cThe Guardrail Guy\u201d\u202fEimers, who built a YouTube, Tik"
+      "title": "Ransom Cartel ransomware creator sentenced to 16 years in prison",
+      "source": "BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/ransom-cartel-ransomware-creator-sentenced-to-16-years-in-prison/",
+      "category": "General Tech",
+      "summary": "Maksim Silnikau, a 40\u2011year\u2011old Belarusian and former member of Russian\u2011speaking cybercrime forums, was sentenced to 16 years in U.S. federal prison after orchestrating the Ransom Cartel ransomware\u2011as\u2011a\u2011service operation that launched in December 2021 and attacked at least 18 companies worldwide from 2021\u20112023, demanding over $5.2\u202fmillion in ransoms and causing an estimated $6.7\u202fmillion in losses. Using aliases"
     },
     {
       "rank": 4,
-      "title": "UK government investment arm cops to 40-hour leak of officials' contact details",
+      "title": "London still dominates Britain's datacenter map, but the regions are powering up",
       "source": "The Register",
-      "url": "https://www.theregister.com/security/2026/08/03/uk-government-investment-arm-cops-to-40-hour-leak-of-officials-contact-details/5282213",
+      "url": "https://www.theregister.com/systems/2026/08/10/london-still-dominates-britains-datacenter-map-but-the-regions-are-powering-up/5284693",
       "category": "AI",
-      "summary": "UK Government Investments (UKGI) admitted that a staff member left an internal file\u2014containing the names and work\u2011email addresses of 51 high\u2011level government officials\u2014publicly accessible for roughly 40\u202fhours during the 2025\u201126 financial year, a lapse that violated its own security policies. The breach was voluntarily reported to the Information Commissioner\u2019s Office and to UKGI\u2019s Audit and Risk Committee, triggering an external review that found the response \u201cappropriate\u201d but called for"
-    },
-    {
-      "rank": 5,
-      "title": "Alienware 27 QD-OLED (AW2726DM) Review: A $350 Winner",
-      "source": "WIRED",
-      "url": "https://www.wired.com/review/alienware-27-qd-oled-aw2726dm/",
-      "category": "General Tech",
-      "summary": "The Alienware AW2726DM is a 27\u2011inch 1440p QD\u2011OLED monitor that offers stunning contrast and color\u2014reaching 98\u202f% DCI\u2011P3 and 94\u202f% Adobe\u202fRGB\u2014thanks to self\u2011emissive pixels and quantum\u2011dot technology, but its pixel\u2011arrangement quirks can blur small text and cause color fringing. With a modest 110\u202fppi and a 200\u2011nit peak brightness,"
-    },
-    {
-      "rank": 6,
-      "title": "People Are Ghosting Long-Term Partners. Some Don\u2019t Regret It",
-      "source": "WIRED",
-      "url": "https://www.wired.com/story/people-are-ghosting-long-term-partners-some-dont-regret-it/",
-      "category": "General Tech",
       "summary": "Summary not available."
     },
     {
+      "rank": 5,
+      "title": "Smart glasses are only smart if we train them to be good. Then they'll be fantastic",
+      "source": "The Register",
+      "url": "https://www.theregister.com/columnists/2026/08/10/smart-glasses-are-only-smart-if-we-train-them-to-be-good-then-theyll-be-fantastic/5284545",
+      "category": "AI",
+      "summary": "The article argues that while AI\u2019s human\u2011like fa\u00e7ade is unsettling, the real concern is the way our minds increasingly mirror an outdated Windows system\u2014crashing and losing compatibility without updates. It warns that augmented reality (AR) and smart glasses, though potentially life\u2011changing for"
+    },
+    {
+      "rank": 6,
+      "title": "Linus Torvalds says AI has made 'huge' Linux kernel updates the new normal",
+      "source": "The Register",
+      "url": "https://www.theregister.com/os-platforms/2026/08/10/linus-torvalds-says-ai-has-made-huge-linux-kernel-updates-the-new-normal/5285268",
+      "category": "AI",
+      "summary": "Linus\u202fTorvalds has announced that the seventh release candidate for Linux\u202f7.2, the largest he\u2019s seen in years, will still go ahead despite his unease about its size"
+    },
+    {
       "rank": 7,
-      "title": "The Best Audio Players for Kids: Yoto, Toniebox, and More",
-      "source": "WIRED",
-      "url": "https://www.wired.com/story/the-best-kids-audio-players-for-screen-free-story-time/",
+      "title": "Mount Toba eruption doesn't seem like it could nearly kill our species",
+      "source": "Ars Technica",
+      "url": "https://arstechnica.com/science/2026/08/mount-toba-eruption-doesnt-seem-like-it-could-nearly-kill-our-species/",
       "category": "General Tech",
-      "summary": "Parents are increasingly turning to audio players as a screen\u2011free alternative that balances independent play and"
+      "summary": "Mount Toba\u2019s 74,000\u2011year\u2011old eruption, the largest in the last 2.6\u202fmillion years, spewed thousands of cubic kilometres of magma\u2014about a thousand times more than the 1991 Pinatubo blast\u2014and was once feared to have caused a planet\u2011wide \u201cvolcanic winter\u201d that could have threatened early human survival."
     }
   ]
 }
