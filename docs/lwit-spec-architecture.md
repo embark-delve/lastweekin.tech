@@ -333,7 +333,7 @@ sources include:
   source list or add filtering rules (e.g. ignore news that are
   essentially press releases or minor updates).
 
-**Fetching Implementation:**  
+**Fetching Implementation:**
 We’ll implement a set of classes or functions for fetching sources, for
 example:
 
@@ -569,10 +569,10 @@ tends to be factual.
 - If using a chat model, we’ll craft a prompt template like:
 
   Summarize the following news article in 2-3 sentences, focusing on the main point and any important outcomes. Do not add information not in the article.
-   Article: \"\"\"
-   [article text here]
-   \"\"\"
-   Summary:
+  Article: \"\"\"
+  [article text here]
+  \"\"\"
+  Summary:
 
 And then get the completion. We’d likely run this via a library like
 `llama_cpp` for a local model or via Huggingface’s `generate`.
@@ -714,17 +714,17 @@ curation algorithm and the system architecture. Here are **7 potential
 architectures/strategies**, with their pros, cons, and an assessment of
 viability:
 
-1.  **Approach 1: Hacker News-Only Curation**  
+1.  **Approach 1: Hacker News-Only Curation**
     _Description:_ Use Hacker News as the sole input for finding top
     stories. Each week, simply take the top N posts on HN from the past
     7 days (by score). Summarize those and publish. Possibly filter for
     AI content by picking at least half from the HN list that are
-    AI-related.  
+    AI-related.
     _Pros:_ Very simple pipeline – HN provides a ready-made ranking by
     score, essentially crowdsourced importance. Only one source to fetch
     (reduces complexity), and HN’s high signal-to-noise means many
     important stories (especially in tech and AI) will appear there. No
-    need for complex scoring algorithms; just trust HN votes.  
+    need for complex scoring algorithms; just trust HN votes.
     _Cons:_ **Coverage bias** – HN skews toward the interests of its
     community (lots of programming, startup discussions, some science);
     it might miss big mainstream tech news that HN users don’t heavily
@@ -734,26 +734,26 @@ viability:
     an off week or certain biases, our output might not be well-rounded.
     Ensuring at least half AI might be tricky if HN’s top doesn’t have
     enough AI stories (we could force it, but then we’re deviating from
-    the HN ranking anyway).  
+    the HN ranking anyway).
     _Probability of Success:_ Moderate. This approach will reliably
     produce content, but the quality and representativeness of the 7
     stories might not meet the “top of the top across the tech world”
     ideal. It’s the simplest but not the most comprehensive. It could
     serve as a baseline or fallback approach.
 
-2.  **Approach 2: Multi-Source RSS Aggregation**  
+2.  **Approach 2: Multi-Source RSS Aggregation**
     _Description:_ Curate a fixed list of top tech news RSS feeds (e.g.,
     TechCrunch, The Verge, Wired, Ars Technica, Hacker News, perhaps a
     couple of AI blogs). Fetch all articles from these feeds for the
     week, then deduplicate and rank by a custom algorithm (likely based
-    on how many sites covered the same story). Summarize the top 7.  
+    on how many sites covered the same story). Summarize the top 7.
     _Pros:_ Covers a breadth of perspectives – mainstream tech
     journalism plus community (HN). Likely to catch all major news since
     major outlets will report big stories. The algorithm can emphasize
     stories covered by multiple outlets, implicitly filtering importance
     (if 5 major tech sites all wrote about X, it’s probably big). It’s
     relatively straightforward to implement using feed parsing and
-    doesn’t depend on third-party APIs (RSS is open).  
+    doesn’t depend on third-party APIs (RSS is open).
     _Cons:_ Need to carefully handle duplicates and variances in
     reporting. Also, we must maintain the list of feeds (if a site
     changes its feed URL or goes down, we update it). Some important
@@ -763,7 +763,7 @@ viability:
     big article, but if others don’t, it might be missed unless on HN).
     There’s some complexity in merging different feeds and possibly
     weight them (should an article on a more authoritative site count
-    more?).  
+    more?).
     _Probability of Success:_ High. This approach likely yields a strong
     set of stories, as it mimics what human-curated digests (like
     TechMeme or newsletters) do – aggregating multiple sources. The
@@ -772,18 +772,18 @@ viability:
     we propose as the solution (with perhaps adding HN as one of the
     feeds).
 
-3.  **Approach 3: News API / Aggregator Service**  
+3.  **Approach 3: News API / Aggregator Service**
     _Description:_ Use a third-party news aggregator API (such as
     NewsAPI.org, Google News API, or GNews) to fetch the top news of the
     week in technology (and possibly a separate query for AI).
     Essentially offload the gathering and initial ranking to an external
-    service. Then use LLM to summarize the results.  
+    service. Then use LLM to summarize the results.
     _Pros:_ Very convenient – one API call could return a list of “top”
     articles, already drawing from multiple sources. Implementation is
     quick (just parse JSON from the API). It can cover many outlets
     including ones we might not think of. Also, some APIs allow sorting
     by popularity or relevance which helps get top stories without heavy
-    custom logic.  
+    custom logic.
     _Cons:_ **Dependency on external service:** NewsAPI, for example,
     requires an API key and has rate limits and possibly costs if volume
     is high. Relying on it means if the service changes or the free tier
@@ -795,7 +795,7 @@ viability:
     forcing us to scrape anyway (as seen in similar projects).
     Additionally, the definition of “top” might just be based on general
     popularity, which might lean towards more mainstream news and ignore
-    niche but important tech dev stories that HN would catch.  
+    niche but important tech dev stories that HN would catch.
     _Probability of Success:_ Moderate to High. It will fetch news
     successfully, but achieving the right blend and ensuring the AI
     ratio may need custom filtering. It simplifies data collection at
@@ -804,19 +804,19 @@ viability:
     approach is viable, especially as a quick solution, but one must be
     mindful of API limits and quality of results.
 
-4.  **Approach 4: Techmeme-Style Web Scraping**  
+4.  **Approach 4: Techmeme-Style Web Scraping**
     _Description:_ Instead of building our own ranking algorithm fully,
     leverage an existing tech news aggregator like **Techmeme** (a
     popular tech news curator site). Techmeme lists the top news and
     group them by story clusters. The idea would be to scrape Techmeme’s
     daily leaderboards or weekly archives, and use that as our source of
-    top stories, then summarize those.  
+    top stories, then summarize those.
     _Pros:_ Techmeme essentially does what we want – it finds the
     hottest tech stories and even shows multiple sources per story. By
     using it, we inherit their algorithmic/editorial expertise. It could
     dramatically simplify selection: e.g. pick the top 7 clusters from
     Techmeme’s weekly view (if available). It ensures broad coverage of
-    major news.  
+    major news.
     _Cons:_ **Scraping complexity and legal/ethical concerns:** Techmeme
     may not have a public API, so we’d resort to HTML scraping which is
     brittle and could break if they change their site. It might also be
@@ -828,7 +828,7 @@ viability:
     updates constantly; we’d need to be careful to get a representative
     weekly snapshot. We might also not get enough AI focus if Techmeme
     doesn’t highlight as many AI stories (they usually do, but no
-    guarantee for the half rule).  
+    guarantee for the half rule).
     _Probability of Success:_ High in terms of getting the right stories
     (Techmeme is quite accurate for top news). However, the approach is
     somewhat reliant on another site’s content structure. It’s likely to
@@ -836,7 +836,7 @@ viability:
     ranking task to an external site, which might not be the intended
     spirit of the project.
 
-5.  **Approach 5: Social Media Trend Analysis**  
+5.  **Approach 5: Social Media Trend Analysis**
     _Description:_ Gather signals from social media (Twitter/X trends,
     Reddit top posts, etc.) for tech topics. For example, track popular
     tweets from known tech influencers, or see what tech news is
@@ -844,13 +844,13 @@ viability:
     look at subreddits like r/technology or r/MachineLearning for their
     top posts of the week. Use these signals to choose stories (assuming
     a story widely discussed on social media is important). Summarize
-    the stories using LLM.  
+    the stories using LLM.
     _Pros:_ Captures the _buzz_ in real time. Sometimes social media
     will highlight important discussions that formal news sites might
     not (or might lag on). It also gives a measure of public
     interest/impact (e.g. a news that goes viral on Twitter clearly had
     big reach). Reddit’s upvotes on r/technology is akin to HN’s points
-    but for a broader audience.  
+    but for a broader audience.
     _Cons:_ **High complexity and noise:** Social media is noisy;
     trending topics might be vague (e.g. “#AI” trending doesn’t tell
     which story caused it). Also, API access is problematic (Twitter API
@@ -860,14 +860,14 @@ viability:
     (memes or controversies that aren’t actual “tech developments”).
     Additionally, implementing this requires a lot of integration
     (Twitter API, Reddit API) and data parsing, which is overkill for
-    our simple weekly digest.  
+    our simple weekly digest.
     _Probability of Success:_ Low to Moderate. While it might catch some
     important things, the effort to filter signal from noise is high. It
     complicates the system significantly. It could complement another
     approach (e.g. as an extra signal in the scoring), but as a primary
     method it’s not reliable enough for a focused “top news” product.
 
-6.  **Approach 6: LLM-Driven Selection (Agent)**  
+6.  **Approach 6: LLM-Driven Selection (Agent)**
     _Description:_ Use an LLM as an “agent” to decide the top stories.
     For example, feed the LLM a large list of article headlines or brief
     descriptions from the week (perhaps 50-100 candidates) and prompt it
@@ -875,7 +875,7 @@ viability:
     list, especially focusing on AI advancements and major tech
     developments.”_ The LLM would then output a list of 7 titles or
     summaries. Essentially, the LLM does the ranking/selection for us
-    (possibly also summarizing in its answer).  
+    (possibly also summarizing in its answer).
     _Pros:_ This leverages the LLM’s knowledge and ability to
     synthesize. It might pick up on context (e.g. it “knows” which
     events are a big deal, especially if it has been trained on a lot of
@@ -883,7 +883,7 @@ viability:
     data and then rely on a prompt. It’s a very _radical_ use of AI in
     the loop. This could be useful if we trust the LLM’s judgment. It
     can also directly ensure the AI content ratio by the way we prompt
-    (“at least half should be AI-related”).  
+    (“at least half should be AI-related”).
     _Cons:_ **Reliability and cost:** If using a powerful LLM like GPT-4
     for this reasoning, it’s costly and not local. A local LLM might not
     have up-to-date knowledge or enough “judgment” to accurately know
@@ -895,7 +895,7 @@ viability:
     LLM’s output is inconsistent (one run to another). Also, debugging
     why it chose something might be hard. Essentially, we’d be
     outsourcing our scoring algorithm to a black-box – which goes
-    against the idea of deterministic selection.  
+    against the idea of deterministic selection.
     _Probability of Success:_ Moderate. It could work (especially with
     GPT-4) and yield interesting results, but it’s not guaranteed to
     align with real-world significance all the time. It also undermines
@@ -906,7 +906,7 @@ viability:
     innovative alternative but likely not the best for a stable weekly
     product.
 
-7.  **Approach 7:** Hybrid Multi-Source Pipeline (Recommended)  
+7.  **Approach 7:** Hybrid Multi-Source Pipeline (Recommended)
     **_Description:_ Combine the strengths of multiple sources and use a
     custom pipeline (like described in detail above) to algorithmically
     rank stories, supplemented by LLM summarization. Specifically, use**
@@ -916,7 +916,7 @@ viability:
     clusters; use a weighted scoring (taking into account HN votes and
     multi-source coverage) to select the top 7; then use LLM for
     summaries. This hybrid approach tries to ensure no major story is
-    missed and balances community interest with media coverage.**  
+    missed and balances community interest with media coverage.**
     **_Pros:_** Comprehensive and balanced. **Hacker News input ensures
     we capture what developers/tech insiders find important (often
     including open-source releases, technical breakthroughs), while the
@@ -928,7 +928,7 @@ viability:
     – for example, if in future we want to add weighting for social
     media mentions, we can incorporate that into the scoring step
     easily. Additionally, using local LLMs for summarization keeps
-    recurring cost low.**  
+    recurring cost low.**
     **_Cons:_ The pipeline is somewhat complex – it involves multiple
     moving parts (fetching from various APIs/feeds, content parsing,
     clustering, scoring). This means more code to write and maintain
@@ -938,7 +938,7 @@ viability:
     for scoring right. Also, initial development time is higher because
     we integrate several components. However, each component is
     straightforward (e.g., RSS parsing, or using an existing library for
-    HN API, etc.), so it’s more about coordinating them properly.**  
+    HN API, etc.), so it’s more about coordinating them properly.**
     **_Probability of Success:_ High. This approach is likely to produce
     a high-quality weekly list that aligns with user expectations (“top
     of top” stories, plenty of AI coverage, no fluff). Each part of the
@@ -1153,7 +1153,7 @@ AI coding assistant or developers to start implementation):
     or at least combine into one list. Use the DB to enforce uniqueness
     on URL (catch constraint exceptions or do SELECT to skip existing).
 
-11. **Content Extraction Phase:**  
+11. **Content Extraction Phase:**
     Iterate over articles without content (or all, if we didn’t get
     content from feeds). For each:
 
@@ -1336,9 +1336,9 @@ AI coding assistant or developers to start implementation):
       which outlet this story is from. If multiple sources, maybe choose
       one (like the one whose title we used).
 
-37. After all, we have top_stories each with title, summary, category,
+37. After all, we have top*stories each with title, summary, category,
     source, and link. For the link, maybe also choose one representative
-    URL (preferably a _canonical_ news source rather than HN link – e.g.
+    URL (preferably a \_canonical* news source rather than HN link – e.g.
     if HackerNews had a high rank but the story is actually a NYTimes
     article, use the NYTimes URL. If the story is a discussion around a
     GitHub repo and only HN is the source, we might link to the HN

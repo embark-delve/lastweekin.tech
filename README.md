@@ -2,123 +2,153 @@
 
 ## Overview
 
-This project is a Python-based data pipeline designed to generate a weekly
-tech digest. The primary goal is to create a 'Top-7' list of tech news with a
-significant focus on AI-related developments. The pipeline fetches articles from
-various RSS feeds, scores them based on relevance and popularity, clusters them
-to identify the most significant stories of the week, and outputs the result as
-a structured JSON file.
+LastWeekIn.Tech is a Python pipeline that publishes a weekly "Top-7" tech
+digest as a static site. It aggregates RSS feeds and Hacker News, deduplicates
+coverage of the same event into stories, ranks them, summarizes each with an
+LLM, and writes the result as JSON plus a generated `index.html`. It runs
+unattended in GitHub Actions every Monday at 08:00 UTC.
 
 ## Features
 
-- **RSS Feed Aggregation**: Fetches articles from a configurable list of tech
-  news sources within a defined time window.
-- **Content Extraction**: Uses the `newspaper3k` library to extract the main
-  body content from each article's URL.
-- **Story Clustering**: Groups similar articles into unique "stories" using
-  fuzzy title matching to avoid duplicates.
-- **Configurable Scoring**: Ranks stories based on a weighted algorithm that
-  considers the number of sources covering the story, Hacker News points, and
-  recency. All weights are configurable.
-- **AI Story Quota**: Ensures that the final 'Top-7' list includes a minimum
-  number of AI-related stories, as defined in the project's goals.
+- **Multi-source aggregation**: RSS and Atom feeds plus Hacker News, over a
+  configurable time window.
+- **Real importance signal**: Hacker News point totals come from the Algolia
+  search API and are matched onto the same story as covered by other outlets.
+- **Story clustering**: fuzzy title matching groups multiple outlets' coverage
+  of one event, with exact-URL deduplication first.
+- **Transparent scoring**: breadth of coverage, Hacker News traction and
+  recency, each normalized to 0..1 before its configured weight applies.
+- **AI coverage floor**: at least half the digest is AI-related, promoted from
+  the ranking only when the week falls short — never capped.
+- **LLM summaries**: any OpenAI-compatible endpoint, with an ordered model
+  fallback chain and sentence-boundary trimming of truncated output.
+- **Publish gate**: a digest that is short, duplicated or missing summaries
+  fails the run instead of replacing last week's edition.
+- **Archive**: every edition is kept as JSON and gets its own page.
+- **Subscribable**: an Atom feed, a sitemap and social cards — no email required.
+- **Measurable**: deterministic summary-quality checks with a golden set, and a
+  per-run metrics record in `data/runs/`.
 
-- **AI-Powered Summarization**: Utilizes `litellm` to connect to various LLM
-  providers like OpenRouter for high-quality, abstractive summaries. The models
-  are fully configurable.
-- **JSON Output**: Saves the final curated list of stories to a clean,
-  well-structured JSON file.
-- **CLI Application**: Provides a command-line interface built with Typer for
-  easy execution and configuration of the pipeline.
+## Setup
 
-## Setup and Installation
+This project uses [uv](https://docs.astral.sh/uv/).
 
-This project uses `uv` for dependency and environment management.
+```bash
+uv sync
+cp .env.example .env
+```
 
-1. **Create a virtual environment:**
+Then edit `.env`:
 
-   ```bash
-   uv venv
-   ```
+- `OPENROUTER_API_KEY` — required, from [OpenRouter](https://openrouter.ai/).
+- `HF_TOKEN` — optional, only for the Hugging Face fallback models.
 
-2. **Activate the virtual environment:**
-
-   ```bash
-   source .venv/bin/activate
-   ```
-
-3. **Install dependencies:**
-
-   ```bash
-   uv sync
-   ```
-
-4. **Set up environment variables:**
-
-   Copy the example environment file:
-
-   ```bash
-   cp .env.example .env
-   ```
-
-   Then, edit the `.env` file to add your API keys.
-   - `OPENROUTER_API_KEY`: Your API key for [OpenRouter](https://openrouter.ai/).
-     This is required for the default summarization model.
+`uv sync` installs the dev tooling too, so `uv run pytest`, `uv run ruff` and
+`uv run mypy` work immediately.
 
 ## Usage
 
-The pipeline is executed as a CLI application. To run the full pipeline and
-generate the `latest.json` file in the `data/` directory, use the following
-command:
-
 ```bash
-uv run python -m lastweekintech.main
+uv run lastweekintech
 ```
+
+This writes the edition to `data/` and the whole static site to `public/` —
+`index.html`, `archive/<week>.html`, `feed.xml`, `sitemap.xml`, `robots.txt`,
+`404.html` and the static assets. The pipeline resolves its templates from the
+installed package, so it can be run from any directory.
 
 ### Options
 
-- `--output-path`, `-o`: Specify a custom output path for the JSON file.
+| Option             | Description                                                       |
+| ------------------ | ----------------------------------------------------------------- |
+| `--data-dir`, `-d` | Where `latest.json` and the archive are written (default `data`). |
+| `--site-dir`, `-s` | Where the static site is written (default `public`).              |
+| `--config`, `-c`   | Path to an alternative `config.yaml`.                             |
+| `--week`, `-w`     | Edition date, `YYYY-MM-DD`. Defaults to today in UTC.             |
+| `--dry-run`        | Print the edition as JSON and write nothing.                      |
+| `--skip-gate`      | Publish even if validation fails.                                 |
 
-  ```bash
-  uv run python -m lastweekintech.main --output-path /path/to/your/output.json
-  ```
+`--dry-run` is the quickest way to see what a run would publish:
 
-## Automation
+```bash
+uv run lastweekintech --dry-run
+```
 
-This project uses GitHub Actions to automate the weekly generation of the tech
-digest. The workflow is defined in `.github/workflows/main.yml` and is
-configured to run every Monday at 8:00 AM UTC. It can also be triggered
-manually from the Actions tab in the GitHub repository.
+## Development
 
-### Setting up the API Key for Automation
+```bash
+uv run pytest                     # full suite, no network
+uv run pytest tests/test_curation.py::TestScoreStories -q   # one class
+uv run python -m evals.run        # score the summary-quality golden set
+uv run python tools/check_models.py   # are the configured models still offered?
+uv run ruff format . && uv run ruff check --fix .
+uv run mypy src
+uv run pre-commit run --all-files
+```
 
-The workflow requires the `OPENROUTER_API_KEY` to be set as a secret in your
-GitHub repository. To add this secret, follow these steps:
+Regenerating the social card needs Pillow, which is deliberately not a declared
+dependency:
 
-1. Go to your repository on GitHub.
-2. Click on the **Settings** tab.
-3. In the left sidebar, click on **Secrets and variables**, then **Actions**.
-4. Click on the **New repository secret** button.
-5. For the **Name**, enter `OPENROUTER_API_KEY`.
-6. For the **Value**, paste your OpenRouter API key.
-7. Click **Add secret**.
+```bash
+uv run --with pillow python tools/make_og_image.py
+```
 
-Once the secret is added, the GitHub Actions workflow will be able to use it to
-run the summarization pipeline.
+CI runs lint, format check, mypy, bandit and the test suite on every push and
+pull request.
+
+## How the pipeline works
+
+```text
+RSS feeds ─┐
+           ├─→ dedupe by URL ─→ cluster by title ─→ score ─→ candidate pool
+HN Algolia ┘                                                      │
+                                                                  ▼
+     publish ←─ gate ←─ summarize ←─ select top 7 ←─ categorize ←─ extract bodies
+```
+
+Article bodies are downloaded only for the candidate pool, after ranking —
+fetching every article of the week to decide seven slots is the slowest thing
+the pipeline could do. Downloads run concurrently across hosts and are spaced
+per host to stay polite. Body text is extracted with
+[trafilatura](https://trafilatura.readthedocs.io/); a page that yields nothing
+extractable (a PDF, a plain text file, a JavaScript-rendered shell) keeps its
+place in the story with no content rather than being dropped.
 
 ## Configuration
 
-The pipeline is configured through the `src/lastweekintech/config.yaml` file.
-This file allows you to customize the pipeline's behavior:
+`src/lastweekintech/config.yaml` drives everything. `${VAR}` values are read
+from the environment at load time; an unset variable becomes `null`, which
+disables the feature rather than passing a placeholder as a credential.
 
-- **`feeds`**: A list of RSS feeds to use as article sources. Each feed has a
-  `name` and a `url`.
-- **`hn`**: Settings related to Hacker News, such as the `min_points`
-  required for an article to be considered.
-- **`window_days`**: The number of days to look back when fetching articles.
-- **`weights`**: The scoring weights for different factors (`hn` for Hacker
-  News points, `src` for source count, `rec` for recency).
-- **`summarizer`**: Settings for the summarization model.
-  - `model_name`: The primary model to use (e.g., from OpenRouter).
-  - `fallback_model`: The model to use if the primary one fails (e.g., from
-    Hugging Face).
+| Section       | Purpose                                                                                                                           |
+| ------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| `feeds`       | RSS/Atom sources. Hacker News is not listed here — see `hn`.                                                                      |
+| `hn`          | Algolia lookup: `enabled`, `min_points`, `points_cap`, `limit`.                                                                   |
+| `window_days` | How far back to look.                                                                                                             |
+| `weights`     | Relative importance of `hn`, `src` (breadth) and `rec` (recency).                                                                 |
+| `digest`      | `story_count`, `min_ai_stories`, `max_missing_summaries`, `max_low_quality_summaries`, `candidate_pool`, `repeat_lookback_weeks`. |
+| `site_url`    | Absolute origin, used for the feed, sitemap, canonical links and cards.                                                           |
+| `summarizer`  | Model chain, `max_tokens`, `max_input_chars`, `temperature`.                                                                      |
+
+Unknown keys are rejected at load time, so a typo fails the run instead of
+being silently ignored.
+
+## Deployment
+
+The site is served from `public/`, which is the whole of what is published. That
+directory is deliberately separate from the repository root: this repo is
+private, and a host pointed at the root would serve `src/`, `tests/`, `data/`
+and `evals/` to anyone who asked.
+
+`vercel.json` pins that contract — `outputDirectory: public`, no build step, and
+`cleanUrls` left off so the URLs in the sitemap and feed are the URLs actually
+served rather than redirects. Pushing to `main` is the deploy.
+
+## Automation
+
+`.github/workflows/main.yml` runs the digest weekly and commits the result. It
+needs `OPENROUTER_API_KEY` as a repository secret (Settings → Secrets and
+variables → Actions), and optionally `HF_TOKEN`. If the publish gate rejects
+the digest, the job fails and the previous edition stays live; re-run the
+workflow manually with **Publish even if the digest fails validation** to
+override.

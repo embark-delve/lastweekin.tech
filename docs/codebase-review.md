@@ -1,5 +1,11 @@
 # Codebase Review – LastWeekIn.Tech
 
+> **Status note (2026-08-16):** this review described the repository before the
+> pipeline source was restored and reworked. The missing modules, absent tests,
+> lack of CI, and the committed SQLite database have all since been addressed.
+> It is kept for the history of how the project got here; see `README.md` and
+> `CLAUDE.md` for the current design.
+
 ## Executive Summary
 
 - The repository currently ships only configuration, compiled artifacts, and a SQLite database; the Python source for the data pipeline is missing, which blocks reproducibility and maintenance.
