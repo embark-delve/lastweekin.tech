@@ -20,6 +20,9 @@ jobs:
     timeout-minutes: 5
 
     permissions:
+      # checkout needs read access; on a private repo its absence surfaces as
+      # "repository not found" rather than a permissions error.
+      contents: read
       issues: write
 
     steps:
