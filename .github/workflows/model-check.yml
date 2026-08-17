@@ -10,6 +10,9 @@ on:
     paths:
       - "src/lastweekintech/config.yaml"
       - "tools/check_models.py"
+      # Watch itself: a change to this workflow should re-run it, or a fix to
+      # the job never gets exercised until the next Sunday.
+      - ".github/workflows/model-check.yml"
   workflow_dispatch:
 
 permissions: {}
