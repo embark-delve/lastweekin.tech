@@ -1,0 +1,104 @@
+{
+  "week": "2026-06-08",
+  "generated_at": "2026-06-08T12:41:40Z",
+  "stories": [
+    {
+      "rank": 1,
+      "title": "How to Watch Apple’s WWDC 2026 Keynote—and What to Expect",
+      "source": "WIRED",
+      "sources": [
+        "WIRED"
+      ],
+      "source_count": 1,
+      "url": "https://www.wired.com/story/how-to-watch-apple-wwdc-2026/",
+      "category": "General Tech",
+      "hn_points": null,
+      "score": null,
+      "summary": "Apple’s final Worldwide Developers Conference under CEO Tim Cook, set to launch on June 8, will spotlight new software releases—iOS 27, macOS 27, watchOS 27, and more—emphasizing performance, stability, and a suite of AI-powered “Apple Intelligence” features such as digital event passes and receipt‑based bill splitting; the keynote is expected to unveil a major Siri overhaul, now powered by a multi‑year partnership with Google’s Gemini, promising a more personalized assistant."
+    },
+    {
+      "rank": 2,
+      "title": "Critical Everest Forms Pro flaw exploited to take over WordPress sites",
+      "source": "BleepingComputer",
+      "sources": [
+        "BleepingComputer"
+      ],
+      "source_count": 1,
+      "url": "https://www.bleepingcomputer.com/news/security/critical-everest-forms-pro-flaw-exploited-to-take-over-wordpress-sites/",
+      "category": "General Tech",
+      "hn_points": null,
+      "score": null,
+      "summary": "Hackers are actively exploiting CVE‑2026‑3300, a critical vulnerability in Everest Forms Pro (v 1.9.12 and earlier) that lets an unauthenticated attacker inject arbitrary PHP code via the plugin’s Complex Calculation feature. The flaw arises because user‑supplied values are inserted into a PHP string and executed with `eval()`, and the sanitization used (`sanitize_text_field()`) fails to escape single quotes, enabling attackers to close the string and inject code such as `wp_insert_user()` to create rogue administrator accounts. Wordfence reports show active exploitation began on April 13, with over 29,300 blocked attempts and two main source IPs (202.56.2.126 and 209.146.60.26). The issue was reported in February, patched on March 18, but administrators should still audit logs and accounts—especially for the username “diksimarina”—and block the identified IPs to mitigate the risk."
+    },
+    {
+      "rank": 3,
+      "title": "The weather and climate science AI revolution isn’t revolutionary",
+      "source": "Ars Technica",
+      "sources": [
+        "Ars Technica"
+      ],
+      "source_count": 1,
+      "url": "https://arstechnica.com/science/2026/06/the-weather-and-climate-science-ai-revolution-isnt-revolutionary/",
+      "category": "AI",
+      "hn_points": null,
+      "score": null,
+      "summary": "The article explains that AI is increasingly being used in weather and climate science, but not as flashy large‑language models (LLMs) like chatbots; instead it relies on established machine learning (ML) techniques that identify complex patterns in vast datasets. While a National Weather Service office once posted a misleading AI‑generated map, the real applications involve training neural networks to recognise relationships in environmental data, improving forecasting and climate modeling. The piece clarifies that ML, not LLMs, underpins these advances and that meteorologists and climate scientists are still doing the heavy lifting, using well‑understood algorithms rather than replacing them with generic AI assistants."
+    },
+    {
+      "rank": 4,
+      "title": "Momfluencers Are Pitching AI as a Better ‘Coparent’ Than Men",
+      "source": "WIRED",
+      "sources": [
+        "WIRED"
+      ],
+      "source_count": 1,
+      "url": "https://www.wired.com/story/momfluencers-are-pitching-ai-as-a-better-coparent-than-men/",
+      "category": "AI",
+      "hn_points": null,
+      "score": null,
+      "summary": "Lilian Schmidt, a Zurich‑based brand consultant and mother, turned to ChatGPT after conventional sleep‑tips failed to help her 3½‑year‑old daughter fall asleep, discovering that the AI’s counterintuitive advice—more stimulation before bed—worked instantly; this success sparked a viral TikTok series and the creation of a paid custom GPT called “Coparent,” positioning Schmidt as a “momfluencer” who promotes generative AI as a substitute for traditional parenting labor. Her content, which highlights how AI can reduce the invisible workload that 13.5 extra hours per week of chores and childcare places on U.S. mothers, mirrors broader gendered labor disparities, with women still shouldering the majority of household responsibilities despite fathers’ increasing involvement. Yet a 2025 study shows women are 20 % less likely than men to use generative AI, a gap attributed to the tools’ “pale, male, and stale” design, underscoring both the potential and the challenges of AI‑assisted parenting."
+    },
+    {
+      "rank": 5,
+      "title": "UK boffin bait lands 18 international researchers",
+      "source": "The Register",
+      "sources": [
+        "The Register"
+      ],
+      "source_count": 1,
+      "url": "https://www.theregister.com/science/2026/06/08/uk-boffin-bait-lands-18-international-researchers/5252046",
+      "category": "General Tech",
+      "hn_points": null,
+      "score": null,
+      "summary": ""
+    },
+    {
+      "rank": 6,
+      "title": "RIP Anthony Head: Our 10 favorite moments of Buffy's Giles",
+      "source": "Ars Technica",
+      "sources": [
+        "Ars Technica"
+      ],
+      "source_count": 1,
+      "url": "https://arstechnica.com/culture/2026/06/rip-anthony-head-our-10-favorite-moments-of-buffys-giles/",
+      "category": "General Tech",
+      "hn_points": null,
+      "score": null,
+      "summary": "The article announces the death of actor Anthony Head (72), best known for playing Rupert Giles on *Buffy the Vampire Slayer*, and notes how fans and colleagues paid tribute online. It highlights Head’s later roles—Uther Pendragon in *Merlin*, the Prime Minister in *Little Britain*, a headmaster in *Doctor Who*, and Rupert Mannion in *Ted Lasso*—but affirms that Giles remains his defining part, with even a planned but unmade spin‑off. The piece underscores Head’s subtle, essential presence in the show’s storytelling, and invites readers to rewatch *Buffy* in his honor, offering a list of favorite Giles moments (the article begins detailing the first, “Lie To Me” episode)."
+    },
+    {
+      "rank": 7,
+      "title": "Lenovo IdeaPad Slim 5x Review: The Best Laptop Under $1,000",
+      "source": "WIRED",
+      "sources": [
+        "WIRED"
+      ],
+      "source_count": 1,
+      "url": "https://www.wired.com/review/lenovo-ideapad-slim-5x/",
+      "category": "General Tech",
+      "hn_points": null,
+      "score": null,
+      "summary": "Lenovo’s IdeaPad Slim 5x proves that a budget laptop can feel premium without compromising too much on usability. Its 15.3‑inch screen, centered touchpad and spacious keyboard keep it travel‑ready while matching the size and thickness of the 15‑inch MacBook Air. The touchpad outperforms many rivals in responsiveness, though its click is noticeably loud, and the speakers, while not as full as Apple’s, outperform average budget units. Powered by the Qualcomm Snapdragon X2 Plus, the machine delivers solid CPU performance for multitasking, though it still lags behind Apple’s M5 in raw power. Still, for typical office workflows, streaming, and light multitasking the X2 Plus offers more than enough horsepower. The bright, colorful, anti‑glare touchscreen adds a premium feel, making the Slim 5x a compelling choice for users who value portability, performance, and a decent display without a hefty price tag."
+    }
+  ]
+}

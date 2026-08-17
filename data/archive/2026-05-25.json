@@ -1,0 +1,104 @@
+{
+  "week": "2026-05-25",
+  "generated_at": "2026-05-25T12:00:49Z",
+  "stories": [
+    {
+      "rank": 1,
+      "title": "A Fundamental Principle of Aeronautical Engineering Has Been Overturned",
+      "source": "WIRED",
+      "sources": [
+        "WIRED"
+      ],
+      "source_count": 1,
+      "url": "https://www.wired.com/story/a-fundamental-principle-of-aeronautical-engineering-has-been-overturned/",
+      "category": "General Tech",
+      "hn_points": null,
+      "score": null,
+      "summary": ""
+    },
+    {
+      "rank": 2,
+      "title": "Scammers Are Abusing an Internal Microsoft Account to Send Spam Links",
+      "source": "Slashdot",
+      "sources": [
+        "Slashdot"
+      ],
+      "source_count": 1,
+      "url": "https://slashdot.org/story/26/05/24/040224/scammers-are-abusing-an-internal-microsoft-account-to-send-spam-links?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+      "category": "General Tech",
+      "hn_points": null,
+      "score": null,
+      "summary": "In “Make it myself? But I'm a physical organic chemist!” the author argues that a significant portion of the reagents and materials routinely used in physical organic research can be prepared in‑house rather than purchased, thereby saving time, money, and reducing environmental impact. Drawing on examples from kinetic and mechanistic studies—such as custom‑synthesized probes, isotopically labeled substrates, and high‑purity solvents—the piece illustrates how standard procedures (e.g., recrystallization, distillation, chromatography) can be adapted for laboratory‑scale production. It also addresses safety, quality control, and documentation requirements, emphasizing that meticulous characterization (NMR, MS, IR) and proper labeling are essential to maintain reproducibility. Overall, the article encourages chemists to view reagent synthesis as an integral part of experimental design, fostering a more sustainable and cost‑effective research workflow."
+    },
+    {
+      "rank": 3,
+      "title": "Building Pi with Pi",
+      "source": "Hacker News (hnrss)",
+      "sources": [
+        "Hacker News (hnrss)"
+      ],
+      "source_count": 1,
+      "url": "https://lucumr.pocoo.org/2026/5/24/pi-oss/",
+      "category": "General Tech",
+      "hn_points": null,
+      "score": null,
+      "summary": "The article reflects on using Pi, an AI‑powered issue tracker and development tool, to build and debug Pi itself, highlighting the “slop” that arises when LLMs rewrite issue descriptions and code, producing vague, over‑hypothesised, or incorrect diagnostics that mislead human maintainers; this sloppiness forces developers to insist on concise, fact‑based issue reports and to actively verify AI analysis rather than trust it, and it also leads to over‑engineering fixes that add unnecessary complexity. The author notes the high volume of AI‑generated issues and pull requests that are auto‑closed, reopened, or closed again, stressing that the problem lies more with contributors and the tools they use than with GitHub itself. Parallel Pi sessions can work on multiple issues simultaneously, but the overall ecosystem remains overwhelmed by the sheer amount of code and projects in a post‑AI world, underscoring the need for stronger community collaboration and a focus on fixing upstream bugs rather than creating local workarounds."
+    },
+    {
+      "rank": 4,
+      "title": "The AI Era Is Creating a Bug Hunting Arms Race",
+      "source": "WIRED",
+      "sources": [
+        "WIRED"
+      ],
+      "source_count": 1,
+      "url": "https://www.wired.com/story/the-ai-era-is-creating-a-bug-hunting-arms-race/",
+      "category": "AI",
+      "hn_points": null,
+      "score": null,
+      "summary": "A decade of bug‑bounty programs—once a reluctant novelty—has been upended by the rise of agentic AI that can autonomously hunt software vulnerabilities and craft exploits, flooding disclosure portals and inflating the cost of payouts. Apple’s rewards have leapt from $200k to $2m, and firms like Google expect to spend many times more next year, while smaller companies may struggle to keep pace. The surge in low‑ and medium‑severity findings is already shortening the 90‑day responsible‑disclosure window that was built for slower, rarer bug‑finders, and is prompting organizations to speed patch releases to avoid being outmaneuvered by attackers who are now using the same AI tools. This new equilibrium threatens to compress discovery and exploitation timelines, making rapid, careful patch deployment—despite its operational risks—an urgent imperative in a landscape where even “non‑professional” actors can deploy AI‑generated zero‑day exploits."
+    },
+    {
+      "rank": 5,
+      "title": "Digital sovereignty, the musical: One engineer’s bizarre crusade against hyperscalers",
+      "source": "The Register",
+      "sources": [
+        "The Register"
+      ],
+      "source_count": 1,
+      "url": "https://www.theregister.com/offbeat/2026/05/25/digital-sovereignty-the-musical-one-engineers-bizarre-crusade-against-hyperscalers/5245148",
+      "category": "General Tech",
+      "hn_points": null,
+      "score": null,
+      "summary": "A French infrastructure architect, Amine Raiti, has launched “Operation Dindon,” a tongue‑in‑cheek, multilingual protest against Amazon, Google and Microsoft that threatens to unleash AI‑generated sea shanties, K‑pop, Finnish polka and satirical poetry if the hyperscalers do not address cloud lock‑in and egress fees by September. Raiti’s “Iron Ultimatum” demands that providers let customers cancel long‑term contracts, waive costly data‑transfer charges and make exit from proprietary services financially viable; otherwise his 50‑track AI‑produced campaign will continue. The campaign, which began with a 14‑part satirical series about a fictional turkey trapped in the cloud, aims to turn vendor‑lock‑in complaints into performance art and has yet to elicit a public response from the cloud giants."
+    },
+    {
+      "rank": 6,
+      "title": "Under-trained techie didn't claim overtime for mistakenly failing to phone it in",
+      "source": "The Register",
+      "sources": [
+        "The Register"
+      ],
+      "source_count": 1,
+      "url": "https://www.theregister.com/networks/2026/05/25/under-trained-techie-didnt-claim-overtime-for-mistakenly-failing-to-phone-it-in/5242388",
+      "category": "General Tech",
+      "hn_points": null,
+      "score": null,
+      "summary": ""
+    },
+    {
+      "rank": 7,
+      "title": "These Privacy-Conscious Gay Dating Apps Want to Dethrone Grindr",
+      "source": "WIRED",
+      "sources": [
+        "WIRED"
+      ],
+      "source_count": 1,
+      "url": "https://www.wired.com/story/these-privacy-conscious-gay-dating-apps-want-to-dethrone-grindr/",
+      "category": "General Tech",
+      "hn_points": null,
+      "score": null,
+      "summary": "The article critiques mainstream gay dating apps for prioritizing monetization over meaningful connection, citing Grindr’s ad‑heavy model and high‑priced subscription tiers and the backlash over Sniffies’ Match Group investment, which raised fears of corporate takeover. In response, tech entrepreneur Calum Bowden launched MeetMarket, a privacy‑centric, decentralized web app that stores user data on devices, offers end‑to‑end encryption, and remains ad‑free, attracting over 12,000 sign‑ups in 48 hours and 60,000 users overall with a monthly fee of €12. Bowden, backed by his nonprofit Trust, aims to give queer users agency and protect them in hostile legal contexts. The piece notes a broader trend toward niche, community‑driven apps—such as Justin Finnegan’s Chunkr—that cater to specific subcultures within the gay community, suggesting that users are increasingly seeking specificity and intentionality over the generic, profit‑driven platforms of Big Dating."
+    }
+  ]
+}

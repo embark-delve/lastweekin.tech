@@ -1,0 +1,104 @@
+{
+  "week": "2026-06-29",
+  "generated_at": "2026-06-29T12:42:27Z",
+  "stories": [
+    {
+      "rank": 1,
+      "title": "NYT slams Microsoft for building copyright-infringing supercomputer for OpenAI",
+      "source": "Ars Technica",
+      "sources": [
+        "Ars Technica"
+      ],
+      "source_count": 1,
+      "url": "https://arstechnica.com/tech-policy/2026/06/microsoft-built-supercomputer-to-help-openai-infringe-copyrights-nyt-alleged/",
+      "category": "AI",
+      "hn_points": null,
+      "score": null,
+      "summary": "The New York Times filed a heavily redacted motion to amend its copyright suit against OpenAI and Microsoft, tightening a contributory‑infringement claim in light of a Supreme Court ruling that now requires plaintiffs to prove intentional inducement of illegal conduct. The Times alleges that Microsoft built a world‑class supercomputing system to entice OpenAI to steal its copyrighted content, and it seeks to drop two other claims (contributory infringement and trademark dilution) while keeping its core accusation that Microsoft and OpenAI pirated millions of NYT works to compete and profit. Microsoft dismisses the amendment as a “last‑ditch” effort, whereas the Times argues the changes do not prejudice defendants or delay the case, and that the amended claim aligns with new legal precedent and fresh discovery evidence."
+    },
+    {
+      "rank": 2,
+      "title": "Why did this journal retract two 1940s papers by Max Planck?",
+      "source": "Ars Technica",
+      "sources": [
+        "Ars Technica"
+      ],
+      "source_count": 1,
+      "url": "https://arstechnica.com/science/2026/06/why-did-this-journal-retract-two-1940s-papers-by-max-planck/",
+      "category": "General Tech",
+      "hn_points": null,
+      "score": null,
+      "summary": ""
+    },
+    {
+      "rank": 3,
+      "title": "China Defies US Restrictions and Builds the World’s Fastest Supercomputer",
+      "source": "WIRED",
+      "sources": [
+        "WIRED"
+      ],
+      "source_count": 1,
+      "url": "https://www.wired.com/story/china-defies-us-restrictions-and-builds-the-worlds-fastest-supercomputer/",
+      "category": "General Tech",
+      "hn_points": null,
+      "score": null,
+      "summary": "China’s newly installed LineShine supercomputer at the National Super"
+    },
+    {
+      "rank": 4,
+      "title": "Trump-shuttered climate change site back online in nonprofit hands",
+      "source": "The Register",
+      "sources": [
+        "The Register"
+      ],
+      "source_count": 1,
+      "url": "https://www.theregister.com/science/2026/06/26/trump-shuttered-climate-change-site-back-online-in-nonprofit-hands/5263319",
+      "category": "General Tech",
+      "hn_points": null,
+      "score": null,
+      "summary": "In July 2025, a Trump‑issued executive order “prioritizing gold‑standard science” forced NOAA to shut down its Climate.gov website, purge its 15‑year archive of climate data and remove staff, sparking alarm that the public and scientists would lose critical climate information. Former Climate.gov program manager Rebecca L"
+    },
+    {
+      "rank": 5,
+      "title": "FBI: Russian hackers now target Signal backup recovery keys",
+      "source": "BleepingComputer",
+      "sources": [
+        "BleepingComputer"
+      ],
+      "source_count": 1,
+      "url": "https://www.bleepingcomputer.com/news/security/fbi-russian-hackers-now-target-signal-backup-recovery-keys/",
+      "category": "General Tech",
+      "hn_points": null,
+      "score": null,
+      "summary": ""
+    },
+    {
+      "rank": 6,
+      "title": "Yeasound RIC800 Hearing Aids Review: Good Audio, Glitchy App",
+      "source": "WIRED",
+      "sources": [
+        "WIRED"
+      ],
+      "source_count": 1,
+      "url": "https://www.wired.com/review/yeasound-ric800-hearing-aids/",
+      "category": "General Tech",
+      "hn_points": null,
+      "score": null,
+      "summary": "Yeasound, a subsidiary of telecom maker Yealink, is reviving the behind‑the‑ear hearing‑aid niche with its RIC800 (and RIC700) models. The RIC800 packs AI‑powered noise reduction, an automatic speech‑focus system, Android"
+    },
+    {
+      "rank": 7,
+      "title": "The war against &#8216;woke&#8217; could end US science as we know it",
+      "source": "The Verge",
+      "sources": [
+        "The Verge"
+      ],
+      "source_count": 1,
+      "url": "https://www.theverge.com/science/957630/omb-killing-science-budget-grants-research",
+      "category": "General Tech",
+      "hn_points": null,
+      "score": null,
+      "summary": "The Office of Management and Budget’s 412‑page proposal threatens to turn the U.S. federal grant system into a politically‑driven tool by requiring that every $1 trillion in research funding be vetted by political appointees to ensure alignment with the President’s “policy priorities”; it would bar funding for DEI, gender‑identity research, and any work that could be seen as “"
+    }
+  ]
+}

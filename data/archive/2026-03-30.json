@@ -1,0 +1,104 @@
+{
+  "week": "2026-03-30",
+  "generated_at": "2026-03-30T09:26:15Z",
+  "stories": [
+    {
+      "rank": 1,
+      "title": "DOJ confirms FBI Director Kash Patel’s personal email was hacked",
+      "source": "Ars Technica",
+      "sources": [
+        "Ars Technica"
+      ],
+      "source_count": 1,
+      "url": "https://arstechnica.com/tech-policy/2026/03/doj-confirms-fbi-director-kash-patels-personal-email-was-hacked/",
+      "category": "General Tech",
+      "hn_points": null,
+      "score": null,
+      "summary": ""
+    },
+    {
+      "rank": 2,
+      "title": "European Commission confirms data breach after Europa.eu hack",
+      "source": "BleepingComputer",
+      "sources": [
+        "BleepingComputer"
+      ],
+      "source_count": 1,
+      "url": "https://www.bleepingcomputer.com/news/security/european-commission-confirms-data-breach-after-europaeu-hack/",
+      "category": "General Tech",
+      "hn_points": null,
+      "score": null,
+      "summary": ""
+    },
+    {
+      "rank": 3,
+      "title": "A School District Tried to Help Train Waymos to Stop for School Buses. It Didn’t Work",
+      "source": "WIRED",
+      "sources": [
+        "WIRED"
+      ],
+      "source_count": 1,
+      "url": "https://www.wired.com/story/a-school-district-tried-to-help-train-waymos-to-stop-for-school-buses-it-didnt-work/",
+      "category": "General Tech",
+      "hn_points": null,
+      "score": null,
+      "summary": ""
+    },
+    {
+      "rank": 4,
+      "title": "AI will write code, but prepare to babysit it – and be sure you speak its language",
+      "source": "The Register",
+      "sources": [
+        "The Register"
+      ],
+      "source_count": 1,
+      "url": "https://go.theregister.com/feed/www.theregister.com/2026/03/29/ai_will_write_code_but/",
+      "category": "AI",
+      "hn_points": null,
+      "score": null,
+      "summary": "According"
+    },
+    {
+      "rank": 5,
+      "title": "Pints meet prop bets: Polymarket’s “Situation Room” pop-up bar in DC",
+      "source": "Ars Technica",
+      "sources": [
+        "Ars Technica"
+      ],
+      "source_count": 1,
+      "url": "https://arstechnica.com/culture/2026/03/pints-meet-prop-bets-polymarkets-situation-room-pop-up-bar-in-dc/",
+      "category": "General Tech",
+      "hn_points": null,
+      "score": null,
+      "summary": ""
+    },
+    {
+      "rank": 6,
+      "title": "Polygraphs have major flaws. Are there better options?",
+      "source": "Ars Technica",
+      "sources": [
+        "Ars Technica"
+      ],
+      "source_count": 1,
+      "url": "https://arstechnica.com/science/2026/03/polygraphs-have-major-flaws-are-there-better-options/",
+      "category": "General Tech",
+      "hn_points": null,
+      "score": null,
+      "summary": ""
+    },
+    {
+      "rank": 7,
+      "title": "9 Best Android Phones of 2026, Tested and Reviewed",
+      "source": "WIRED",
+      "sources": [
+        "WIRED"
+      ],
+      "source_count": 1,
+      "url": "https://www.wired.com/gallery/best-android-phones/",
+      "category": "General Tech",
+      "hn_points": null,
+      "score": null,
+      "summary": ""
+    }
+  ]
+}

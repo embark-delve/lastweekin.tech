@@ -1,0 +1,104 @@
+{
+  "week": "2026-07-27",
+  "generated_at": "2026-07-27T11:34:14Z",
+  "stories": [
+    {
+      "rank": 1,
+      "title": "US prosecutors charge Atlanta man after GrapheneOS phone wipes itself during airport search",
+      "source": "TechSpot",
+      "sources": [
+        "TechSpot"
+      ],
+      "source_count": 1,
+      "url": "https://www.techspot.com/news/113236-us-prosecutors-charge-atlanta-man-after-grapheneos-phone.html",
+      "category": "General Tech",
+      "hn_points": null,
+      "score": null,
+      "summary": "A federal case in Atlanta has sparked a rare legal debate over privacy‑focused mobile software when prosecutors charged Sam Tunick with destroying property to thwart evidence after he used GrapheneOS—a security‑only operating system for Google Pixel phones—to wipe his device. Tunick, who was stopped at Hartsfield‑Jackson International Airport on January 24 after an internal DOJ “suspected terrorism” alert tied to his anti‑Cop City activism, was interrogated"
+    },
+    {
+      "rank": 2,
+      "title": "The first thing I do for friends switching from iPhone to Android is change this setting",
+      "source": "Android Police",
+      "sources": [
+        "Android Police"
+      ],
+      "source_count": 1,
+      "url": "https://www.androidpolice.com/setting-iphone-switchers-should-change/",
+      "category": "General Tech",
+      "hn_points": null,
+      "score": null,
+      "summary": "Switching from iOS to Android feels jarring mainly because the thumb’s muscle memory is built around iOS conventions—swiping in from the left edge, hitting a back button in the upper‑left corner,"
+    },
+    {
+      "rank": 3,
+      "title": "Google Turns a Selfie Video Into Your Account’s Spare Key",
+      "source": "WIRED",
+      "sources": [
+        "WIRED"
+      ],
+      "source_count": 1,
+      "url": "https://www.wired.com/story/google-turns-a-selfie-video-into-your-accounts-spare-key/",
+      "category": "General Tech",
+      "hn_points": null,
+      "score": null,
+      "summary": "Google has rolled out a new “selfie video” sign‑in option that lets users unlock their accounts with a short facial video, adding a backup key for situations where device‑based passkeys are inaccessible. Users enable it via the Security & sign‑in tab, record a brief clip following lighting and “liveness” guidelines"
+    },
+    {
+      "rank": 4,
+      "title": "The EU Fines Google $1 Billion for Prioritizing Its Own Services in Search",
+      "source": "WIRED",
+      "sources": [
+        "WIRED"
+      ],
+      "source_count": 1,
+      "url": "https://www.wired.com/story/eu-fines-google-billion-prioritizing-own-services-in-search/",
+      "category": "General Tech",
+      "hn_points": null,
+      "score": null,
+      "summary": "The European Commission has slapped Google with a $1 billion fine for abusing its dominance in EU search and app‑store markets under the Digital Markets Act, ordering the company to stop giving its own services (shopping, travel"
+    },
+    {
+      "rank": 5,
+      "title": "Artist sues AI meme generator for selling deeply personal comic as ad template",
+      "source": "Ars Technica",
+      "sources": [
+        "Ars Technica"
+      ],
+      "source_count": 1,
+      "url": "https://arstechnica.com/tech-policy/2026/07/artist-sues-ai-meme-generator-for-selling-deeply-personal-comic-as-ad-template/",
+      "category": "AI",
+      "hn_points": null,
+      "score": null,
+      "summary": "Artist Elmer Saflor—known online as “Superelmer” and creator of the viral “Running Away Balloon” comic—has filed a lawsuit against Memes Apps, LCC, the"
+    },
+    {
+      "rank": 6,
+      "title": "This Is Donald Trump’s AI Brain Trust",
+      "source": "WIRED",
+      "sources": [
+        "WIRED"
+      ],
+      "source_count": 1,
+      "url": "https://www.wired.com/story/this-is-donald-trumps-ai-brain-trust/",
+      "category": "AI",
+      "hn_points": null,
+      "score": null,
+      "summary": "The"
+    },
+    {
+      "rank": 7,
+      "title": "First teaser for Apple TV's Neuromancer debuts at SDCC",
+      "source": "Ars Technica",
+      "sources": [
+        "Ars Technica"
+      ],
+      "source_count": 1,
+      "url": "https://arstechnica.com/culture/2026/07/first-teaser-for-apple-tvs-neuromancer-debuts-at-sdcc/",
+      "category": "General Tech",
+      "hn_points": null,
+      "score": null,
+      "summary": "Apple TV is rapidly overtaking HBO as the premier destination for high‑quality dramas—especially sci‑fi—thanks to titles such as *Slow Horses*, *Severance*, *Foundation*, *For All Mankind*, *Murderbot*, *Silo*, *Pluribus*, and *Widow’s Bay*, with the highly‑"
+    }
+  ]
+}

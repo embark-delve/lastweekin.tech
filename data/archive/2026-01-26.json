@@ -1,0 +1,104 @@
+{
+  "week": "2026-01-26",
+  "generated_at": "2026-01-26T08:45:09Z",
+  "stories": [
+    {
+      "rank": 1,
+      "title": "A look at Clawdbot, an open-source personal AI agent that runs locally on the user's computer and integrates with multiple LLMs and messaging services (Federico Viticci/MacStories)",
+      "source": "Techmeme",
+      "sources": [
+        "Techmeme"
+      ],
+      "source_count": 1,
+      "url": "http://www.techmeme.com/260124/p17#a260124p17",
+      "category": "AI",
+      "hn_points": null,
+      "score": null,
+      "summary": ""
+    },
+    {
+      "rank": 2,
+      "title": "Microsoft releases emergency OOB update to fix Outlook freezes",
+      "source": "BleepingComputer",
+      "sources": [
+        "BleepingComputer"
+      ],
+      "source_count": 1,
+      "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-releases-emergency-oob-update-to-fix-outlook-freezes/",
+      "category": "General Tech",
+      "hn_points": null,
+      "score": null,
+      "summary": ""
+    },
+    {
+      "rank": 3,
+      "title": "Fortinet confirms critical FortiCloud auth bypass not fully patched",
+      "source": "BleepingComputer",
+      "sources": [
+        "BleepingComputer"
+      ],
+      "source_count": 1,
+      "url": "https://www.bleepingcomputer.com/news/security/fortinet-confirms-critical-forticloud-auth-bypass-not-fully-patched/",
+      "category": "General Tech",
+      "hn_points": null,
+      "score": null,
+      "summary": ""
+    },
+    {
+      "rank": 4,
+      "title": "Phonak Audeo Infinio Ultra Sphere Review: Premium Hearing Aids",
+      "source": "WIRED",
+      "sources": [
+        "WIRED"
+      ],
+      "source_count": 1,
+      "url": "https://www.wired.com/review/phonak-audeo-infinio-ultra-sphere/",
+      "category": "General Tech",
+      "hn_points": null,
+      "score": null,
+      "summary": ""
+    },
+    {
+      "rank": 5,
+      "title": "Creators and communities everywhere take a stand against ICE",
+      "source": "The Verge",
+      "sources": [
+        "The Verge"
+      ],
+      "source_count": 1,
+      "url": "https://www.theverge.com/policy/867451/creators-and-communities-take-a-stand-against-ice",
+      "category": "General Tech",
+      "hn_points": null,
+      "score": null,
+      "summary": ""
+    },
+    {
+      "rank": 6,
+      "title": "A decade of Star Trek-themed fart jokes: The Greatest Generation podcast turns 10",
+      "source": "Ars Technica",
+      "sources": [
+        "Ars Technica"
+      ],
+      "source_count": 1,
+      "url": "https://arstechnica.com/culture/2026/01/a-decade-of-star-trek-themed-fart-jokes-the-greatest-generation-podcast-turns-10/",
+      "category": "General Tech",
+      "hn_points": null,
+      "score": null,
+      "summary": ""
+    },
+    {
+      "rank": 7,
+      "title": "Intel’s Panther Lake Chips Aren’t Just Good—They Beat Apple's M5",
+      "source": "WIRED",
+      "sources": [
+        "WIRED"
+      ],
+      "source_count": 1,
+      "url": "https://www.wired.com/story/intel-panther-lake-core-ultra-series-3-review/",
+      "category": "General Tech",
+      "hn_points": null,
+      "score": null,
+      "summary": ""
+    }
+  ]
+}

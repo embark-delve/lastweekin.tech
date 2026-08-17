@@ -1,0 +1,104 @@
+{
+  "week": "2025-11-10",
+  "generated_at": "2025-11-10T08:39:59Z",
+  "stories": [
+    {
+      "rank": 1,
+      "title": "YouTube TV, ESPN, and Disney: the latest on the blackout",
+      "source": "The Verge",
+      "sources": [
+        "The Verge"
+      ],
+      "source_count": 1,
+      "url": "https://www.theverge.com/news/817403/youtube-tv-disney-espn-blackout-updates",
+      "category": "General Tech",
+      "hn_points": null,
+      "score": null,
+      "summary": "On October 31, Disney‑owned channels—including ESPN, ABC and Nat Geo—went dark on YouTube TV after Google and Disney could not agree on a new distribution deal. Google accused Disney of trying to hike prices to"
+    },
+    {
+      "rank": 2,
+      "title": "YouTube TV’s $20 “sorry for Disney” credit is live",
+      "source": "Android Police",
+      "sources": [
+        "Android Police"
+      ],
+      "source_count": 1,
+      "url": "https://www.androidpolice.com/youtube-tvs-dollar20-sorry-for-disney-credit-live/",
+      "category": "General Tech",
+      "hn_points": null,
+      "score": null,
+      "summary": "YouTube TV has removed all Disney network channels from its service after failed renewal talks, and it is honoring a $20 one‑time credit for affected subscribers, though users must manually claim it and the credit will only apply to the next billing cycle (not the current one or if the subscription is cancelled). The credit is available to those who pay directly or via Google Play, will stack on any existing $10 monthly discount, and is aimed"
+    },
+    {
+      "rank": 3,
+      "title": "What Is Adobe Firefly? Here’s How to Use This Powerful Generative AI Tool",
+      "source": "WIRED",
+      "sources": [
+        "WIRED"
+      ],
+      "source_count": 1,
+      "url": "https://www.wired.com/story/what-is-adobe-firefly/",
+      "category": "AI",
+      "hn_points": null,
+      "score": null,
+      "summary": "The article outlines a simple Firefly workflow: start by creating a new image—either generated from a prompt or created from an uploaded file—using a chatbot-style prompt, a reference image, and model/aspect-ratio settings; refine results with “Generate More” or “Edit” features,"
+    },
+    {
+      "rank": 4,
+      "title": "65daysofstatic’s new No Man’s Sky album searches for humanity in an AI-filled world",
+      "source": "The Verge",
+      "sources": [
+        "The Verge"
+      ],
+      "source_count": 1,
+      "url": "https://www.theverge.com/report/816427/no-mans-sky-album-journeys-65daysofstatic",
+      "category": "AI",
+      "hn_points": null,
+      "score": null,
+      "summary": "In 2025, post‑rock band 65daysofstatic returned to the wildly evolving world of No Man’s Sky to re‑score the game’s music, producing the 32‑track,"
+    },
+    {
+      "rank": 5,
+      "title": "The algorithm failed music",
+      "source": "The Verge",
+      "sources": [
+        "The Verge"
+      ],
+      "source_count": 1,
+      "url": "https://www.theverge.com/column/815744/music-recommendation-algorithms",
+      "category": "General Tech",
+      "hn_points": null,
+      "score": null,
+      "summary": ""
+    },
+    {
+      "rank": 6,
+      "title": "Here’s how orbital dynamics wizardry helped save NASA’s next Mars mission",
+      "source": "Ars Technica",
+      "sources": [
+        "Ars Technica"
+      ],
+      "source_count": 1,
+      "url": "https://arstechnica.com/space/2025/11/heres-how-orbital-dynamics-wizardry-helped-save-nasas-next-mars-mission/",
+      "category": "General Tech",
+      "hn_points": null,
+      "score": null,
+      "summary": "Blue Origin postponed its launch to Wednesday"
+    },
+    {
+      "rank": 7,
+      "title": "Apple Pulls China’s Top Gay Dating Apps After Government Order",
+      "source": "WIRED",
+      "sources": [
+        "WIRED"
+      ],
+      "source_count": 1,
+      "url": "https://www.wired.com/story/apple-removes-gay-dating-apps-china-app-store/",
+      "category": "General Tech",
+      "hn_points": null,
+      "score": null,
+      "summary": ""
+    }
+  ]
+}

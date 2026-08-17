@@ -1,0 +1,104 @@
+{
+  "week": "2026-04-27",
+  "generated_at": "2026-04-27T10:26:20Z",
+  "stories": [
+    {
+      "rank": 1,
+      "title": "Trump fires the entire National Science Board",
+      "source": "The Verge",
+      "sources": [
+        "The Verge"
+      ],
+      "source_count": 1,
+      "url": "https://www.theverge.com/science/918769/trump-fires-the-entire-national-science-board",
+      "category": "General Tech",
+      "hn_points": null,
+      "score": null,
+      "summary": "The article criticizes a presidential decision to target the National Science Board (NSB), arguing that the board—an apolitical body that advises the President on the National Science Foundation’s future—has been undermined by a leader who has attacked the NSF from the outset. It warns that replacing the NSB with politically aligned appointees could erode scientific independence and hand control of American innovation to adversaries, labeling the move as a foolish, self‑serving tactic."
+    },
+    {
+      "rank": 2,
+      "title": "Google Studies Prompt Injection Attacks Against AI Agents Browsing the Web",
+      "source": "Slashdot",
+      "sources": [
+        "Slashdot"
+      ],
+      "source_count": 1,
+      "url": "https://it.slashdot.org/story/26/04/26/2345211/google-studies-prompt-injection-attacks-against-ai-agents-browsing-the-web?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+      "category": "AI",
+      "hn_points": null,
+      "score": null,
+      "summary": "Neil Bogart’s quote distills a cynical view on hype and success: if a product or idea is heavily promoted and ultimately succeeds, the hype was justified and the promoter is vindicated; but if the same hype fails to deliver results, it is merely hype. Thus, the outcome of the hype determines whether it was a valid strategy or a mere puffery."
+    },
+    {
+      "rank": 3,
+      "title": "Prime Video drops full trailer for Spider-Noir",
+      "source": "Ars Technica",
+      "sources": [
+        "Ars Technica"
+      ],
+      "source_count": 1,
+      "url": "https://arstechnica.com/culture/2026/04/prime-video-drops-full-trailer-for-spider-noir/",
+      "category": "General Tech",
+      "hn_points": null,
+      "score": null,
+      "summary": "Prime Video’s latest buzz comes from the full trailer for the upcoming live‑action series *Spider‑Noir*, unveiled in Mexico City over the weekend. The trailer was released in two styles: a stark black‑and‑white version that feels like a Raymond Chandler film, and a colorful “True Hue” cut. The show is a continuation of Marvel’s 2009 noir line, reimagining characters in a Great Depression setting. It stars Nicolas Cage as Ben Reilly, a hard‑boiled private investigator who secretly becomes the city’s lone superhero, “The Spider,” in 1930s New York. Co‑showrunner Oren Uziel, a film‑noir enthusiast, chose to replace the familiar Peter Parker with Reilly to better fit the gritty, adult tone of the series."
+    },
+    {
+      "rank": 4,
+      "title": "Watch out UK taxpayers: 28,000 HMRC staffers just got an AI copilot",
+      "source": "The Register",
+      "sources": [
+        "The Register"
+      ],
+      "source_count": 1,
+      "url": "https://go.theregister.com/feed/www.theregister.com/2026/04/27/hmrc_hands_28000_staff_ai/",
+      "category": "AI",
+      "hn_points": null,
+      "score": null,
+      "summary": "HMRC has deployed 28,000 Microsoft Copilot licences after a 20,000‑civil‑servant trial that showed an average 26‑minute daily time saving and high user enthusiasm, prompting the department’s chief AI officer to announce plans for “agentic‑style” features and a vision of becoming the world’s most AI‑enabled tax authority. The trial also highlighted limitations in handling complex, data‑heavy tasks and raised security concerns about sensitive data, raising doubts about using Copilot in official “Sensitive” workflows. HMRC frames Copilot as a bolt‑on to existing automation that has delivered £8 billion in benefits, but critics point to the government’s stale IT estate, duplicated content and the risk of embedding a generative system that is hard to turn off once adopted, leaving the agency with a tool that works well enough to rely on but is not yet trustworthy for critical decisions."
+    },
+    {
+      "rank": 5,
+      "title": "Strange New Worlds S4 teaser strikes a more serious tone",
+      "source": "Ars Technica",
+      "sources": [
+        "Ars Technica"
+      ],
+      "source_count": 1,
+      "url": "https://arstechnica.com/culture/2026/04/strange-new-worlds-s4-teaser-strikes-a-more-serious-tone/",
+      "category": "General Tech",
+      "hn_points": null,
+      "score": null,
+      "summary": "Paramount+ revealed a new teaser for *Star Trek: Strange New Worlds* Season 4 at CCXP in Mexico City, hinting that the show will return to a more serious tone after the uneven third season. The clip revisits the crew’s response to a distress call, a crippling space storm, and a mission to a nearby planet for iridium, echoing the extended sequence from last October’s New York Comic‑Con. Fans can also expect a puppet episode, a Wild‑West‑style setting, and even dinosaurs, while Pike’s ongoing grief over the departure of Marie Batel will likely shape the season’s emotional stakes."
+    },
+    {
+      "rank": 6,
+      "title": "New robotic control software avoids jamming their joints",
+      "source": "Ars Technica",
+      "sources": [
+        "Ars Technica"
+      ],
+      "source_count": 1,
+      "url": "https://arstechnica.com/science/2026/04/kinematic-intelligence-helps-robots-learn-their-limits/",
+      "category": "General Tech",
+      "hn_points": null,
+      "score": null,
+      "summary": "EPFL researchers have created “Kinematic Intelligence,” a framework that lets robots switch between different arm models without retraining from scratch, mirroring how smartphones sync data when upgraded. The system addresses a long‑standing issue in robot learning‑from‑demonstration: skills learned on one robot often fail on another due to subtle differences in link lengths, joint orientations, or configurations. By automatically adapting learned behaviors to the new robot’s kinematic constraints, Kinematic Intelligence enables seamless transfer of tasks—such as wiping, stacking, or welding—across diverse robotic platforms."
+    },
+    {
+      "rank": 7,
+      "title": "Here’s How Much San Francisco Tech Companies Pay for Police Protection",
+      "source": "WIRED",
+      "sources": [
+        "WIRED"
+      ],
+      "source_count": 1,
+      "url": "https://www.wired.com/story/heres-how-much-san-francisco-tech-companies-are-paying-for-police-protection/",
+      "category": "General Tech",
+      "hn_points": null,
+      "score": null,
+      "summary": "Elon Musk’s 2024 move of X’s offices outside San Francisco after calling the city’s violent crime “horrific” highlights a growing trend of tech firms paying for police protection under the city’s 10B rent‑a‑cop program, which allows businesses to hire officers at standard city rates. 2024 records show Airbnb spent about $428,000 on uniformed, armed officers, while Salesforce paid roughly $728,000 through a security vendor and added $41,000 for police at its TrailblazerDX conference.  OpenAI and Anthropic have not been regular clients, though OpenAI briefly paid $813 for a museum event.  The program, used by a range of companies—including the Giants baseball team ($1.9 M), Apple ($1.2 M), and various retailers—offers a low‑cost, quick‑response security solution, but raises concerns about conflicts of interest and liability, even as it provides officers with additional income and fosters community ties."
+    }
+  ]
+}

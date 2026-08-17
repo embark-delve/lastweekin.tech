@@ -1,0 +1,104 @@
+{
+  "week": "2025-11-24",
+  "generated_at": "2025-11-24T08:39:53Z",
+  "stories": [
+    {
+      "rank": 1,
+      "title": "The 73 Best Deals From REI’s 2025 Holiday Sale",
+      "source": "WIRED",
+      "sources": [
+        "WIRED"
+      ],
+      "source_count": 1,
+      "url": "https://www.wired.com/story/rei-holiday-sale-nov-2025/",
+      "category": "General Tech",
+      "hn_points": null,
+      "score": null,
+      "summary": "REI’s holiday sale, the final day of a week‑long event that ran from Nov. 14–24,"
+    },
+    {
+      "rank": 2,
+      "title": "This hacker conference installed a literal antivirus monitoring system",
+      "source": "Ars Technica",
+      "sources": [
+        "Ars Technica"
+      ],
+      "source_count": 1,
+      "url": "https://arstechnica.com/security/2025/11/this-hacker-conference-installed-a-literal-antivirus-monitoring-system/",
+      "category": "General Tech",
+      "hn_points": null,
+      "score": null,
+      "summary": "New Zealand’s premier hacker conference, Kawaiicon, tackled the notorious “con crud” by installing a DIY, real‑time CO₂ monitoring system across the Michael Fowler Centre"
+    },
+    {
+      "rank": 3,
+      "title": "CISA warns Oracle Identity Manager RCE flaw is being actively exploited",
+      "source": "BleepingComputer",
+      "sources": [
+        "BleepingComputer"
+      ],
+      "source_count": 1,
+      "url": "https://www.bleepingcomputer.com/news/security/cisa-warns-oracle-identity-manager-rce-flaw-is-being-actively-exploited/",
+      "category": "General Tech",
+      "hn_points": null,
+      "score": null,
+      "summary": "Oracle’s Identity Manager has a newly‑discovered pre‑authentication RCE flaw (CVE‑2025‑61757) that bypasses REST‑API security by appending “?WSDL” or “;​.wadl” to URLs, tricking the system into treating protected"
+    },
+    {
+      "rank": 4,
+      "title": "16 Best Air Purifiers (2025): Coway, AirDoctor, IQAir",
+      "source": "WIRED",
+      "sources": [
+        "WIRED"
+      ],
+      "source_count": 1,
+      "url": "https://www.wired.com/gallery/best-air-purifiers/",
+      "category": "General Tech",
+      "hn_points": null,
+      "score": null,
+      "summary": ""
+    },
+    {
+      "rank": 5,
+      "title": "Game Theory Explains How Algorithms Can Drive Up Prices",
+      "source": "WIRED",
+      "sources": [
+        "WIRED"
+      ],
+      "source_count": 1,
+      "url": "https://www.wired.com/story/game-theory-explains-how-algorithms-can-drive-up-prices/",
+      "category": "General Tech",
+      "hn_points": null,
+      "score": null,
+      "summary": "The article explains that while U.S. antitrust law has long banned explicit collusion between firms to keep prices fair, the rise of learning algorithms that adjust prices based on market data complicates enforcement, because these algorithms can develop tacit collusive strategies through trial‑and‑error—"
+    },
+    {
+      "rank": 6,
+      "title": "70-hour work weeks no longer enough for Infosys founder, who praises China’s 996 culture",
+      "source": "The Register",
+      "sources": [
+        "The Register"
+      ],
+      "source_count": 1,
+      "url": "https://go.theregister.com/feed/www.theregister.com/2025/11/24/asia_tech_news_roundup/",
+      "category": "General Tech",
+      "hn_points": null,
+      "score": null,
+      "summary": "Infosys co‑founder Narayana"
+    },
+    {
+      "rank": 7,
+      "title": "Europe Is Bending the Knee to the US on Tech Policy",
+      "source": "WIRED",
+      "sources": [
+        "WIRED"
+      ],
+      "source_count": 1,
+      "url": "https://www.wired.com/story/europe-bends-us-digital-policies-eu-ai-act/",
+      "category": "General Tech",
+      "hn_points": null,
+      "score": null,
+      "summary": "European tech‑policy makers"
+    }
+  ]
+}
