@@ -1,0 +1,395 @@
+# Golden set for the deterministic summary-quality checks in
+# src/lastweekintech/quality.py.
+#
+# Every fixture pairs a headline, an article body and a candidate summary with
+# the exact set of checks that must fail. Roughly half the set is expected to
+# be clean: those fixtures are the false-positive guard, and they are the
+# reason the set is worth keeping. A check that fires on good prose is worse
+# than no check at all, so a fixture flipping from [] to a failure is as much a
+# regression as a missed truncation.
+#
+# The source texts are written for this file in the shape of the stories in
+# data/archive/*.json; the broken summaries reproduce failure modes actually
+# published (mid-word truncation, the "Summary not available." stub, an empty
+# string).
+#
+# Run it:  uv run python -m evals.run
+# Assert it:  uv run pytest tests/test_quality.py -k golden
+
+sources:
+  cloudflare: |
+    Cloudflare's chief financial officer (CFO), Thomas Seifert, told investors on
+    Thursday that machine-generated traffic will outpace human traffic by up to a
+    thousand-fold within five years, driven largely by AI agents that crawl the web
+    on behalf of the people who deploy them.
+
+    The company reported $696.5 million in revenue for the second quarter, up 36%
+    year over year, alongside a net loss of $205 million. Both figures beat the
+    consensus estimate analysts had published ahead of the call, and the stock rose
+    in after-hours trading.
+
+    Seifert said the shift forces a rethink of how a site tells a browser from a bot.
+    Cloudflare has spent the past year pushing pay-per-crawl controls that let
+    publishers charge AI companies for access to their pages, and says more than
+    1,000 publishers have switched the feature on.
+
+  quake: |
+    Bethesda has released a new mission pack for Quake to mark the game's 30th
+    anniversary, adding eighteen single-player maps, four deathmatch arenas and a
+    grappling hook that had been cut from the 1996 original.
+
+    The pack, built by MachineGames, is free for anyone who already owns the 2021
+    remaster, and installs as an update on PC, PlayStation, Xbox and Switch. It is
+    the third piece of new Quake content the studio has shipped since taking over
+    the remaster.
+
+    Bethesda said the new episode leans on the original's movement systems rather
+    than modernising them, and that the grappling hook behaves as it did in the
+    leftover code found in the shipped 1996 build.
+
+  ransomware: |
+    Maksim Silnikau, a 40-year-old Belarusian national, was sentenced to 16 years in
+    a U.S. federal prison for running the Ransom Cartel ransomware-as-a-service
+    operation, the Department of Justice said.
+
+    Prosecutors said the scheme began in December 2021 and attacked at least 18
+    companies worldwide before it was dismantled in 2023, demanding more than $5.2
+    million in ransoms and causing an estimated $6.7 million in losses. Silnikau was
+    extradited from Spain in 2024.
+
+    Court filings describe a long career on Russian-speaking cybercrime forums under
+    several aliases, including work on the Angler exploit kit and on scareware
+    campaigns that ran for years before the ransomware operation began.
+
+  datacenter: |
+    London still holds the largest share of Britain's datacenter capacity, but new
+    capacity is increasingly landing elsewhere, according to figures published this
+    week by the analyst firm Structure Research.
+
+    Slough and the wider M4 corridor account for the bulk of the 1,200 megawatts now
+    installed nationwide, with Manchester, Cardiff and the central belt of Scotland
+    picking up most of the projects announced in the past two years. Grid connection
+    queues, not planning permission, are the binding constraint outside the south
+    east.
+
+    Operators say the regions offer cheaper land and faster power, and several have
+    signed agreements with local authorities that trade waste heat for planning
+    support.
+
+  model_release: |
+    Alibaba's Qwen team has released Qwen3-Max, a 235 billion parameter
+    mixture-of-experts model, under an Apache 2.0 licence. The team says the model
+    was trained on 36 trillion tokens and activates 22 billion parameters per
+    forward pass.
+
+    On the benchmarks published with the release, Qwen3-Max scores 78.4 on a widely
+    used coding evaluation, ahead of the previous Qwen release and close to the best
+    closed models. The weights are on Hugging Face, and the team has published
+    quantised builds that fit on a single 80GB accelerator.
+
+    Qwen has shipped a new flagship roughly every six months. The licence terms are
+    unchanged from the previous release, which drew a large fine-tuning community
+    among open-source AI developers.
+
+  glasses: |
+    Smart glasses are the first computing product most people will wear on their
+    face all day, and the industry has not yet agreed on what they should refuse to
+    do, writes Victoria Song in a column for The Verge.
+
+    Meta's Ray-Ban Display, which went on sale in September at $799, can identify
+    what its wearer is looking at and answer questions about it. The company added a
+    light that signals recording, but nothing signals the quieter uses, and no
+    standard exists for telling a stranger they have been captured.
+
+    Song argues the norms will be set by whatever the first mass-market device
+    happens to permit, and that the industry is treating a social question as an
+    engineering one. "I don't want to be the person who has to ask", she writes.
+
+  hearing_aids: |
+    Yeasound's RIC800 is a $499 pair of over-the-counter hearing aids that sound
+    better than the price suggests, and are let down by the app that configures them.
+
+    The receiver-in-canal design is comfortable over a long day, and the fitting
+    software runs a tone test that took eleven minutes on first setup. Battery life
+    came in at around 18 hours in testing, short of the 24 hours Yeasound claims.
+
+    The companion app crashed twice during setup and buries the volume control two
+    screens deep. Yeasound says an update is due before the end of the year.
+
+fixtures:
+  # ----------------------------------------------------------------- clean --
+  - id: good-two-sentences
+    note: The shape the prompt asks for. Everything must pass.
+    source: cloudflare
+    title: "'Humans will be a rounding error on the internet' says Cloudflare exec"
+    summary: >-
+      Cloudflare's finance chief Thomas Seifert told investors that machine-generated
+      traffic could outpace human traffic by up to a thousand-fold within five years.
+      The company reported $696.5 million in quarterly revenue, up 36% year over
+      year, alongside a net loss of $205 million.
+    expect_failures: []
+
+  - id: good-three-sentences
+    note: Fine, and three sentences long. Must not be penalised.
+    source: quake
+    title: "New official 30th anniversary Quake mission pack adds new maps and mechanics"
+    summary: >-
+      Bethesda has released a free mission pack for Quake to mark the game's 30th
+      anniversary. Built by MachineGames, it adds 18 single-player maps, four
+      deathmatch arenas and a grappling hook cut from the 1996 original. The pack
+      installs as an update for owners of the 2021 remaster on PC, PlayStation, Xbox
+      and Switch.
+    expect_failures: []
+
+  - id: good-four-sentences
+    note: The top of the contract's range.
+    source: ransomware
+    title: "Ransom Cartel ransomware creator sentenced to 16 years in prison"
+    summary: >-
+      Maksim Silnikau, a 40-year-old Belarusian national, was sentenced to 16 years
+      in a U.S. federal prison for running the Ransom Cartel ransomware-as-a-service
+      operation. Prosecutors said the scheme began in December 2021 and hit at least
+      18 companies before it was dismantled in 2023. It demanded more than $5.2
+      million in ransoms and caused an estimated $6.7 million in losses. Silnikau was
+      extradited from Spain in 2024.
+    expect_failures: []
+
+  - id: rounded-figure-is-not-a-hallucination
+    note: >-
+      Rounding $696.5 million to $696 million is good summarization. If the
+      grounding check ever fires here it is too strict to use.
+    source: cloudflare
+    title: "'Humans will be a rounding error on the internet' says Cloudflare exec"
+    summary: >-
+      Cloudflare reported roughly $696 million in revenue for the second quarter, up
+      36% year over year. The company also posted a net loss of $205 million.
+    expect_failures: []
+
+  - id: digits-for-a-number-the-source-spells-out
+    note: The source says "eighteen"; the summary says 18. Not a hallucination.
+    source: quake
+    title: "New official 30th anniversary Quake mission pack adds new maps and mechanics"
+    summary: >-
+      Bethesda released a 30th anniversary mission pack for Quake with 18 new
+      single-player maps. The pack is free for owners of the 2021 remaster.
+    expect_failures: []
+
+  - id: typographic-spaces-around-figures
+    note: >-
+      The archived editions are full of U+202F and U+00A0 between a figure and its
+      unit. Normalisation must make these identical to plain spaces.
+    source: cloudflare
+    title: "'Humans will be a rounding error on the internet' says Cloudflare exec"
+    summary: "Cloudflare reported $696.5 million in revenue, up 36 % year over
+      year. Net losses reached $205 million."
+    expect_failures: []
+
+  - id: abbreviations-are-not-sentence-ends
+    note: >-
+      "U.S." and "Inc." must not be counted as sentence boundaries, or every
+      legal-news summary reads as an essay.
+    source: ransomware
+    title: "Ransom Cartel ransomware creator sentenced to 16 years in prison"
+    summary: >-
+      Maksim Silnikau was sentenced to 16 years in a U.S. federal prison for running
+      the Ransom Cartel operation. The Department of Justice said the scheme hit at
+      least 18 companies worldwide.
+    expect_failures: []
+
+  - id: quoted-first-person-is-allowed
+    note: A quoted source may say "I"; the summarizer may not. Only the latter is a fault.
+    source: glasses
+    title: "Smart glasses are only smart if we train them to be good"
+    summary: >-
+      Victoria Song argues that smart glasses raise a social question the industry is
+      treating as an engineering one. Song writes that "I don't want to be the person
+      who has to ask", and notes that Meta's Ray-Ban Display went on sale in
+      September at $799.
+    expect_failures: []
+
+  - id: title-case-headline-still-covered
+    note: >-
+      A title-case headline capitalises almost every word. Entity extraction must
+      not turn that into a wall of pseudo-entities the summary can never satisfy.
+    source: hearing_aids
+    title: "Yeasound RIC800 Hearing Aids Review: Good Audio, Fiddly App"
+    summary: >-
+      Yeasound's RIC800 is a $499 pair of over-the-counter hearing aids that sound
+      better than their price suggests. Battery life measured around 18 hours in
+      testing, short of the 24 hours the company claims, and the companion app
+      crashed twice during setup.
+    expect_failures: []
+
+  - id: no-figures-at-all
+    note: A summary that quotes no numbers is not thereby suspicious.
+    source: datacenter
+    title: "London still dominates Britain's datacenter map, but the regions are powering up"
+    summary: >-
+      London still holds the largest share of Britain's datacenter capacity,
+      according to figures from Structure Research. Manchester, Cardiff and Scotland
+      picked up most of the projects announced in the past two years, with grid
+      connection queues the binding constraint.
+    expect_failures: []
+
+  # --------------------------------------------------------------- truncation
+  - id: truncated-mid-word
+    note: >-
+      Published verbatim on 2026-08-10. The generation ran out of tokens mid-word and
+      shipped anyway.
+    source: quake
+    title: "New official 30th anniversary Quake mission pack adds new maps and mechanics"
+    summary: "Bethesda marked Quake's 30"
+    expect_failures: [substance, truncation, length]
+
+  - id: truncated-on-a-comma
+    note: >-
+      Published verbatim on 2026-08-10. Two good sentences, then the budget ran out.
+      Only the truncation check should fire.
+    source: cloudflare
+    title: "'Humans will be a rounding error on the internet' says Cloudflare exec"
+    summary: >-
+      Cloudflare's CFO Thomas Seifert warned that machine-generated traffic will
+      outpace human traffic within five years. The company reported $696.5 million in
+      revenue, up 36% year over year. Losses of $205 million still beat expectations,
+    expect_failures: [truncation]
+
+  - id: trails-off-in-an-ellipsis
+    note: An ellipsis ends in a period but is still a truncation marker.
+    source: model_release
+    title: "Qwen3-Max: Alibaba ships a 235B mixture-of-experts model"
+    summary: >-
+      Alibaba's Qwen team released Qwen3-Max under an Apache 2.0 licence. The model
+      activates 22 billion parameters per forward pass...
+    expect_failures: [truncation]
+
+  # ------------------------------------------------------------- placeholders
+  - id: literal-stub-string
+    note: >-
+      The placeholder earlier versions of the pipeline published when a model
+      failed. It survives "non-empty and ends in a period" untouched.
+    source: cloudflare
+    title: "'Humans will be a rounding error on the internet' says Cloudflare exec"
+    summary: "Summary not available."
+    expect_failures: [substance, length, subject_coverage]
+
+  - id: empty-summary
+    note: 48% of published summaries were this. Grounding has nothing to judge.
+    source: cloudflare
+    title: "'Humans will be a rounding error on the internet' says Cloudflare exec"
+    summary: ""
+    expect_failures: [substance, truncation, length, subject_coverage, contract]
+
+  - id: too-short-to-be-useful
+    note: Complete, on topic, and still not a digest entry.
+    source: datacenter
+    title: "London still dominates Britain's datacenter map, but the regions are powering up"
+    summary: "London leads."
+    expect_failures: [substance, length]
+
+  # ------------------------------------------------------------------- length
+  - id: one-sentence-stub
+    note: A single sentence is below the contract even when it is accurate.
+    source: ransomware
+    title: "Ransom Cartel ransomware creator sentenced to 16 years in prison"
+    summary: >-
+      Maksim Silnikau was sentenced to 16 years in a U.S. federal prison for running
+      the Ransom Cartel ransomware operation, prosecutors said.
+    expect_failures: [length]
+
+  - id: six-sentence-essay
+    note: Accurate, grounded and twice as long as the digest has room for.
+    source: cloudflare
+    title: "'Humans will be a rounding error on the internet' says Cloudflare exec"
+    summary: >-
+      Cloudflare reported $696.5 million in revenue for the second quarter. That is
+      up 36% year over year. The company also posted a net loss of $205 million. Both
+      figures beat analyst estimates. Thomas Seifert told investors that machine
+      traffic will outpace human traffic. Cloudflare is pushing pay-per-crawl
+      controls.
+    expect_failures: [length]
+
+  # ---------------------------------------------------------------- grounding
+  - id: hallucinated-figure
+    note: The revenue number is invented. The cheapest hallucination signal there is.
+    source: cloudflare
+    title: "'Humans will be a rounding error on the internet' says Cloudflare exec"
+    summary: >-
+      Cloudflare's finance chief Thomas Seifert told investors that bot traffic will
+      soon dwarf the organic kind. The company reported $896.4 million in revenue for
+      the quarter and a net loss of $205 million.
+    expect_failures: [number_grounding]
+
+  - id: wrong-year
+    note: >-
+      2019 for 2021 is a rounding error numerically and a factual error in practice,
+      so years get no tolerance.
+    source: ransomware
+    title: "Ransom Cartel ransomware creator sentenced to 16 years in prison"
+    summary: >-
+      Maksim Silnikau was sentenced to 16 years in a U.S. federal prison for the
+      Ransom Cartel operation. Prosecutors said the scheme began in December 2019 and
+      hit at least 18 companies.
+    expect_failures: [number_grounding]
+
+  - id: invented-person
+    note: >-
+      A plausible-sounding attribution the article never makes. Names are a
+      weaker signal than figures, which is why this check carries less weight.
+    source: glasses
+    title: "Smart glasses are only smart if we train them to be good"
+    summary: >-
+      Victoria Song argues that smart glasses raise a social question the industry is
+      treating as an engineering one. Mark Chen said Meta's Ray-Ban Display, on sale
+      since September at $799, sets the norm for everyone else.
+    expect_failures: [entity_grounding]
+
+  - id: invented-company
+    note: A competitor that appears nowhere in the article.
+    source: cloudflare
+    title: "'Humans will be a rounding error on the internet' says Cloudflare exec"
+    summary: >-
+      Cloudflare's Thomas Seifert warned investors that machine traffic will outpace
+      human traffic within five years. Akamai disputed the figures, and the company
+      reported $696.5 million in revenue.
+    expect_failures: [entity_grounding]
+
+  # -------------------------------------------------------- subject and voice
+  - id: never-names-the-company
+    note: "Accurate, complete, and useless in a digest: the reader never learns who."
+    source: cloudflare
+    title: "'Humans will be a rounding error on the internet' says Cloudflare exec"
+    summary: >-
+      The finance chief told investors that automated crawling will soon dwarf the
+      organic kind. Revenue reached $696.5 million for the quarter while losses
+      widened to $205 million.
+    expect_failures: [subject_coverage]
+
+  - id: first-person-commentary
+    note: The prompt forbids commentary; first person is how it arrives.
+    source: datacenter
+    title: "London still dominates Britain's datacenter map, but the regions are powering up"
+    summary: >-
+      London still holds the largest share of Britain's datacenter capacity, but I
+      think the regions are catching up fast. We should expect Manchester and Cardiff
+      to take most of the new projects.
+    expect_failures: [contract]
+
+  - id: meta-phrasing
+    note: The model narrating its own task instead of the news.
+    source: quake
+    title: "New official 30th anniversary Quake mission pack adds new maps and mechanics"
+    summary: >-
+      This article discusses the new Quake mission pack that Bethesda released for
+      the game's 30th anniversary. It also covers the new maps and the grappling
+      hook.
+    expect_failures: [contract]
+
+  - id: assistant-preamble
+    note: The model answering as an assistant rather than writing the digest entry.
+    source: model_release
+    title: "Qwen3-Max: Alibaba ships a 235B mixture-of-experts model"
+    summary: >-
+      As an AI language model, here is the gist. Alibaba's Qwen team released
+      Qwen3-Max, a 235 billion parameter model, under an Apache 2.0 licence. The
+      weights are on Hugging Face.
+    expect_failures: [contract]

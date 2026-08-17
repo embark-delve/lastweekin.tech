@@ -4,44 +4,177 @@ on:
   schedule:
     - cron: "0 8 * * 1" # Runs every Monday at 8:00 AM UTC
   workflow_dispatch: # Allows manual triggering
+    inputs:
+      skip_gate:
+        description: "Publish even if the digest fails validation"
+        type: boolean
+        default: false
 
-permissions:
-  contents: write
+# Permissions are granted per job instead of workflow-wide: the digest job
+# writes commits, the notifier writes issues, and neither can do the other's job.
+permissions: {}
+
+concurrency:
+  group: weekly-digest
+  cancel-in-progress: false
 
 jobs:
   build-digest:
     runs-on: ubuntu-latest
+    # The run downloads article bodies for the candidate pool and calls a model
+    # per story; anything beyond this is stuck, not slow.
+    timeout-minutes: 45
+
+    permissions:
+      contents: write
+
+    outputs:
+      # Carries the tail of the pipeline log to notify-failure, which runs in a
+      # separate job and so cannot read the workspace.
+      failure_reason: ${{ steps.pipeline.outputs.failure_reason }}
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
 
       - name: Install uv
-        run: |
-          curl -LsSf https://astral.sh/uv/install.sh | sh
-          echo "$HOME/.cargo/bin" >> $GITHUB_PATH
+        uses: astral-sh/setup-uv@d4b2f3b6ecc6e67c4457f6d3e41ec42d3d0fcb86 # v5.4.2
+        with:
+          enable-cache: true
 
       - name: Install dependencies
         run: uv sync
 
       - name: Run pipeline
+        id: pipeline
         env:
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
-        run: uv run python -m src.lastweekintech.main
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+          SKIP_GATE_FLAG: ${{ inputs.skip_gate && '--skip-gate' || '' }}
+        # The publish gate fails the job rather than committing a broken digest,
+        # which leaves last week's edition live on the site. Its message goes to
+        # stderr, so the log tail is captured here and handed to notify-failure.
+        run: |
+          # The log lives outside the workspace so it can never be committed.
+          log="$RUNNER_TEMP/pipeline.log"
+          set +e
+          uv run lastweekintech $SKIP_GATE_FLAG 2>&1 | tee "$log"
+          status=${PIPESTATUS[0]}
+          set -e
+          if [ "$status" -ne 0 ]; then
+            # A random delimiter: log lines come from feeds we do not control and
+            # must not be able to close the heredoc and forge further outputs.
+            delimiter="LWIT_LOG_$(openssl rand -hex 16)"
+            {
+              printf 'failure_reason<<%s\n' "$delimiter"
+              tail -n 30 "$log" | sed 's/\x1b\[[0-9;]*m//g'
+              printf '\n%s\n' "$delimiter"
+            } >> "$GITHUB_OUTPUT"
+          fi
+          exit "$status"
 
       - name: Commit and push changes
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git add data/latest.json index.html style.css
+          # Stage only generated output. The site lives in public/ because Vercel
+          # serves that directory verbatim; the repository root holds source that
+          # must not be fetchable from the public site.
+          generated=(data public)
+          present=()
+          for path in "${generated[@]}"; do
+            if [ -e "$path" ]; then present+=("$path"); fi
+          done
+          git add -- "${present[@]}"
           if git diff --staged --quiet; then
             echo "No changes to commit."
             exit 0
           fi
           git commit -m "docs: Update weekly digest for $(date -u +'%Y-%m-%d')"
           git push
+
+  notify-failure:
+    # A failed scheduled run is an email nobody reads. Turn it into an issue.
+    needs: build-digest
+    if: failure()
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    permissions:
+      issues: write
+
+    steps:
+      - name: Open or update the digest failure issue
+        uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7.1.0
+        env:
+          FAILURE_REASON: ${{ needs.build-digest.outputs.failure_reason }}
+          RUN_URL: "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+        with:
+          script: |
+            const LABEL = 'digest-failure';
+            const { owner, repo } = context.repo;
+            const runUrl = process.env.RUN_URL;
+            const reason = (process.env.FAILURE_REASON || '').trim();
+            const today = new Date().toISOString().slice(0, 10);
+
+            const details = reason
+              ? ['```', reason.slice(0, 5000), '```'].join('\n')
+              : '_No pipeline output was captured — the job failed before or after the pipeline step._';
+
+            const body = [
+              `The weekly digest run failed on ${today}, so nothing was published.`,
+              'The site still serves the previous edition.',
+              '',
+              `**Run:** ${runUrl}`,
+              `**Trigger:** \`${context.eventName}\``,
+              '',
+              '<details><summary>Last lines of the pipeline log</summary>',
+              '',
+              details,
+              '',
+              '</details>',
+            ].join('\n');
+
+            // De-duplicate on the label rather than the title: a recurring
+            // failure gets one issue with a comment per run, not an issue a week.
+            const openIssues = await github.paginate(github.rest.issues.listForRepo, {
+              owner,
+              repo,
+              state: 'open',
+              labels: LABEL,
+              per_page: 100,
+            });
+            const existing = openIssues.find((issue) => !issue.pull_request);
+
+            if (existing) {
+              await github.rest.issues.createComment({
+                owner,
+                repo,
+                issue_number: existing.number,
+                body,
+              });
+              core.notice(`Commented on the open failure issue #${existing.number}.`);
+              return;
+            }
+
+            try {
+              await github.rest.issues.createLabel({
+                owner,
+                repo,
+                name: LABEL,
+                color: 'b60205',
+                description: 'The weekly digest run failed',
+              });
+            } catch (error) {
+              // 422 means the label already exists, which is exactly what we want.
+              if (error.status !== 422) throw error;
+            }
+
+            const created = await github.rest.issues.create({
+              owner,
+              repo,
+              title: `Weekly digest failed (${today})`,
+              labels: [LABEL],
+              body,
+            });
+            core.notice(`Opened failure issue #${created.data.number}.`);

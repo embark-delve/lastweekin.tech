@@ -1,0 +1,122 @@
+"""Tests for the CLI wiring, especially the publish gate."""
+
+import json
+
+import pytest
+from conftest import make_article, make_story
+from typer.testing import CliRunner
+
+from lastweekintech import main
+
+runner = CliRunner()
+
+
+@pytest.fixture
+def stub_pipeline(monkeypatch, config):
+    """Run the CLI against a canned digest instead of the network."""
+
+    def stories(count=7, missing=0):
+        built = []
+        for i in range(count):
+            story = make_story(
+                title=f"Story {i}",
+                score=100 - i,
+                articles=[make_article(url=f"https://example.com/{i}")],
+            )
+            story.summary = None if i < missing else "A perfectly serviceable summary of news."
+            built.append(story)
+        return built
+
+    state = {"stories": stories()}
+    monkeypatch.setattr(main, "get_config", lambda path=None: config)
+    monkeypatch.setattr(main, "Summarizer", lambda settings: object())
+    monkeypatch.setattr(main.pipeline, "build_digest", lambda *a, **k: state["stories"])
+    state["make"] = stories
+    return state
+
+
+def invoke(tmp_path, *args):
+    return runner.invoke(
+        main.app,
+        ["--data-dir", str(tmp_path / "data"), "--site-dir", str(tmp_path), *args],
+    )
+
+
+class TestRun:
+    def test_publishes_a_good_digest(self, tmp_path, stub_pipeline):
+        result = invoke(tmp_path, "--week", "2026-08-10")
+        assert result.exit_code == 0
+        assert (tmp_path / "index.html").exists()
+        assert (tmp_path / "data" / "archive" / "2026-08-10.json").exists()
+
+    def test_refuses_to_publish_a_broken_digest(self, tmp_path, stub_pipeline):
+        stub_pipeline["stories"] = stub_pipeline["make"](count=7, missing=5)
+        result = invoke(tmp_path, "--week", "2026-08-10")
+        assert result.exit_code != 0
+        assert not (tmp_path / "index.html").exists()
+
+    def test_keeps_the_previous_edition_when_the_gate_fails(self, tmp_path, stub_pipeline):
+        invoke(tmp_path, "--week", "2026-08-03")
+        stub_pipeline["stories"] = stub_pipeline["make"](count=2)
+        invoke(tmp_path, "--week", "2026-08-10")
+        assert json.loads((tmp_path / "data" / "latest.json").read_text())["week"] == "2026-08-03"
+
+    def test_skip_gate_publishes_anyway(self, tmp_path, stub_pipeline):
+        stub_pipeline["stories"] = stub_pipeline["make"](count=7, missing=5)
+        result = invoke(tmp_path, "--week", "2026-08-10", "--skip-gate")
+        assert result.exit_code == 0
+        assert (tmp_path / "index.html").exists()
+
+    def test_dry_run_writes_nothing(self, tmp_path, stub_pipeline):
+        result = invoke(tmp_path, "--week", "2026-08-10", "--dry-run")
+        assert result.exit_code == 0
+        assert not (tmp_path / "index.html").exists()
+        assert not (tmp_path / "data").exists()
+        assert "Story 0" in result.stdout
+
+    def test_rebuilds_the_archive_pages_for_every_edition(self, tmp_path, stub_pipeline):
+        invoke(tmp_path, "--week", "2026-08-03")
+        invoke(tmp_path, "--week", "2026-08-10")
+        assert (tmp_path / "archive" / "2026-08-03.html").exists()
+        assert (tmp_path / "archive" / "2026-08-10.html").exists()
+
+
+class TestRunMetrics:
+    def metrics_path(self, tmp_path, week="2026-08-10"):
+        return tmp_path / "data" / "runs" / f"{week}.json"
+
+    def test_writes_a_run_record(self, tmp_path, stub_pipeline):
+        invoke(tmp_path, "--week", "2026-08-10")
+        record = json.loads(self.metrics_path(tmp_path).read_text())
+        assert record["week"] == "2026-08-10"
+        assert "stage_seconds" in record
+
+    def test_no_metrics_skips_the_record(self, tmp_path, stub_pipeline):
+        invoke(tmp_path, "--week", "2026-08-10", "--no-metrics")
+        assert not self.metrics_path(tmp_path).exists()
+        assert (tmp_path / "index.html").exists()
+
+    def test_dry_run_writes_no_record(self, tmp_path, stub_pipeline):
+        invoke(tmp_path, "--week", "2026-08-10", "--dry-run")
+        assert not self.metrics_path(tmp_path).exists()
+
+    def test_a_failed_metrics_write_does_not_fail_the_run(
+        self, tmp_path, stub_pipeline, monkeypatch
+    ):
+        """Measurement is never allowed to cost us an edition."""
+
+        def explode(self):
+            raise OSError("disk full")
+
+        monkeypatch.setattr(main.metrics.RunMetrics, "to_dict", explode)
+        result = invoke(tmp_path, "--week", "2026-08-10")
+        assert result.exit_code == 0
+        assert (tmp_path / "index.html").exists()
+        assert not self.metrics_path(tmp_path).exists()
+
+    def test_records_the_run_even_when_the_gate_rejects_the_digest(self, tmp_path, stub_pipeline):
+        """A refused week is exactly the week whose numbers you want to read."""
+        stub_pipeline["stories"] = stub_pipeline["make"](count=7, missing=5)
+        result = invoke(tmp_path, "--week", "2026-08-10")
+        assert result.exit_code != 0
+        assert self.metrics_path(tmp_path).exists()

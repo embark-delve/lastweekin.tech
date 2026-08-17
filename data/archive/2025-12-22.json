@@ -1,0 +1,104 @@
+{
+  "week": "2025-12-22",
+  "generated_at": "2025-12-22T08:42:05Z",
+  "stories": [
+    {
+      "rank": 1,
+      "title": "New UEFI flaw enables pre-boot attacks on motherboards from Gigabyte, MSI, ASUS, ASRock",
+      "source": "BleepingComputer",
+      "sources": [
+        "BleepingComputer"
+      ],
+      "source_count": 1,
+      "url": "https://www.bleepingcomputer.com/news/security/new-uefi-flaw-enables-pre-boot-attacks-on-motherboards-from-gigabyte-msi-asus-asrock/",
+      "category": "General Tech",
+      "hn_points": null,
+      "score": null,
+      "summary": "A recent security flaw in UEFI firmware on certain ASUS, Gigabyte, MSI, and ASRock motherboards (CVE‑2025‑11901, ‑14302,"
+    },
+    {
+      "rank": 2,
+      "title": "AI has pumped hyperscale capex, capacity – but how long can it last?",
+      "source": "The Register",
+      "sources": [
+        "The Register"
+      ],
+      "source_count": 1,
+      "url": "https://go.theregister.com/feed/www.theregister.com/2025/12/22/ai_hyperscale_capex_research/",
+      "category": "AI",
+      "hn_points": null,
+      "score": null,
+      "summary": ""
+    },
+    {
+      "rank": 3,
+      "title": "How AIM taught the internet to chat",
+      "source": "The Verge",
+      "sources": [
+        "The Verge"
+      ],
+      "source_count": 1,
+      "url": "https://www.theverge.com/podcast/848744/aim-aol-instant-messenger-version-history",
+      "category": "General Tech",
+      "hn_points": null,
+      "score": null,
+      "summary": "AIM (AOL Instant Messenger) emerged at the turn of the millennium as an unexpected, highly influential chat platform born from a semi‑rogue team within AOL’s corporate structure, quickly becoming the internet’s go‑to instant‑messaging service and reshaping how users, especially teens and young professionals, communicated and even conducted business; despite its cultural ubiquity and the nostalgia it evokes—door‑bell sounds, screen names, and status messages—AOL never monetized it or effectively pivoted the service, and as social networks,"
+    },
+    {
+      "rank": 4,
+      "title": "Do Gamers Hate AI? Indie Game Awards Disqualifies 'Clair Obscur' Over GenAI Usage",
+      "source": "Slashdot",
+      "sources": [
+        "Slashdot"
+      ],
+      "source_count": 1,
+      "url": "https://games.slashdot.org/story/25/12/21/1945258/do-gamers-hate-ai-indie-game-awards-disqualifies-clair-obscur-over-genai-usage?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+      "category": "AI",
+      "hn_points": null,
+      "score": null,
+      "summary": ""
+    },
+    {
+      "rank": 5,
+      "title": "5 Best Monitors for the Mac Mini (2025), Tested and Reviewed",
+      "source": "WIRED",
+      "sources": [
+        "WIRED"
+      ],
+      "source_count": 1,
+      "url": "https://www.wired.com/gallery/best-monitors-for-mac-mini/",
+      "category": "General Tech",
+      "hn_points": null,
+      "score": null,
+      "summary": ""
+    },
+    {
+      "rank": 6,
+      "title": "Research Reveals the Optimal Way to Optimize",
+      "source": "WIRED",
+      "sources": [
+        "WIRED"
+      ],
+      "source_count": 1,
+      "url": "https://www.wired.com/story/researchers-discover-the-optimal-way-to-optimize/",
+      "category": "General Tech",
+      "hn_points": null,
+      "score": null,
+      "summary": ""
+    },
+    {
+      "rank": 7,
+      "title": "8 Best Space Heaters (2025): Tested, Measured, and Mistreated",
+      "source": "WIRED",
+      "sources": [
+        "WIRED"
+      ],
+      "source_count": 1,
+      "url": "https://www.wired.com/gallery/the-best-space-heaters/",
+      "category": "General Tech",
+      "hn_points": null,
+      "score": null,
+      "summary": "Although a larger heater may look more powerful, most electric space heaters in North America are limited to about 1,500 W—the maximum safe load for a 15‑amp circuit—and all"
+    }
+  ]
+}

@@ -1,0 +1,104 @@
+{
+  "week": "2026-03-09",
+  "generated_at": "2026-03-09T08:58:16Z",
+  "stories": [
+    {
+      "rank": 1,
+      "title": "Apple users in the US can no longer download ByteDance's Chinese apps",
+      "source": "Ars Technica",
+      "sources": [
+        "Ars Technica"
+      ],
+      "source_count": 1,
+      "url": "https://arstechnica.com/tech-policy/2026/03/apple-users-in-the-us-can-no-longer-download-bytedances-chinese-apps/",
+      "category": "General Tech",
+      "hn_points": null,
+      "score": null,
+      "summary": ""
+    },
+    {
+      "rank": 2,
+      "title": "Jessica Jones joins the fray in Daredevil: Born Again trailer",
+      "source": "Ars Technica",
+      "sources": [
+        "Ars Technica"
+      ],
+      "source_count": 1,
+      "url": "https://arstechnica.com/culture/2026/03/jessica-jones-joins-the-fray-in-daredevil-born-again-trailer/",
+      "category": "General Tech",
+      "hn_points": null,
+      "score": null,
+      "summary": ""
+    },
+    {
+      "rank": 3,
+      "title": "Beijing warns of more chip supply worries after Nexperia China claims it was cut off from SAP",
+      "source": "The Register",
+      "sources": [
+        "The Register"
+      ],
+      "source_count": 1,
+      "url": "https://go.theregister.com/feed/www.theregister.com/2026/03/09/asia_tech_news_roundup/",
+      "category": "General Tech",
+      "hn_points": null,
+      "score": null,
+      "summary": ""
+    },
+    {
+      "rank": 4,
+      "title": "AI agents now help attackers, including North Korea, manage their drudge work",
+      "source": "The Register",
+      "sources": [
+        "The Register"
+      ],
+      "source_count": 1,
+      "url": "https://go.theregister.com/feed/www.theregister.com/2026/03/08/deploy_and_manage_attack_infrastructure/",
+      "category": "AI",
+      "hn_points": null,
+      "score": null,
+      "summary": ""
+    },
+    {
+      "rank": 5,
+      "title": "Tiny, long-armed dinosaur leads to rethink of dinosaur miniaturization",
+      "source": "Ars Technica",
+      "sources": [
+        "Ars Technica"
+      ],
+      "source_count": 1,
+      "url": "https://arstechnica.com/science/2026/03/tiny-long-armed-dinosaur-leads-to-rethink-of-dinosaur-miniaturization/",
+      "category": "General Tech",
+      "hn_points": null,
+      "score": null,
+      "summary": ""
+    },
+    {
+      "rank": 6,
+      "title": "How to Run Ethernet Cables to Your Router and Keep Them Tidy",
+      "source": "WIRED",
+      "sources": [
+        "WIRED"
+      ],
+      "source_count": 1,
+      "url": "https://www.wired.com/story/how-to-run-ethernet-cables-around-your-home/",
+      "category": "General Tech",
+      "hn_points": null,
+      "score": null,
+      "summary": ""
+    },
+    {
+      "rank": 7,
+      "title": "Force Your MacBook to Only Charge up to 80 Percent (and Why You Should)",
+      "source": "WIRED",
+      "sources": [
+        "WIRED"
+      ],
+      "source_count": 1,
+      "url": "https://www.wired.com/story/only-charge-your-macbook-to-80-percent/",
+      "category": "General Tech",
+      "hn_points": null,
+      "score": null,
+      "summary": ""
+    }
+  ]
+}

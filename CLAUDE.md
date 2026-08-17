@@ -1,0 +1,136 @@
+# CLAUDE.md
+
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this
+repository.
+
+## Project
+
+A Python pipeline that builds a weekly "Top-7" tech digest and publishes it as a static site with
+an archive and an Atom feed. It runs unattended in GitHub Actions every Monday 08:00 UTC
+(`.github/workflows/main.yml`), which commits the regenerated `data/`, `index.html`, `archive/`,
+`feed.xml`, `sitemap.xml`, `robots.txt` and static assets back to `main`. Most commits in the
+history are that bot commit.
+
+## Commands
+
+```bash
+uv sync                                # installs the project and the dev group
+uv run lastweekintech                  # full run → data/ + site
+uv run lastweekintech --dry-run        # print the edition, write nothing
+uv run pytest                          # 406 tests, no network
+uv run pytest tests/test_curation.py -k score -q
+uv run python -m evals.run             # score the summary-quality golden set
+uv run python tools/check_models.py    # are the configured models still offered?
+uv run ruff format . && uv run ruff check --fix .
+uv run mypy src
+uv run pre-commit run --all-files
+```
+
+A real run hits ~14 RSS feeds plus the Hacker News Algolia API, downloads article bodies for the
+candidate pool, and calls a model per selected story — expect several minutes and set
+`OPENROUTER_API_KEY` (see `.env.example`) first.
+
+Tooling rules (from [AGENTS.md](AGENTS.md)): uv only — never Poetry; Ruff only — never
+Black/Flake8. New deps go in `pyproject.toml` via `uv add`, never by hand-editing `uv.lock`.
+
+## Architecture
+
+`main.py` is a Typer CLI. `pipeline.build_digest()` runs the curation stages; `main` then gates,
+builds the edition, saves it, writes run metrics and renders the site. Domain types are plain
+dataclasses in `domain.py` (`Article`, `Story`) — no ORM, no database.
+
+```text
+fetch_articles + hn.fetch_hn_articles
+  → dedupe_articles → cluster_articles → score_stories → drop_recently_published
+  → [candidate pool] → extract_content → categorize_stories
+  → select_top_stories → summarize_stories
+  → assert_publishable → build_edition → save_edition → generate_site (+ syndication)
+```
+
+Every network boundary is an injectable parameter (`parse`, `download`, `hn_fetch`, `complete`),
+which is how the suite runs without network access. Default implementations live next to their
+callers.
+
+- **hn.py** — Hacker News points come from the Algolia `search_by_date` API and are merged onto
+  matching articles from other outlets by normalized URL. This is the pipeline's only non-proxy
+  importance signal; the previous code scraped points from hnrss titles, which never carried them.
+- **cluster_articles** — deterministic ordering, then an IDF-weighted keyword overlap using the
+  week's headlines as the corpus, with `token_set_ratio` demoted to a sanity floor. Rare shared
+  words are evidence that two outlets covered one event; common ones are not. Bare numbers are
+  excluded as keywords (six shopping posts once merged on the year "2026").
+- **score_stories** — `hn` (capped, normalized), `src` (_additional_ sources, so a lone story earns
+  nothing for breadth) and `rec` (clamped to 0..1), each scaled by its configured weight. Breadth
+  fires rarely — roughly 1% of stories — but is decisive when it does.
+- **extract_content / extract_article_text** — bodies come from `trafilatura`, fetched with
+  `requests` under a browser User-Agent. The page is extracted twice: once as-is, once with "more
+  stories" containers pruned, keeping the pruned text unless it falls below `_MIN_PRUNED_BODY`.
+  Without that, The Register returned its "MOST POPULAR" list as the body of every article. This
+  replaced `newspaper3k`, unmaintained since 2020, which returned Slashdot's footer aphorism (82
+  characters) instead of the story.
+- **categorize_stories** — word-bounded matching (`text.py`) over title and body across seven
+  categories in fixed precedence: AI, Security, Policy, Open Source, Hardware, Business, General
+  Tech. Plain substring matching previously labelled "Britain", "train", "Hearing Aids" and "email"
+  as AI.
+- **select_top_stories** — `min_ai` is a floor, not a quota: promotion happens only when the ranking
+  falls short, and displaces the weakest general stories.
+- **drop_recently_published** — excludes stories from the last `digest.repeat_lookback_weeks`
+  editions by URL and near-identical title, with a floor that keeps the edition full.
+- **summarize_stories** — tries every article in the cluster, richest body first; leaves `summary`
+  unset when nothing works so the gate can see it. `Summarizer.last_model` records which model in
+  the fallback chain actually answered, which is what the metrics report.
+- **quality.py** — deterministic, network-free checks on a summary (truncation, subject coverage,
+  number and entity grounding, contract, length). Pointed at the 308 archived summaries it
+  reproduces the failure rates measured by hand: 48% empty, 23% truncated.
+- **validation.py** — the publish gate. Every other stage degrades gracefully, so this is the one
+  place that refuses to ship. It rejects missing summaries outright and consults `quality.py` for
+  present-but-broken ones; `BLOCKING_CHECKS` excludes `LENGTH` because a terse summary is off-style,
+  not wrong.
+- **metrics.py** — a `RunMetrics` record per run, written to `data/runs/<week>.json` even when the
+  gate rejects the edition. It carries `ai_before_promotion` vs `ai_promoted`, which is the data
+  needed to decide whether the AI floor still earns its place.
+- **syndication.py** — Atom feed (one entry per edition, `tag:` URIs for stable ids), sitemap and
+  robots.txt. Stdlib only, escaping applied twice on purpose for `type="html"` content.
+- **generate_site** — renders `templates/edition.html.jinja` for the latest edition and every
+  archived one, then copies every file in `static/`. Paths resolve from `PACKAGE_DIR`, so the
+  pipeline works from any working directory. Autoescape is unconditional: `select_autoescape()`
+  keys off the file extension and left `.html.jinja` templates unescaped.
+
+Everything under `public/` is **generated output** — edit `src/lastweekintech/templates/` and
+`src/lastweekintech/static/` instead. The site is generated into its own directory rather than the
+repository root because the host serves that tree verbatim and this repo is private; `vercel.json`
+pins `outputDirectory: public`. `tools/` holds one-off scripts that are deliberately _not_ in
+`static/`, because everything in `static/` gets published.
+
+## Testing
+
+`tests/conftest.py` holds `make_article`, `make_story` and the `config` fixture; `NOW` is a fixed
+timestamp so time-dependent assertions are exact. Tests import helpers from sibling modules
+directly (`pythonpath = ["tests"]`).
+
+When changing curation behaviour, note that test headlines must be genuinely distinct or the
+clusterer will merge them and the assertion will be about clustering rather than what you meant to
+test — `test_build_digest.SUBJECTS` exists for this.
+
+`evals/` is separate from the unit tests: a golden set of summaries with expected verdicts, run
+with `uv run python -m evals.run`. Its `--judge` mode calls a model and is never exercised by the
+suite.
+
+## Data
+
+`data/archive/*.json` holds every published edition (backfilled from git history; categories there
+were recomputed with the fixed classifier). `data/latest.json` is a copy of the newest one.
+`data/runs/*.json` holds per-run metrics.
+
+## Operations
+
+Model IDs churn — three of the four models this project shipped with had already been retired by
+the provider. `tools/check_models.py` verifies the configured chain against the live catalogue and
+runs on a schedule the day before each digest. A failed digest opens (or comments on) a GitHub
+issue rather than sending an email nobody reads.
+
+## Spec
+
+`docs/lwit-spec-architecture.md` is the original product spec. It predates the implementation in
+places: it specifies LiteLLM (the code uses the OpenAI SDK against OpenRouter), local summarization
+models, and a SQLite store that was never used and has been removed. Treat the goals as current and
+the tech-stack sections as historical.

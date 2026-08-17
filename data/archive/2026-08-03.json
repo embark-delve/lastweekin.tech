@@ -1,0 +1,104 @@
+{
+  "week": "2026-08-03",
+  "generated_at": "2026-08-03T11:35:01Z",
+  "stories": [
+    {
+      "rank": 1,
+      "title": "COLDCARD wallet RNG flaw likely linked to $88 million Bitcoin theft",
+      "source": "BleepingComputer",
+      "sources": [
+        "BleepingComputer"
+      ],
+      "source_count": 1,
+      "url": "https://www.bleepingcomputer.com/news/security/coldcard-wallet-rng-flaw-likely-linked-to-88-million-bitcoin-theft/",
+      "category": "General Tech",
+      "hn_points": null,
+      "score": null,
+      "summary": "Researchers discovered that a flaw in the COLDCARD hardware wallet’s firmware allowed attackers to exploit a deterministic random‑number generator, enabling offline seed reconstruction and the theft of about 1,367 BTC (≈ $88.6 million) from 4,585 compromised wallets; the first major wave of 1,083 BTC (≈ $70.2 million) was swept in a 41‑minute burst on July 30"
+    },
+    {
+      "rank": 2,
+      "title": "AI Conquered Coding. Fast Food Is Next",
+      "source": "WIRED",
+      "sources": [
+        "WIRED"
+      ],
+      "source_count": 1,
+      "url": "https://www.wired.com/story/ai-conquered-coding-fast-food-is-next/",
+      "category": "AI",
+      "hn_points": null,
+      "score": null,
+      "summary": ""
+    },
+    {
+      "rank": 3,
+      "title": "The ‘Guardrail Guy’ Went Viral for Posting About Flock Cameras. Then Someone Destroyed Them",
+      "source": "WIRED",
+      "sources": [
+        "WIRED"
+      ],
+      "source_count": 1,
+      "url": "https://www.wired.com/story/flock-cameras-guardrail-guy-advocacy-damage-people-dont-like-alprs/",
+      "category": "General Tech",
+      "hn_points": null,
+      "score": null,
+      "summary": "Steve “The Guardrail Guy” Eimers, who built a YouTube, Tik"
+    },
+    {
+      "rank": 4,
+      "title": "UK government investment arm cops to 40-hour leak of officials' contact details",
+      "source": "The Register",
+      "sources": [
+        "The Register"
+      ],
+      "source_count": 1,
+      "url": "https://www.theregister.com/security/2026/08/03/uk-government-investment-arm-cops-to-40-hour-leak-of-officials-contact-details/5282213",
+      "category": "General Tech",
+      "hn_points": null,
+      "score": null,
+      "summary": "UK Government Investments (UKGI) admitted that a staff member left an internal file—containing the names and work‑email addresses of 51 high‑level government officials—publicly accessible for roughly 40 hours during the 2025‑26 financial year, a lapse that violated its own security policies. The breach was voluntarily reported to the Information Commissioner’s Office and to UKGI’s Audit and Risk Committee, triggering an external review that found the response “appropriate” but called for"
+    },
+    {
+      "rank": 5,
+      "title": "Alienware 27 QD-OLED (AW2726DM) Review: A $350 Winner",
+      "source": "WIRED",
+      "sources": [
+        "WIRED"
+      ],
+      "source_count": 1,
+      "url": "https://www.wired.com/review/alienware-27-qd-oled-aw2726dm/",
+      "category": "General Tech",
+      "hn_points": null,
+      "score": null,
+      "summary": "The Alienware AW2726DM is a 27‑inch 1440p QD‑OLED monitor that offers stunning contrast and color—reaching 98 % DCI‑P3 and 94 % Adobe RGB—thanks to self‑emissive pixels and quantum‑dot technology, but its pixel‑arrangement quirks can blur small text and cause color fringing. With a modest 110 ppi and a 200‑nit peak brightness,"
+    },
+    {
+      "rank": 6,
+      "title": "People Are Ghosting Long-Term Partners. Some Don’t Regret It",
+      "source": "WIRED",
+      "sources": [
+        "WIRED"
+      ],
+      "source_count": 1,
+      "url": "https://www.wired.com/story/people-are-ghosting-long-term-partners-some-dont-regret-it/",
+      "category": "General Tech",
+      "hn_points": null,
+      "score": null,
+      "summary": ""
+    },
+    {
+      "rank": 7,
+      "title": "The Best Audio Players for Kids: Yoto, Toniebox, and More",
+      "source": "WIRED",
+      "sources": [
+        "WIRED"
+      ],
+      "source_count": 1,
+      "url": "https://www.wired.com/story/the-best-kids-audio-players-for-screen-free-story-time/",
+      "category": "General Tech",
+      "hn_points": null,
+      "score": null,
+      "summary": "Parents are increasingly turning to audio players as a screen‑free alternative that balances independent play and"
+    }
+  ]
+}

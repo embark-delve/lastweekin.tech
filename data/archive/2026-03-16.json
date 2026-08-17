@@ -1,0 +1,104 @@
+{
+  "week": "2026-03-16",
+  "generated_at": "2026-03-16T09:11:30Z",
+  "stories": [
+    {
+      "rank": 1,
+      "title": "Samsung Galaxy S26 Ultra Review: The Privacy Screen",
+      "source": "WIRED",
+      "sources": [
+        "WIRED"
+      ],
+      "source_count": 1,
+      "url": "https://www.wired.com/review/samsung-galaxy-s26-ultra/",
+      "category": "General Tech",
+      "hn_points": null,
+      "score": null,
+      "summary": ""
+    },
+    {
+      "rank": 2,
+      "title": "Meta is reportedly laying off up to 20 percent of its staff",
+      "source": "The Verge",
+      "sources": [
+        "The Verge"
+      ],
+      "source_count": 1,
+      "url": "https://www.theverge.com/business/895026/meta-laying-off-20-percent",
+      "category": "General Tech",
+      "hn_points": null,
+      "score": null,
+      "summary": ""
+    },
+    {
+      "rank": 3,
+      "title": "Google fixes two new Chrome zero-days exploited in attacks",
+      "source": "BleepingComputer",
+      "sources": [
+        "BleepingComputer"
+      ],
+      "source_count": 1,
+      "url": "https://www.bleepingcomputer.com/news/google/google-fixes-two-new-chrome-zero-days-exploited-in-attacks/",
+      "category": "General Tech",
+      "hn_points": null,
+      "score": null,
+      "summary": ""
+    },
+    {
+      "rank": 4,
+      "title": "Prince of PDFs, Adobe CEO Shantanu Narayen, to step down after 18 years",
+      "source": "The Register",
+      "sources": [
+        "The Register"
+      ],
+      "source_count": 1,
+      "url": "https://go.theregister.com/feed/www.theregister.com/2026/03/13/adobe_q1_2026/",
+      "category": "General Tech",
+      "hn_points": null,
+      "score": null,
+      "summary": ""
+    },
+    {
+      "rank": 5,
+      "title": "This At-Home Hair Growth System Just Dropped in Price",
+      "source": "WIRED",
+      "sources": [
+        "WIRED"
+      ],
+      "source_count": 1,
+      "url": "https://www.wired.com/story/irestore-deals-amazon-spring-sale-2026/",
+      "category": "General Tech",
+      "hn_points": null,
+      "score": null,
+      "summary": ""
+    },
+    {
+      "rank": 6,
+      "title": "India tests whether AI can stop trains hitting elephants",
+      "source": "The Register",
+      "sources": [
+        "The Register"
+      ],
+      "source_count": 1,
+      "url": "https://go.theregister.com/feed/www.theregister.com/2026/03/16/asia_tech_news_roundup/",
+      "category": "AI",
+      "hn_points": null,
+      "score": null,
+      "summary": ""
+    },
+    {
+      "rank": 7,
+      "title": "AI Czar David Sacks wants Trump to ‘get out’ of Iran",
+      "source": "The Verge",
+      "sources": [
+        "The Verge"
+      ],
+      "source_count": 1,
+      "url": "https://www.theverge.com/policy/895059/trump-ai-czar-out-of-iran",
+      "category": "AI",
+      "hn_points": null,
+      "score": null,
+      "summary": ""
+    }
+  ]
+}

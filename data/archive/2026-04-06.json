@@ -1,0 +1,104 @@
+{
+  "week": "2026-04-06",
+  "generated_at": "2026-04-06T09:20:23Z",
+  "stories": [
+    {
+      "rank": 1,
+      "title": "CBP facility codes sure seem to have leaked via online flashcards",
+      "source": "Ars Technica",
+      "sources": [
+        "Ars Technica"
+      ],
+      "source_count": 1,
+      "url": "https://arstechnica.com/security/2026/04/cbp-facility-codes-sure-seem-to-have-leaked-via-online-flashcards/",
+      "category": "General Tech",
+      "hn_points": null,
+      "score": null,
+      "summary": "A Quizlet flashcard set titled “USBP Review” was publicly available from February until March 20, when it was made private after WIRED flagged a phone number that could belong to a user near a Kingsville, Texas CBP facility. The set disclosed specific four‑digit codes for various facility entrances, potentially revealing sensitive CBP security procedures. Although WIRED could not confirm the creator was an active CBP agent or contractor, the incident is under review by CBP’s Office of Professional Responsibility; the DHS and ICE have not commented. If the set was produced by a CBP affiliate, it would constitute a serious breach of an agency tasked with safeguarding U.S. borders."
+    },
+    {
+      "rank": 2,
+      "title": "Tech companies are trying to neuter Colorado’s landmark right-to-repair law",
+      "source": "Ars Technica",
+      "sources": [
+        "Ars Technica"
+      ],
+      "source_count": 1,
+      "url": "https://arstechnica.com/tech-policy/2026/04/tech-companies-are-trying-to-neuter-colorados-landmark-right-to-repair-law/",
+      "category": "General Tech",
+      "hn_points": null,
+      "score": null,
+      "summary": "Right‑to‑repair momentum is accelerating in the U.S., with Colorado leading the charge by passing a series of bills in 2022 that grant consumers the tools, instructions, and legal rights to fix wheelchairs, farm equipment, and consumer electronics; the state’s 2024 Consumer Right to Repair Digital Electronic Equipment Act, effective January 2026, is the most expansive nationwide. However, a new Colorado Senate bill (SB26‑090) now seeks to carve out a “critical infrastructure” exemption—supported by tech giants such as Cisco and IBM—arguing that allowing broad repair access could compromise cybersecurity and that manufacturers would benefit from controlling repair processes. While repair advocates celebrate Colorado’s pioneering stance, manufacturers remain wary, citing potential revenue loss and security risks."
+    },
+    {
+      "rank": 3,
+      "title": "Netflix must refund customers for years of price hikes, Italian court rules",
+      "source": "Ars Technica",
+      "sources": [
+        "Ars Technica"
+      ],
+      "source_count": 1,
+      "url": "https://arstechnica.com/gadgets/2026/04/netflix-ordered-to-refund-subscribers-up-to-e500-for-unlawful-price-hikes/",
+      "category": "General Tech",
+      "hn_points": null,
+      "score": null,
+      "summary": "A Rome court ruled that Netflix’s price hikes in Italy (2017, 2019, 2021, and 2024) were unlawful under the Consumer Code, which requires contracts to explain future price changes. The court found Netflix failed to provide valid justifications, invalidating the hikes and ordering refunds of up to €500 (≈$576) per customer, depending on their plan. Premium subscribers could receive about €500, standard about €250, and basic plan customers about €2 per month. Netflix has 90 days to notify millions of users of their refund rights or face a €700 daily penalty. The decision follows a lawsuit by Movimento Consumatori, which highlighted that Netflix’s 30‑day notice and cancellation option did not satisfy legal requirements. Netflix reportedly serves 5.4–8.3 million Italian users."
+    },
+    {
+      "rank": 4,
+      "title": "With One Million Displaced, Lebanon Turns to Digital Wallets for Aid",
+      "source": "WIRED",
+      "sources": [
+        "WIRED"
+      ],
+      "source_count": 1,
+      "url": "https://www.wired.com/story/with-one-million-displaced-lebanon-turns-to-digital-wallets-for-aid/",
+      "category": "General Tech",
+      "hn_points": null,
+      "score": null,
+      "summary": "Since March, Israeli attacks on Beirut and the occupation of southern Lebanon have displaced over a million people, many of whom have fled to Syria or are sheltering in overcrowded homes, cars, and the open air, straining Lebanon’s already fragile infrastructure. The humanitarian crisis has spurred a surge in international financial flows that bypass traditional aid channels, instead moving instantly through digital fintech platforms such as Whish Money, PayPal, Zelle, and Venmo to trusted individuals on the ground. While Lebanon receives roughly $6‑$7 billion in annual remittances—about a third of its GDP—remittance costs are high (≈11 %) and the pandemic‑era crisis has accelerated peer‑to‑peer, wallet‑based transfers, now accounting for around 70 % of inflows during the crisis. Whish Money, originally a gift‑card digitizer, has evolved into a broad financial ecosystem with 2 million users in 110 countries, targeting the unbanked and underbanked amid Lebanon’s banking collapse; its US‑bank connectivity lets diaspora funds enter Lebanese wallets instantly. This shift has enabled families to buy larger, essential purchases and stockpile supplies as uncertainty mounts, illustrating how fintech is reshaping aid delivery and daily life in a war‑torn economy."
+    },
+    {
+      "rank": 5,
+      "title": "The developer who came in from the cold and melted a mainframe",
+      "source": "The Register",
+      "sources": [
+        "The Register"
+      ],
+      "source_count": 1,
+      "url": "https://go.theregister.com/feed/www.theregister.com/2026/04/06/who_me/",
+      "category": "General Tech",
+      "hn_points": null,
+      "score": null,
+      "summary": "In a recent “Who, Me?” column, a reader named Rob recounts a 1990s Sybase developer gig in London where he and two colleagues were dropped into a cramped, unheated floor with no work or support. Their only warmth came from a Tandem mainframe’s poorly ventilated data room, which vented hot air through a window. When the weather turned colder, the trio secretly closed the window and redirected the mainframe’s heat into their space, enjoying a few days of warmth—until the mainframe overheated, alarms sounded, and an engineer discovered the sabotage, ending their makeshift heating scheme."
+    },
+    {
+      "rank": 6,
+      "title": "The Ridiculously Nerdy Intel Bet That Could Rake in Billions",
+      "source": "WIRED",
+      "sources": [
+        "WIRED"
+      ],
+      "source_count": 1,
+      "url": "https://www.wired.com/story/why-chip-packaging-could-decide-the-next-phase-of-the-ai-boom/",
+      "category": "General Tech",
+      "hn_points": null,
+      "score": null,
+      "summary": "Intel’s Rio Rancho Fab 9, re‑activated in January 2024 with a $500 million CHIPS‑Act grant, is now a linchpin for the company’s fast‑growing advanced‑chip‑packaging business, which combines multiple chiplets into single custom chips. The packaging arm—part of Intel’s newly split Foundry division—is positioned to compete with TSMC for AI‑driven demand, with CEO Lip‑Bu Tan calling it a key differentiator and CFO Dave Zinsner projecting packaging revenue to exceed $1 billion and even precede wafer revenue. Intel is reportedly in talks with major customers such as Google and Amazon to outsource parts of their custom chip fabrication, a move that could secure multi‑billion‑dollar deals and help the chipmaker regain market share after years of stagnation. The success of this Foundry strategy hinges on attracting such external clients while maintaining high gross margins comparable to its traditional product line."
+    },
+    {
+      "rank": 7,
+      "title": "Best Apple Watch Bands of 2026: Nike, Hermés, and More",
+      "source": "WIRED",
+      "sources": [
+        "WIRED"
+      ],
+      "source_count": 1,
+      "url": "https://www.wired.com/story/best-apple-watch-bands/",
+      "category": "General Tech",
+      "hn_points": null,
+      "score": null,
+      "summary": "Apple Watch bands can be both a fashion statement and a functional upgrade, and WIRED’s roundup highlights the best options for every scenario. For everyday wear, the Nike Sport Loop—made from recycled polyester, spandex, and nylon—offers a breathable, lightweight, and Velcro‑fastened design that’s easy to adjust and keeps sweat at bay, though it’s best suited to casual or office settings rather than formal events. For a more premium, versatile look, the Nomad Stratos Band uses Grade 4 titanium with a scratch‑resistant DLC coating, antimicrobial FKM rubber links, and a magnetic clasp that snaps on securely; its sturdy construction makes it suitable for workouts, outdoor use, and everyday wear alike. Together, these bands illustrate how material choice, weight, and closure type can tailor a smartwatch to both style and performance needs."
+    }
+  ]
+}

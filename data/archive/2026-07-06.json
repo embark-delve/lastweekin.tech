@@ -1,0 +1,104 @@
+{
+  "week": "2026-07-06",
+  "generated_at": "2026-07-06T12:12:31Z",
+  "stories": [
+    {
+      "rank": 1,
+      "title": "C programmers commit fresh crimes against readability",
+      "source": "The Register",
+      "sources": [
+        "The Register"
+      ],
+      "source_count": 1,
+      "url": "https://www.theregister.com/offbeat/2026/07/05/c-programmers-commit-fresh-crimes-against-readability/5265981",
+      "category": "General Tech",
+      "hn_points": null,
+      "score": null,
+      "summary": "The 2025 International Obfuscated C Code Contest (IOCCC29) returned after a four‑year break, awarding 23 winning entries across 14 quirky categories, including three “hat‑trick” winners (Yusuke Endoh, Nick Craig‑Wood, and Don Yang). Highlights include Adrian Cable’s 366‑byte Subleq emulator that runs a full‑color Mandelbrot set, Pong, and even a Linux port on a tiny virtual architecture designed for software preservation; Craig‑Wood’s 66‑line Game Boy emulator and a FRACTRAN‑based Commodore 64 emulator"
+    },
+    {
+      "rank": 2,
+      "title": "Companies that add more AI also add more people",
+      "source": "The Register",
+      "sources": [
+        "The Register"
+      ],
+      "source_count": 1,
+      "url": "https://www.theregister.com/ai-and-ml/2026/07/02/companies-that-add-more-ai-also-add-more-people/5266134",
+      "category": "AI",
+      "hn_points": null,
+      "score": null,
+      "summary": ""
+    },
+    {
+      "rank": 3,
+      "title": "NASA launched an emergency mission to stop the Swift Observatory from crashing to Earth",
+      "source": "The Verge",
+      "sources": [
+        "The Verge"
+      ],
+      "source_count": 1,
+      "url": "https://www.theverge.com/science/961459/nasa-emergency-save-swift-observatory-katalyst-space-technologies",
+      "category": "General Tech",
+      "hn_points": null,
+      "score": null,
+      "summary": "NASA has called on Katalyst Space Technologies to save the Swift Observatory—launched in 2004 to study gamma"
+    },
+    {
+      "rank": 4,
+      "title": "Inside the Luddite festival harnessing Gen Z’s rage against Big Tech",
+      "source": "Ars Technica",
+      "sources": [
+        "Ars Technica"
+      ],
+      "source_count": 1,
+      "url": "https://arstechnica.com/culture/2026/07/inside-the-luddite-festival-harnessing-gen-zs-rage-against-big-tech/",
+      "category": "General Tech",
+      "hn_points": null,
+      "score": null,
+      "summary": ""
+    },
+    {
+      "rank": 5,
+      "title": "Google loses long-running appeal of record EU fine, will have to cough up $4.7 billion",
+      "source": "Ars Technica",
+      "sources": [
+        "Ars Technica"
+      ],
+      "source_count": 1,
+      "url": "https://arstechnica.com/gadgets/2026/07/google-loses-long-running-appeal-of-record-eu-fine-will-have-to-cough-up-4-7-billion/",
+      "category": "General Tech",
+      "hn_points": null,
+      "score": null,
+      "summary": "Google’s record‑setting €4.34 billion fine for abusing its Android"
+    },
+    {
+      "rank": 6,
+      "title": "Bentley teases its first EV, the Torcal",
+      "source": "Ars Technica",
+      "sources": [
+        "Ars Technica"
+      ],
+      "source_count": 1,
+      "url": "https://arstechnica.com/cars/2026/07/bentley-teases-its-first-ev-the-torcal/",
+      "category": "General Tech",
+      "hn_points": null,
+      "score": null,
+      "summary": "Bentley is set to launch its fourth model, the Torcal, which marks the marque’s first all‑electric vehicle. The car has already been tested in the Arctic Circle and at the Nürburgring, while trademark filings of “Torcal” in Europe and the UK—"
+    },
+    {
+      "rank": 7,
+      "title": "The Czinger 21C might be the wildest car we drive all year",
+      "source": "Ars Technica",
+      "sources": [
+        "Ars Technica"
+      ],
+      "source_count": 1,
+      "url": "https://arstechnica.com/cars/2026/07/the-czinger-21c-might-be-the-wildest-car-we-drive-all-year/",
+      "category": "General Tech",
+      "hn_points": null,
+      "score": null,
+      "summary": ""
+    }
+  ]
+}

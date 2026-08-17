@@ -2,54 +2,109 @@
 Main CLI application for the LastWeekIn.Tech pipeline.
 """
 
+import json
+import logging
+from datetime import UTC, datetime
 from pathlib import Path
 from typing import Annotated
 
 import typer
 
-from lastweekintech import pipeline
-from lastweekintech.config import get_config
+from lastweekintech import metrics, pipeline
+from lastweekintech.config import ConfigError, get_config
 from lastweekintech.summarizer import Summarizer
+from lastweekintech.validation import DigestValidationError, assert_publishable
 
-app = typer.Typer()
+app = typer.Typer(add_completion=False)
 
 
 @app.command()
 def run(
-    output_path: Annotated[
+    data_dir: Annotated[
+        Path,
+        typer.Option("--data-dir", "-d", help="Where latest.json and the archive are written."),
+    ] = Path("data"),
+    site_dir: Annotated[
+        Path,
+        typer.Option("--site-dir", "-s", help="Where the static site is written."),
+        # A directory of its own, not the repository root: the host serves this
+        # tree verbatim, and the root holds source, tests and tooling that have
+        # no business being fetchable from the public site.
+    ] = Path("public"),
+    config_path: Annotated[
         Path | None,
-        typer.Option(
-            "--output-path",
-            "-o",
-            help="Path to save the output JSON file.",
-        ),
+        typer.Option("--config", "-c", help="Path to config.yaml."),
     ] = None,
+    week: Annotated[
+        str | None,
+        typer.Option("--week", "-w", help="Edition date (YYYY-MM-DD). Defaults to today, UTC."),
+    ] = None,
+    skip_gate: Annotated[
+        bool,
+        typer.Option("--skip-gate", help="Publish even if the digest fails validation."),
+    ] = False,
+    dry_run: Annotated[
+        bool,
+        typer.Option("--dry-run", help="Print the edition instead of writing any files."),
+    ] = False,
+    no_metrics: Annotated[
+        bool,
+        typer.Option("--no-metrics", help="Skip writing the run record to data/runs/."),
+    ] = False,
 ):
-    """
-    Run the LastWeekIn.Tech data pipeline.
-    """
-    if output_path is None:
-        output_path = Path("data/latest.json")
+    """Run the LastWeekIn.Tech data pipeline."""
+    now = datetime.now(UTC)
+    week = week or now.strftime("%Y-%m-%d")
 
-    config = get_config()
+    try:
+        config = get_config(config_path)
+        summarizer = Summarizer(config.summarizer)
+    except (ConfigError, ValueError) as e:
+        typer.secho(f"Configuration error: {e}", fg=typer.colors.RED, err=True)
+        raise typer.Exit(code=2) from e
 
-    summarizer = Summarizer(config.summarizer)
+    run_metrics = None if no_metrics else metrics.RunMetrics(week=week)
+    stories = pipeline.build_digest(
+        config,
+        summarizer,
+        now=now,
+        # Read before the run so a story still riding a week-old Hacker News
+        # thread does not top two editions in a row.
+        editions=pipeline.list_editions(data_dir),
+        metrics=run_metrics,
+    )
 
-    articles = pipeline.fetch_articles(config)
-    enriched_articles = pipeline.extract_content(articles)
-    stories = pipeline.cluster_articles(enriched_articles)
-    categorized_stories = pipeline.categorize_stories(stories)
-    scored_stories = pipeline.score_stories(categorized_stories, config)
-    top_stories = pipeline.select_top_stories(scored_stories)
+    def save_metrics() -> None:
+        if run_metrics is not None and not dry_run:
+            metrics.write_run_metrics(run_metrics, data_dir)
 
-    summarized_stories = pipeline.summarize_stories(top_stories, summarizer)
+    # The gate runs before anything is written, so a bad week leaves last
+    # week's edition live rather than replacing it with something broken. The
+    # run record is kept either way: a refused week is exactly the week whose
+    # numbers you want to read afterwards.
+    try:
+        assert_publishable(stories, config)
+    except DigestValidationError as e:
+        if not skip_gate:
+            save_metrics()
+            typer.secho(str(e), fg=typer.colors.RED, err=True)
+            raise typer.Exit(code=1) from e
+        logging.warning(f"--skip-gate set; publishing anyway. {e}")
 
-    pipeline.save_stories_to_json(summarized_stories, output_path)
+    edition = pipeline.build_edition(stories, week=week, now=now)
 
-    # Generate the static HTML site
-    template_path = Path("src/lastweekintech/templates/index.html.jinja")
-    html_output_path = Path("index.html")
-    pipeline.generate_html(output_path, template_path, html_output_path)
+    if dry_run:
+        typer.echo(json.dumps(edition, indent=2, ensure_ascii=False))
+        return
+
+    pipeline.save_edition(edition, data_dir)
+    pipeline.generate_site(
+        pipeline.list_editions(data_dir),
+        output_dir=site_dir,
+        site_url=config.site_url,
+    )
+    save_metrics()
+    typer.secho(f"Published the edition for {week}.", fg=typer.colors.GREEN)
 
 
 if __name__ == "__main__":

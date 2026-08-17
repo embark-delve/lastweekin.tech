@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+{#
+  Optional template variables:
+    site_url  absolute origin of the published site, e.g. "https://lastweekin.tech".
+              When absent, absolute-URL metadata (canonical, og:image) is omitted
+              rather than emitted as a broken relative URL.
+#}
+{% set site = (site_url | default('', true) | string).rstrip('/') %}
+{% set page_path = '' if is_latest else 'archive/' ~ edition.week ~ '.html' %}
+{% macro pretty_date(week, with_year=true) -%}
+  {%- set months = {
+    '01': 'Jan', '02': 'Feb', '03': 'Mar', '04': 'Apr', '05': 'May', '06': 'Jun',
+    '07': 'Jul', '08': 'Aug', '09': 'Sep', '10': 'Oct', '11': 'Nov', '12': 'Dec'
+  } -%}
+  {%- set week = week | string -%}
+  {%- if week | length == 10 and months.get(week[5:7]) -%}
+    {{- months[week[5:7]] }} {{ week[8:10] | int }}{{ ', ' ~ week[:4] if with_year else '' -}}
+  {%- else -%}
+    {{- week -}}
+  {%- endif -%}
+{%- endmacro %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ page_title }}</title>
+    <meta name="description" content="{{ description }}" />
+    <meta name="color-scheme" content="light dark" />
+    <meta property="og:site_name" content="LastWeekIn.Tech" />
+    <meta property="og:title" content="{{ page_title }}" />
+    <meta property="og:description" content="{{ description }}" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    {% if site %}
+    <link rel="canonical" href="{{ site }}/{{ page_path }}" />
+    <meta property="og:url" content="{{ site }}/{{ page_path }}" />
+    <meta property="og:image" content="{{ site }}/og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="LastWeekIn.Tech — the 7 tech stories that mattered, every Monday"
+    />
+    <meta name="twitter:image" content="{{ site }}/og.png" />
+    {% endif %}
+    <link
+      rel="alternate"
+      type="application/atom+xml"
+      title="LastWeekIn.Tech weekly digest"
+      href="{{ root }}feed.xml"
+    />
+    <link rel="stylesheet" href="{{ root }}style.css" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22><text y=%2214%22 font-size=%2214%22>7</text></svg>"
+    />
+  </head>
+  <body>
+    <a class="skip-link" href="#stories">Skip to the stories</a>
+
+    <header class="site-header">
+      <h1 class="site-title"><a class="wordmark" href="{{ root }}index.html">LastWeekIn.Tech</a></h1>
+      <p class="tagline">
+        The {{ edition.stories | length }} tech stories that mattered, week ending
+        <time datetime="{{ edition.week }}">{{ pretty_date(edition.week) }}</time>
+      </p>
+      {% if not is_latest %}
+      <p class="archive-note">
+        An archived edition. <a href="{{ root }}index.html">See this week&rsquo;s digest.</a>
+      </p>
+      {% endif %}
+    </header>
+
+    <main>
+      <ol class="story-list" id="stories">
+        {% for story in edition.stories %}
+        {% set category = story.category | default('', true) | string %}
+        {% set outlets = story.source_count | default(0, true) %}
+        {% set signals = [] %}
+        {% if story.hn_points %}
+        {% set _ = signals.append(
+          story.hn_points ~ ' point' ~ ('' if story.hn_points == 1 else 's') ~ ' on Hacker News'
+        ) %}
+        {% endif %}
+        {% if outlets > 1 %}
+        {% set _ = signals.append('Covered by ' ~ outlets ~ ' outlets') %}
+        {% endif %}
+        <li class="story-card">
+          <p class="story-rank"><span class="visually-hidden">Number </span>{{ story.rank }}</p>
+          <div class="story-content">
+            <h2 class="story-title">
+              {% if story.url %}
+              <a href="{{ story.url }}" target="_blank" rel="noopener noreferrer"
+                >{{ story.title }}</a
+              >
+              {% else %}
+              {{ story.title }}
+              {% endif %}
+            </h2>
+            <p class="story-meta">
+              {% if category %}
+              <span class="story-category category-{{ category | lower | replace(' ', '-') }}"
+                >{{ category }}</span
+              >
+              {% endif %}
+              <span class="story-source">{{ story.source }}</span>
+            </p>
+            {% if story.summary %}
+            <p class="story-summary">{{ story.summary }}</p>
+            {% endif %}
+            {% if signals %}
+            <p class="story-why" {% if story.sources %}title="{{ story.sources | join(', ') }}"{% endif %}>
+              <span class="visually-hidden">Why it made the cut: </span>{{ signals | join(' · ') }}
+            </p>
+            {% endif %}
+          </div>
+        </li>
+        {% endfor %}
+      </ol>
+
+      <section class="subscribe" aria-labelledby="subscribe-heading">
+        <h2 id="subscribe-heading">Get it every Monday</h2>
+        <p>
+          One edition a week, seven stories, nothing else.
+          <a href="{{ root }}feed.xml">Subscribe with RSS</a> — no email address, no tracking.
+        </p>
+      </section>
+
+      {% if past_editions %}
+      <nav class="archive" aria-labelledby="archive-heading">
+        <h2 id="archive-heading">Past editions</h2>
+        {% set years = [] %}
+        {% for past in past_editions %}
+        {% if (past.week | string)[:4] not in years %}
+        {% set _ = years.append((past.week | string)[:4]) %}
+        {% endif %}
+        {% endfor %}
+        {% for year in years %}
+        {% set in_year = [] %}
+        {% for past in past_editions %}
+        {% if (past.week | string)[:4] == year %}
+        {% set _ = in_year.append(past) %}
+        {% endif %}
+        {% endfor %}
+        <details class="archive-year"{{ ' open' if loop.first else '' }}>
+          <summary>
+            <span class="archive-year-label">{{ year }}</span>
+            <span class="archive-count"
+              >{{ in_year | length }} edition{{ '' if in_year | length == 1 else 's' }}</span
+            >
+          </summary>
+          <ul>
+            {% for past in in_year %}
+            <li>
+              <a href="{{ root }}archive/{{ past.week }}.html"
+                >{{ pretty_date(past.week, with_year=false) }}</a
+              >
+            </li>
+            {% endfor %}
+          </ul>
+        </details>
+        {% endfor %}
+      </nav>
+      {% endif %}
+    </main>
+
+    <footer>
+      <p>
+        Curated automatically from {{ edition.stories | map(attribute='source') | unique | list |
+        length }} sources. No trackers, no ads.
+      </p>
+      <p class="generated">Generated {{ edition.generated_at[:10] }}.</p>
+    </footer>
+  </body>
+</html>

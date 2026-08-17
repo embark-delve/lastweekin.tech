@@ -1,0 +1,104 @@
+{
+  "week": "2026-07-20",
+  "generated_at": "2026-07-20T11:00:52Z",
+  "stories": [
+    {
+      "rank": 1,
+      "title": "San Francisco orders Apple, Google to remove nudify apps from app stores",
+      "source": "Ars Technica",
+      "sources": [
+        "Ars Technica"
+      ],
+      "source_count": 1,
+      "url": "https://arstechnica.com/tech-policy/2026/07/apple-google-must-stop-profiting-off-ai-nudify-apps-san-francisco-ag-says/",
+      "category": "General Tech",
+      "hn_points": null,
+      "score": null,
+      "summary": "San Francisco Attorney General David Chiu has sent cease‑and‑desist letters to Apple and Google demanding the removal of 13 “nudification” apps that can turn ordinary photos into non‑consensual deepfake porn, citing California laws prohibiting such services. The apps"
+    },
+    {
+      "rank": 2,
+      "title": "HollowByte DDoS flaw bloats OpenSSL server memory with 11-byte payload",
+      "source": "BleepingComputer",
+      "sources": [
+        "BleepingComputer"
+      ],
+      "source_count": 1,
+      "url": "https://www.bleepingcomputer.com/news/security/hollowbyte-ddos-flaw-bloats-openssl-server-memory-with-11-byte-payload/",
+      "category": "General Tech",
+      "hn_points": null,
+      "score": null,
+      "summary": "A recently discovered “HollowByte” flaw lets attackers trigger a denial‑of‑service on vulnerable OpenSSL servers with an 11‑byte payload that tricks the library into pre‑allocating large buffers based on a forged message length header—without waiting for the hanyar. By repeatedly opening TLS connections with random, exaggerated size claims, a malicious actor can exhaust server memory, fragment the heap, and leave the process"
+    },
+    {
+      "rank": 3,
+      "title": "China delivers a one-two punch to America’s AI dominance",
+      "source": "The Verge",
+      "sources": [
+        "The Verge"
+      ],
+      "source_count": 1,
+      "url": "https://www.theverge.com/ai-artificial-intelligence/967781/chinese-ai-models-open-source-moonshot-kimi-k3-alibaba-qwen",
+      "category": "AI",
+      "hn_points": null,
+      "score": null,
+      "summary": ""
+    },
+    {
+      "rank": 4,
+      "title": "New Free Speech Concern: When AI Chatbots Won't Criticize Leaders from Repressive Regimes",
+      "source": "Slashdot",
+      "sources": [
+        "Slashdot"
+      ],
+      "source_count": 1,
+      "url": "https://yro.slashdot.org/story/26/07/20/0611253/new-free-speech-concern-when-ai-chatbots-wont-criticize-leaders-from-repressive-regimes?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+      "category": "AI",
+      "hn_points": null,
+      "score": null,
+      "summary": "Parkinson’s Law, articulated by Cyril Northcote Parkinson in a 1955 *Economist* essay, observes that “work expands to fill the time available.” He argues that when deadlines are set generously, tasks—whether trivial or substantial—tend to stretch and consume all allotted time, often leading to inefficiency and wasted resources. Parkinson attributes this phenomenon to bureaucratic inertia,"
+    },
+    {
+      "rank": 5,
+      "title": "As AI Transforms Silicon Valley, Some Tech Workers Face Evaporating Financial Security",
+      "source": "Slashdot",
+      "sources": [
+        "Slashdot"
+      ],
+      "source_count": 1,
+      "url": "https://it.slashdot.org/story/26/07/20/0212244/as-ai-transforms-silicon-valley-some-tech-workers-face-evaporating-financial-security?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+      "category": "AI",
+      "hn_points": null,
+      "score": null,
+      "summary": "Cyril Northcote Parkinson’s 1955 piece in *The Economist* introduces what is now known as"
+    },
+    {
+      "rank": 6,
+      "title": "India's first privately-developed rocket reaches orbit on dramatic debut launch",
+      "source": "Ars Technica",
+      "sources": [
+        "Ars Technica"
+      ],
+      "source_count": 1,
+      "url": "https://arstechnica.com/space/2026/07/indias-first-privately-developed-rocket-reaches-orbit-on-dramatic-debut-launch/",
+      "category": "General Tech",
+      "hn_points": null,
+      "score": null,
+      "summary": "Indian space officials hailed the successful debut of Skyroot Aerospace’s Vikram‑1, India’s first fully commercial satellite launcher, after it reached a 280‑mile (450 km) orbit at a 60° inclination. Launched from Sriharikota Island at 1:35 a.m. EDT, Vikram‑1—standing 22 m tall and capable of lofting up to 770 lb (350 kg) payloads—fueled three solid‑stage boosters followed by a liquid‑fuel fourth"
+    },
+    {
+      "rank": 7,
+      "title": "As mosquito ranges expand, better monitoring is key to preventing disease",
+      "source": "Ars Technica",
+      "sources": [
+        "Ars Technica"
+      ],
+      "source_count": 1,
+      "url": "https://arstechnica.com/science/2026/07/as-mosquito-ranges-expand-better-monitoring-is-key-to-preventing-disease/",
+      "category": "General Tech",
+      "hn_points": null,
+      "score": null,
+      "summary": ""
+    }
+  ]
+}

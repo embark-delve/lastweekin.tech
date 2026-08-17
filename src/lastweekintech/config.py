@@ -2,10 +2,20 @@
 Configuration loading for the LastWeekIn.Tech pipeline.
 """
 
+import os
+import re
 from dataclasses import dataclass, field
 from pathlib import Path
+from typing import Any
 
 import yaml
+
+# Matches a whole-value environment reference such as "${HF_TOKEN}".
+_ENV_REF = re.compile(r"^\$\{([A-Za-z_][A-Za-z0-9_]*)\}$")
+
+
+class ConfigError(ValueError):
+    """Raised when the configuration file is missing or malformed."""
 
 
 @dataclass
@@ -20,16 +30,39 @@ class Feed:
 class HNSettings:
     """Represents Hacker News settings."""
 
-    min_points: int
+    min_points: int = 50
+    points_cap: int = 500
+    limit: int = 200
+    enabled: bool = True
 
 
 @dataclass
 class Weights:
     """Represents scoring weights."""
 
-    hn: int
-    src: int
-    rec: int
+    hn: float = 5.0
+    src: float = 3.0
+    rec: float = 1.0
+
+
+@dataclass
+class DigestSettings:
+    """Represents the shape of a published edition."""
+
+    story_count: int = 7
+    min_ai_stories: int = 4
+    max_missing_summaries: int = 1
+    # Summaries that exist but fail a quality check (truncated mid-sentence,
+    # never naming their subject, quoting a figure absent from the source).
+    # One weak summary is a bad week; a digest of them is not worth publishing.
+    max_low_quality_summaries: int = 2
+    # How many top-scoring stories stay in contention. Only these have their
+    # article bodies downloaded, which is the slowest stage of the run.
+    candidate_pool: int = 40
+    # How far back to look for stories we already published. Hacker News
+    # traction persists for days, so a story hot for eight days can top two
+    # consecutive editions. Zero or less publishes repeats.
+    repeat_lookback_weeks: int = 3
 
 
 @dataclass
@@ -37,9 +70,12 @@ class SummarizerSettings:
     """Represents summarizer settings."""
 
     model_name: str
-    fallback_models: list[str]
+    fallback_models: list[str] = field(default_factory=list)
     hf_token: str | None = None
     huggingface_models: list[str] = field(default_factory=list)
+    max_tokens: int = 400
+    max_input_chars: int = 12000
+    temperature: float = 0.3
 
 
 @dataclass
@@ -51,23 +87,91 @@ class Config:
     weights: Weights
     window_days: int
     summarizer: SummarizerSettings
+    digest: DigestSettings = field(default_factory=DigestSettings)
+    # Absolute origin of the published site. Feeds, sitemaps and social cards
+    # all need absolute URLs, so this cannot be derived from the output path.
+    site_url: str = "https://lastweekin.tech"
 
     @classmethod
     def from_yaml(cls, path: Path) -> "Config":
-        """Loads the configuration from a YAML file."""
-        with open(path) as f:
-            data = yaml.safe_load(f)
+        """Loads the configuration from a YAML file, expanding ``${VAR}`` references."""
+        try:
+            with open(path) as f:
+                data = expand_env(yaml.safe_load(f))
+        except FileNotFoundError as exc:
+            raise ConfigError(f"Configuration file not found: {path}") from exc
+        except yaml.YAMLError as exc:
+            raise ConfigError(f"Could not parse {path}: {exc}") from exc
 
-        return cls(
-            feeds=[Feed(**feed) for feed in data["feeds"]],
-            hn=HNSettings(**data["hn"]),
-            weights=Weights(**data["weights"]),
-            window_days=data["window_days"],
-            summarizer=SummarizerSettings(**data["summarizer"]),
-        )
+        if not isinstance(data, dict):
+            raise ConfigError(f"{path} must contain a YAML mapping.")
+
+        unknown = set(data) - {
+            "feeds",
+            "hn",
+            "weights",
+            "window_days",
+            "summarizer",
+            "digest",
+            "site_url",
+        }
+        if unknown:
+            raise ConfigError(f"Invalid configuration in {path}: unknown keys {sorted(unknown)}")
+
+        try:
+            config = cls(
+                feeds=[Feed(**feed) for feed in data.get("feeds", [])],
+                hn=HNSettings(**data.get("hn", {})),
+                weights=Weights(**data.get("weights", {})),
+                window_days=int(data.get("window_days", 7)),
+                summarizer=SummarizerSettings(**data["summarizer"]),
+                digest=DigestSettings(**data.get("digest", {})),
+                site_url=str(data.get("site_url") or "https://lastweekin.tech").rstrip("/"),
+            )
+        except (KeyError, TypeError) as exc:
+            raise ConfigError(f"Invalid configuration in {path}: {exc}") from exc
+
+        config.validate()
+        return config
+
+    def validate(self) -> None:
+        """Fail fast on values that would silently produce a broken digest."""
+        problems = []
+        if not self.feeds:
+            problems.append("no feeds configured")
+        if self.window_days < 1:
+            problems.append("window_days must be at least 1")
+        if self.digest.story_count < 1:
+            problems.append("digest.story_count must be at least 1")
+        if self.digest.min_ai_stories > self.digest.story_count:
+            problems.append("digest.min_ai_stories cannot exceed digest.story_count")
+        if self.hn.points_cap < 1:
+            problems.append("hn.points_cap must be at least 1")
+        if not self.summarizer.model_name:
+            problems.append("summarizer.model_name is required")
+        if not self.site_url.startswith(("http://", "https://")):
+            problems.append("site_url must be an absolute http(s) URL")
+        if problems:
+            raise ConfigError("; ".join(problems))
 
 
-def get_config() -> Config:
+def expand_env(value: Any) -> Any:
+    """Replace ``${VAR}`` strings with their environment value, recursively.
+
+    An unset variable resolves to ``None`` rather than the literal placeholder,
+    so an absent secret disables the feature instead of being sent as a token.
+    """
+    if isinstance(value, dict):
+        return {key: expand_env(item) for key, item in value.items()}
+    if isinstance(value, list):
+        return [expand_env(item) for item in value]
+    if isinstance(value, str):
+        match = _ENV_REF.match(value.strip())
+        if match:
+            return os.environ.get(match.group(1)) or None
+    return value
+
+
+def get_config(path: Path | None = None) -> Config:
     """Returns the application configuration."""
-    config_path = Path(__file__).parent / "config.yaml"
-    return Config.from_yaml(config_path)
+    return Config.from_yaml(path or Path(__file__).parent / "config.yaml")

@@ -1,0 +1,104 @@
+{
+  "week": "2026-02-23",
+  "generated_at": "2026-02-23T09:02:21Z",
+  "stories": [
+    {
+      "rank": 1,
+      "title": "Samsung is adding Perplexity to Galaxy AI",
+      "source": "The Verge",
+      "sources": [
+        "The Verge"
+      ],
+      "source_count": 1,
+      "url": "https://www.theverge.com/tech/882921/samsung-is-adding-perplexity-to-galaxy-ai",
+      "category": "AI",
+      "hn_points": null,
+      "score": null,
+      "summary": ""
+    },
+    {
+      "rank": 2,
+      "title": "Government Docs Reveal New Details About Tesla and Waymo Robotaxis’ Human Babysitters",
+      "source": "WIRED",
+      "sources": [
+        "WIRED"
+      ],
+      "source_count": 1,
+      "url": "https://www.wired.com/story/government-docs-reveal-new-details-about-tesla-and-waymo-robotaxi-programs/",
+      "category": "General Tech",
+      "hn_points": null,
+      "score": null,
+      "summary": ""
+    },
+    {
+      "rank": 3,
+      "title": "Man Accidentally Gains Control of 7,000 Robot Vacuums",
+      "source": "Slashdot",
+      "sources": [
+        "Slashdot"
+      ],
+      "source_count": 1,
+      "url": "https://hardware.slashdot.org/story/26/02/22/0510212/man-accidentally-gains-control-of-7000-robot-vacuums?utm_source=rss1.0mainlinkanon&utm_medium=feed",
+      "category": "General Tech",
+      "hn_points": null,
+      "score": null,
+      "summary": ""
+    },
+    {
+      "rank": 4,
+      "title": "Major government research lab appears to be squeezing out foreign scientists",
+      "source": "Ars Technica",
+      "sources": [
+        "Ars Technica"
+      ],
+      "source_count": 1,
+      "url": "https://arstechnica.com/science/2026/02/major-government-research-lab-appears-to-be-squeezing-out-foreign-scientists/",
+      "category": "General Tech",
+      "hn_points": null,
+      "score": null,
+      "summary": ""
+    },
+    {
+      "rank": 5,
+      "title": "Study shows how rocket launches pollute the atmosphere",
+      "source": "Ars Technica",
+      "sources": [
+        "Ars Technica"
+      ],
+      "source_count": 1,
+      "url": "https://arstechnica.com/space/2026/02/study-shows-how-rocket-launches-pollute-the-atmosphere/",
+      "category": "General Tech",
+      "hn_points": null,
+      "score": null,
+      "summary": ""
+    },
+    {
+      "rank": 6,
+      "title": "What to Know About At-Home STI Tests: Pros, Cons, and Recommendations (2026)",
+      "source": "WIRED",
+      "sources": [
+        "WIRED"
+      ],
+      "source_count": 1,
+      "url": "https://www.wired.com/story/at-home-sti-tests/",
+      "category": "General Tech",
+      "hn_points": null,
+      "score": null,
+      "summary": ""
+    },
+    {
+      "rank": 7,
+      "title": "What Is Down Fill Power (2026): Fill Weight, Synthetics",
+      "source": "WIRED",
+      "sources": [
+        "WIRED"
+      ],
+      "source_count": 1,
+      "url": "https://www.wired.com/story/what-is-down-fill-power/",
+      "category": "General Tech",
+      "hn_points": null,
+      "score": null,
+      "summary": ""
+    }
+  ]
+}

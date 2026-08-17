@@ -83,6 +83,7 @@ target/
 # Environments
 .env
 .env.*
+!.env.example
 .python-version
 
 # Spyder project settings
@@ -131,4 +132,3 @@ poetry.lock
 Pipfile
 Pipfile.lock
 pdm.lock
-
