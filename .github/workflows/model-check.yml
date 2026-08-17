@@ -1,0 +1,102 @@
+name: Model availability
+
+# Hosted model IDs get retired without notice, and the pipeline only finds out
+# by producing an edition with no summaries. This runs the day before the
+# digest so a dead model chain is a Sunday notification, not a Monday outage.
+on:
+  schedule:
+    - cron: "0 9 * * 0" # Sundays, 09:00 UTC
+  push:
+    paths:
+      - "src/lastweekintech/config.yaml"
+      - "tools/check_models.py"
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  check-models:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    permissions:
+      issues: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@d4b2f3b6ecc6e67c4457f6d3e41ec42d3d0fcb86 # v5.4.2
+        with:
+          enable-cache: true
+
+      - name: Install dependencies
+        run: uv sync
+
+      - name: Check configured models against the OpenRouter catalogue
+        id: check
+        run: |
+          set +e
+          uv run python tools/check_models.py 2>&1 | tee "$RUNNER_TEMP/models.log"
+          status=${PIPESTATUS[0]}
+          set -e
+          if [ "$status" -ne 0 ]; then
+            delimiter="LWIT_MODELS_$(openssl rand -hex 16)"
+            {
+              printf 'report<<%s\n' "$delimiter"
+              cat "$RUNNER_TEMP/models.log"
+              printf '\n%s\n' "$delimiter"
+            } >> "$GITHUB_OUTPUT"
+          fi
+          exit "$status"
+
+      - name: Open or update the model availability issue
+        if: failure() && steps.check.outputs.report != ''
+        uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7.1.0
+        env:
+          REPORT: ${{ steps.check.outputs.report }}
+          RUN_URL: "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+        with:
+          script: |
+            const LABEL = 'model-availability';
+            const { owner, repo } = context.repo;
+            const body = [
+              'One or more summarization models in `config.yaml` are no longer offered.',
+              'The pipeline will fall through to the remaining models; if none survive,',
+              'the publish gate will reject the edition.',
+              '',
+              `**Run:** ${process.env.RUN_URL}`,
+              '',
+              '```',
+              (process.env.REPORT || '').trim().slice(0, 5000),
+              '```',
+            ].join('\n');
+
+            // Same de-duplication as the digest failure notifier: one open issue
+            // per problem, a comment per occurrence.
+            const open = await github.paginate(github.rest.issues.listForRepo, {
+              owner, repo, state: 'open', labels: LABEL, per_page: 100,
+            });
+            const existing = open.find((issue) => !issue.pull_request);
+
+            if (existing) {
+              await github.rest.issues.createComment({
+                owner, repo, issue_number: existing.number, body,
+              });
+              return;
+            }
+
+            try {
+              await github.rest.issues.createLabel({
+                owner, repo, name: LABEL, color: 'd93f0b',
+                description: 'A configured model is no longer available',
+              });
+            } catch (error) {
+              if (error.status !== 422) throw error;
+            }
+
+            await github.rest.issues.create({
+              owner, repo, title: 'A configured summarization model is unavailable',
+              labels: [LABEL], body,
+            });
