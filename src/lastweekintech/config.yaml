@@ -1,6 +1,11 @@
-# Configuration for the LastWeekIn.Tech pipeline
+# Configuration for the LastWeekIn.Tech pipeline.
+#
+# ${VAR} values are read from the environment at load time; an unset variable
+# resolves to null, which disables the feature rather than sending a literal
+# placeholder as a credential.
 
-# List of RSS feeds to fetch
+# RSS and Atom feeds to fetch. Hacker News is not listed here: its stories and
+# their point totals come from the Algolia API (see the `hn` section below).
 feeds:
   - name: "Ars Technica"
     url: "https://feeds.arstechnica.com/arstechnica/index"
@@ -22,44 +27,80 @@ feeds:
     url: "https://www.bleepingcomputer.com/feed/"
   - name: "The Hacker News"
     url: "https://feeds.feedburner.com/TheHackersNews"
-  - name: "Hacker News (hnrss)"
-    url: "https://hnrss.org/frontpage"
   - name: "Android Police"
     url: "https://www.androidpolice.com/feed/"
   - name: "ExtremeTech"
     url: "https://www.extremetech.com/feed"
   - name: "Engadget"
     url: "https://www.engadget.com/rss.xml"
-  - name: "France 24 (English)"
-    url: "https://www.france24.com/en/rss"
-  - name: "Xinhua (English)"
-    url: "https://www.xinhuanet.com/english/rss/worldrss.xml"
+  - name: "MIT Technology Review"
+    url: "https://www.technologyreview.com/feed/"
 
-# Hacker News settings
+# Hacker News, via the Algolia search API.
 hn:
+  enabled: true
+  # Stories below this many points are not fetched at all.
   min_points: 50
+  # Traction above this adds nothing more, so one viral post cannot dominate.
+  # Most front-page stories clear 500, so the cap sits higher to keep the top
+  # tier distinguishable.
+  points_cap: 1000
+  # Maximum stories to pull for the week.
+  limit: 200
 
-# Time window for fetching articles
+# Absolute origin of the published site, used for the feed, sitemap, canonical
+# links and social cards.
+site_url: "https://lastweekin.tech"
+
+# How many days back to look.
 window_days: 7
 
-# Scoring weights
+# Relative importance of each ranking signal. Every component is normalised to
+# 0..1 before its weight applies, so these numbers compare directly: breadth of
+# coverage is the strongest signal, recency only breaks ties.
 weights:
-  hn: 3
-  src: 5
-  rec: 2
+  hn: 5
+  src: 3
+  rec: 1
 
-# Summarizer settings
+# The shape of a published edition.
+digest:
+  story_count: 7
+  # A floor, not a quota: a week where every top story is about AI publishes
+  # seven AI stories.
+  min_ai_stories: 4
+  # Refuse to publish when more than this many stories lack a usable summary.
+  max_missing_summaries: 1
+  # Only this many top-ranked stories have their article bodies downloaded.
+  candidate_pool: 40
+  # Do not republish a story that ran in an edition this recent. Ranking is
+  # driven by Hacker News traction, which persists for days, so a story hot for
+  # eight days would otherwise top two consecutive editions. The filter can
+  # never shorten an edition: repeats come back if there is nothing else to
+  # publish. Set to 0 to allow repeats.
+  repeat_lookback_weeks: 3
+
+# Summarization. Models are tried in order until one returns a usable answer.
+#
+# Seven summaries a week is roughly 4k input and 400 output tokens each, so the
+# whole year costs a couple of dollars even on a paid tier. Free tiers bought
+# nothing but rate limits and empty summaries, and their model IDs churn: the
+# previous chain here listed four models, three of which OpenRouter had already
+# retired. The fallbacks are deliberately spread across vendors so one
+# provider's outage cannot empty an edition, with a free model last so a
+# billing lapse still ships something.
 summarizer:
-  model_name: "minimax/minimax-m2:free"
+  model_name: "anthropic/claude-haiku-4.5"
   fallback_models:
-    - "deepseek/deepseek-chat-v3.1:free"
+    - "google/gemini-3.7-flash"
+    - "openai/gpt-5-mini"
     - "openai/gpt-oss-20b:free"
-    - "z-ai/glm-4.5-air:free"
-    - "MiniMaxAI/SynLogic-Mix-3-32B"
-    - "ab-ai/PII-Model-Phi3-Mini"
-    - "deepseek-ai/DeepSeek-R1:novita"
   hf_token: "${HF_TOKEN}"
-  huggingface_models:
-    - "MiniMaxAI/SynLogic-Mix-3-32B"
-    - "ab-ai/PII-Model-Phi3-Mini"
-    - "deepseek-ai/DeepSeek-R1:novita"
+  # Optional: models routed via Hugging Face instead of OpenRouter. Any model
+  # listed here is skipped automatically when HF_TOKEN is unset.
+  huggingface_models: []
+  # Enough room for 2-4 complete sentences; 150 truncated most summaries
+  # mid-word.
+  max_tokens: 400
+  max_input_chars: 12000
+  temperature: 0.3
