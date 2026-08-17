@@ -1,0 +1,50 @@
+{
+  "week": "2026-08-17",
+  "started_at": "2026-08-17T08:48:08.007107+00:00",
+  "articles_from_feeds": 309,
+  "articles_from_hn": 200,
+  "articles_before_dedupe": 509,
+  "articles_after_dedupe": 507,
+  "stories": 495,
+  "multi_source_stories": 6,
+  "max_sources": 5,
+  "repeats_dropped": 0,
+  "repeats_restored": 0,
+  "candidate_stories": 40,
+  "candidate_articles": 50,
+  "extraction_succeeded": 41,
+  "extraction_failed": 9,
+  "categories": {
+    "AI": 16,
+    "Open Source": 4,
+    "Policy": 5,
+    "General Tech": 7,
+    "Hardware": 4,
+    "Security": 2,
+    "Business": 2
+  },
+  "ai_before_promotion": 5,
+  "ai_promoted": 0,
+  "ai_published": 5,
+  "summaries": 6,
+  "summaries_failed": 1,
+  "summary_models": {
+    "Anthropic's 'watermark' text adulteration in Claude is a perversion of writing": "anthropic/claude-haiku-4.5",
+    "Firefox is now the last major browser that still supports uBlock Origin": "anthropic/claude-haiku-4.5",
+    "Qwen 3.8 27B": "anthropic/claude-haiku-4.5",
+    "Why does Opus 5 feel worse to work with?": "anthropic/claude-haiku-4.5",
+    "Gemini 3.7 Flash": "anthropic/claude-haiku-4.5",
+    "France's top court blocks social media ban for under-15s": "anthropic/claude-haiku-4.5"
+  },
+  "stage_seconds": {
+    "fetch": 3.787,
+    "dedupe": 0.008,
+    "cluster": 2.116,
+    "score": 0.001,
+    "exclude_repeats": 0.093,
+    "extract": 5.376,
+    "categorize": 0.068,
+    "select": 0.0,
+    "summarize": 15.364
+  }
+}
