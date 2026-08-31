@@ -59,11 +59,15 @@
     <a class="skip-link" href="#stories">Skip to the stories</a>
 
     <header class="site-header">
+      <p class="masthead-note">Published every Monday &middot; No trackers, no ads</p>
       <h1 class="site-title"><a class="wordmark" href="{{ root }}index.html">LastWeekIn.Tech</a></h1>
-      <p class="tagline">
-        The {{ edition.stories | length }} tech stories that mattered, week ending
-        <time datetime="{{ edition.week }}">{{ pretty_date(edition.week) }}</time>
-      </p>
+      <div class="dateline" role="presentation">
+        <span class="dateline-item">The {{ edition.stories | length }} stories that mattered</span>
+        <span class="dateline-item"
+          >Week ending
+          <time datetime="{{ edition.week }}">{{ pretty_date(edition.week) }}</time></span
+        >
+      </div>
       {% if not is_latest %}
       <p class="archive-note">
         An archived edition. <a href="{{ root }}index.html">See this week&rsquo;s digest.</a>
@@ -72,6 +76,10 @@
     </header>
 
     <main>
+      {% if edition.intro %}
+      <p class="standfirst">{{ edition.intro }}</p>
+      {% endif %}
+
       <ol class="story-list" id="stories">
         {% for story in edition.stories %}
         {% set category = story.category | default('', true) | string %}
@@ -85,9 +93,21 @@
         {% if outlets > 1 %}
         {% set _ = signals.append('Covered by ' ~ outlets ~ ' outlets') %}
         {% endif %}
-        <li class="story-card">
-          <p class="story-rank"><span class="visually-hidden">Number </span>{{ story.rank }}</p>
+        {% if story.consensus %}
+        {% set _ = signals.append('Led the wider press') %}
+        {% endif %}
+        <li class="story-card{{ ' lead-story' if loop.first else '' }}">
+          <p class="story-rank" aria-hidden="true">{{ story.rank }}</p>
           <div class="story-content">
+            <p class="story-meta">
+              <span class="visually-hidden">Number {{ story.rank }}. </span>
+              {% if category %}
+              <span class="story-category category-{{ category | lower | replace(' ', '-') }}"
+                >{{ category }}</span
+              >
+              {% endif %}
+              <span class="story-source">{{ story.source }}</span>
+            </p>
             <h2 class="story-title">
               {% if story.url %}
               <a href="{{ story.url }}" target="_blank" rel="noopener noreferrer"
@@ -97,16 +117,13 @@
               {{ story.title }}
               {% endif %}
             </h2>
-            <p class="story-meta">
-              {% if category %}
-              <span class="story-category category-{{ category | lower | replace(' ', '-') }}"
-                >{{ category }}</span
-              >
-              {% endif %}
-              <span class="story-source">{{ story.source }}</span>
-            </p>
             {% if story.summary %}
             <p class="story-summary">{{ story.summary }}</p>
+            {% endif %}
+            {% if story.why %}
+            <p class="story-case">
+              <span class="story-case-label">Why it matters</span> {{ story.why }}
+            </p>
             {% endif %}
             {% if signals %}
             <p class="story-why" {% if story.sources %}title="{{ story.sources | join(', ') }}"{% endif %}>

@@ -74,7 +74,8 @@ def run(config, **overrides):
         "hn_fetch": lambda url, params: {"hits": []},
         "delay": 0,
     }
-    return pipeline.build_digest(config, summarizer, **(kwargs | overrides)), summarizer
+    digest = pipeline.build_digest(config, summarizer, **(kwargs | overrides))
+    return digest.stories, summarizer
 
 
 class TestBuildDigest:

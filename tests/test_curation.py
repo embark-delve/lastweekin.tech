@@ -349,3 +349,92 @@ class TestSelectTopStories:
     def test_returns_everything_available_when_short_of_count(self):
         stories = [make_story(title="only", score=5)]
         assert len(pipeline.select_top_stories(stories, count=7, min_ai=4)) == 1
+
+
+def story_from(source: str, title: str, score: float, **kwargs) -> "pipeline.Story":
+    article = make_article(title=title, url=f"https://{source}.example/{title}", source=source)
+    story = make_story(title=title, score=score, articles=[article], **kwargs)
+    return story
+
+
+class TestSourceCap:
+    """One outlet may not own the edition: WIRED once supplied 40% of every
+    story ever published, and the first HN-scored edition was seven-for-seven
+    Hacker News."""
+
+    def test_caps_stories_per_source(self):
+        stories = [story_from("A", f"a{i}", 100 - i) for i in range(7)]
+        stories += [story_from("B", f"b{i}", 50 - i) for i in range(3)]
+        selected = pipeline.select_top_stories(stories, count=7, min_ai=0, max_per_source=2)
+        by_source = {s.articles[0].source for s in selected}
+        assert by_source == {"A", "B"}
+        counts = [s.articles[0].source for s in selected]
+        # Both outlets are capped at 2; the three remaining slots backfill
+        # best-first from the deferred stories, which are all A's.
+        assert counts.count("B") == 2 and counts.count("A") == 5
+
+    def test_backfills_over_the_cap_rather_than_shorten_the_edition(self):
+        stories = [story_from("A", f"a{i}", 100 - i) for i in range(7)]
+        stories += [story_from("B", f"b{i}", 50 - i) for i in range(3)]
+        selected = pipeline.select_top_stories(stories, count=7, min_ai=0, max_per_source=2)
+        assert len(selected) == 7  # 2 A + 3 B leaves 5; the cap must yield, not starve
+
+    def test_cap_of_zero_disables_the_limit(self):
+        stories = [story_from("A", f"a{i}", 100 - i) for i in range(7)]
+        selected = pipeline.select_top_stories(stories, count=7, min_ai=0, max_per_source=0)
+        assert len(selected) == 7
+
+    def test_capped_selection_is_still_ordered_by_score(self):
+        stories = [story_from("A", f"a{i}", 100 - i) for i in range(7)]
+        stories += [story_from("B", f"b{i}", 50 - i) for i in range(5)]
+        selected = pipeline.select_top_stories(stories, count=7, min_ai=0, max_per_source=2)
+        assert [s.score for s in selected] == sorted((s.score for s in selected), reverse=True)
+
+
+class TestBodyPreference:
+    """A story whose body could not be extracted cannot be summarized, and one
+    too many of those fails the publish gate — which is exactly how the
+    2026-08-24 run died. Selection prefers stories it can actually ship."""
+
+    def test_prefers_stories_with_extracted_bodies(self):
+        bodyless = make_story(
+            title="paywalled", score=100, articles=[make_article(title="paywalled", content=None)]
+        )
+        stories = [bodyless] + [story_from("A", f"a{i}", 50 - i) for i in range(7)]
+        selected = pipeline.select_top_stories(stories, count=7, min_ai=0)
+        assert "paywalled" not in {s.title for s in selected}
+
+    def test_bodyless_stories_backfill_a_short_week(self):
+        bodyless = make_story(
+            title="paywalled", score=100, articles=[make_article(title="paywalled", content=None)]
+        )
+        stories = [bodyless] + [story_from("A", f"a{i}", 50 - i) for i in range(3)]
+        selected = pipeline.select_top_stories(stories, count=7, min_ai=0)
+        assert len(selected) == 4
+        assert "paywalled" in {s.title for s in selected}
+
+
+class TestAggregatorSources:
+    def test_representative_article_prefers_the_original_outlet(self):
+        aggregator = make_article(
+            title="Big story",
+            url="https://techmeme.example/1",
+            source="Techmeme",
+            content="x" * 900,
+        )
+        aggregator.aggregator = True
+        outlet = make_article(
+            title="Big story", url="https://ars.example/1", source="Ars Technica", content="x" * 100
+        )
+        story = make_story(title="Big story", articles=[aggregator, outlet])
+        edition = pipeline.build_edition([story], week="2026-08-10")
+        assert edition["stories"][0]["source"] == "Ars Technica"
+        assert edition["stories"][0]["url"] == "https://ars.example/1"
+
+    def test_aggregator_still_counts_toward_breadth(self):
+        aggregator = make_article(title="Big story", url="https://tm.example/1", source="Techmeme")
+        aggregator.aggregator = True
+        outlet = make_article(title="Big story", url="https://ars.example/1", source="Ars Technica")
+        story = make_story(title="Big story", articles=[aggregator, outlet])
+        edition = pipeline.build_edition([story], week="2026-08-10")
+        assert edition["stories"][0]["source_count"] == 2

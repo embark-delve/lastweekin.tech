@@ -4,6 +4,7 @@ Summarization for the LastWeekIn.Tech pipeline, via any OpenAI-compatible API.
 
 import logging
 import os
+import re
 from collections.abc import Callable
 from dataclasses import dataclass
 from typing import Any
@@ -12,6 +13,21 @@ from openai import OpenAI
 
 from lastweekintech.config import SummarizerSettings
 from lastweekintech.text import trim_to_sentence
+
+# Leading markdown furniture some models wrap a summary in: heading lines
+# ("# Summary") and bold-only label lines ("**Summary**"). Observed live on
+# 2026-08-30 from models in the fallback chain; stripped rather than rejected
+# because the prose underneath is usually fine.
+_MARKDOWN_PREAMBLE = re.compile(r"^(?:\s*(?:#{1,6}\s+\S[^\n]*|\*\*[^\n*]+\*\*\s*)(?:\n+|$))+")
+
+# A summary that opens by declining is a refusal, not a summary. Anchored to
+# the start so reported prose about inability ("NASA said it cannot...") is
+# never misread. Rejecting it returns "" to the caller, which is what lets the
+# fallback chain try the next model or article.
+_REFUSAL = re.compile(
+    r"^(?:i\s+(?:cannot|can't|am\s+unable)|i'm\s+(?:unable|sorry)|unfortunately,?\s+i)",
+    re.IGNORECASE,
+)
 
 OPENROUTER_BASE_URL = "https://openrouter.ai/api/v1"
 HUGGINGFACE_BASE_URL = "https://router.huggingface.co/v1"
@@ -96,9 +112,13 @@ class Summarizer:
             logging.warning(f"Model {model} failed: {e}")
             return ""
 
-        summary = (completion.text or "").strip()
+        summary = _MARKDOWN_PREAMBLE.sub("", (completion.text or "").strip()).strip()
         if not summary:
             logging.warning(f"Model {model} returned an empty summary.")
+            return ""
+
+        if _REFUSAL.match(summary):
+            logging.warning(f"Model {model} refused to summarize: {summary[:80]!r}")
             return ""
 
         if completion.finish_reason == "length":

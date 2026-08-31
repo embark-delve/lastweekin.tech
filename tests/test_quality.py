@@ -535,3 +535,23 @@ class TestGoldenSet:
             for _, title, source, summary, expected in GOLDEN_SET
         )
         assert agreed == len(GOLDEN_SET)
+
+
+class TestMarkdownArtifacts:
+    """Two summaries shipped opening with "# Summary" headers on 2026-08-30."""
+
+    def test_a_markdown_heading_fails_the_contract(self):
+        from lastweekintech.quality import check_contract
+
+        result = check_contract("# Summary\n\nFlock contracts are being cancelled fast.")
+        assert not result.passed and "markdown" in result.reason
+
+    def test_a_bold_label_line_fails_the_contract(self):
+        from lastweekintech.quality import check_contract
+
+        assert not check_contract("**Key points**\nThe chip shipped early.").passed
+
+    def test_plain_prose_with_a_hash_symbol_passes(self):
+        from lastweekintech.quality import check_contract
+
+        assert check_contract("The repository trended at #1 on GitHub this week.").passed

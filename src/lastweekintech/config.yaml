@@ -21,6 +21,9 @@ feeds:
     url: "http://rss.slashdot.org/Slashdot/slashdot"
   - name: "Techmeme"
     url: "https://www.techmeme.com/feed.xml"
+    # Techmeme reports on coverage rather than producing it: its presence in a
+    # cluster is corroboration, but the digest links to the original outlet.
+    aggregator: true
   - name: "TechSpot"
     url: "https://www.techspot.com/backend.xml"
   - name: "BleepingComputer"
@@ -48,6 +51,32 @@ hn:
   # Maximum stories to pull for the week.
   limit: 200
 
+# Editorial selection: one model call that reads the candidate pool with a
+# rubric and picks the edition, with a one-line case per story and a short
+# read on the week. Its picks still pass the mechanical guards (AI floor,
+# source cap, body preference), and any failure falls back to the score
+# ranking. One call a week justifies the strongest model in the chain.
+editor:
+  enabled: true
+  model_name: "anthropic/claude-sonnet-5"
+  fallback_models:
+    - "anthropic/claude-haiku-4.5"
+    - "google/gemini-3.7-flash"
+  # Generous on purpose: reasoning models spend part of the budget thinking,
+  # and a budget sized for the JSON alone truncated the first live verdict.
+  max_tokens: 8000
+  temperature: 0.2
+  excerpt_chars: 300
+
+# The consensus check: ask a Perplexity search model what the wider press led
+# with this week, boost pool stories it corroborates (weights.consensus below)
+# and record the headlines the funnel never saw. An unset key skips the stage.
+perplexity:
+  enabled: true
+  api_key: "${PERPLEXITY_API_KEY}"
+  model: "sonar-pro"
+  story_count: 15
+
 # Absolute origin of the published site, used for the feed, sitemap, canonical
 # links and social cards.
 site_url: "https://lastweekin.tech"
@@ -62,6 +91,9 @@ weights:
   hn: 5
   src: 3
   rec: 1
+  # Flat corroboration bonus for a story the Perplexity consensus also
+  # carries; applied once per story, on top of the normalised components.
+  consensus: 2
 
 # The shape of a published edition.
 digest:
@@ -94,7 +126,7 @@ summarizer:
   fallback_models:
     - "google/gemini-3.7-flash"
     - "openai/gpt-5-mini"
-    - "openai/gpt-oss-20b:free"
+    - "z-ai/glm-5.2:free"
   hf_token: "${HF_TOKEN}"
   # Optional: models routed via Hugging Face instead of OpenRouter. Any model
   # listed here is skipped automatically when HF_TOKEN is unset.

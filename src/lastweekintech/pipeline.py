@@ -24,9 +24,10 @@ import trafilatura
 from jinja2 import Environment, FileSystemLoader
 from thefuzz import fuzz
 
-from lastweekintech import hn, syndication
+from lastweekintech import discovery, hn, syndication
+from lastweekintech import editor as editorial
 from lastweekintech.config import Config
-from lastweekintech.domain import Article, Story
+from lastweekintech.domain import Article, Digest, Story
 from lastweekintech.metrics import RunMetrics, summarizer_model
 from lastweekintech.summarizer import Summarizer
 from lastweekintech.text import (
@@ -124,6 +125,7 @@ def fetch_articles(
                     source=feed.name,
                     published_at=published_at,
                     hn_points=None,
+                    aggregator=feed.aggregator,
                 )
             )
 
@@ -603,28 +605,128 @@ def _classify_story(story: Story) -> str:
     return GENERAL_CATEGORY
 
 
-def select_top_stories(stories: list[Story], count: int = 7, min_ai: int = 4) -> list[Story]:
+def select_top_stories(
+    stories: list[Story],
+    count: int = 7,
+    min_ai: int = 4,
+    max_per_source: int = 0,
+) -> list[Story]:
     """Select the top ``count`` stories, guaranteeing a floor of AI coverage.
 
-    The floor is a minimum, not a quota: a week where every top story is about
-    AI publishes seven AI stories. Promotion only happens when the ranking falls
-    short, and it displaces the weakest general stories rather than reordering
-    the digest.
+    Two preferences temper the raw ranking, and both yield rather than shorten
+    an edition. Stories with an extracted body come first, because a story with
+    no body cannot be summarized and one too many of those fails the publish
+    gate — which is how the 2026-08-24 run died. And no outlet may hold more
+    than ``max_per_source`` slots, because whoever supplies the strongest
+    signal otherwise owns the page.
+
+    The AI floor is a minimum, not a quota: a week where every top story is
+    about AI publishes seven AI stories. Promotion only happens when the
+    ranking falls short, and it displaces the weakest general stories rather
+    than reordering the digest.
     """
     ranked = sorted(stories, key=lambda s: s.score, reverse=True)
-    selected = ranked[:count]
-
-    shortfall = min_ai - sum(s.category == AI_CATEGORY for s in selected)
-    if shortfall > 0:
-        promoted = [s for s in ranked[count:] if s.category == AI_CATEGORY][:shortfall]
-        if promoted:
-            demoted = {
-                id(s) for s in [s for s in selected if s.category != AI_CATEGORY][-len(promoted) :]
-            }
-            selected = [s for s in selected if id(s) not in demoted] + promoted
-            logging.info(f"Promoted {len(promoted)} AI stories to meet the coverage floor.")
-
+    preferred = [s for s in ranked if _has_body(s)] + [s for s in ranked if not _has_body(s)]
+    selected = _pick_with_source_cap(preferred, count, max_per_source)
+    selected = _enforce_ai_floor(selected, preferred, min_ai)
     return sorted(selected, key=lambda s: s.score, reverse=True)
+
+
+def select_edition(
+    candidates: list[Story],
+    verdict: "editorial.EditorVerdict",
+    count: int = 7,
+    min_ai: int = 4,
+    max_per_source: int = 0,
+) -> list[Story]:
+    """Turn the editor's verdict into the edition, guards applied.
+
+    The editor proposes; the guards dispose. Its picks lead, in print order,
+    but they pass through the same rules as the mechanical path — bodyless
+    stories yield to summarizable ones, no outlet exceeds the cap, and the AI
+    floor holds — with the score ranking backfilling whatever the guards
+    remove. The editor can reorder the page, not overrule its constraints.
+    """
+    picks = []
+    for pick in verdict.picks:
+        story = candidates[pick.n - 1]
+        story.why = pick.why or None
+        picks.append(story)
+
+    chosen = {id(s) for s in picks}
+    pool = sorted(
+        (s for s in candidates if id(s) not in chosen), key=lambda s: s.score, reverse=True
+    )
+    preferred = (
+        [s for s in picks if _has_body(s)]
+        + [s for s in pool if _has_body(s)]
+        + [s for s in picks if not _has_body(s)]
+        + [s for s in pool if not _has_body(s)]
+    )
+    selected = _pick_with_source_cap(preferred, count, max_per_source)
+    return _enforce_ai_floor(selected, preferred, min_ai)
+
+
+def _enforce_ai_floor(selected: list[Story], preferred: list[Story], min_ai: int) -> list[Story]:
+    """Promote AI stories from ``preferred`` until the floor holds.
+
+    Promotion displaces the weakest general stories — the last non-AI entries
+    of a selection that arrives best-first — and never runs when the pool has
+    nothing to promote.
+    """
+    shortfall = min_ai - sum(s.category == AI_CATEGORY for s in selected)
+    if shortfall <= 0:
+        return selected
+
+    chosen = {id(s) for s in selected}
+    promoted = [s for s in preferred if id(s) not in chosen and s.category == AI_CATEGORY][
+        :shortfall
+    ]
+    if promoted:
+        demoted = {
+            id(s) for s in [s for s in selected if s.category != AI_CATEGORY][-len(promoted) :]
+        }
+        selected = [s for s in selected if id(s) not in demoted] + promoted
+        logging.info(f"Promoted {len(promoted)} AI stories to meet the coverage floor.")
+    return selected
+
+
+def _has_body(story: Story) -> bool:
+    return any(a.content for a in story.articles)
+
+
+def _story_source(story: Story) -> str:
+    article = _representative_article(story)
+    return article.source if article else ""
+
+
+def _pick_with_source_cap(preferred: list[Story], count: int, max_per_source: int) -> list[Story]:
+    """Take stories in order, deferring any outlet already at the cap.
+
+    Deferred stories return, best first, when the pool cannot otherwise fill
+    the edition: the cap trades slots between outlets, never for empty ones.
+    """
+    if max_per_source < 1:
+        return preferred[:count]
+
+    selected: list[Story] = []
+    deferred: list[Story] = []
+    held = Counter[str]()
+    for story in preferred:
+        if len(selected) == count:
+            break
+        source = _story_source(story)
+        if held[source] < max_per_source:
+            held[source] += 1
+            selected.append(story)
+        else:
+            deferred.append(story)
+
+    if len(selected) < count and deferred:
+        backfilled = deferred[: count - len(selected)]
+        logging.info(f"Source cap yielded: backfilled {len(backfilled)} over-cap stories.")
+        selected += backfilled
+    return selected
 
 
 def summarize_stories(
@@ -641,9 +743,12 @@ def summarize_stories(
     record = metrics if metrics is not None else RunMetrics()
 
     for story in stories:
+        # Original reporting first, richest body first. An aggregator's page is
+        # a list of other outlets' coverage, and asking a model to summarize
+        # one produced a refusal on the live page.
         candidates = sorted(
             (a for a in story.articles if a.content),
-            key=lambda a: len(a.content or ""),
+            key=lambda a: (not a.aggregator, len(a.content or "")),
             reverse=True,
         )
         story.summary = None
@@ -671,10 +776,12 @@ def build_digest(
     parse: Callable[[str], Any] | None = None,
     download: Callable[[str], str] | None = None,
     hn_fetch: hn.JsonFetcher | None = None,
+    search: discovery.SearchFn | None = None,
+    editor: "editorial.Editor | None" = None,
     delay: float = 0.5,
     editions: list[dict[str, Any]] | None = None,
     metrics: RunMetrics | None = None,
-) -> list[Story]:
+) -> Digest:
     """Run every curation stage and return the stories to publish.
 
     Bodies are downloaded only for the candidate pool, after ranking: fetching
@@ -710,6 +817,15 @@ def build_digest(
     with record.stage("score"):
         stories = score_stories(stories, config, now=now)
 
+    with record.stage("consensus"):
+        consensus = discovery.fetch_consensus(config, now=now, search=search)
+        missed = discovery.apply_consensus_boost(stories, consensus, config.weights.consensus)
+        if consensus:
+            stories.sort(key=lambda s: s.score, reverse=True)
+    record.consensus_stories = len(consensus)
+    record.consensus_matched = len(consensus) - len(missed)
+    record.consensus_missed = [m.headline for m in missed]
+
     with record.stage("exclude_repeats"):
         ranked = drop_recently_published(
             stories,
@@ -740,20 +856,47 @@ def build_digest(
         record.ai_before_promotion = sum(
             s.category == AI_CATEGORY for s in by_score[: config.digest.story_count]
         )
-        selected = select_top_stories(
-            candidates,
-            count=config.digest.story_count,
-            min_ai=config.digest.min_ai_stories,
-        )
+        verdict = None
+        if editor is not None:
+            verdict = editor.select(
+                candidates,
+                count=config.digest.story_count,
+                min_ai=config.digest.min_ai_stories,
+                max_per_source=config.digest.max_per_source,
+            )
+        if editor is not None and verdict is not None:
+            selected = select_edition(
+                candidates,
+                verdict,
+                count=config.digest.story_count,
+                min_ai=config.digest.min_ai_stories,
+                max_per_source=config.digest.max_per_source,
+            )
+            record.editor_used = True
+            record.editor_model = editor.last_model or ""
+            picked = {id(candidates[p.n - 1]) for p in verdict.picks}
+            record.editor_overridden = sum(1 for s in selected if id(s) not in picked)
+        else:
+            selected = select_top_stories(
+                candidates,
+                count=config.digest.story_count,
+                min_ai=config.digest.min_ai_stories,
+                max_per_source=config.digest.max_per_source,
+            )
     record.ai_published = sum(s.category == AI_CATEGORY for s in selected)
     record.ai_promoted = max(record.ai_published - record.ai_before_promotion, 0)
 
     with record.stage("summarize"):
         summarized = summarize_stories(selected, summarizer, metrics=record)
-    return summarized
+    return Digest(stories=summarized, intro=(verdict.intro or None) if verdict else None)
 
 
-def build_edition(stories: list[Story], week: str, now: datetime | None = None) -> dict[str, Any]:
+def build_edition(
+    stories: list[Story],
+    week: str,
+    now: datetime | None = None,
+    intro: str | None = None,
+) -> dict[str, Any]:
     """Assemble the published JSON payload for one week."""
     now = now or datetime.now(UTC)
     entries = []
@@ -772,20 +915,27 @@ def build_edition(stories: list[Story], week: str, now: datetime | None = None) 
             "hn_points": main_article.hn_points if main_article else None,
             "score": round(story.score, 3),
             "summary": story.summary or "",
+            "why": story.why or "",
+            "consensus": story.consensus,
         })
 
     return {
         "week": week,
         "generated_at": now.isoformat(),
+        "intro": intro or "",
         "stories": entries,
     }
 
 
 def _representative_article(story: Story) -> Article | None:
-    """Pick the article to link to: the one with the most traction, then the fullest."""
+    """Pick the article to link to: original reporting over an aggregator's
+    rewrite, then the most traction, then the fullest body."""
     if not story.articles:
         return None
-    return max(story.articles, key=lambda a: (a.hn_points or 0, len(a.content or "")))
+    return max(
+        story.articles,
+        key=lambda a: (not a.aggregator, a.hn_points or 0, len(a.content or "")),
+    )
 
 
 def save_edition(edition: dict[str, Any], data_dir: Path) -> tuple[Path, Path]:

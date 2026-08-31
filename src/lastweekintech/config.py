@@ -24,6 +24,9 @@ class Feed:
 
     name: str
     url: str
+    # An aggregator reports on coverage rather than producing it. Its presence
+    # in a cluster counts as corroboration, but it is never the linked source.
+    aggregator: bool = False
 
 
 @dataclass
@@ -43,6 +46,40 @@ class Weights:
     hn: float = 5.0
     src: float = 3.0
     rec: float = 1.0
+    # Flat bonus for a story the Perplexity consensus check also carries.
+    # Unlike the others it is not normalised — it is corroboration, applied
+    # once per story after the base score.
+    consensus: float = 2.0
+
+
+@dataclass
+class EditorSettings:
+    """The editorial selection stage: one model call that picks the edition."""
+
+    enabled: bool = True
+    model_name: str = "anthropic/claude-sonnet-5"
+    fallback_models: list[str] = field(
+        default_factory=lambda: ["anthropic/claude-haiku-4.5", "google/gemini-3.7-flash"]
+    )
+    # Generous on purpose: reasoning-capable models spend part of this budget
+    # thinking, and a budget sized for the JSON alone truncated the primary
+    # model's verdict mid-answer on the first live run.
+    max_tokens: int = 8000
+    temperature: float = 0.2
+    # How many characters of each candidate's body the editor reads.
+    excerpt_chars: int = 300
+
+
+@dataclass
+class PerplexitySettings:
+    """The consensus check against the wider press, via the Perplexity API."""
+
+    enabled: bool = True
+    # Unset disables the stage rather than failing the run.
+    api_key: str | None = None
+    model: str = "sonar-pro"
+    # How many consensus stories to ask for.
+    story_count: int = 15
 
 
 @dataclass
@@ -63,6 +100,12 @@ class DigestSettings:
     # traction persists for days, so a story hot for eight days can top two
     # consecutive editions. Zero or less publishes repeats.
     repeat_lookback_weeks: int = 3
+    # How many stories one outlet may place in an edition. Without a cap the
+    # strongest signal owns the page: WIRED supplied 40% of every story the old
+    # ranking ever published, and the first HN-scored edition was seven of
+    # seven Hacker News. Zero disables the cap; it always yields rather than
+    # shorten an edition.
+    max_per_source: int = 2
 
 
 @dataclass
@@ -88,6 +131,8 @@ class Config:
     window_days: int
     summarizer: SummarizerSettings
     digest: DigestSettings = field(default_factory=DigestSettings)
+    perplexity: PerplexitySettings = field(default_factory=PerplexitySettings)
+    editor: EditorSettings = field(default_factory=EditorSettings)
     # Absolute origin of the published site. Feeds, sitemaps and social cards
     # all need absolute URLs, so this cannot be derived from the output path.
     site_url: str = "https://lastweekin.tech"
@@ -113,6 +158,8 @@ class Config:
             "window_days",
             "summarizer",
             "digest",
+            "perplexity",
+            "editor",
             "site_url",
         }
         if unknown:
@@ -126,6 +173,8 @@ class Config:
                 window_days=int(data.get("window_days", 7)),
                 summarizer=SummarizerSettings(**data["summarizer"]),
                 digest=DigestSettings(**data.get("digest", {})),
+                perplexity=PerplexitySettings(**data.get("perplexity", {})),
+                editor=EditorSettings(**data.get("editor", {})),
                 site_url=str(data.get("site_url") or "https://lastweekin.tech").rstrip("/"),
             )
         except (KeyError, TypeError) as exc:

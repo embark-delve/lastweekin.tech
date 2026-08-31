@@ -292,6 +292,12 @@ _META_PATTERN = re.compile(
     re.IGNORECASE,
 )
 
+# Markdown furniture in what should be plain prose: a heading line or a
+# bold-only label line. Two summaries shipped opening with "# Summary" on
+# 2026-08-30; the summarizer now strips these, and this check is the backstop
+# that keeps the failure measurable if a new shape slips through.
+_MARKDOWN_ARTIFACT = re.compile(r"(?m)^\s*(?:#{1,6}\s+\S|\*\*[^\n*]+\*\*\s*$)")
+
 
 def normalize_text(text: str | None) -> str:
     """Return ``text`` with typographic spaces and quotes flattened to ASCII.
@@ -637,6 +643,10 @@ def check_contract(summary: str | None) -> CheckResult:
     meta = sorted({match.group(0).lower() for match in _META_PATTERN.finditer(text)})
     if meta:
         problems.append(f"meta-phrasing: {', '.join(repr(phrase) for phrase in meta)}")
+
+    markdown = _MARKDOWN_ARTIFACT.search(text)
+    if markdown:
+        problems.append(f"markdown formatting: {markdown.group(0).strip()!r}")
 
     # A quoted speaker is allowed to say "we"; the summarizer is not.
     unquoted = _QUOTED.sub(" ", text)

@@ -37,133 +37,145 @@
     <a class="skip-link" href="#stories">Skip to the stories</a>
 
     <header class="site-header">
+      <p class="masthead-note">Published every Monday &middot; No trackers, no ads</p>
       <h1 class="site-title"><a class="wordmark" href="../index.html">LastWeekIn.Tech</a></h1>
-      <p class="tagline">
-        The 7 tech stories that mattered, week ending
-        <time datetime="2026-06-22">Jun 22, 2026</time>
-      </p>
+      <div class="dateline" role="presentation">
+        <span class="dateline-item">The 7 stories that mattered</span>
+        <span class="dateline-item"
+          >Week ending
+          <time datetime="2026-06-22">Jun 22, 2026</time></span
+        >
+      </div>
       <p class="archive-note">
         An archived edition. <a href="../index.html">See this week&rsquo;s digest.</a>
       </p>
     </header>
 
     <main>
+
       <ol class="story-list" id="stories">
-        <li class="story-card">
-          <p class="story-rank"><span class="visually-hidden">Number </span>1</p>
+        <li class="story-card lead-story">
+          <p class="story-rank" aria-hidden="true">1</p>
           <div class="story-content">
-            <h2 class="story-title">
-              <a href="https://www.theverge.com/tech/953285/polymarket-fake-viral-video-bets" target="_blank" rel="noopener noreferrer"
-                >Polymarket reportedly paid people to post fake videos of themselves placing bets</a
-              >
-            </h2>
             <p class="story-meta">
+              <span class="visually-hidden">Number 1. </span>
               <span class="story-category category-general-tech"
                 >General Tech</span
               >
               <span class="story-source">The Verge</span>
             </p>
+            <h2 class="story-title">
+              <a href="https://www.theverge.com/tech/953285/polymarket-fake-viral-video-bets" target="_blank" rel="noopener noreferrer"
+                >Polymarket reportedly paid people to post fake videos of themselves placing bets</a
+              >
+            </h2>
           </div>
         </li>
         <li class="story-card">
-          <p class="story-rank"><span class="visually-hidden">Number </span>2</p>
+          <p class="story-rank" aria-hidden="true">2</p>
           <div class="story-content">
-            <h2 class="story-title">
-              <a href="https://www.bleepingcomputer.com/news/security/hackers-exploit-info-disclosure-bug-in-gravity-smtp-wordpress-plugin/" target="_blank" rel="noopener noreferrer"
-                >Hackers exploit info disclosure bug in Gravity SMTP WordPress plugin</a
-              >
-            </h2>
             <p class="story-meta">
+              <span class="visually-hidden">Number 2. </span>
               <span class="story-category category-general-tech"
                 >General Tech</span
               >
               <span class="story-source">BleepingComputer</span>
             </p>
+            <h2 class="story-title">
+              <a href="https://www.bleepingcomputer.com/news/security/hackers-exploit-info-disclosure-bug-in-gravity-smtp-wordpress-plugin/" target="_blank" rel="noopener noreferrer"
+                >Hackers exploit info disclosure bug in Gravity SMTP WordPress plugin</a
+              >
+            </h2>
             <p class="story-summary">WordPress sites using the Gravity SMTP plugin (≈100,000 sites) are at risk from CVE‑2026‑4020, a medium‑severity, unauthenticated information‑leak flaw that exposes a REST endpoint returning a full “System Report.” The report can reveal API keys, third‑party email credentials, WordPress configuration, server and database details, and other sensitive data, enabling attackers to impersonate the site and plan further exploits. Defiant’s Wordfence firewall has blocked over 17 million attack attempts, with a spike of 4 million blocked requests on June 7, and recommends blocking the IPs listed in their advisory and the `/wp-json/gravitysmtp/v1/tests/mock-data` endpoint. The vulnerability is fixed in Gravity SMTP 2.1.5 (released March 17); site owners should upgrade immediately. In a related alert, CVE‑2026‑8713 affects the Avada Builder plugin, allowing unauthenticated arbitrary file deletion via a path‑traversal flaw when a published Avada form stores submissions in the database; the issue is patched in Avada 3.15.4 and should be applied promptly, even though no active exploitation has been seen.</p>
           </div>
         </li>
         <li class="story-card">
-          <p class="story-rank"><span class="visually-hidden">Number </span>3</p>
+          <p class="story-rank" aria-hidden="true">3</p>
           <div class="story-content">
-            <h2 class="story-title">
-              <a href="https://www.theregister.com/personal-tech/2026/06/22/microsoft-accidentally-kills-epic-outlook-email-threads/5259388" target="_blank" rel="noopener noreferrer"
-                >Microsoft accidentally kills epic Outlook email threads</a
-              >
-            </h2>
             <p class="story-meta">
+              <span class="visually-hidden">Number 3. </span>
               <span class="story-category category-general-tech"
                 >General Tech</span
               >
               <span class="story-source">The Register</span>
             </p>
+            <h2 class="story-title">
+              <a href="https://www.theregister.com/personal-tech/2026/06/22/microsoft-accidentally-kills-epic-outlook-email-threads/5259388" target="_blank" rel="noopener noreferrer"
+                >Microsoft accidentally kills epic Outlook email threads</a
+              >
+            </h2>
             <p class="story-summary">Microsoft’s latest build of Outlook for macOS (v16.110, build 26061317) has broken a fundamental feature: when users reply to an email, the original message no longer appears in the reply window. This omission hampers threaded conversations and has already prompted complaints that the update slipped past quality checks. The only workaround, per a forum moderator, is to roll back to a previous version and disable auto‑updates until a fix arrives—an option that is impractical for managed fleets. While users can copy‑paste the relevant text, the disruption reveals a lapse in Microsoft’s testing process, especially troubling given the company’s recent push to phase out Office 2019 on Macs and its broader strategy of encouraging upgrades. The Register has yet to receive a response from Microsoft regarding the issue.</p>
           </div>
         </li>
         <li class="story-card">
-          <p class="story-rank"><span class="visually-hidden">Number </span>4</p>
+          <p class="story-rank" aria-hidden="true">4</p>
           <div class="story-content">
-            <h2 class="story-title">
-              <a href="https://news.slashdot.org/story/26/06/21/2340231/several-us-states-bet-that-ai-can-solve-their-prison-recidivism-crisis?utm_source=rss1.0mainlinkanon&amp;utm_medium=feed" target="_blank" rel="noopener noreferrer"
-                >Several US States Bet That AI Can Solve Their Prison Recidivism Crisis</a
-              >
-            </h2>
             <p class="story-meta">
+              <span class="visually-hidden">Number 4. </span>
               <span class="story-category category-ai"
                 >AI</span
               >
               <span class="story-source">Slashdot</span>
             </p>
+            <h2 class="story-title">
+              <a href="https://news.slashdot.org/story/26/06/21/2340231/several-us-states-bet-that-ai-can-solve-their-prison-recidivism-crisis?utm_source=rss1.0mainlinkanon&amp;utm_medium=feed" target="_blank" rel="noopener noreferrer"
+                >Several US States Bet That AI Can Solve Their Prison Recidivism Crisis</a
+              >
+            </h2>
             <p class="story-summary">The quote humorously notes that the University of California, Berkeley produced two iconic and seemingly unrelated innovations—LSD, the psychedelic drug, and UNIX, the influential operating system—implying a surprising but deliberate connection between them.</p>
           </div>
         </li>
         <li class="story-card">
-          <p class="story-rank"><span class="visually-hidden">Number </span>5</p>
+          <p class="story-rank" aria-hidden="true">5</p>
           <div class="story-content">
-            <h2 class="story-title">
-              <a href="https://arstechnica.com/science/2026/06/trump-admins-coal-investments-assist-plants-with-repeated-violations/" target="_blank" rel="noopener noreferrer"
-                >Trump admin’s coal investments assist plants with repeated violations</a
-              >
-            </h2>
             <p class="story-meta">
+              <span class="visually-hidden">Number 5. </span>
               <span class="story-category category-general-tech"
                 >General Tech</span
               >
               <span class="story-source">Ars Technica</span>
             </p>
+            <h2 class="story-title">
+              <a href="https://arstechnica.com/science/2026/06/trump-admins-coal-investments-assist-plants-with-repeated-violations/" target="_blank" rel="noopener noreferrer"
+                >Trump admin’s coal investments assist plants with repeated violations</a
+              >
+            </h2>
             <p class="story-summary">In 2023, Tennessee’s Cumberland Fossil Plant—already plagued by pollution, equipment failures and health risks—was slated to shut its units in 2026 and 2028 after a 2011 settlement that required the Tennessee Valley Authority (TVA) to install pollution controls. Yet, following a Trump‑era reshuffle of TVA’s board, the agency secured a $46 million federal grant to extend the plant’s life—one of only three DOE‑funded coal plants repeatedly cited for Clean Air and Water Act violations, alongside Oklahoma’s Grand River Energy Center and North Carolina’s Roxboro Steam Electric Plant. Local residents like Angie Mummaw view the extension as a setback to clean‑energy progress, while clean‑energy advocates such as Maggie Shober argue that keeping coal plants running accelerates climate change and health harms. Studies link the plant’s toxic fine‑particle emissions to roughly 1,000 premature deaths across the Northeast from 1999‑2020, underscoring the broader public‑health impact of continued coal operations.</p>
           </div>
         </li>
         <li class="story-card">
-          <p class="story-rank"><span class="visually-hidden">Number </span>6</p>
+          <p class="story-rank" aria-hidden="true">6</p>
           <div class="story-content">
+            <p class="story-meta">
+              <span class="visually-hidden">Number 6. </span>
+              <span class="story-category category-general-tech"
+                >General Tech</span
+              >
+              <span class="story-source">WIRED</span>
+            </p>
             <h2 class="story-title">
               <a href="https://www.wired.com/story/these-are-the-12-ikea-products-ikeas-design-chief-personally-owns/" target="_blank" rel="noopener noreferrer"
                 >These Are the 12 Ikea Products the Company&#39;s Design Chief Personally Owns</a
               >
             </h2>
+            <p class="story-summary">Johan Ejdemo, a carpenter and avid cook, mixes Ikea staples with his own carpentry to create a highly functional yet personalized kitchen. He keeps a long‑used Koncis metal tray set for cooking, customises Ikea’s Faktum/Metod system with extra storage and a hand‑painted island, and adds a vintage PS cabinet and a 1995 PS clock for nostalgic flair. His space is rounded out with a now‑unavailable Norbo folding table, a weathered Bekväm step stool, and practical Norberg‑style stools, all of which accommodate family gatherings and everyday use. The result is a durable, well‑organized kitchen that blends Ikea’s affordability and design with Ejdemo’s hands‑on craftsmanship.</p>
+          </div>
+        </li>
+        <li class="story-card">
+          <p class="story-rank" aria-hidden="true">7</p>
+          <div class="story-content">
             <p class="story-meta">
+              <span class="visually-hidden">Number 7. </span>
               <span class="story-category category-general-tech"
                 >General Tech</span
               >
               <span class="story-source">WIRED</span>
             </p>
-            <p class="story-summary">Johan Ejdemo, a carpenter and avid cook, mixes Ikea staples with his own carpentry to create a highly functional yet personalized kitchen. He keeps a long‑used Koncis metal tray set for cooking, customises Ikea’s Faktum/Metod system with extra storage and a hand‑painted island, and adds a vintage PS cabinet and a 1995 PS clock for nostalgic flair. His space is rounded out with a now‑unavailable Norbo folding table, a weathered Bekväm step stool, and practical Norberg‑style stools, all of which accommodate family gatherings and everyday use. The result is a durable, well‑organized kitchen that blends Ikea’s affordability and design with Ejdemo’s hands‑on craftsmanship.</p>
-          </div>
-        </li>
-        <li class="story-card">
-          <p class="story-rank"><span class="visually-hidden">Number </span>7</p>
-          <div class="story-content">
             <h2 class="story-title">
               <a href="https://www.wired.com/story/uk-loses-its-sixth-prime-minister-keir-starmer/" target="_blank" rel="noopener noreferrer"
                 >The UK Just Lost Its Sixth Prime Minister of the Decade</a
               >
             </h2>
-            <p class="story-meta">
-              <span class="story-category category-general-tech"
-                >General Tech</span
-              >
-              <span class="story-source">WIRED</span>
-            </p>
             <p class="story-summary">UK Prime Minister Keir Starmer resigned less than two years after leading Labour to a landslide victory, citing his party’s assessment that he is not the best fit to guide them into the next election. His popularity has plummeted amid tax rises, spending cuts, and unmet public‑service promises, with May’s local elections seeing Labour lose 1,500 council seats and many councils shift to the Reform UK party. Starmer’s resignation comes as Andy Burnham, newly elected MP and former Manchester mayor, is poised to succeed him, with former Health Secretary Wes Streeting pledging support. The resignation follows a series of high‑profile leadership changes since the 2016 Brexit referendum, and Starmer will remain in office until the Labour Party elects a new leader, expected before Parliament reconvenes in September.</p>
           </div>
         </li>
