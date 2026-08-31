@@ -94,7 +94,7 @@ summarizer:
   fallback_models:
     - "google/gemini-3.7-flash"
     - "openai/gpt-5-mini"
-    - "openai/gpt-oss-20b:free"
+    - "z-ai/glm-5.2:free"
   hf_token: "${HF_TOKEN}"
   # Optional: models routed via Hugging Face instead of OpenRouter. Any model
   # listed here is skipped automatically when HF_TOKEN is unset.
