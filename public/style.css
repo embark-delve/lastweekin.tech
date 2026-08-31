@@ -365,44 +365,27 @@ main {
   color: var(--ink-muted);
 }
 
-/* ---- The lead story ------------------------------------------------- */
+/* ---- The lead story -------------------------------------------------
+   Same numbered grid as every other story — the page is a ranked list and
+   the "1" is part of the ranking — with only the type scale marking it as
+   the lead. */
 
 .lead-story {
-  display: block;
-  padding: 2rem 0 1.9rem;
-  margin-bottom: 0.2rem;
+  padding-top: 1.9rem;
+  padding-bottom: 1.9rem;
   border-bottom: 1px solid var(--rule-strong);
-  text-align: center;
-}
-
-.lead-story .story-rank {
-  display: none;
-}
-
-.lead-story .story-meta {
-  justify-content: center;
+  margin-bottom: 0.2rem;
 }
 
 .lead-story .story-title {
-  font-size: clamp(1.7rem, 5.4vw, 2.5rem);
-  font-weight: 720;
-  line-height: 1.12;
-  margin-bottom: 0.8rem;
+  font-size: clamp(1.55rem, 4.4vw, 2rem);
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 0.7rem;
 }
 
 .lead-story .story-summary {
-  max-width: 38rem;
-  margin: 0 auto;
   font-size: 1.125rem;
-}
-
-.lead-story .story-case {
-  max-width: 34rem;
-  margin: 0.85rem auto 0;
-}
-
-.lead-story .story-why {
-  margin-top: 0.85rem;
 }
 
 /* ---- Subscribe ------------------------------------------------------ */
