@@ -44,6 +44,10 @@ def run(
         bool,
         typer.Option("--skip-gate", help="Publish even if the digest fails validation."),
     ] = False,
+    force: Annotated[
+        bool,
+        typer.Option("--force", help="Rebuild and overwrite an already-published week."),
+    ] = False,
     dry_run: Annotated[
         bool,
         typer.Option("--dry-run", help="Print the edition instead of writing any files."),
@@ -56,6 +60,18 @@ def run(
     """Run the LastWeekIn.Tech data pipeline."""
     now = datetime.now(UTC)
     week = week or now.strftime("%Y-%m-%d")
+
+    # A delayed cron firing after a manual dispatch (or the reverse) must not
+    # silently replace an edition readers already saw. Rebuilding a published
+    # week is an explicit decision, not a race outcome.
+    already_published = data_dir / "archive" / f"{week}.json"
+    if already_published.exists() and not force and not dry_run:
+        typer.secho(
+            f"The {week} edition is already published ({already_published}); "
+            "use --force to rebuild it.",
+            fg=typer.colors.YELLOW,
+        )
+        return
 
     try:
         config = get_config(config_path)

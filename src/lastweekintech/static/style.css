@@ -24,6 +24,18 @@
   font-display: swap;
 }
 
+/* Body text. A text serif designed for news reading, with optical sizing so
+   small sizes gain sturdiness automatically. No italic file on purpose: body
+   italics are rare enough that a synthesized oblique is a fair trade for
+   147KB, and every *designed* italic on the page is Fraunces. */
+@font-face {
+  font-family: "Newsreader";
+  src: url("newsreader.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   color-scheme: light dark;
 
@@ -45,8 +57,8 @@
   --cat-business-ink: #7d5a1c;
 
   --display: "Fraunces", "Iowan Old Style", Georgia, serif;
-  --serif: Charter, "Bitstream Charter", "Sitka Text", Cambria, Georgia,
-    "Times New Roman", serif;
+  --serif: "Newsreader", Charter, "Bitstream Charter", "Sitka Text", Cambria,
+    Georgia, "Times New Roman", serif;
   --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial,
     sans-serif;
 }
@@ -80,10 +92,24 @@ body {
   background: var(--paper);
   color: var(--ink);
   font-family: var(--serif);
-  font-size: 1.0625rem;
-  line-height: 1.65;
+  font-optical-sizing: auto;
+  font-size: 1.125rem;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+}
+
+/* The printed-page frame: a fixed double rule floating over the scroll on
+   screens wide enough to give it room. Decorative only. */
+@media (min-width: 64rem) {
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0.9rem;
+    border: 3px double var(--rule);
+    pointer-events: none;
+    z-index: 5;
+  }
 }
 
 :focus-visible {
@@ -155,6 +181,11 @@ body {
   text-decoration: none;
 }
 
+/* The one drop of ink the nameplate allows itself. */
+.wordmark .dot {
+  color: var(--accent);
+}
+
 .wordmark:hover {
   color: var(--accent);
 }
@@ -210,19 +241,26 @@ main {
   color: var(--ink);
 }
 
-/* ---- Stories -------------------------------------------------------- */
+/* ---- Stories ---------------------------------------------------------
+   Three tiers, like a front page: the lead, two secondary stories at full
+   measure, and stories 4-7 as a two-column run of briefs on wide screens.
+   The tiering is what keeps seven stories from reading as one wall. */
 
 .story-list {
   list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 3rem;
   margin: 1.5rem 0 0;
   padding: 0;
 }
 
 .story-card {
+  grid-column: 1 / -1;
   display: grid;
-  grid-template-columns: 3.4rem 1fr;
-  gap: 0 1rem;
-  padding: 1.6rem 0;
+  grid-template-columns: 4.5rem 1fr;
+  gap: 0 1.1rem;
+  padding: 1.7rem 0;
   border-top: 1px solid var(--rule);
 }
 
@@ -234,12 +272,21 @@ main {
   margin: 0;
   font-family: var(--display);
   font-optical-sizing: auto;
-  font-size: 2.6rem;
-  font-weight: 250;
-  line-height: 0.9;
+  font-size: 3.9rem;
+  font-weight: 140;
+  line-height: 0.8;
   text-align: right;
   color: var(--accent);
   font-variant-numeric: lining-nums;
+}
+
+/* On screens with real margins, the numerals hang out into them and the
+   story text comes back flush with the masthead and standfirst. */
+@media (min-width: 78rem) {
+  .story-card:not(.brief) {
+    grid-template-columns: 6.5rem 1fr;
+    margin-left: -7.6rem;
+  }
 }
 
 .story-content {
@@ -325,33 +372,35 @@ main {
 .story-summary {
   margin: 0;
   color: var(--ink);
+  text-wrap: pretty;
+  font-variant-numeric: oldstyle-nums;
 }
 
-/* The editor's one-line case for the story. */
+/* The editor's case for the story — the one element this site has that no
+   feed reader does, so it carries the page's signature: an oxblood rule and
+   the display face in roman. */
 .story-case {
-  margin: 0.65rem 0 0;
+  margin: 0.85rem 0 0;
+  padding: 0.15rem 0 0.15rem 0.95rem;
+  border-left: 3px solid var(--accent);
   font-family: var(--display);
   font-optical-sizing: auto;
-  font-style: italic;
-  font-weight: 430;
-  font-size: 0.9875rem;
+  font-weight: 470;
+  font-size: 1.04rem;
   line-height: 1.5;
-  color: var(--ink-muted);
+  color: var(--ink);
+  text-wrap: pretty;
 }
 
 .story-case-label {
+  display: block;
+  margin: 0 0 0.2rem;
   font-family: var(--sans);
-  font-style: normal;
-  font-size: 0.6875rem;
+  font-size: 0.6563rem;
   font-weight: 700;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--accent);
-  margin-right: 0.35rem;
-}
-
-.story-case-label::after {
-  content: " —";
 }
 
 /* The selection evidence: why this story is on the page at all. */
@@ -371,21 +420,60 @@ main {
    the lead. */
 
 .lead-story {
-  padding-top: 1.9rem;
-  padding-bottom: 1.9rem;
+  padding-top: 2rem;
+  padding-bottom: 2.1rem;
   border-bottom: 1px solid var(--rule-strong);
   margin-bottom: 0.2rem;
 }
 
+.lead-story .story-rank {
+  font-size: 4.6rem;
+}
+
 .lead-story .story-title {
-  font-size: clamp(1.55rem, 4.4vw, 2rem);
+  font-size: clamp(1.65rem, 4.6vw, 2.25rem);
   font-weight: 700;
-  line-height: 1.15;
-  margin-bottom: 0.7rem;
+  line-height: 1.13;
+  margin-bottom: 0.75rem;
 }
 
 .lead-story .story-summary {
-  font-size: 1.125rem;
+  font-size: 1.1875rem;
+}
+
+/* ---- Briefs: stories 4-7 --------------------------------------------
+   Denser type, and two-up once the page is wide enough — the below-the-fold
+   run of a front page. */
+
+.brief {
+  grid-template-columns: 2.5rem 1fr;
+  gap: 0 0.8rem;
+}
+
+.brief .story-rank {
+  font-size: 2rem;
+  line-height: 0.95;
+  font-weight: 250;
+}
+
+.brief .story-title {
+  font-size: 1.2rem;
+}
+
+.brief .story-summary,
+.brief .story-case {
+  font-size: 0.9875rem;
+}
+
+.brief .story-case {
+  border-left-width: 2px;
+  padding-left: 0.75rem;
+}
+
+@media (min-width: 40rem) {
+  .brief {
+    grid-column: auto;
+  }
 }
 
 /* ---- Subscribe ------------------------------------------------------ */
@@ -514,6 +602,10 @@ footer p {
     padding-top: 1.6rem;
   }
 
+  .site-title {
+    font-size: 2.15rem;
+  }
+
   .standfirst {
     font-size: 1.125rem;
   }
@@ -524,17 +616,23 @@ footer p {
     align-items: center;
   }
 
-  .story-card {
-    grid-template-columns: 2.3rem 1fr;
+  .story-card,
+  .brief {
+    grid-template-columns: 2.4rem 1fr;
     gap: 0 0.7rem;
     padding: 1.25rem 0;
   }
 
-  .story-rank {
-    font-size: 1.8rem;
+  .story-rank,
+  .lead-story .story-rank,
+  .brief .story-rank {
+    font-size: 2rem;
+    line-height: 0.95;
+    font-weight: 250;
   }
 
-  .story-title {
+  .story-title,
+  .brief .story-title {
     font-size: 1.25rem;
   }
 

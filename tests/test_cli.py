@@ -125,3 +125,39 @@ class TestRunMetrics:
         result = invoke(tmp_path, "--week", "2026-08-10")
         assert result.exit_code != 0
         assert self.metrics_path(tmp_path).exists()
+
+
+class TestAlreadyPublished:
+    """The 2026-08-31 edition was built twice — a manual dispatch, then the
+    delayed cron — and the second run silently replaced the first. Rebuilding
+    a published week must be an explicit decision."""
+
+    def test_skips_a_week_that_is_already_published(self, tmp_path, stub_pipeline):
+        archive = tmp_path / "data" / "archive"
+        archive.mkdir(parents=True)
+        (archive / "2026-08-10.json").write_text('{"week": "2026-08-10", "stories": []}')
+        before = (archive / "2026-08-10.json").read_text()
+
+        result = invoke(tmp_path, "--week", "2026-08-10")
+        assert result.exit_code == 0
+        assert "already published" in result.output
+        assert (archive / "2026-08-10.json").read_text() == before
+        assert not (tmp_path / "index.html").exists()
+
+    def test_force_rebuilds_a_published_week(self, tmp_path, stub_pipeline):
+        archive = tmp_path / "data" / "archive"
+        archive.mkdir(parents=True)
+        (archive / "2026-08-10.json").write_text('{"week": "2026-08-10", "stories": []}')
+
+        result = invoke(tmp_path, "--week", "2026-08-10", "--force")
+        assert result.exit_code == 0
+        assert (tmp_path / "index.html").exists()
+
+    def test_dry_run_still_runs_on_a_published_week(self, tmp_path, stub_pipeline):
+        archive = tmp_path / "data" / "archive"
+        archive.mkdir(parents=True)
+        (archive / "2026-08-10.json").write_text('{"week": "2026-08-10", "stories": []}')
+
+        result = invoke(tmp_path, "--week", "2026-08-10", "--dry-run")
+        assert result.exit_code == 0
+        assert '"week"' in result.output
