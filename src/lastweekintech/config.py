@@ -46,6 +46,22 @@ class Weights:
     hn: float = 5.0
     src: float = 3.0
     rec: float = 1.0
+    # Flat bonus for a story the Perplexity consensus check also carries.
+    # Unlike the others it is not normalised — it is corroboration, applied
+    # once per story after the base score.
+    consensus: float = 2.0
+
+
+@dataclass
+class PerplexitySettings:
+    """The consensus check against the wider press, via the Perplexity API."""
+
+    enabled: bool = True
+    # Unset disables the stage rather than failing the run.
+    api_key: str | None = None
+    model: str = "sonar-pro"
+    # How many consensus stories to ask for.
+    story_count: int = 15
 
 
 @dataclass
@@ -97,6 +113,7 @@ class Config:
     window_days: int
     summarizer: SummarizerSettings
     digest: DigestSettings = field(default_factory=DigestSettings)
+    perplexity: PerplexitySettings = field(default_factory=PerplexitySettings)
     # Absolute origin of the published site. Feeds, sitemaps and social cards
     # all need absolute URLs, so this cannot be derived from the output path.
     site_url: str = "https://lastweekin.tech"
@@ -122,6 +139,7 @@ class Config:
             "window_days",
             "summarizer",
             "digest",
+            "perplexity",
             "site_url",
         }
         if unknown:
@@ -135,6 +153,7 @@ class Config:
                 window_days=int(data.get("window_days", 7)),
                 summarizer=SummarizerSettings(**data["summarizer"]),
                 digest=DigestSettings(**data.get("digest", {})),
+                perplexity=PerplexitySettings(**data.get("perplexity", {})),
                 site_url=str(data.get("site_url") or "https://lastweekin.tech").rstrip("/"),
             )
         except (KeyError, TypeError) as exc:

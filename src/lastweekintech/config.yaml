@@ -51,6 +51,15 @@ hn:
   # Maximum stories to pull for the week.
   limit: 200
 
+# The consensus check: ask a Perplexity search model what the wider press led
+# with this week, boost pool stories it corroborates (weights.consensus below)
+# and record the headlines the funnel never saw. An unset key skips the stage.
+perplexity:
+  enabled: true
+  api_key: "${PERPLEXITY_API_KEY}"
+  model: "sonar-pro"
+  story_count: 15
+
 # Absolute origin of the published site, used for the feed, sitemap, canonical
 # links and social cards.
 site_url: "https://lastweekin.tech"
@@ -65,6 +74,9 @@ weights:
   hn: 5
   src: 3
   rec: 1
+  # Flat corroboration bonus for a story the Perplexity consensus also
+  # carries; applied once per story, on top of the normalised components.
+  consensus: 2
 
 # The shape of a published edition.
 digest:

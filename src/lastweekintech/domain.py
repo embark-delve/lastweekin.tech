@@ -32,3 +32,8 @@ class Story:
     summary: str | None = None
     score: float = 0.0
     category: str = "General Tech"
+    # True when the Perplexity consensus check also carried this story.
+    consensus: bool = False
+    # The editor's one-line case for the story; None when the editor did not
+    # run or did not pick this story, and the page renders without it.
+    why: str | None = None

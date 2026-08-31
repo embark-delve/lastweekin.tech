@@ -24,7 +24,7 @@ import trafilatura
 from jinja2 import Environment, FileSystemLoader
 from thefuzz import fuzz
 
-from lastweekintech import hn, syndication
+from lastweekintech import discovery, hn, syndication
 from lastweekintech.config import Config
 from lastweekintech.domain import Article, Story
 from lastweekintech.metrics import RunMetrics, summarizer_model
@@ -726,6 +726,7 @@ def build_digest(
     parse: Callable[[str], Any] | None = None,
     download: Callable[[str], str] | None = None,
     hn_fetch: hn.JsonFetcher | None = None,
+    search: discovery.SearchFn | None = None,
     delay: float = 0.5,
     editions: list[dict[str, Any]] | None = None,
     metrics: RunMetrics | None = None,
@@ -764,6 +765,15 @@ def build_digest(
 
     with record.stage("score"):
         stories = score_stories(stories, config, now=now)
+
+    with record.stage("consensus"):
+        consensus = discovery.fetch_consensus(config, now=now, search=search)
+        missed = discovery.apply_consensus_boost(stories, consensus, config.weights.consensus)
+        if consensus:
+            stories.sort(key=lambda s: s.score, reverse=True)
+    record.consensus_stories = len(consensus)
+    record.consensus_matched = len(consensus) - len(missed)
+    record.consensus_missed = [m.headline for m in missed]
 
     with record.stage("exclude_repeats"):
         ranked = drop_recently_published(

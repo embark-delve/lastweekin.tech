@@ -55,6 +55,13 @@ class RunMetrics:
     repeats_dropped: int = 0
     repeats_restored: int = 0
 
+    # The Perplexity consensus check. ``consensus_missed`` lists headlines the
+    # wider press led with that the funnel never saw at all — a headline that
+    # recurs here is how a missing feed announces itself.
+    consensus_stories: int = 0
+    consensus_matched: int = 0
+    consensus_missed: list[str] = field(default_factory=list)
+
     # Candidate pool: only these stories have their bodies downloaded.
     candidate_stories: int = 0
     candidate_articles: int = 0
