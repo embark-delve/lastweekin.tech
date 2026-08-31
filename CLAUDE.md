@@ -41,11 +41,16 @@ dataclasses in `domain.py` (`Article`, `Story`) — no ORM, no database.
 
 ```text
 fetch_articles + hn.fetch_hn_articles
-  → dedupe_articles → cluster_articles → score_stories → drop_recently_published
+  → dedupe_articles → cluster_articles → score_stories
+  → discovery.fetch_consensus + apply_consensus_boost → drop_recently_published
   → [candidate pool] → extract_content → categorize_stories
-  → select_top_stories → summarize_stories
+  → editor.select → select_edition (or select_top_stories as fallback)
+  → summarize_stories
   → assert_publishable → build_edition → save_edition → generate_site (+ syndication)
 ```
+
+`build_digest` returns a `Digest` (stories plus the editor's intro), not a bare
+list.
 
 Every network boundary is an injectable parameter (`parse`, `download`, `hn_fetch`, `complete`),
 which is how the suite runs without network access. Default implementations live next to their
@@ -71,13 +76,35 @@ callers.
   categories in fixed precedence: AI, Security, Policy, Open Source, Hardware, Business, General
   Tech. Plain substring matching previously labelled "Britain", "train", "Hearing Aids" and "email"
   as AI.
+- **discovery.py** — the consensus check: asks a Perplexity search model (`sonar-pro`) for the
+  week's most important tech stories across the open web, boosts pool stories it corroborates
+  (`weights.consensus`) and records unmatched headlines in the run metrics — a recurring miss is a
+  missing feed. Corroborative, never generative; disabled automatically when `PERPLEXITY_API_KEY`
+  is unset.
+- **editor.py** — editorial selection: one model call a week (default `anthropic/claude-sonnet-5`,
+  with fallbacks) reads the candidate pool with a rubric and picks the edition in print order,
+  with a one-line `why` per story and a 2-3 sentence `intro` for the week. The mechanical guards
+  stay authoritative: its picks pass the AI floor, the source cap and the body preference in
+  `select_edition`, and any failure falls back to `select_top_stories`. `max_tokens` is generous
+  (8000) because reasoning models think out of the same budget — 2000 truncated the first live
+  verdict.
 - **select_top_stories** — `min_ai` is a floor, not a quota: promotion happens only when the ranking
-  falls short, and displaces the weakest general stories.
+  falls short, and displaces the weakest general stories. Two further preferences both yield rather
+  than shorten an edition: stories with extracted bodies come first (a bodyless story cannot be
+  summarized, which is how the 2026-08-24 run failed the gate), and `digest.max_per_source` caps
+  slots per displayed outlet — WIRED once supplied 40% of everything published, and the first
+  HN-scored edition was seven of seven Hacker News.
+- **Aggregator feeds** (Techmeme, `aggregator: true` in config.yaml) corroborate but never lead:
+  they count toward breadth, yet `_representative_article` links the original outlet and
+  `summarize_stories` prefers original bodies — summarizing Techmeme's aggregation page produced
+  a live refusal.
 - **drop_recently_published** — excludes stories from the last `digest.repeat_lookback_weeks`
   editions by URL and near-identical title, with a floor that keeps the edition full.
-- **summarize_stories** — tries every article in the cluster, richest body first; leaves `summary`
-  unset when nothing works so the gate can see it. `Summarizer.last_model` records which model in
-  the fallback chain actually answered, which is what the metrics report.
+- **summarize_stories** — tries every article in the cluster, original outlets before aggregators,
+  richest body first; leaves `summary` unset when nothing works so the gate can see it.
+  `Summarizer.last_model` records which model in the fallback chain actually answered, which is
+  what the metrics report. The summarizer strips leading markdown furniture and rejects refusals
+  ("I cannot summarize…") so the fallback chain retries instead of shipping them.
 - **quality.py** — deterministic, network-free checks on a summary (truncation, subject coverage,
   number and entity grounding, contract, length). Pointed at the 308 archived summaries it
   reproduces the failure rates measured by hand: 48% empty, 23% truncated.
@@ -127,6 +154,10 @@ Model IDs churn — three of the four models this project shipped with had alrea
 the provider. `tools/check_models.py` verifies the configured chain against the live catalogue and
 runs on a schedule the day before each digest. A failed digest opens (or comments on) a GitHub
 issue rather than sending an email nobody reads.
+
+When the scheduled run cannot publish, `scripts/publish_fallback.sh` reproduces it locally (checks
+included; `--push` commits to main), and the `publish-digest` project skill walks that procedure —
+diagnose first, run without publishing, review, push only with an explicit go-ahead.
 
 ## Spec
 
