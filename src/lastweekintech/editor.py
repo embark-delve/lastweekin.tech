@@ -125,7 +125,10 @@ class Editor:
             if verdict:
                 self.last_model = model
                 return verdict
-            logging.warning(f"Editor model {model} returned an unusable verdict.")
+            logging.warning(
+                f"Editor model {model} returned an unusable verdict "
+                f"(finish_reason={completion.finish_reason!r}): {completion.text[:200]!r}"
+            )
 
         logging.warning("No editor model produced a usable verdict; using the fallback ranking.")
         return None

@@ -61,7 +61,10 @@ class EditorSettings:
     fallback_models: list[str] = field(
         default_factory=lambda: ["anthropic/claude-haiku-4.5", "google/gemini-3.7-flash"]
     )
-    max_tokens: int = 2000
+    # Generous on purpose: reasoning-capable models spend part of this budget
+    # thinking, and a budget sized for the JSON alone truncated the primary
+    # model's verdict mid-answer on the first live run.
+    max_tokens: int = 8000
     temperature: float = 0.2
     # How many characters of each candidate's body the editor reads.
     excerpt_chars: int = 300

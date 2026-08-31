@@ -193,3 +193,76 @@ class TestSummarizeStories:
 
         pipeline.summarize_stories([story], Fake())
         assert story.summary is None
+
+
+class TestOutputHygiene:
+    """Defects observed live on 2026-08-30: models in the fallback chain shipped
+    summaries opening with markdown headers, and one shipped a refusal — and
+    both sailed through to the page. The summarizer owns this: rejecting them
+    here is what lets the fallback chain try again."""
+
+    def test_strips_a_leading_markdown_heading(self):
+        complete = responder(**{
+            "primary/model": Completion("# Summary\n\nFlock contracts are being cut.", "stop")
+        })
+        summary = Summarizer(settings(), complete=complete).summarize("text")
+        assert summary == "Flock contracts are being cut."
+
+    def test_strips_a_leading_bold_label(self):
+        complete = responder(**{
+            "primary/model": Completion("**Summary**\nThe chip shipped early.", "stop")
+        })
+        summary = Summarizer(settings(), complete=complete).summarize("text")
+        assert summary == "The chip shipped early."
+
+    def test_a_heading_with_nothing_under_it_falls_back(self):
+        complete = responder(**{
+            "primary/model": Completion("# Summary", "stop"),
+            "backup/model": Completion("A real summary of the story.", "stop"),
+        })
+        summary = Summarizer(settings(), complete=complete).summarize("text")
+        assert summary == "A real summary of the story."
+
+    @pytest.mark.parametrize(
+        "refusal",
+        [
+            "I cannot provide a meaningful summary of this content.",
+            "I can't summarize this article.",
+            "I'm unable to summarize this text as it appears to be a listing.",
+            "I am unable to produce a summary here.",
+            "I'm sorry, but this text is not an article.",
+        ],
+    )
+    def test_a_refusal_falls_back_instead_of_shipping(self, refusal):
+        complete = responder(**{
+            "primary/model": Completion(refusal, "stop"),
+            "backup/model": Completion("A real summary of the story.", "stop"),
+        })
+        summary = Summarizer(settings(), complete=complete).summarize("text")
+        assert summary == "A real summary of the story."
+
+    def test_prose_mentioning_inability_is_not_a_refusal(self):
+        text = "NASA said it cannot rescue the Swift observatory before its orbit decays."
+        complete = responder(**{"primary/model": Completion(text, "stop")})
+        assert Summarizer(settings(), complete=complete).summarize("text") == text
+
+
+class TestAggregatorBodies:
+    def test_summarizes_the_original_outlet_before_the_aggregator(self):
+        aggregator = make_article(
+            title="Big story", url="https://tm/1", source="Techmeme", content="x" * 5000
+        )
+        aggregator.aggregator = True
+        outlet = make_article(
+            title="Big story", url="https://ars/1", source="Ars Technica", content="y" * 500
+        )
+        story = make_story(title="Big story", articles=[aggregator, outlet])
+        seen = []
+
+        class Probe:
+            def summarize(self, content):
+                seen.append(content[:1])
+                return "A summary."
+
+        pipeline.summarize_stories([story], Probe())
+        assert seen[0] == "y"  # the outlet's body, despite being far shorter

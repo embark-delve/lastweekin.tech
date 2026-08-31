@@ -62,7 +62,9 @@ editor:
   fallback_models:
     - "anthropic/claude-haiku-4.5"
     - "google/gemini-3.7-flash"
-  max_tokens: 2000
+  # Generous on purpose: reasoning models spend part of the budget thinking,
+  # and a budget sized for the JSON alone truncated the first live verdict.
+  max_tokens: 8000
   temperature: 0.2
   excerpt_chars: 300
 

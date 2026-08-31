@@ -743,9 +743,12 @@ def summarize_stories(
     record = metrics if metrics is not None else RunMetrics()
 
     for story in stories:
+        # Original reporting first, richest body first. An aggregator's page is
+        # a list of other outlets' coverage, and asking a model to summarize
+        # one produced a refusal on the live page.
         candidates = sorted(
             (a for a in story.articles if a.content),
-            key=lambda a: len(a.content or ""),
+            key=lambda a: (not a.aggregator, len(a.content or "")),
             reverse=True,
         )
         story.summary = None
