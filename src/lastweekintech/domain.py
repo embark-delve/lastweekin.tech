@@ -37,3 +37,13 @@ class Story:
     # The editor's one-line case for the story; None when the editor did not
     # run or did not pick this story, and the page renders without it.
     why: str | None = None
+
+
+@dataclass
+class Digest:
+    """One week's edition as the pipeline hands it to the publisher."""
+
+    stories: list[Story] = field(default_factory=list)
+    # The editor's 2-3 sentence read on the week; None when the editor did
+    # not run, and the page renders without it.
+    intro: str | None = None

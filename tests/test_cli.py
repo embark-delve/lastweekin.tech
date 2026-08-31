@@ -30,7 +30,12 @@ def stub_pipeline(monkeypatch, config):
     state = {"stories": stories()}
     monkeypatch.setattr(main, "get_config", lambda path=None: config)
     monkeypatch.setattr(main, "Summarizer", lambda settings: object())
-    monkeypatch.setattr(main.pipeline, "build_digest", lambda *a, **k: state["stories"])
+    monkeypatch.setattr(main, "Editor", lambda settings: object())
+    monkeypatch.setattr(
+        main.pipeline,
+        "build_digest",
+        lambda *a, **k: main.pipeline.Digest(stories=state["stories"]),
+    )
     state["make"] = stories
     return state
 

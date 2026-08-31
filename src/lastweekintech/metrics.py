@@ -77,6 +77,13 @@ class RunMetrics:
     ai_promoted: int = 0
     ai_published: int = 0
 
+    # Editorial selection. ``editor_overridden`` counts final stories the
+    # guards substituted for the editor's own picks — a persistently high
+    # number means the editor and the constraints disagree about the pool.
+    editor_used: bool = False
+    editor_model: str = ""
+    editor_overridden: int = 0
+
     summaries: int = 0
     summaries_failed: int = 0
     summary_models: dict[str, str] = field(default_factory=dict)

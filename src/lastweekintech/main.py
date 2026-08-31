@@ -12,6 +12,7 @@ import typer
 
 from lastweekintech import metrics, pipeline
 from lastweekintech.config import ConfigError, get_config
+from lastweekintech.editor import Editor
 from lastweekintech.summarizer import Summarizer
 from lastweekintech.validation import DigestValidationError, assert_publishable
 
@@ -59,20 +60,23 @@ def run(
     try:
         config = get_config(config_path)
         summarizer = Summarizer(config.summarizer)
+        editor = Editor(config.editor) if config.editor.enabled else None
     except (ConfigError, ValueError) as e:
         typer.secho(f"Configuration error: {e}", fg=typer.colors.RED, err=True)
         raise typer.Exit(code=2) from e
 
     run_metrics = None if no_metrics else metrics.RunMetrics(week=week)
-    stories = pipeline.build_digest(
+    digest = pipeline.build_digest(
         config,
         summarizer,
         now=now,
+        editor=editor,
         # Read before the run so a story still riding a week-old Hacker News
         # thread does not top two editions in a row.
         editions=pipeline.list_editions(data_dir),
         metrics=run_metrics,
     )
+    stories = digest.stories
 
     def save_metrics() -> None:
         if run_metrics is not None and not dry_run:
@@ -91,7 +95,7 @@ def run(
             raise typer.Exit(code=1) from e
         logging.warning(f"--skip-gate set; publishing anyway. {e}")
 
-    edition = pipeline.build_edition(stories, week=week, now=now)
+    edition = pipeline.build_edition(stories, week=week, now=now, intro=digest.intro)
 
     if dry_run:
         typer.echo(json.dumps(edition, indent=2, ensure_ascii=False))

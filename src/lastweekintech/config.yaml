@@ -51,6 +51,21 @@ hn:
   # Maximum stories to pull for the week.
   limit: 200
 
+# Editorial selection: one model call that reads the candidate pool with a
+# rubric and picks the edition, with a one-line case per story and a short
+# read on the week. Its picks still pass the mechanical guards (AI floor,
+# source cap, body preference), and any failure falls back to the score
+# ranking. One call a week justifies the strongest model in the chain.
+editor:
+  enabled: true
+  model_name: "anthropic/claude-sonnet-5"
+  fallback_models:
+    - "anthropic/claude-haiku-4.5"
+    - "google/gemini-3.7-flash"
+  max_tokens: 2000
+  temperature: 0.2
+  excerpt_chars: 300
+
 # The consensus check: ask a Perplexity search model what the wider press led
 # with this week, boost pool stories it corroborates (weights.consensus below)
 # and record the headlines the funnel never saw. An unset key skips the stage.

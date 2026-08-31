@@ -53,6 +53,21 @@ class Weights:
 
 
 @dataclass
+class EditorSettings:
+    """The editorial selection stage: one model call that picks the edition."""
+
+    enabled: bool = True
+    model_name: str = "anthropic/claude-sonnet-5"
+    fallback_models: list[str] = field(
+        default_factory=lambda: ["anthropic/claude-haiku-4.5", "google/gemini-3.7-flash"]
+    )
+    max_tokens: int = 2000
+    temperature: float = 0.2
+    # How many characters of each candidate's body the editor reads.
+    excerpt_chars: int = 300
+
+
+@dataclass
 class PerplexitySettings:
     """The consensus check against the wider press, via the Perplexity API."""
 
@@ -114,6 +129,7 @@ class Config:
     summarizer: SummarizerSettings
     digest: DigestSettings = field(default_factory=DigestSettings)
     perplexity: PerplexitySettings = field(default_factory=PerplexitySettings)
+    editor: EditorSettings = field(default_factory=EditorSettings)
     # Absolute origin of the published site. Feeds, sitemaps and social cards
     # all need absolute URLs, so this cannot be derived from the output path.
     site_url: str = "https://lastweekin.tech"
@@ -140,6 +156,7 @@ class Config:
             "summarizer",
             "digest",
             "perplexity",
+            "editor",
             "site_url",
         }
         if unknown:
@@ -154,6 +171,7 @@ class Config:
                 summarizer=SummarizerSettings(**data["summarizer"]),
                 digest=DigestSettings(**data.get("digest", {})),
                 perplexity=PerplexitySettings(**data.get("perplexity", {})),
+                editor=EditorSettings(**data.get("editor", {})),
                 site_url=str(data.get("site_url") or "https://lastweekin.tech").rstrip("/"),
             )
         except (KeyError, TypeError) as exc:
