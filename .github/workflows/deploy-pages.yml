@@ -12,6 +12,13 @@ on:
     paths:
       - "public/**"
       - ".github/workflows/deploy-pages.yml"
+  # The weekly digest commits with the workflow's own GITHUB_TOKEN, and GitHub
+  # deliberately never fires push workflows for such commits — so the Monday
+  # publish would sit undeployed. Completion of that workflow is the trigger
+  # that does fire.
+  workflow_run:
+    workflows: ["Weekly Tech Digest"]
+    types: [completed]
   workflow_dispatch:
 
 concurrency:
@@ -25,6 +32,9 @@ permissions:
 
 jobs:
   deploy:
+    # A digest run that failed or was gate-refused committed nothing; deploying
+    # after it would only republish what is already live.
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     environment:
