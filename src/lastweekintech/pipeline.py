@@ -218,6 +218,17 @@ def _download_article_text(url: str) -> str:
     return extract_article_text(response.content, url)
 
 
+# One parse at a time, process-wide. Downloads overlap freely in the thread
+# pool — the network is where the minutes go — but the parses they hand to
+# trafilatura do not: concurrent libxml2 parses corrupted the heap on the
+# Linux runners ("free(): invalid pointer" on 2026-08-31 at one point in the
+# extract stage, "double free or corruption" on the retry at another — a
+# moving crash site is a race, not a document). macOS never reproduced it;
+# its libxml2 is a different build. Serialising only the parse keeps the
+# whole stage's wall clock within seconds of the concurrent version.
+_PARSE_LOCK = threading.Lock()
+
+
 def extract_article_text(html: str | bytes, url: str | None = None) -> str:
     """Extract the article body from a downloaded page.
 
@@ -227,11 +238,14 @@ def extract_article_text(html: str | bytes, url: str | None = None) -> str:
     which the caller stores as no content rather than treating as a failure.
     """
     try:
-        body = trafilatura.extract(html, url=url, **_EXTRACT_OPTIONS) or ""
-        pruned = (
-            trafilatura.extract(html, url=url, prune_xpath=_RECIRCULATION_XPATH, **_EXTRACT_OPTIONS)
-            or ""
-        )
+        with _PARSE_LOCK:
+            body = trafilatura.extract(html, url=url, **_EXTRACT_OPTIONS) or ""
+            pruned = (
+                trafilatura.extract(
+                    html, url=url, prune_xpath=_RECIRCULATION_XPATH, **_EXTRACT_OPTIONS
+                )
+                or ""
+            )
     except Exception as e:  # noqa: BLE001 - one malformed page must not end the run
         logging.warning(f"Failed to parse {url}: {e}")
         return ""
