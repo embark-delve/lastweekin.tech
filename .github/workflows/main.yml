@@ -50,6 +50,7 @@ jobs:
         env:
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
+          PERPLEXITY_API_KEY: ${{ secrets.PERPLEXITY_API_KEY }}
           SKIP_GATE_FLAG: ${{ inputs.skip_gate && '--skip-gate' || '' }}
         # The publish gate fails the job rather than committing a broken digest,
         # which leaves last week's edition live on the site. Its message goes to

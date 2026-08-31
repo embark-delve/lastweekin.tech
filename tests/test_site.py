@@ -248,9 +248,11 @@ class TestReaderPolish:
         assert (tmp_path / "index.html").read_text().count("<h1") == 1
 
     def test_announces_the_rank_to_screen_readers(self, tmp_path):
+        """The big numeral is decorative; the rank itself must still be read
+        aloud, from the visually-hidden text ahead of the story meta."""
         generate(tmp_path, [edition()])
         index = (tmp_path / "index.html").read_text()
-        assert 'class="story-rank" aria-hidden="true"' not in index
+        assert "Number 1." in index
 
     def test_does_not_call_out_to_a_third_party_font_host(self, tmp_path):
         generate(tmp_path, [edition()])
