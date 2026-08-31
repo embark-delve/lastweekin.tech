@@ -38,7 +38,11 @@
 
     <header class="site-header">
       <p class="masthead-note">Published every Monday &middot; No trackers, no ads</p>
-      <h1 class="site-title"><a class="wordmark" href="../index.html">LastWeekIn.Tech</a></h1>
+      <h1 class="site-title">
+        <a class="wordmark" href="../index.html"
+          >LastWeekIn<span class="dot">.</span>Tech</a
+        >
+      </h1>
       <div class="dateline" role="presentation">
         <span class="dateline-item">The 7 stories that mattered</span>
         <span class="dateline-item"
@@ -54,7 +58,9 @@
     <main>
 
       <ol class="story-list" id="stories">
-        <li class="story-card lead-story">
+        <li
+          class="story-card lead-story"
+        >
           <p class="story-rank" aria-hidden="true">1</p>
           <div class="story-content">
             <p class="story-meta">
@@ -72,7 +78,9 @@
             <p class="story-summary">Linus Torvalds has warned that the Linux kernel’s security mailing list has become “almost entirely unmanageable” because many researchers now use the same AI tools to uncover bugs and submit duplicate reports, creating “pointless churn.” In a recent kernel‑state post, he highlighted that the flood of AI‑generated findings forces developers to spend time forwarding or dismissing identical issues rather than addressing new ones, and he urged reporters to read the documentation, patch the code, and add genuine value instead of just sending “random reports.” Torvalds sees the practice as wasteful, especially since AI‑discovered bugs are not secret and sharing them on a private list only amplifies duplication. This stance contrasts with fellow maintainer Greg Kroah‑Hartman’s more positive view of AI’s usefulness for free‑software security.</p>
           </div>
         </li>
-        <li class="story-card">
+        <li
+          class="story-card"
+        >
           <p class="story-rank" aria-hidden="true">2</p>
           <div class="story-content">
             <p class="story-meta">
@@ -90,7 +98,9 @@
             <p class="story-summary">Secret Blizzard, a Russian hacking outfit linked to the FSB and operating alongside groups such as Turla, has upgraded its long‑standing Kazuar backdoor into a modular, peer‑to‑peer botnet that excels at stealth, persistence and data exfiltration. Since 2017 (with roots tracing back to 2005) Kazuar has targeted governments, diplomatic missions, defense entities and critical infrastructure across Europe, Asia and Ukraine. Microsoft’s analysis reveals a three‑module architecture—Kernel (the leader coordinator that manages tasks and internal communication), Bridge (the external proxy that talks to the C2 server via HTTP, WebSockets or EWS), and Worker (the espionage engine that keylogs, screenshots, harvests files, performs reconnaissance and steals email data). The botnet uses internal IPC (Windows Messaging, Mailslots, named pipes) with AES‑encrypted, Protobuf‑serialized messages, while the Bridge handles encrypted exfiltration. Kazuar’s new version supports 150 configuration options, including AMSI, ETW and WLDP bypasses, task scheduling, process injection, and granular data‑exfiltration controls, making it highly adaptable and evasive. Microsoft advises defenders to prioritize behavioral detection over static signatures to counter this modular, long‑term threat.</p>
           </div>
         </li>
-        <li class="story-card">
+        <li
+          class="story-card"
+        >
           <p class="story-rank" aria-hidden="true">3</p>
           <div class="story-content">
             <p class="story-meta">
@@ -108,7 +118,9 @@
             <p class="story-summary">David S. Norman, a former Phoenix Police officer who founded the law‑enforcement training firm TruKinetics LLC, has a controversial record that now shadows the paramilitary training he provides to U.S. immigration enforcement. Norman was involved in six on‑duty shootings while with the Phoenix Police, killing four people, and later testified in a lawsuit that he participated in at least four lethal shootings. TruKinetics, based in Gilbert, Arizona, runs intensive small‑team and close‑quarters combat courses—including “kill house” scenarios—and was paid nearly $28,000 to conduct a 40‑hour mandatory training program for Department of Homeland Security’s Special Response Teams (SRTs) at Fort Benning, Georgia, where over 700 agents from ICE and CBP rotate annually. Despite Norman’s claims that his courses focus on tactical skills rather than crowd control or active‑shooter drills, the firm’s training of SRTs, which have been used in civil immigration enforcement and have been implicated in the deaths of protestors, raises concerns about the nature of the training and the background of its instructor.</p>
           </div>
         </li>
-        <li class="story-card">
+        <li
+          class="story-card brief"
+        >
           <p class="story-rank" aria-hidden="true">4</p>
           <div class="story-content">
             <p class="story-meta">
@@ -126,7 +138,9 @@
             <p class="story-summary">Mozilla has warned the UK government that targeting VPNs as a tool to curb children’s age‑check evasion would be a misguided and harmful policy move. In a submission to the Department for Science, Innovation and Technology, Mozilla’s policy manager Svea Windwehr highlighted that VPNs are essential for privacy and security for millions—from remote workers to journalists—by masking IP addresses and preventing profiling. The company points out that only a small fraction of kids use VPNs to bypass age gates, and that most workarounds rely on fake birth dates, borrowed accounts or weak facial‑scan checks. Firefox’s own move to embed a built‑in VPN shows the tech sector is leaning toward integrated privacy rather than standalone tools. Mozilla argues that regulating VPNs would push Britain toward “safety through surveillance” while ignoring the real drivers of online harm—platform recommendation systems and engagement algorithms—rather than addressing the root causes of age‑gate circumvention.</p>
           </div>
         </li>
-        <li class="story-card">
+        <li
+          class="story-card brief"
+        >
           <p class="story-rank" aria-hidden="true">5</p>
           <div class="story-content">
             <p class="story-meta">
@@ -144,7 +158,9 @@
             <p class="story-summary">Google’s upcoming I/O, set for May 19 at the Shoreline Amphitheatre, will showcase new Android 17 features—many AI‑powered, such as smarter voice‑to‑text, autofill, digital‑well‑being tools, a refreshed Android Auto UI, 3D emojis, and “Gemini Intelligence” for flagship devices—alongside a new Googlebook line of premium, AI‑first laptops from partners like Acer, HP, Lenovo, and Dell. The keynote, streamed live on Google’s site and YouTube, is expected to include surprise demos and further AI updates, especially to Search, Google Labs’ Flow music tool, and a potential video‑generation Gemini model called Omni.</p>
           </div>
         </li>
-        <li class="story-card">
+        <li
+          class="story-card brief"
+        >
           <p class="story-rank" aria-hidden="true">6</p>
           <div class="story-content">
             <p class="story-meta">
@@ -162,7 +178,9 @@
             <p class="story-summary">Chickenpox, once an almost inevitable childhood illness, was historically managed through a now‑obscure practice known as “chickenpox parties,” where parents deliberately exposed children to the varicella‑zoster virus at the lowest risk of severe complications—typically in early childhood—before routine vaccination became available. Those parties relied on shared knowledge of home remedies and the belief that a controlled outbreak would spare the family from later, potentially life‑threatening adult infections, such as pneumonia, encephalitis, or meningitis, which occur in about 3 per 1,000 cases. With the introduction and widespread use of the vaccine, the incidence of natural infection has dropped dramatically, rendering the practice largely obsolete while highlighting the historical context of how communities once navigated this highly contagious, itch‑ridden disease.</p>
           </div>
         </li>
-        <li class="story-card">
+        <li
+          class="story-card brief"
+        >
           <p class="story-rank" aria-hidden="true">7</p>
           <div class="story-content">
             <p class="story-meta">

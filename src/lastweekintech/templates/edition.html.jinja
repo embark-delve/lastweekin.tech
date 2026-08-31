@@ -60,7 +60,11 @@
 
     <header class="site-header">
       <p class="masthead-note">Published every Monday &middot; No trackers, no ads</p>
-      <h1 class="site-title"><a class="wordmark" href="{{ root }}index.html">LastWeekIn.Tech</a></h1>
+      <h1 class="site-title">
+        <a class="wordmark" href="{{ root }}index.html"
+          >LastWeekIn<span class="dot">.</span>Tech</a
+        >
+      </h1>
       <div class="dateline" role="presentation">
         <span class="dateline-item">The {{ edition.stories | length }} stories that mattered</span>
         <span class="dateline-item"
@@ -96,7 +100,9 @@
         {% if story.consensus %}
         {% set _ = signals.append('Led the wider press') %}
         {% endif %}
-        <li class="story-card{{ ' lead-story' if loop.first else '' }}">
+        <li
+          class="story-card{{ ' lead-story' if loop.first else '' }}{{ ' brief' if loop.index > 3 else '' }}"
+        >
           <p class="story-rank" aria-hidden="true">{{ story.rank }}</p>
           <div class="story-content">
             <p class="story-meta">
