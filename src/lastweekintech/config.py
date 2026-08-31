@@ -24,6 +24,9 @@ class Feed:
 
     name: str
     url: str
+    # An aggregator reports on coverage rather than producing it. Its presence
+    # in a cluster counts as corroboration, but it is never the linked source.
+    aggregator: bool = False
 
 
 @dataclass
@@ -63,6 +66,12 @@ class DigestSettings:
     # traction persists for days, so a story hot for eight days can top two
     # consecutive editions. Zero or less publishes repeats.
     repeat_lookback_weeks: int = 3
+    # How many stories one outlet may place in an edition. Without a cap the
+    # strongest signal owns the page: WIRED supplied 40% of every story the old
+    # ranking ever published, and the first HN-scored edition was seven of
+    # seven Hacker News. Zero disables the cap; it always yields rather than
+    # shorten an edition.
+    max_per_source: int = 2
 
 
 @dataclass

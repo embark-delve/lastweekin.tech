@@ -21,6 +21,9 @@ feeds:
     url: "http://rss.slashdot.org/Slashdot/slashdot"
   - name: "Techmeme"
     url: "https://www.techmeme.com/feed.xml"
+    # Techmeme reports on coverage rather than producing it: its presence in a
+    # cluster is corroboration, but the digest links to the original outlet.
+    aggregator: true
   - name: "TechSpot"
     url: "https://www.techspot.com/backend.xml"
   - name: "BleepingComputer"

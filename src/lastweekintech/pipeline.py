@@ -124,6 +124,7 @@ def fetch_articles(
                     source=feed.name,
                     published_at=published_at,
                     hn_points=None,
+                    aggregator=feed.aggregator,
                 )
             )
 
@@ -603,20 +604,36 @@ def _classify_story(story: Story) -> str:
     return GENERAL_CATEGORY
 
 
-def select_top_stories(stories: list[Story], count: int = 7, min_ai: int = 4) -> list[Story]:
+def select_top_stories(
+    stories: list[Story],
+    count: int = 7,
+    min_ai: int = 4,
+    max_per_source: int = 0,
+) -> list[Story]:
     """Select the top ``count`` stories, guaranteeing a floor of AI coverage.
 
-    The floor is a minimum, not a quota: a week where every top story is about
-    AI publishes seven AI stories. Promotion only happens when the ranking falls
-    short, and it displaces the weakest general stories rather than reordering
-    the digest.
+    Two preferences temper the raw ranking, and both yield rather than shorten
+    an edition. Stories with an extracted body come first, because a story with
+    no body cannot be summarized and one too many of those fails the publish
+    gate — which is how the 2026-08-24 run died. And no outlet may hold more
+    than ``max_per_source`` slots, because whoever supplies the strongest
+    signal otherwise owns the page.
+
+    The AI floor is a minimum, not a quota: a week where every top story is
+    about AI publishes seven AI stories. Promotion only happens when the
+    ranking falls short, and it displaces the weakest general stories rather
+    than reordering the digest.
     """
     ranked = sorted(stories, key=lambda s: s.score, reverse=True)
-    selected = ranked[:count]
+    preferred = [s for s in ranked if _has_body(s)] + [s for s in ranked if not _has_body(s)]
+    selected = _pick_with_source_cap(preferred, count, max_per_source)
 
     shortfall = min_ai - sum(s.category == AI_CATEGORY for s in selected)
     if shortfall > 0:
-        promoted = [s for s in ranked[count:] if s.category == AI_CATEGORY][:shortfall]
+        chosen = {id(s) for s in selected}
+        promoted = [s for s in preferred if id(s) not in chosen and s.category == AI_CATEGORY][
+            :shortfall
+        ]
         if promoted:
             demoted = {
                 id(s) for s in [s for s in selected if s.category != AI_CATEGORY][-len(promoted) :]
@@ -625,6 +642,44 @@ def select_top_stories(stories: list[Story], count: int = 7, min_ai: int = 4) ->
             logging.info(f"Promoted {len(promoted)} AI stories to meet the coverage floor.")
 
     return sorted(selected, key=lambda s: s.score, reverse=True)
+
+
+def _has_body(story: Story) -> bool:
+    return any(a.content for a in story.articles)
+
+
+def _story_source(story: Story) -> str:
+    article = _representative_article(story)
+    return article.source if article else ""
+
+
+def _pick_with_source_cap(preferred: list[Story], count: int, max_per_source: int) -> list[Story]:
+    """Take stories in order, deferring any outlet already at the cap.
+
+    Deferred stories return, best first, when the pool cannot otherwise fill
+    the edition: the cap trades slots between outlets, never for empty ones.
+    """
+    if max_per_source < 1:
+        return preferred[:count]
+
+    selected: list[Story] = []
+    deferred: list[Story] = []
+    held = Counter[str]()
+    for story in preferred:
+        if len(selected) == count:
+            break
+        source = _story_source(story)
+        if held[source] < max_per_source:
+            held[source] += 1
+            selected.append(story)
+        else:
+            deferred.append(story)
+
+    if len(selected) < count and deferred:
+        backfilled = deferred[: count - len(selected)]
+        logging.info(f"Source cap yielded: backfilled {len(backfilled)} over-cap stories.")
+        selected += backfilled
+    return selected
 
 
 def summarize_stories(
@@ -744,6 +799,7 @@ def build_digest(
             candidates,
             count=config.digest.story_count,
             min_ai=config.digest.min_ai_stories,
+            max_per_source=config.digest.max_per_source,
         )
     record.ai_published = sum(s.category == AI_CATEGORY for s in selected)
     record.ai_promoted = max(record.ai_published - record.ai_before_promotion, 0)
@@ -782,10 +838,14 @@ def build_edition(stories: list[Story], week: str, now: datetime | None = None) 
 
 
 def _representative_article(story: Story) -> Article | None:
-    """Pick the article to link to: the one with the most traction, then the fullest."""
+    """Pick the article to link to: original reporting over an aggregator's
+    rewrite, then the most traction, then the fullest body."""
     if not story.articles:
         return None
-    return max(story.articles, key=lambda a: (a.hn_points or 0, len(a.content or "")))
+    return max(
+        story.articles,
+        key=lambda a: (not a.aggregator, a.hn_points or 0, len(a.content or "")),
+    )
 
 
 def save_edition(edition: dict[str, Any], data_dir: Path) -> tuple[Path, Path]:

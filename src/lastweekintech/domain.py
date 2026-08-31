@@ -17,6 +17,10 @@ class Article:
     published_at: datetime | None = None
 
     hn_points: int | None = None
+    # True for feeds that report on coverage rather than produce it (Techmeme).
+    # Their presence in a cluster is corroboration, but the digest should link
+    # to the original reporting, never to the aggregator's rewrite.
+    aggregator: bool = False
 
 
 @dataclass
