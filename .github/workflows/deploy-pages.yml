@@ -3,8 +3,9 @@ name: Deploy site to GitHub Pages
 # public/ is generated output, committed by the weekly digest run (and by the
 # manual fallback), so there is nothing to build here: every push to main that
 # touches the site ships it as-is. The canonical URLs inside the pages point at
-# https://lastweekin.tech; until that DNS exists the site is reachable at the
-# *.github.io URL, whose relative links all work under the project subpath.
+# https://lastweekin.tech, which is where the site is served from — the custom
+# domain is configured on the repository, so no CNAME file is needed in the
+# artifact. The *.github.io URL still resolves and redirects there.
 
 on:
   push:
