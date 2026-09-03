@@ -78,9 +78,9 @@ jobs:
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          # Stage only generated output. The site lives in public/ because Vercel
-          # serves that directory verbatim; the repository root holds source that
-          # must not be fetchable from the public site.
+          # Stage only generated output. The site lives in public/ because the
+          # Pages deploy uploads that directory verbatim; the repository root
+          # holds source that must not be fetchable from the published site.
           generated=(data public)
           present=()
           for path in "${generated[@]}"; do

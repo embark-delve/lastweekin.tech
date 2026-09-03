@@ -124,8 +124,8 @@ callers.
 
 Everything under `public/` is **generated output** — edit `src/lastweekintech/templates/` and
 `src/lastweekintech/static/` instead. The site is generated into its own directory rather than the
-repository root because the host serves that tree verbatim and this repo is private; `vercel.json`
-pins `outputDirectory: public`. `tools/` holds one-off scripts that are deliberately _not_ in
+repository root because GitHub Pages uploads that tree verbatim as the deploy artifact, so anything
+outside it is never served. `tools/` holds one-off scripts that are deliberately _not_ in
 `static/`, because everything in `static/` gets published.
 
 ## Testing
@@ -163,11 +163,16 @@ diagnose first, run without publishing, review, push only with an explicit go-ah
 
 `docs/lwit-spec-architecture.md` is the original product spec. It predates the implementation in
 places: it specifies LiteLLM (the code uses the OpenAI SDK against OpenRouter), local summarization
-models, and a SQLite store that was never used and has been removed. Treat the goals as current and
-the tech-stack sections as historical.
+models, deployment to Vercel (the site is on GitHub Pages), and a SQLite store that was never used
+and has been removed. Treat the goals as current and the tech-stack sections as historical — its
+Vercel references describe a plan that was never carried out, and are left in place as the record
+of the original design.
 
 ## Outside review
 
 `docs/review-2026-08-17.md` records an external review from 2026-08-17: the domain
-does not resolve, the publish gate is not enforcing `max_missing_summaries`, and the
-empty-summary rate has improved but plateaued. Read it before deploying.
+did not resolve, the publish gate was not enforcing `max_missing_summaries`, and the
+empty-summary rate had improved but plateaued. The first two are fixed (the site is
+live on GitHub Pages; the gate enforces the limit) and the third is still worth
+watching — the file carries a status banner saying so. It is a dated record, not a
+current to-do list.

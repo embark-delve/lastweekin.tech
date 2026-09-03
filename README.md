@@ -135,14 +135,24 @@ being silently ignored.
 
 ## Deployment
 
-The site is served from `public/`, which is the whole of what is published. That
-directory is deliberately separate from the repository root: this repo is
-private, and a host pointed at the root would serve `src/`, `tests/`, `data/`
-and `evals/` to anyone who asked.
+The site is served from `public/` by GitHub Pages at
+<https://lastweekin.tech>, and that directory is the whole of what is
+published. It is deliberately separate from the repository root: the Pages
+artifact is uploaded from `public/` alone, so `src/`, `tests/`, `data/` and
+`evals/` are never served from the site.
 
-`vercel.json` pins that contract — `outputDirectory: public`, no build step, and
-`cleanUrls` left off so the URLs in the sitemap and feed are the URLs actually
-served rather than redirects. Pushing to `main` is the deploy.
+`.github/workflows/deploy-pages.yml` is the deploy. It runs on any push to
+`main` that touches `public/**`, and — because the weekly digest commits with
+the workflow's own `GITHUB_TOKEN`, which never fires a push event — also on
+completion of the **Weekly Tech Digest** workflow. Pages is configured for
+`build_type: workflow`, so nothing is built at deploy time; the tree ships as
+generated.
+
+Pages serves static files with fixed headers and no per-path configuration, so
+two things are worth knowing: `feed.xml` is served as `application/xml` rather
+than the registered `application/atom+xml` (readers accept it, but it is not
+the canonical type), and the URLs in the sitemap and feed are served verbatim
+with no `cleanUrls`-style rewriting — which is what those files assume.
 
 ## Automation
 
