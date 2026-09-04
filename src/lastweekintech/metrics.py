@@ -83,6 +83,12 @@ class RunMetrics:
     editor_used: bool = False
     editor_model: str = ""
     editor_overridden: int = 0
+    # The editor's token spend against its ceiling. ``editor_max_tokens`` is
+    # recorded alongside the spend because 7100 tokens means nothing until you
+    # know whether the budget was 8000 or 80000.
+    editor_completion_tokens: int | None = None
+    editor_reasoning_tokens: int | None = None
+    editor_max_tokens: int = 0
 
     summaries: int = 0
     summaries_failed: int = 0
