@@ -888,6 +888,9 @@ def build_digest(
             )
             record.editor_used = True
             record.editor_model = editor.last_model or ""
+            record.editor_completion_tokens = editor.last_completion_tokens
+            record.editor_reasoning_tokens = editor.last_reasoning_tokens
+            record.editor_max_tokens = editor.max_tokens
             picked = {id(candidates[p.n - 1]) for p in verdict.picks}
             record.editor_overridden = sum(1 for s in selected if id(s) not in picked)
         else:

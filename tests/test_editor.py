@@ -33,6 +33,59 @@ def pool(count=6):
     return [make_story(title=f"story {i}", score=100 - i) for i in range(count)]
 
 
+class TestEditorApiUsage:
+    """The mapping from an OpenAI-shaped response onto Completion.
+
+    Every other test injects ``complete`` and so never exercises this, but it
+    is where the usage numbers actually come from: ``reasoning_tokens`` is
+    nested a level down, and providers may omit ``usage`` altogether.
+    """
+
+    class FakeCompletions:
+        def __init__(self, response):
+            self.response = response
+
+        def create(self, **kwargs):
+            return self.response
+
+    class FakeClient:
+        def __init__(self, response):
+            self.chat = type(
+                "Chat", (), {"completions": TestEditorApiUsage.FakeCompletions(response)}
+            )()
+
+    @staticmethod
+    def response(usage):
+        message = type("Message", (), {"content": '{"intro": "i", "picks": []}'})()
+        choice = type("Choice", (), {"message": message, "finish_reason": "stop"})()
+        return type("Response", (), {"choices": [choice], "usage": usage})()
+
+    def editor_with(self, usage):
+        editor = Editor(EditorSettings(), complete=lambda m, msg, mt: Completion(text=""))
+        editor._client = self.FakeClient(self.response(usage))
+        return editor
+
+    def test_maps_completion_and_reasoning_tokens_from_the_response(self):
+        details = type("Details", (), {"reasoning_tokens": 6800})()
+        usage = type(
+            "Usage", (), {"completion_tokens": 7100, "completion_tokens_details": details}
+        )()
+        completion = self.editor_with(usage)._complete_via_api("m", [], 8000)
+        assert completion.completion_tokens == 7100
+        assert completion.reasoning_tokens == 6800
+
+    def test_tolerates_a_response_that_reports_no_usage(self):
+        completion = self.editor_with(None)._complete_via_api("m", [], 8000)
+        assert completion.completion_tokens is None
+        assert completion.reasoning_tokens is None
+
+    def test_tolerates_usage_without_reasoning_details(self):
+        usage = type("Usage", (), {"completion_tokens": 120, "completion_tokens_details": None})()
+        completion = self.editor_with(usage)._complete_via_api("m", [], 8000)
+        assert completion.completion_tokens == 120
+        assert completion.reasoning_tokens is None
+
+
 class TestEditorSelect:
     def test_returns_the_picks_and_intro(self):
         editor = make_editor(verdict_for(2, 1, 3))
@@ -46,6 +99,44 @@ class TestEditorSelect:
         editor = make_editor(verdict_for(1, 2), model_name="test/editor")
         editor.select(pool(), count=2, min_ai=0, max_per_source=0)
         assert editor.last_model == "test/editor"
+
+    def test_records_the_token_usage_of_the_answering_model(self):
+        # The budget must cover the model's reasoning as well as its JSON, so
+        # the headroom is only knowable if the usage is carried out of the call.
+        def complete(model, messages, max_tokens):
+            return Completion(
+                text=json.dumps(verdict_for(1, 2)),
+                completion_tokens=7100,
+                reasoning_tokens=6800,
+            )
+
+        editor = Editor(EditorSettings(), complete=complete)
+        editor.select(pool(), count=2, min_ai=0, max_per_source=0)
+        assert editor.last_completion_tokens == 7100
+        assert editor.last_reasoning_tokens == 6800
+
+    def test_logs_the_token_spend_against_the_budget(self, caplog):
+        # Run metrics are not written on a dry run (main.py), so a log line is
+        # the only way the headroom is visible in the cheapest place to look.
+        def complete(model, messages, max_tokens):
+            return Completion(
+                text=json.dumps(verdict_for(1, 2)),
+                completion_tokens=7100,
+                reasoning_tokens=6800,
+            )
+
+        editor = Editor(EditorSettings(max_tokens=8000), complete=complete)
+        with caplog.at_level("INFO"):
+            editor.select(pool(), count=2, min_ai=0, max_per_source=0)
+        spend = [r.message for r in caplog.records if "7100" in r.message]
+        assert spend, f"no line reporting the spend in {[r.message for r in caplog.records]}"
+        assert "6800" in spend[0] and "8000" in spend[0]
+
+    def test_token_usage_is_none_when_the_model_reports_none(self):
+        editor = make_editor(verdict_for(1, 2))
+        editor.select(pool(), count=2, min_ai=0, max_per_source=0)
+        assert editor.last_completion_tokens is None
+        assert editor.last_reasoning_tokens is None
 
     def test_tolerates_prose_around_the_json(self):
         answer = f"Here is my edition:\n```json\n{json.dumps(verdict_for(1, 2))}\n```"
@@ -176,6 +267,9 @@ class TestBuildDigestWithEditor:
         def __init__(self, verdict):
             self.verdict = verdict
             self.last_model = "fake/editor"
+            self.last_completion_tokens = None
+            self.last_reasoning_tokens = None
+            self.max_tokens = 0
 
         def select(self, candidates, count, min_ai, max_per_source):
             return self.verdict
@@ -210,6 +304,21 @@ class TestBuildDigestWithEditor:
         assert digest.intro == "Some week."
         assert len(digest.stories) == 3
         assert record.editor_used and record.editor_model == "fake/editor"
+
+    def test_records_the_editor_token_budget_and_usage(self, config):
+        # Without the budget alongside the usage, a number like 7100 says
+        # nothing about how close the run came to being truncated.
+        from test_build_digest import feeds_for, unique_entries
+
+        parse = feeds_for({"ars": unique_entries(5), "wired": []})
+        editor = self.FakeEditor(EditorVerdict(picks=[Pick(n=1), Pick(n=2), Pick(n=3)]))
+        editor.last_completion_tokens = 7100
+        editor.last_reasoning_tokens = 6800
+        editor.max_tokens = 8000
+        _, record = self.run(config, editor, parse)
+        assert record.editor_completion_tokens == 7100
+        assert record.editor_reasoning_tokens == 6800
+        assert record.editor_max_tokens == 8000
 
     def test_a_failed_editor_falls_back_to_the_ranking(self, config):
         from test_build_digest import feeds_for, unique_entries

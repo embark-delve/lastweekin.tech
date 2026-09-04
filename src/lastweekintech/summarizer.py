@@ -42,10 +42,15 @@ SYSTEM_PROMPT = (
 
 @dataclass
 class Completion:
-    """A model response and why generation stopped."""
+    """A model response, why generation stopped, and what it cost."""
 
     text: str
     finish_reason: str | None = None
+    # Reasoning models spend part of the token budget thinking, and that
+    # spend is invisible in the text. Carrying it out of the call is what
+    # makes "how close was this to the ceiling?" an answerable question.
+    completion_tokens: int | None = None
+    reasoning_tokens: int | None = None
 
 
 CompleteFn = Callable[[str, list[dict[str, str]], int], Completion]

@@ -75,6 +75,13 @@ class Editor:
         self.models = [settings.model_name, *settings.fallback_models]
         # Which model actually answered, for the run metrics.
         self.last_model: str | None = None
+        # And what it spent. The budget has to cover the model's reasoning as
+        # well as its JSON, so a verdict that came back empty with
+        # finish_reason='length' is indistinguishable from an outage without
+        # these numbers.
+        self.max_tokens = settings.max_tokens
+        self.last_completion_tokens: int | None = None
+        self.last_reasoning_tokens: int | None = None
         self._complete = complete or self._complete_via_api
 
         if complete is None:
@@ -102,6 +109,8 @@ class Editor:
             return None
         wanted = min(count, len(candidates))
         self.last_model = None
+        self.last_completion_tokens = None
+        self.last_reasoning_tokens = None
 
         messages = [
             {
@@ -124,6 +133,14 @@ class Editor:
             verdict = _parse_verdict(completion.text, pool=len(candidates), wanted=wanted)
             if verdict:
                 self.last_model = model
+                self.last_completion_tokens = completion.completion_tokens
+                self.last_reasoning_tokens = completion.reasoning_tokens
+                if completion.completion_tokens is not None:
+                    logging.info(
+                        f"Editor {model} spent {completion.completion_tokens} tokens "
+                        f"({completion.reasoning_tokens} reasoning) of "
+                        f"{self.max_tokens} budgeted."
+                    )
                 return verdict
             logging.warning(
                 f"Editor model {model} returned an unusable verdict "
@@ -143,7 +160,14 @@ class Editor:
             temperature=self.settings.temperature,
         )
         choice = response.choices[0]
-        return Completion(text=choice.message.content or "", finish_reason=choice.finish_reason)
+        usage = getattr(response, "usage", None)
+        details = getattr(usage, "completion_tokens_details", None)
+        return Completion(
+            text=choice.message.content or "",
+            finish_reason=choice.finish_reason,
+            completion_tokens=getattr(usage, "completion_tokens", None),
+            reasoning_tokens=getattr(details, "reasoning_tokens", None),
+        )
 
 
 def _render_candidates(candidates: list[Story], settings: EditorSettings) -> str:
