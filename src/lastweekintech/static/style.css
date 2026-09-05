@@ -39,22 +39,23 @@
 :root {
   color-scheme: light dark;
 
-  --paper: #f6f1e7;
-  --ink: #221c12;
-  --ink-muted: #6e6353;
-  --rule: #d9cfbd;
-  --rule-strong: #221c12;
-  --accent: #93321c;
-  --focus: #93321c;
+  --paper: #fbfbfa;
+  --ink: #16181a;
+  --ink-muted: #5f6469;
+  --rule: #e2e4e6;
+  --rule-strong: #16181a;
+  --accent: #1b44b8;
+  --focus: #1b44b8;
 
-  /* Category kickers: ink on the paper, no chips. */
-  --cat-ink: #6e6353;
-  --cat-ai-ink: #93321c;
-  --cat-security-ink: #8a1f2f;
-  --cat-policy-ink: #58447e;
-  --cat-hardware-ink: #206058;
-  --cat-open-source-ink: #3d6b2e;
-  --cat-business-ink: #7d5a1c;
+  /* Category kickers: ink on the paper, no chips. Seven hues that stay
+     apart at small uppercase sizes, none of them warm. */
+  --cat-ink: #5f6469;
+  --cat-ai-ink: #1b44b8;
+  --cat-security-ink: #b3123c;
+  --cat-policy-ink: #5b3fa8;
+  --cat-hardware-ink: #0d6b5f;
+  --cat-open-source-ink: #2f7a34;
+  --cat-business-ink: #a3168f;
 
   --display: "Fraunces", "Iowan Old Style", Georgia, serif;
   --serif: "Newsreader", Charter, "Bitstream Charter", "Sitka Text", Cambria,
@@ -65,21 +66,23 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --paper: #191510;
-    --ink: #eae2d3;
-    --ink-muted: #a2967f;
-    --rule: #3b3326;
-    --rule-strong: #eae2d3;
-    --accent: #e08a5c;
-    --focus: #e08a5c;
+    --paper: #12151a;
+    --ink: #e6e8ea;
+    --ink-muted: #9aa1a9;
+    --rule: #2a2f36;
+    --rule-strong: #e6e8ea;
+    /* The light accent is too dark to read here; this is the same hue
+       carried up in lightness rather than a different colour. */
+    --accent: #7aa2f7;
+    --focus: #7aa2f7;
 
-    --cat-ink: #a2967f;
-    --cat-ai-ink: #e08a5c;
-    --cat-security-ink: #e2848f;
-    --cat-policy-ink: #b3a0e0;
-    --cat-hardware-ink: #7cc7bc;
-    --cat-open-source-ink: #93c07e;
-    --cat-business-ink: #d3ac66;
+    --cat-ink: #9aa1a9;
+    --cat-ai-ink: #7aa2f7;
+    --cat-security-ink: #f2879b;
+    --cat-policy-ink: #b9a4f5;
+    --cat-hardware-ink: #5fc9bb;
+    --cat-open-source-ink: #86ce8a;
+    --cat-business-ink: #e894d8;
   }
 }
 
